@@ -1,0 +1,2 @@
+minimumReleaseAgeExclude:
+  - '@aussenseiter/shared-types@1.0.0'
