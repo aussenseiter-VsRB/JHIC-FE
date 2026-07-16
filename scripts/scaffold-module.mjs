@@ -41,10 +41,10 @@ function createModule(name) {
 
   writeFileSync(join(dir, "css", `${name}.css`), `.${name} {\n}\n`);
 
-  // Append route
+  // Append route under the Layout's children array
   const componentName = kebabToPascal(name);
   const importLine = `import ${componentName} from "./modules/${name}/${name}";\n`;
-  const routeEntry = `  { path: "/${name}", element: <${componentName} /> },\n`;
+  const routeEntry = `        { path: "/${name}", element: <${componentName} /> },\n`;
 
   const routesContent = readFileSync(ROUTES_FILE, "utf-8");
   if (!routesContent.includes(importLine.trim())) {
@@ -55,7 +55,7 @@ function createModule(name) {
       routesContent.slice(0, endOfLine + 1) +
       importLine +
       routesContent.slice(endOfLine + 1);
-    // Append route entry before closing bracket
+    // Append route entry before the closing of the children array (];)
     const closingIdx = updated.lastIndexOf("];");
     const final =
       updated.slice(0, closingIdx) + routeEntry + updated.slice(closingIdx);
@@ -85,9 +85,9 @@ function createPage(parent, name) {
 
   writeFileSync(join(dir, "css", "page.css"), `.${className} {\n}\n`);
 
-  // Append route
+  // Append route under the Layout's children array
   const importLine = `import ${componentName} from "./modules/${parent}/${name}/page";\n`;
-  const routeEntry = `  { path: "/${parent}/${name}", element: <${componentName} /> },\n`;
+  const routeEntry = `        { path: "/${parent}/${name}", element: <${componentName} /> },\n`;
 
   const routesContent = readFileSync(ROUTES_FILE, "utf-8");
   if (!routesContent.includes(importLine.trim())) {
