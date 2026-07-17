@@ -5,7 +5,7 @@ import "./css/profile.css";
 function Profile() {
   return (
     <div className="profile">
-      <ProfileCard />
+      
       <Outlet />
     </div>
   );
