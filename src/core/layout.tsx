@@ -3,9 +3,9 @@ import Navbar from "../components/navbar/navbar";
 
 function Layout() {
   return (
-    <div className="layout">
+    <div className="min-h-screen bg-gray-50">
       <Navbar />
-      <main className="layout-main">
+      <main className="pt-4">
         <Outlet />
       </main>
     </div>
