@@ -1,10 +1,11 @@
 import { Outlet } from "react-router-dom";
+import ProfileCard from "./components/ProfileCard";
 import "./css/profile.css";
 
 function Profile() {
   return (
     <div className="profile">
-      <h1>Profile</h1>
+      <ProfileCard />
       <Outlet />
     </div>
   );
