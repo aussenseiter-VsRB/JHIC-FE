@@ -3,35 +3,47 @@
    ============================== */
 
 .footer {
-  --footer-gap: 28px;
-  --footer-px: 80px;
-  --footer-py: 48px;
+  color: #d4d4d4;
+  background: #232F72;
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
-/* ---------- Grid ---------- */
+/* ---------- Inner padding ---------- */
+.footer-top {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 40px 40px;
+}
+
+/* ---------- Main grid ---------- */
 .footer-grid {
   display: grid;
-  grid-template-columns: 1fr 0.85fr 1.05fr;
-  grid-template-areas:
-    "brand    partners  map"
-    "desc     partners  map"
-    "sponsors contact   contact";
-  gap: var(--footer-gap);
-  padding: var(--footer-py) var(--footer-px);
+  grid-template-columns: 1.2fr 1fr 1.1fr;
+  gap: 40px;
 }
 
-/* ---------- Area assignments ---------- */
-.footer-brand    { grid-area: brand;    display: flex; align-items: center; gap: 16px; }
-.footer-desc     { grid-area: desc; }
-.footer-sponsors { grid-area: sponsors; display: flex; flex-direction: column; gap: var(--footer-gap); }
-.footer-partners { grid-area: partners; display: flex; flex-direction: column; gap: var(--footer-gap); }
-.footer-map      { grid-area: map; }
-.footer-contact  { grid-area: contact; }
+/* ---------- Section headings ---------- */
+.footer-col h4 {
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 16px;
+}
 
 /* ---------- Brand ---------- */
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
 .footer-logo {
-  width: 90px;
-  height: 90px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -39,39 +51,62 @@
 .footer-brand-text {
   display: flex;
   flex-direction: column;
+  color: #fff;
   font-weight: 700;
-  font-size: 1.1rem;
-  line-height: 1.25;
+  font-size: 1.05rem;
+  line-height: 1.3;
   text-transform: uppercase;
 }
 
 /* ---------- Description ---------- */
-.footer-desc p {
+.footer-desc {
   margin: 0;
-  line-height: 1.6;
+  color: #a0a0b0;
+  font-size: 0.85rem;
+  line-height: 1.7;
 }
 
-/* ---------- Generic box (sponsors / partners) ---------- */
-.footer-box {
-  flex: 1;
+/* ---------- Footer nav links ---------- */
+.footer-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  border: 1px solid #d0d0d0;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  color: #999;
-  text-align: center;
+  flex-direction: column;
+  gap: 10px;
 }
 
-/* ---------- Map ---------- */
-.footer-map h3 {
-  margin: 0 0 12px;
-  font-size: 1rem;
+.footer-nav-link {
+  color: #a0a0b0;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+
+.footer-nav-link:hover {
+  color: #fff;
+}
+
+.footer-nav-link.active {
+  color: #fff;
   font-weight: 600;
 }
 
+.footer-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  font-size: 0.7rem;
+  color: #6b6b80;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- Map ---------- */
 .footer-map-link {
   display: block;
   text-decoration: none;
@@ -79,43 +114,90 @@
 }
 
 .footer-map-link:hover {
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .footer-map-frame {
   width: 100%;
-  height: 220px;
+  height: 200px;
   border-radius: 8px;
   overflow: hidden;
 }
 
-/* ---------- Contact ---------- */
-.footer-contact p {
+/* ---------- Bottom row (sponsors + contact) ---------- */
+.footer-bottom-row {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ---------- Contact list ---------- */
+.footer-contact-list {
+  list-style: none;
   margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-contact-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: #a0a0b0;
+}
+
+.footer-contact-label {
+  flex-shrink: 0;
+  width: 44px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+/* ---------- Copyright ---------- */
+.footer-copyright {
+  text-align: center;
+  padding: 20px 40px;
+  font-size: 0.75rem;
+  color: #6b6b80;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 /* ==============================
    Responsive – < 768px
    ============================== */
 @media (max-width: 768px) {
-  .footer {
-    --footer-gap: 20px;
-    --footer-px: 20px;
-    --footer-py: 32px;
+  .footer-top {
+    padding: 40px 20px 32px;
   }
 
   .footer-grid {
     grid-template-columns: 1fr;
-    grid-template-areas:
-      "brand"
-      "desc"
-      "partners"
-      "map"
-      "sponsors"
-      "contact";
+    gap: 32px;
+  }
+
+  .footer-bottom-row {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-top: 24px;
   }
 
   .footer-map-frame {
-    height: 200px;
+    height: 180px;
+  }
+
+  .footer-sponsor-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-copyright {
+    padding: 16px 20px;
   }
 }
