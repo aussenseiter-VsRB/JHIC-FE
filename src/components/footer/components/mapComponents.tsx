@@ -1,5 +1,4 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import L from 'leaflet';
 
 // ... (logika perbaikan icon default bawaan Leaflet disisipkan di sini jika diperlukan) ...
 

@@ -3,7 +3,7 @@ import { type RouteObject } from "react-router-dom";
 import Layout from "./layout";
 import Home from "../modules/home/home";
 import Profile from "../modules/profile/profile";
-import ProfileEdit from "../modules/profile/edit/page";
+
 import ProfileSettings from "../modules/profile/settings/page";
 const routes: RouteObject[] = [
   {
@@ -14,7 +14,7 @@ const routes: RouteObject[] = [
         path: "/profile",
         element: <Profile />,
         children: [
-          { path: "edit", element: <ProfileEdit /> },
+        
           { path: "settings", element: <ProfileSettings /> },
         ],
       },
