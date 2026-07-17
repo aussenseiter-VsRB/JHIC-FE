@@ -22,14 +22,14 @@ function Hero() {
         <div className="mb-[300px] flex flex-col gap-4 sm:flex-row">
           <a
             href="#daftar"
-            className="flex h-[60px] w-full items-center justify-center rounded-xl bg-primary px-8 font-inter text-[16px] font-semibold text-white transition-all duration-200 hover:bg-primary-dark sm:w-[250px]"
+            className="flex h-[60px] w-full items-center justify-center rounded-xl bg-primary px-8 font-poppins text-[16px] font-semibold text-white transition-all duration-200 hover:bg-primary-dark sm:w-[250px]"
           >
             Daftar PPDB
           </a>
 
           <a
             href="#video"
-            className="flex h-[60px] w-full items-center justify-center gap-2 rounded-xl border border-gray-300 bg-white px-8 font-inter text-[16px] font-semibold text-gray-800 transition-all duration-200 hover:bg-gray-50 sm:w-[250px]"
+            className="flex h-[60px] w-full items-center justify-center gap-2 rounded-xl border border-gray-300 bg-white px-8 font-poppins text-[16px] font-semibold text-gray-800 transition-all duration-200 hover:bg-gray-50 sm:w-[250px]"
           >
             <Play className="h-5 w-5" />
             Lihat Video Profil

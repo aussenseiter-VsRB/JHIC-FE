@@ -59,7 +59,7 @@ export default function Navbar() {
                 end={link.to === '/'}
                 role="menuitem"
                 className={({ isActive }) =>
-                  `relative font-poppins text-[16px] font-medium transition-colors duration-200 ${
+                  `relative font-inter text-[16px] font-medium transition-colors duration-200 ${
                     isActive
                       ? 'font-semibold text-primary'
                       : 'text-gray-800 hover:text-primary'
@@ -123,7 +123,7 @@ export default function Navbar() {
                   role="menuitem"
                   onClick={closeMobile}
                   className={({ isActive }) =>
-                     `block rounded-xl px-4 py-3 font-poppins text-[16px] font-medium transition-colors duration-200 ${
+                    `block rounded-xl px-4 py-3 font-poppins text-[16px] font-medium transition-colors duration-200 ${
                       isActive
                         ? 'bg-primary/10 font-semibold text-primary'
                         : 'text-gray-800 hover:bg-gray-50 hover:text-primary'
