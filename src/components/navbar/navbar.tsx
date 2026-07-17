@@ -53,7 +53,7 @@ export default function Navbar() {
                 end={link.to === '/'}
                 role="menuitem"
                 className={({ isActive }) =>
-                  `relative font-poppins text-[16px] font-medium transition-colors duration-200 ${
+                  `relative font-inter text-[16px] font-medium transition-colors duration-200 ${
                     isActive
                       ? 'font-semibold text-primary'
                       : 'text-gray-800 hover:text-primary'
@@ -77,13 +77,13 @@ export default function Navbar() {
         <div className="hidden items-center gap-3 md:flex">
           <a
             href="#brosur"
-            className="rounded-full border border-gray-300 px-5 py-2 font-poppins text-sm font-medium text-gray-800 transition-all duration-200 hover:bg-primary hover:text-white"
+            className="rounded-full border border-gray-300 px-5 py-2 font-inter text-sm font-medium text-gray-800 transition-all duration-200 hover:bg-primary hover:text-white"
           >
             BROSUR
           </a>
           <a
             href="#daftar"
-            className="flex items-center gap-1.5 rounded-full bg-primary px-5 py-2 font-poppins text-sm font-semibold text-white transition-all duration-200 hover:bg-primary-dark"
+            className="flex items-center gap-1.5 rounded-full bg-primary px-5 py-2 font-inter text-sm font-semibold text-white transition-all duration-200 hover:bg-primary-dark"
           >
             Daftar Sekarang
             <ArrowUpRight className="h-4 w-4" />
@@ -123,7 +123,7 @@ export default function Navbar() {
                   role="menuitem"
                   onClick={closeMobile}
                   className={({ isActive }) =>
-                     `block rounded-xl px-4 py-3 font-poppins text-[16px] font-medium transition-colors duration-200 ${
+                    `block rounded-xl px-4 py-3 font-poppins text-[16px] font-medium transition-colors duration-200 ${
                       isActive
                         ? 'bg-primary/10 font-semibold text-primary'
                         : 'text-gray-800 hover:bg-gray-50 hover:text-primary'
@@ -145,7 +145,7 @@ export default function Navbar() {
               href="#brosur"
               role="menuitem"
               onClick={closeMobile}
-              className="rounded-full border border-gray-300 px-5 py-2 font-poppins text-sm font-medium text-gray-800 transition-all duration-200 hover:bg-primary hover:text-white"
+              className="rounded-full border border-gray-300 px-5 py-2 font-inter text-sm font-medium text-gray-800 transition-all duration-200 hover:bg-primary hover:text-white"
             >
               BROSUR
             </a>
@@ -153,7 +153,7 @@ export default function Navbar() {
               href="#daftar"
               role="menuitem"
               onClick={closeMobile}
-              className="flex items-center gap-1.5 rounded-full bg-primary px-5 py-2 font-poppins text-sm font-semibold text-white transition-all duration-200 hover:bg-primary-dark"
+              className="flex items-center gap-1.5 rounded-full bg-primary px-5 py-2 font-inter text-sm font-semibold text-white transition-all duration-200 hover:bg-primary-dark"
             >
               Daftar Sekarang
               <ArrowUpRight className="h-4 w-4" />
