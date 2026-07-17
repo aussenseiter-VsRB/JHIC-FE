@@ -10,9 +10,14 @@ const routes: RouteObject[] = [
     element: <Layout />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "/profile", element: <Profile /> },
-      { path: "/profile/edit", element: <ProfileEdit /> },
-      { path: "/profile/settings", element: <ProfileSettings /> },
+      {
+        path: "/profile",
+        element: <Profile />,
+        children: [
+          { path: "edit", element: <ProfileEdit /> },
+          { path: "settings", element: <ProfileSettings /> },
+        ],
+      },
     ],
   },
 ];
