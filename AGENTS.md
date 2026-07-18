@@ -71,7 +71,19 @@ Routes live in a single array in `src/core/routes.tsx`. All pages are children o
 - **Naming**: files and directories are `kebab-case`; components exported as `PascalCase` functions. CSS class names match the module/page kebab name.
 - **`verbatimModuleSyntax`** is enabled — use `import type` for type-only imports. TypeScript strictness includes `noUnusedLocals`, `noUnusedParameters`, `erasableSyntaxOnly`.
 
-## Coding standards (from `docs/codingStandard.md`)
+## Agent usage
+
+This project keeps detailed docs in `Docs/`. If you are an agent tasked with building or modifying code, follow this:
+
+1. Read `Docs/index.md` first — it's the table of contents.
+2. Based on your task, read only the relevant doc(s):
+   - **New feature / module** → `Docs/README.md` + `Docs/modules/RULES.md` + relevant module doc
+   - **New service / API logic** → `Docs/core/systemDesign.md` + `Docs/core/folderStructure.md`
+   - **Component** → `Docs/modules/component/shared/README.md`
+   - **Coding standards / review checklist** → `Docs/core/RULES.md` (rules) + section below
+3. Do not load all docs — only what you need.
+
+## Coding standards (from `Docs/core/RULES.md`)
 
 Key principles to follow:
 - DRY — extract shared logic into one place
