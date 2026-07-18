@@ -15,11 +15,19 @@ importers:
         specifier: ^4.3.3
         version: 4.3.3(vite@8.1.2(@types/node@24.13.2)(jiti@2.7.0))
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       lucide-react:
         specifier: ^1.24.0
         version: 1.24.0(react@19.2.7)
 >>>>>>> cb27fac (feat : update navbar)
+=======
+      lucide-react:
+        specifier: ^1.24.0
+        version: 1.24.0(react@19.2.7)
+=======
+>>>>>>> f80b4ad (docs: restructure Docs directory and add agent usage guidance to AGENTS.md)
+>>>>>>> 879988c (docs: restructure Docs directory and add agent usage guidance to AGENTS.md)
       react:
         specifier: ^19.2.7
         version: 19.2.7
