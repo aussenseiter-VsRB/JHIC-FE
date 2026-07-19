@@ -4,7 +4,6 @@ import "./footer.css";
 import Map from "./components/mapComponents";
 import LogoYadika from "../../assets/Logo-yadika.webp";
 
-const MAP_URL = "https://maps.app.goo.gl/wmPubZc1ZCd1dBfC9";
 const GOOGLE_MAPS_COORDS =
   "https://www.google.com/maps/search/?api=1&query=-7.0237,107.5365";
 
@@ -70,7 +69,6 @@ function Footer() {
             <h4>Lokasi Sekolah</h4>
             <div className="footer-map-wrapper">
               <a
-                href={MAP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-map-link"
