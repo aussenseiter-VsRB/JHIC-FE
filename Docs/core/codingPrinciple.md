@@ -1,7 +1,6 @@
 # Coding Principles
 
 This document covers the broader software design philosophy for JHIC-FE.
-
 ---
 
 ## Core Tenets

@@ -4,7 +4,6 @@
 
 | Document | Description |
 |----------|-------------|
-| [Rules](core/RULES.md) | Non-negotiable project rules and conventions |
 | [System Design](core/systemDesign.md) | Architecture, infrastructure, and planned systems |
 | [Design](core/design.md) | UI/UX patterns, theming, and visual language |
 | [Coding Principles](core/codingPrinciple.md) | Software design philosophy |
@@ -15,8 +14,3 @@
 
 | Document | Description |
 |----------|-------------|
-| [Module Rules](modules/RULES.md) | How to create, structure, and contribute modules |
-| [Page: Home](modules/page/home/README.md) | Home module docs and page module template |
-| [Component: Shared](modules/component/shared/README.md) | Shared components catalog and contribution guide |
-| [Component: Card](modules/component/card/README.md) | Card component template |
-| [Types](modules/types/README.md) | Type strategy and guidelines |
