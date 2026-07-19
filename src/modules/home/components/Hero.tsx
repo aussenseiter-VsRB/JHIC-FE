@@ -8,9 +8,13 @@ function Hero() {
           SMK YADIKA SOREANG
         </h1>
 
+        <p className="mt-4 font-inter text-[18px] font-semibold uppercase tracking-[0.3em] text-blue-600 md:text-[20px]">
+          Sekolah Menengah Kejuruan Unggulan
+        </p>
+
         <p className="mt-6 max-w-[700px] font-inter text-[16px] font-medium leading-relaxed text-gray-600 md:text-[18px]">
-          Sekolah vokasi yang berkomitmen mencetak lulusan yang kompeten,
-          berkarakter, inovatif, dan siap bersaing di dunia kerja maupun
+          Menciptakan Generasi Cerdas & Berkarakter melalui pendidikan vokasi
+          yang kompeten, inovatif, dan siap bersaing di dunia kerja maupun
           melanjutkan pendidikan ke jenjang yang lebih tinggi.
         </p>
 

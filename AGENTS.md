@@ -71,7 +71,6 @@ Routes live in a single array in `src/core/routes.tsx`. All pages are children o
 - **Naming**: files and directories are `kebab-case`; components exported as `PascalCase` functions. CSS class names match the module/page kebab name.
 - **`verbatimModuleSyntax`** is enabled — use `import type` for type-only imports. TypeScript strictness includes `noUnusedLocals`, `noUnusedParameters`, `erasableSyntaxOnly`.
 
-## Coding standards (from `docs/codingStandard.md`)
 
 Key principles to follow:
 - DRY — extract shared logic into one place
