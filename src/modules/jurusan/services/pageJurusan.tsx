@@ -1,29 +1,6 @@
 import JurusanCard from "../components/JurusanCard";
+import { jurusanData } from "../data";
 import "../css/jurusan.css";
-
-const jurusanList = [
-  {
-    name: "Pemrograman Perangkat Lunak dan Gim",
-    code: "PPLG",
-    slug: "pplg",
-    description:
-      "Mempelajari pengembangan perangkat lunak, website, mobile apps, dan pembuatan gim interaktif.",
-  },
-  {
-    name: "Akuntansi dan Keuangan",
-    code: "AKL",
-    slug: "akuntansi",
-    description:
-      "Mempelajari pembukuan, laporan keuangan, perpajakan, dan administrasi keuangan.",
-  },
-  {
-    name: "Perhotelan dan Jasa Pariwisata",
-    code: "HOTEL",
-    slug: "hotel",
-    description:
-      "Mempelajari tata graha, tata boga, front office, dan layanan perhotelan profesional.",
-  },
-];
 
 function PageJurusan() {
   return (
@@ -36,8 +13,14 @@ function PageJurusan() {
           </p>
         </div>
         <div className="jurusan-grid">
-          {jurusanList.map((jurusan) => (
-            <JurusanCard key={jurusan.slug} {...jurusan} />
+          {jurusanData.map((jurusan) => (
+            <JurusanCard
+              key={jurusan.slug}
+              name={jurusan.name}
+              code={jurusan.code}
+              slug={jurusan.slug}
+              description={jurusan.description}
+            />
           ))}
         </div>
       </div>
