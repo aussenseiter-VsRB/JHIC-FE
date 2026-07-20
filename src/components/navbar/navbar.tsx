@@ -31,7 +31,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className="sticky top-0 z-50 flex w-full justify-center px-4 pt-4 md:px-8"
+      className="fixed top-4 left-4 right-4 z-50 flex justify-center md:left-8 md:right-8"
       role="navigation"
       aria-label="Main navigation"
     >
