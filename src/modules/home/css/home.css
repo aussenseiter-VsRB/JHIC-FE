@@ -21,6 +21,10 @@
 }
 
 /* ---------- Hero ---------- */
+.hero-bg {
+  position: relative;
+}
+
 .hero-section {
   display: flex;
   align-items: center;
