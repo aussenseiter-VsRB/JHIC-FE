@@ -2,7 +2,6 @@ import { Outlet } from "react-router-dom";
 import ProfileCard from "./components/ProfileCard";
 import TentangSekolah from "./components/TentangSekolah";
 import SambutanKepsek from "./components/SambutanKepsek";
-import ProfileCard from "./components/ProfileCard";
 import "./css/profile.css";
 
 function Profile() {
