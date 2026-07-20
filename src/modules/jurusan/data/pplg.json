@@ -1,0 +1,15 @@
+{
+  "code": "PPLG",
+  "slug": "pplg",
+  "name": "Pemrograman Perangkat Lunak dan Gim",
+  "description": "Mempelajari pengembangan perangkat lunak, website, mobile apps, dan pembuatan gim interaktif.",
+  "detailDescription": "Mempelajari pengembangan perangkat lunak, website, mobile apps, dan pembuatan gim interaktif dari nol hingga siap kerja.",
+  "subjects": [
+    "Pemrograman web (HTML, CSS, JavaScript, PHP)",
+    "Basis data dan server-side programming",
+    "Pengembangan mobile (Android / Flutter)",
+    "Desain dan pengembangan gim (Unity, Godot)",
+    "UI/UX Design"
+  ],
+  "career": "Lulusan PPLG dapat bekerja sebagai Web Developer, Mobile Developer, Game Developer, UI/UX Designer, atau melanjutkan studi ke perguruan tinggi di bidang teknologi informasi."
+}
