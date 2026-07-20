@@ -32,9 +32,9 @@ src/
   modules/              # page-level features (one dir per module)
     home/
     profile/
-  components/           # shared UI (navbar, skeleton, ...)
+  components/           # shared UI (navbar, footer, skeleton, ...)
   assets/               # static images (logos, etc.)
-  index.css             # Tailwind import only
+  index.css             # Tailwind + Google Fonts + custom @theme
 ```
 
 ### Modules
@@ -72,17 +72,17 @@ Routes live in a single array in `src/core/routes.tsx`. All pages are children o
 
 ## Agent usage
 
-This project keeps detailed docs in `Docs/`. If you are an agent tasked with building or modifying code, follow this:
+This project keeps detailed docs in `docs/`. If you are an agent tasked with building or modifying code, follow this:
 
-1. Read `Docs/README.md` first — it's the source truth and never EVER read from the main source code unless the task needs it
+1. Read `docs/README.md` first — it's the source truth and never EVER read from the main source code unless the task needs it
 2. Based on your task, read only the relevant doc(s):
-   - **New feature / module** → `Docs/README.md` + `Docs/modules/RULES.md` + relevant module doc
-   - **New service / API logic** → `Docs/core/systemDesign.md` + `Docs/core/folderStructure.md`
-   - **Component** → `Docs/modules/component/shared/README.md`
-   - **Coding standards / review checklist** → `Docs/core/codingPrinciple.md` (rules) + section below
+   - **New feature / module** → `docs/README.md` + `docs/modules/RULES.md` + relevant module doc
+   - **New service / API logic** → `docs/core/systemDesign.md` + `docs/core/folderStructure.md`
+   - **Component** → `docs/modules/component/shared/README.md`
+   - **Coding standards / review checklist** → `docs/core/codingPrinciple.md` (rules) + section below
 3. Do not load all docs — only what you need.
 
-## Coding standards (from `Docs/core/RULES.md`)
+## Coding standards (from `docs/core/codingPrinciple.md`)
 
 Key principles to follow:
 - DRY — extract shared logic into one place

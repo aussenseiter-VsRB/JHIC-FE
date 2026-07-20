@@ -7,11 +7,11 @@ type: Enforce
 
 # Design Decisions
 
-## Flat module structure (2026-07-20)
+## Module structure (2026-07-20)
 
-**Decision:** All routes are top-level modules. Sub-pages are sibling modules named with their parent as a prefix (e.g., `profile/` → `profileEdit/`), not nested directories.
+**Decision:** Routes are top-level modules. Sub-pages can be either sibling modules named with their parent as a prefix (e.g., `profileSettings/`) or nested directories (e.g., `profile/settings/`). Both patterns are valid.
 
-**Rationale:** Nested sub-route folders create deep import paths and make module boundaries unclear. Flat modules with parent-prefixed names keep imports simple and make each module self-contained.
+**Rationale:** Flat sibling modules keep imports simple and boundaries clear. Nested sub-routes better reflect route hierarchy in the filesystem when the sub-page is tightly coupled to the parent (e.g., settings as a child section of profile). The choice depends on coupling — loose coupling → sibling, tight coupling → nested.
 
 ## Static data from JSON (2026-07-20)
 

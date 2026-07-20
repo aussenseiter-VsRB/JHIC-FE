@@ -8,8 +8,8 @@ const MAP_URL = "https://maps.app.goo.gl/wmPubZc1ZCd1dBfC9";
 const footerLinks = [
   { label: "Beranda", to: "/" },
   { label: "Profil", to: "/profile" },
-  { label: "Program Keahlian", to: "/profile" },
-  { label: "PPDB", to: "/profile" },
+  { label: "Program Keahlian", to: "/jurusan" },
+  { label: "PPDB", to: "/ppdb" },
 ];
 
 function Footer() {

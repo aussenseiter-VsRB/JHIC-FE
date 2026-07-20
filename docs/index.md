@@ -10,13 +10,13 @@ type: Enforce
 ## Structure
 
 ```
-Docs/
+docs/
 ├── core/                   # System-wide ground truth (all Enforce)
 │   ├── systemDesign.md     — Architecture and system design
 │   ├── design.md           — Design decisions and rationale
 │   ├── codingPrinciple.md  — Code standards and conventions
 │   └── SKILLS.md           — Agent skills and subagent reference
-└── modules1/               # Module patterns (Enforce rules + editable examples)
+└── modules/                # Module patterns (Enforce rules + editable examples)
     ├── RULES.md            — Module creation rules (Enforce)
     ├── docsRules.md        — Module documentation boilerplate (Enforce)
     └── examples/           — Example modules (editable, NOT real docs)
@@ -27,13 +27,13 @@ Docs/
 
 ## Section-specific rules
 
-### Docs/core/
+### docs/core/
 
 - All `type: Enforce`. Read these before any architectural or coding decisions.
 - `systemDesign.md` takes precedence over all other docs for architecture questions.
 - `design.md` records past decisions — do not contradict them without updating the file.
 
-### Docs/modules1/
+### docs/modules/
 
 - `RULES.md` is `type: Enforce`. All modules must follow its rules.
 - `docsRules.md` is `type: Enforce`. It is the boilerplate template for writing module documentation. Use it whenever you document a new module.
