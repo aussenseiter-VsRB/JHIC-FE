@@ -1,29 +1,23 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
-// ... (logika perbaikan icon default bawaan Leaflet disisipkan di sini jika diperlukan) ...
+const position: [number, number] = [-7.0237, 107.5365];
 
 export default function RealisticMap() {
-  // Contoh koordinat (Bisa diubah sesuai kebutuhan lokasimu)
-  const position: [number, number] = [ -7.0237, 107.5365]; 
-
   return (
     <div style={{ height: '100%', width: '100%' }}>
-      <MapContainer 
-        center={position} 
-        zoom={20} // Zoom diset agak dekat (16-18) agar detail atap rumah/pohon terlihat jelas
+      <MapContainer
+        center={position}
+        zoom={17}
         scrollWheelZoom={false}
         style={{ height: '100%', width: '100%' }}
       >
-        {/* MENGGUNAKAN TILE LAYER SATELIT REALISTIK DARI ESRI */}
         <TileLayer
-          
-          url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
-          maxZoom={19} // Esri mendukung tingkat zoom yang cukup dalam
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        
         <Marker position={position}>
           <Popup>
-            <strong>Lokasi Kantor Terkini</strong><br />Dilihat langsung dari satelit.
+            <strong>SMK Yadika Soreang</strong>
           </Popup>
         </Marker>
       </MapContainer>

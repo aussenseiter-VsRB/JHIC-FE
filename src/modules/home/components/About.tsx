@@ -22,7 +22,7 @@ function About() {
               <span className="stat-label">Guru & Staff</span>
             </div>
             <div className="stat-card">
-              <span className="stat-number">6</span>
+              <span className="stat-number">3 </span>
               <span className="stat-label">Program Keahlian</span>
             </div>
           </div>

@@ -1,0 +1,178 @@
+/* ==============================
+   Jurusan – Listing Page Styles
+   ============================== */
+
+.jurusan-page {
+  width: 100%;
+}
+
+.jurusan-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+.jurusan-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.jurusan-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+
+.jurusan-subtitle {
+  font-size: 1.05rem;
+  opacity: 0.7;
+  margin: 0;
+}
+
+/* ---------- Grid ---------- */
+.jurusan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ---------- Card ---------- */
+.jurusan-card {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 24px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.jurusan-card:hover {
+  border-color: #999;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.jurusan-card-code {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.jurusan-card-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 12px;
+  line-height: 1.4;
+}
+
+.jurusan-card-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  opacity: 0.7;
+  margin: 0 0 16px;
+  flex: 1;
+}
+
+.jurusan-card-link {
+  font-size: 0.88rem;
+  font-weight: 600;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.jurusan-card:hover .jurusan-card-link {
+  opacity: 1;
+}
+
+/* ---------- Specific Jurusan Page ---------- */
+.jurusan-specific {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+}
+
+.jurusan-specific-header {
+  margin-bottom: 40px;
+}
+
+.jurusan-back {
+  display: inline-block;
+  font-size: 0.9rem;
+  text-decoration: none;
+  opacity: 0.6;
+  margin-bottom: 20px;
+  transition: opacity 0.2s;
+}
+
+.jurusan-back:hover {
+  opacity: 1;
+}
+
+.jurusan-specific-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+
+.jurusan-specific-code {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background: #f0f0f0;
+  margin-bottom: 16px;
+}
+
+.jurusan-specific-desc {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  opacity: 0.8;
+}
+
+.jurusan-specific-content {
+  padding: 40px 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.jurusan-specific-content h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 16px;
+}
+
+.jurusan-specific-content p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  opacity: 0.8;
+  margin: 0 0 16px;
+}
+
+.jurusan-specific-content ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.jurusan-specific-content li {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  opacity: 0.8;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .jurusan-title {
+    font-size: 1.5rem;
+  }
+
+  .jurusan-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .jurusan-specific-title {
+    font-size: 1.5rem;
+  }
+}

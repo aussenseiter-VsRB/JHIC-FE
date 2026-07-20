@@ -1,10 +1,7 @@
 const programs = [
-  { name: "Teknik Komputer & Jaringan", code: "TKJ" },
   { name: "Rekayasa Perangkat Lunak", code: "RPL" },
   { name: "Akuntansi", code: "AKL" },
-  { name: "Bisnis Digital", code: "BD" },
-  { name: "Teknik Elektronika", code: "TE" },
-  { name: "Desain Komunikasi Visual", code: "DKV" },
+  { name: "Perhotelan", code: "HTL" },
 ];
 
 function Programs() {
