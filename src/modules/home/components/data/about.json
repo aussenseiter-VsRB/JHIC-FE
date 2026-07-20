@@ -1,0 +1,9 @@
+{
+  "heading": "Tentang Kami",
+  "paragraph": "SMK Yadika Soreang adalah sekolah menengah kejuruan yang berkomitmen untuk menghasilkan lulusan yang kompeten, berkarakter, dan siap bersaing di dunia kerja. Dengan fasilitas modern dan tenaga pendidik profesional, kami terus berinovasi dalam pendidikan.",
+  "stats": [
+    { "number": "500+", "label": "Siswa Aktif" },
+    { "number": "50+", "label": "Guru & Staff" },
+    { "number": "3", "label": "Program Keahlian" }
+  ]
+}

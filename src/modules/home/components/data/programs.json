@@ -1,0 +1,8 @@
+{
+  "heading": "Program Keahlian",
+  "items": [
+    { "name": "Rekayasa Perangkat Lunak", "code": "RPL" },
+    { "name": "Akuntansi", "code": "AKL" },
+    { "name": "Perhotelan", "code": "HTL" }
+  ]
+}

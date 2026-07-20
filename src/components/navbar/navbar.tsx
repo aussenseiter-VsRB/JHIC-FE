@@ -17,6 +17,12 @@ const navLinks: NavItem[] = [
   { label: 'PPDB', to: '/ppdb' },
 ]
 
+const brosurBtnClass =
+  'rounded-full border border-gray-300 px-5 py-2 font-inter text-sm font-medium text-gray-800 transition-all duration-200 hover:bg-primary hover:text-white'
+
+const daftarBtnClass =
+  'flex items-center gap-1.5 rounded-full bg-primary px-5 py-2 font-inter text-sm font-semibold text-white transition-all duration-200 hover:bg-primary-dark'
+
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -25,7 +31,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className="sticky top-0 z-50 flex w-full justify-center px-4 pt-4 md:px-8"
+      className="fixed top-4 left-4 right-4 z-50 flex justify-center md:left-8 md:right-8"
       role="navigation"
       aria-label="Main navigation"
     >
@@ -75,16 +81,10 @@ export default function Navbar() {
 
         {/* Desktop Right Controls */}
         <div className="hidden items-center gap-3 md:flex">
-          <a
-            href="#brosur"
-            className="rounded-full border border-gray-300 px-5 py-2 font-inter text-sm font-medium text-gray-800 transition-all duration-200 hover:bg-primary hover:text-white"
-          >
+          <a href="#brosur" className={brosurBtnClass}>
             BROSUR
           </a>
-          <a
-            href="#daftar"
-            className="flex items-center gap-1.5 rounded-full bg-primary px-5 py-2 font-inter text-sm font-semibold text-white transition-all duration-200 hover:bg-primary-dark"
-          >
+          <a href="#daftar" className={daftarBtnClass}>
             Daftar Sekarang
             <ArrowUpRight className="h-4 w-4" />
           </a>
@@ -108,8 +108,8 @@ export default function Navbar() {
         id="mobile-menu"
         role="menu"
         aria-hidden={!mobileOpen}
-        className={`absolute top-[84px] left-4 right-4 z-50 overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-lg transition-all duration-200 md:hidden ${
-          mobileOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+        className={`absolute top-[86px] left-4 right-4 z-50 overflow-y-auto rounded-3xl border border-gray-200 bg-white shadow-lg transition-all duration-200 md:hidden ${
+          mobileOpen ? 'max-h-[80vh] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
         <div className="flex flex-col gap-1 p-4">
@@ -123,7 +123,7 @@ export default function Navbar() {
                   role="menuitem"
                   onClick={closeMobile}
                   className={({ isActive }) =>
-                    `block rounded-xl px-4 py-3 font-inter text-[16px] font-medium transition-colors duration-200 ${
+                    `block rounded-xl px-4 py-3 font-poppins text-[16px] font-medium transition-colors duration-200 ${
                       isActive
                         ? 'bg-primary/10 font-semibold text-primary'
                         : 'text-gray-800 hover:bg-gray-50 hover:text-primary'
@@ -145,7 +145,7 @@ export default function Navbar() {
               href="#brosur"
               role="menuitem"
               onClick={closeMobile}
-              className="rounded-full border border-gray-300 px-5 py-2 font-inter text-sm font-medium text-gray-800 transition-all duration-200 hover:bg-primary hover:text-white"
+              className={brosurBtnClass}
             >
               BROSUR
             </a>
@@ -153,7 +153,7 @@ export default function Navbar() {
               href="#daftar"
               role="menuitem"
               onClick={closeMobile}
-              className="flex items-center gap-1.5 rounded-full bg-primary px-5 py-2 font-inter text-sm font-semibold text-white transition-all duration-200 hover:bg-primary-dark"
+              className={daftarBtnClass}
             >
               Daftar Sekarang
               <ArrowUpRight className="h-4 w-4" />
