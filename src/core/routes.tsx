@@ -4,11 +4,9 @@ import Layout from "./layout";
 import Home from "../modules/home/home";
 import Profile from "../modules/profile/profile";
 import PageJurusan from "../modules/jurusan/services/pageJurusan";
+import PageJurusanDetail from "../modules/jurusan/services/pageJurusanDetail";
 
 import ProfileSettings from "../modules/profile/settings/page";
-import PagePplg from "../modules/jurusanPplg/services/pagePplg";
-import PageAkuntansi from "../modules/jurusanAkuntansi/services/pageAkuntansi";
-import PageHotel from "../modules/jurusanHotel/services/pageHotel";
 
 const routes: RouteObject[] = [
   {
@@ -27,16 +25,8 @@ const routes: RouteObject[] = [
         element: <PageJurusan />,
       },
       {
-        path: "/jurusan/pplg",
-        element: <PagePplg />,
-      },
-      {
-        path: "/jurusan/akuntansi",
-        element: <PageAkuntansi />,
-      },
-      {
-        path: "/jurusan/hotel",
-        element: <PageHotel />,
+        path: "/jurusan/:slug",
+        element: <PageJurusanDetail />,
       },
     ],
   },
