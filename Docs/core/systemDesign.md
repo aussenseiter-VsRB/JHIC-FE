@@ -87,10 +87,10 @@ Browser
 | `@aussenseiter/shared-types` | Shared type definitions (workspace package, not yet used) |
 | Pannellum (CDN) | Panoramic image viewer |
 
-### Monorepo
+### Dependency management
 
-- `pnpm-workspace.yaml` exists but defines only `minimumReleaseAgeExclude` — no workspace packages are configured.
-- **[PLANNED]** If the project grows, consider a proper pnpm workspace with shared packages.
+- Package manager is **npm**; the lockfile is `package-lock.json`.
+- `@aussenseiter/shared-types` is a published npm dependency resolved from the registry (not a local workspace package).
 
 ---
 

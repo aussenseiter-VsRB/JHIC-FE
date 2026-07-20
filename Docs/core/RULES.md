@@ -6,10 +6,9 @@ These rules apply to the entire project. They are non-negotiable.
 
 ## Tooling
 
-- **Package manager**: pnpm only. Never run `npm install`.
-- **Dual lockfiles**: `pnpm-lock.yaml` and `package-lock.json` both exist. Use pnpm; ignore the npm lockfile.
-- **Build**: `pnpm build` runs `tsc -b` (type-check) then `vite build`. Both must pass.
-- **Lint**: `pnpm lint` runs ESLint flat config. Must pass before shipping.
+- **Package manager**: npm. Use `npm install`; the lockfile is `package-lock.json`.
+- **Build**: `npm run build` runs `tsc -b` (type-check) then `vite build`. Both must pass.
+- **Lint**: `npm run lint` runs ESLint flat config. Must pass before shipping.
 - **No test runner**: There is no test framework or test script configured.
 
 ## Code conventions
@@ -27,7 +26,7 @@ These rules apply to the entire project. They are non-negotiable.
 - **Single router file**: all routes live in `src/core/routes.tsx`.
 - **Module isolation**: each module owns its components, services, styles, and metadata.
 - **Layout**: `src/core/layout.tsx` wraps all pages with `<Navbar />` + `<Outlet />`.
-- **Scaffold**: use `pnpm scaffold` to generate new modules and pages. Always review the diff in `routes.tsx` after scaffolding.
+- **Scaffold**: use `npm run scaffold` to generate new modules and pages. Always review the diff in `routes.tsx` after scaffolding.
 
 ## Deployment
 

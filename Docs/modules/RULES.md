@@ -24,7 +24,7 @@ Every module lives under `src/modules/<name>/` and follows this structure:
 Use the scaffold CLI:
 
 ```bash
-pnpm scaffold module <name>
+npm run scaffold module <name>
 ```
 
 This generates the directory, files, and appends the import + route to `src/core/routes.tsx`.
@@ -36,7 +36,7 @@ This generates the directory, files, and appends the import + route to `src/core
 Sub-pages go inside the module directory:
 
 ```bash
-pnpm scaffold page <parent-module> <sub-page-name>
+npm run scaffold page <parent-module> <sub-page-name>
 ```
 
 This creates `<parent>/<sub-page>/page.tsx` and appends the route.

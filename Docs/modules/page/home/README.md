@@ -35,7 +35,7 @@ src/modules/home/
 Use the scaffold:
 
 ```bash
-pnpm scaffold module <name>
+npm run scaffold module <name>
 ```
 
 This generates:

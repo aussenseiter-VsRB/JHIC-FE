@@ -14,13 +14,11 @@ JHIC-FE/
 │   ├── favicon.svg          #   App favicon
 │   └── icons.svg            #   SVG sprite sheet (social icons)
 ├── scripts/                 # Build-time tooling
-│   └── scaffold-module.mjs  #   CLI: pnpm scaffold module|page
+│   └── scaffold-module.mjs  #   CLI: npm run scaffold module|page
 ├── src/                     # Application source
 ├── index.html               # Vite entry HTML (Pannellum CDN loaded here)
 ├── package.json             # Dependencies and scripts
-├── pnpm-lock.yaml           # pnpm lockfile (authoritative)
-├── package-lock.json        # npm lockfile (ignored — use pnpm)
-├── pnpm-workspace.yaml      # Workspace config (release age exclusions)
+├── package-lock.json        # npm lockfile (authoritative)
 ├── tsconfig.json            # Root TS config (project references)
 ├── tsconfig.app.json        # App TS config (src/)
 ├── tsconfig.node.json       # Node TS config (vite.config.ts)

@@ -117,6 +117,6 @@ if (command === "module" && args.length >= 1) {
   createPage(args[0], args[1]);
 } else {
   console.log("Usage:");
-  console.log("  pnpm scaffold module <name>         Create a new module");
-  console.log("  pnpm scaffold page <parent> <name>  Create a sub-page");
+  console.log("  npm run scaffold module <name>         Create a new module");
+  console.log("  npm run scaffold page <parent> <name>  Create a sub-page");
 }
