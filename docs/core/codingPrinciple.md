@@ -1,3 +1,10 @@
+---
+name: Coding Principles
+relation: index.md → core/
+description: Code standards, naming conventions, and best practices
+type: Enforce
+---
+
 # Coding Principles
 
 This document covers the broader software design philosophy for JHIC-FE.
