@@ -13,8 +13,8 @@
   "dependencies": {
     "@aussenseiter/shared-types": "^1.0.0",
     "@tailwindcss/vite": "^4.3.3",
-    "lucide-react": "^1.24.0",
     "leaflet": "^1.9.4",
+    "lucide-react": "^1.24.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-leaflet": "^5.0.0",
