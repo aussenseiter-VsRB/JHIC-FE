@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "../components/navbar/navbar";
 import Footer from "../components/footer/footer";
+import ChatbotWidget from "../components/chatbot/chatbot";
 import "./layout.css";
 
 function ScrollToTop() {
@@ -23,6 +24,13 @@ function Layout() {
         <Outlet />
         <Footer />
       </main>
+      <ChatbotWidget
+        onSendMessage={async (msg) => {
+          console.log("Chatbot received:", msg);
+          return "Terima kasih atas pesannya! Tim kami akan segera merespon.";
+        }}
+        whatsappNumber="6281234567890"
+      />
     </div>
   );
 }
