@@ -11,8 +11,8 @@ This documents the `services/` directory of the `jurusan` module. Because `jurus
 
 ## Purpose
 
-- `pageJurusan.tsx` — renders the `/jurusan` listing. Maps over `jurusanData` and renders a `JurusanCard` per major.
-- `pageJurusanDetail.tsx` — renders `/jurusan/:slug`. Reads the `slug` param, resolves the major via `getJurusanBySlug`, and shows detail (subjects, career). Renders a "not found" fallback when the slug is unknown.
+- `PageJurusan.tsx` — renders the `/jurusan` listing. Maps over `jurusanData` and renders a `JurusanCard` per major.
+- `PageJurusanDetail.tsx` — renders `/jurusan/:slug`. Reads the `slug` param, resolves the major via `getJurusanBySlug`, and shows detail (subjects, career). Renders a "not found" fallback when the slug is unknown.
 
 ## Data access
 
@@ -20,5 +20,5 @@ Both pages import from `../data` (which re-exports `jurusanData` and `getJurusan
 
 ## Naming
 
-- Files are the route page components, named after the route (`pageJurusan`, `pageJurusanDetail`).
-- Consumed by `routes.tsx` directly: `import PageJurusan from "../modules/jurusan/services/pageJurusan"`.
+- Files are the route page components, named with PascalCase (`PageJurusan`, `PageJurusanDetail`).
+- Consumed by `routes.tsx` directly: `import PageJurusan from "../modules/jurusan/services/PageJurusan"`.

@@ -73,3 +73,32 @@ Page-level components may live inside `services/` when the page is primarily dat
 
 - `components/` — UI only. No API calls, no business logic. Pure presentation.
 - `services/` — Logic only. No UI imports. Handles API calls, data transformation, side effects.
+
+## 7. Wiring a module
+
+After creating a module's files, register it in `src/core/routes.tsx`:
+
+1. **Import** the page component:
+   ```ts
+   import ModuleName from "../modules/{moduleName}/{moduleName}";
+   ```
+
+2. **Add a route object** inside the `children` array of the `Layout` route:
+   ```ts
+   { path: "/route-path", element: <ModuleName /> },
+   ```
+
+3. **Nested sub-routes** use a parent with `children`:
+   ```ts
+   {
+     path: "/parent",
+     element: <ParentComponent />,  // must render <Outlet />
+     children: [
+       { path: "child-path", element: <ChildComponent /> },
+     ],
+   }
+   ```
+
+The path should match the module name by convention (e.g., `/berita` → `modules/berita`, `/profile/settings` → `modules/profile/settings/page`).
+
+The import path follows the module's actual file location — flat sibling modules (e.g., `profileEdit/profileEdit.tsx`) import from their own root, nested sub-pages (e.g., `profile/settings/page.tsx`) import from their nested path.

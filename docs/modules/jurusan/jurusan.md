@@ -24,8 +24,8 @@ src/modules/jurusan/
 │   ├── hotel.json                  — Perhotelan major
 │   └── akuntansi.json              — Akuntansi major
 └── services/
-    ├── pageJurusan.tsx             — /jurusan listing page
-    └── pageJurusanDetail.tsx       — /jurusan/:slug detail page
+    ├── PageJurusan.tsx             — /jurusan listing page
+    └── PageJurusanDetail.tsx       — /jurusan/:slug detail page
 ```
 
 ## Rules

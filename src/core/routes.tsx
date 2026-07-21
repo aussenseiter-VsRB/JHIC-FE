@@ -3,8 +3,8 @@ import { type RouteObject } from "react-router-dom";
 import Layout from "./layout";
 import Home from "../modules/home/home";
 import Profile from "../modules/profile/profile";
-import PageJurusan from "../modules/jurusan/services/pageJurusan";
-import PageJurusanDetail from "../modules/jurusan/services/pageJurusanDetail";
+import PageJurusan from "../modules/jurusan/services/PageJurusan";
+import PageJurusanDetail from "../modules/jurusan/services/PageJurusanDetail";
 
 import ProfileSettings from "../modules/profile/settings/page";
 import Berita from "../modules/berita/berita";
