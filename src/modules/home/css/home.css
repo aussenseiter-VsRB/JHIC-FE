@@ -151,6 +151,20 @@
   opacity: 0.7;
 }
 
+/* ---------- Logo Loop ---------- */
+.logo-loop {
+  animation: logo-scroll 20s linear infinite;
+}
+
+@keyframes logo-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
   .hero-title {

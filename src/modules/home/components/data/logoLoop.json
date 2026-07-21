@@ -1,0 +1,10 @@
+{
+  "logos": [
+    { "src": "/react.svg", "alt": "React" },
+    { "src": "/vite.svg", "alt": "Vite" },
+    { "src": "/react.svg", "alt": "React" },
+    { "src": "/vite.svg", "alt": "Vite" },
+    { "src": "/react.svg", "alt": "React" },
+    { "src": "/vite.svg", "alt": "Vite" }
+  ]
+}
