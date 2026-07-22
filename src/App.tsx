@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import type { RouteObject } from "react-router-dom";
 import routes from "./core/routes";
+import 'leaflet/dist/leaflet.css';
 
 function renderRoutes(items: RouteObject[]) {
   return items.map((route, index) => (

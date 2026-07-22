@@ -1,6 +1,6 @@
-import data from "./data/sambutan-kepsek.json";
+import data from "./data/terakreditasi.json";
 
-function SambutanKepsek() {
+function Terakreditasi() {
   return (
     <section className="bg-white px-4 py-10 md:px-8 md:py-16">
       <div className="mx-auto max-w-7xl">
@@ -10,16 +10,14 @@ function SambutanKepsek() {
         <span className="mt-4 block h-1 w-20 rounded-full bg-primary" />
 
         <div className="mt-10 flex flex-col gap-10 lg:flex-row lg:gap-16">
-          {/* Kolom Kiri — Foto Kepsek */}
           <div className="flex w-full lg:w-[35%]">
             <img
               src={data.photo}
               alt={data.photoAlt}
-              className="h-[400px] w-full rounded-2xl object-cover shadow-lg"
+              className="h-[400px] w-full rounded-2xl border-4 border-gray-200 object-cover shadow-lg"
             />
           </div>
 
-          {/* Kolom Kanan — Sambutan */}
           <div className="flex w-full flex-col lg:w-[65%]">
             {data.paragraphs.map((text) => (
               <p
@@ -29,15 +27,6 @@ function SambutanKepsek() {
                 {text}
               </p>
             ))}
-
-            <div className="mt-3 h-px w-full bg-gray-200" />
-
-            <p className="mt-8 font-body text-[24px] font-bold text-gray-900 md:text-[28px]">
-              {data.name}
-            </p>
-            <p className="mt-1 font-body text-[14px] font-medium text-gray-500 md:text-[16px]">
-              {data.title}
-            </p>
           </div>
         </div>
       </div>
@@ -45,4 +34,4 @@ function SambutanKepsek() {
   );
 }
 
-export default SambutanKepsek;
+export default Terakreditasi;

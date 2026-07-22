@@ -1,9 +1,11 @@
 import { NavLink } from "react-router-dom";
+import { Phone, Printer, Mail, MapPin, ExternalLink } from "lucide-react";
 import "./footer.css";
 import Map from "./components/mapComponents";
 import LogoYadika from "../../assets/Logo-yadika.webp";
 
-const MAP_URL = "https://maps.app.goo.gl/wmPubZc1ZCd1dBfC9";
+const SCHOOL_COORDS: [number, number] = [-7.0237, 107.5365];
+const GOOGLE_MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${SCHOOL_COORDS[0]},${SCHOOL_COORDS[1]}`;
 
 const footerLinks = [
   { label: "Beranda", to: "/" },
@@ -53,52 +55,72 @@ function Footer() {
             </ul>
           </div>
 
-          {/* ---- Map ---- */}
-          <div className="footer-col footer-col-map">
-            <h4>Lokasi Sekolah</h4>
-            <a
-              href={MAP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="footer-map-link"
-            >
-              <div className="footer-map-frame">
-                <Map />
-              </div>
-            </a>
-          </div>
-        </div>
-
-        {/* ---- Sponsors + Contact (bottom row) ---- */}
-        <div className="footer-bottom-row">
-          <div className="footer-col footer-col-sponsors">
-            <h4>Sponsor</h4>
-            <div className="footer-sponsor-list">
-              <div className="footer-box">LOGO SEKDUS</div>
-              <div className="footer-box">LOGO SPONSOR</div>
-            </div>
-          </div>
-
+          {/* ---- Hubungi Kami ---- */}
           <div className="footer-col footer-col-contact">
             <h4>Hubungi Kami</h4>
             <ul className="footer-contact-list">
               <li>
-                <span className="footer-contact-label">Telp</span>
-                (022) 5880577
+                <Phone size={14} className="footer-contact-icon" />
+                <div>
+                  <span className="footer-contact-label">Telp</span>
+                  <span className="footer-contact-value">(022) 5880577</span>
+                </div>
               </li>
               <li>
-                <span className="footer-contact-label">Fax</span>
-                (022) 588 0780
+                <Printer size={14} className="footer-contact-icon" />
+                <div>
+                  <span className="footer-contact-label">Fax</span>
+                  <span className="footer-contact-value">(022) 588 0780</span>
+                </div>
               </li>
               <li>
-                <span className="footer-contact-label">Email</span>
-                smkyadikasoreang@yahoo.com
+                <Mail size={14} className="footer-contact-icon" />
+                <div>
+                  <span className="footer-contact-label">Email</span>
+                  <span className="footer-contact-value">smkyadikasoreang@yahoo.com</span>
+                </div>
               </li>
-              <li>
-                <span className="footer-contact-label">Alamat</span>
-                Jl. Raya Soreang, Bandung, Jawa Barat
+              <li className="footer-contact-address">
+                <MapPin size={14} className="footer-contact-icon" />
+                <div>
+                  <span className="footer-contact-label">Alamat</span>
+                  <span className="footer-contact-value">
+                    Jl. Raya Soreang, Bandung, Jawa Barat
+                  </span>
+                </div>
               </li>
             </ul>
+          </div>
+
+          {/* ---- Map ---- */}
+          <div className="footer-col footer-col-map">
+            <h4>Lokasi Sekolah</h4>
+            <div className="footer-map-wrapper">
+              <div className="footer-map-frame">
+                <Map />
+              </div>
+              <p className="footer-address">
+                Jl. Raya Soreang, Bandung, Jawa Barat
+              </p>
+              <a
+                href={GOOGLE_MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-maps-btn"
+              >
+                <ExternalLink size={13} />
+                Buka di Google Maps
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* ---- Sponsors ---- */}
+        <div className="footer-sponsors-section">
+          <h4>Sponsor</h4>
+          <div className="footer-sponsor-list">
+            <div className="footer-box">LOGO SEKDUS</div>
+            <div className="footer-box">LOGO SPONSOR</div>
           </div>
         </div>
       </div>
