@@ -3,7 +3,7 @@
 }
 
 .ppdb-header-section {
-  background: #0F172A;
+  background: #1E3A5F;
   padding: 120px 24px 80px;
   text-align: center;
   position: relative;
@@ -28,15 +28,15 @@
 .ppdb-badge {
   display: inline-block;
   border-radius: 9999px;
-  border: 1px solid rgba(245, 158, 11, 0.3);
-  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  background: rgba(37, 99, 235, 0.1);
   padding: 6px 16px;
   font-family: var(--font-poppins);
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #F59E0B;
+  color: #2563EB;
   margin-bottom: 24px;
 }
 
@@ -78,7 +78,7 @@
   font-family: var(--font-heading);
   font-size: 1.75rem;
   font-weight: 800;
-  color: #0F172A;
+  color: #1E3A5F;
   margin: 0 0 12px;
   letter-spacing: -0.02em;
 }
@@ -87,7 +87,7 @@
   display: block;
   height: 4px;
   width: 60px;
-  background: #F59E0B;
+  background: #2563EB;
   border-radius: 2px;
   margin-bottom: 32px;
 }
@@ -109,7 +109,7 @@
 
 .ppdb-step:hover {
   border-color: transparent;
-  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.1);
+  box-shadow: 0 8px 30px rgba(30, 58, 95, 0.1);
   transform: translateY(-2px);
 }
 
@@ -120,8 +120,8 @@
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: rgba(245, 158, 11, 0.1);
-  color: #F59E0B;
+  background: rgba(37, 99, 235, 0.1);
+  color: #2563EB;
   font-family: var(--font-heading);
   font-size: 0.9rem;
   font-weight: 700;
@@ -132,7 +132,7 @@
   font-family: var(--font-heading);
   font-size: 1.1rem;
   font-weight: 700;
-  color: #0F172A;
+  color: #1E3A5F;
   margin: 0 0 8px;
 }
 
@@ -162,7 +162,7 @@
 
 /* CTA Section */
 .ppdb-cta-section {
-  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  background: linear-gradient(135deg, #1E3A5F 0%, #2D4A6F 100%);
   border-radius: 20px;
   padding: 48px;
   text-align: center;
@@ -196,8 +196,8 @@
   align-items: center;
   gap: 8px;
   padding: 14px 32px;
-  background: #F59E0B;
-  color: #0F172A;
+  background: #2563EB;
+  color: #ffffff;
   border-radius: 12px;
   font-family: var(--font-poppins);
   font-size: 0.95rem;
@@ -207,8 +207,8 @@
 }
 
 .ppdb-cta-button:hover {
-  background: #D97706;
-  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.3);
+  background: #1D4ED8;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
 }
 
 /* Contact */
@@ -231,7 +231,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #0F172A;
+  color: #1E3A5F;
   margin-bottom: 4px;
 }
 

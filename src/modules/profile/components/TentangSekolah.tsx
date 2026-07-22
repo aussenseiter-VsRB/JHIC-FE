@@ -20,7 +20,7 @@ function TentangSekolah() {
             <div className="grid grid-cols-3 gap-6">
               {data.stats.map((stat) => (
                 <div key={stat.label} className="text-center md:text-left">
-                  <p className="font-heading text-3xl font-bold text-amber md:text-4xl">
+                  <p className="font-heading text-3xl font-bold text-blue md:text-4xl">
                     {stat.value}
                   </p>
                   <p className="mt-1 font-body text-sm text-slate md:text-base">
@@ -32,7 +32,7 @@ function TentangSekolah() {
 
             <a
               href={data.ctaLink}
-              className="mt-10 inline-flex h-14 w-full items-center justify-center rounded-xl bg-amber font-poppins text-sm font-semibold uppercase tracking-wider text-midnight shadow-md shadow-amber/20 transition-all duration-200 hover:bg-amber-dark hover:shadow-lg hover:shadow-amber/30 md:w-64"
+              className="mt-10 inline-flex h-14 w-full items-center justify-center rounded-xl bg-blue font-poppins text-sm font-semibold uppercase tracking-wider text-white shadow-md shadow-blue/20 transition-all duration-200 hover:bg-blue-dark hover:shadow-lg hover:shadow-blue/30 md:w-64"
             >
               {data.ctaText}
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -42,13 +42,13 @@ function TentangSekolah() {
           {/* Kolom Kanan */}
           <div className="flex flex-1">
             <div className="flex w-full flex-col rounded-2xl border border-slate/10 bg-white p-8 shadow-sm md:min-h-[480px] md:p-10">
-              <h3 className="font-heading text-xl font-bold uppercase tracking-wide text-amber md:text-2xl">
+              <h3 className="font-heading text-xl font-bold uppercase tracking-wide text-blue md:text-2xl">
                 {data.visiMisi.heading}
               </h3>
 
               <div className="mt-8 flex flex-1 flex-col gap-6">
                 <div>
-                  <h4 className="font-body text-sm font-semibold uppercase text-midnight">
+                  <h4 className="font-body text-sm font-semibold uppercase text-navy">
                     Visi
                   </h4>
                   <p className="mt-3 font-body text-sm leading-relaxed text-slate md:text-base">
@@ -59,13 +59,13 @@ function TentangSekolah() {
                 <div className="h-px w-full bg-slate/20" />
 
                 <div>
-                  <h4 className="font-body text-sm font-semibold uppercase text-midnight">
+                  <h4 className="font-body text-sm font-semibold uppercase text-navy">
                     Misi
                   </h4>
                   <ul className="mt-3 space-y-3 font-body text-sm leading-relaxed text-slate md:text-base">
                     {data.visiMisi.misi.map((item) => (
                       <li key={item.slice(0, 20)} className="flex gap-3">
-                        <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-amber" />
+                        <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue" />
                         {item}
                       </li>
                     ))}

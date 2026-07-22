@@ -2,9 +2,9 @@ import { ArrowRight } from "lucide-react";
 import data from "./data/programs.json";
 
 const programAccents: Record<string, { accent: string; bg: string }> = {
-  PPLG: { accent: "#0D9488", bg: "#CCFBF1" },
-  AKL: { accent: "#F59E0B", bg: "#FEF3C7" },
-  HTL: { accent: "#6366F1", bg: "#E0E7FF" },
+  PPLG: { accent: "#0EA5E9", bg: "#E0F2FE" },
+  AKL: { accent: "#2563EB", bg: "#DBEAFE" },
+  HTL: { accent: "#1E3A5F", bg: "#E8EDF4" },
 };
 
 function Programs() {
@@ -17,7 +17,7 @@ function Programs() {
         </p>
         <div className="programs-grid">
           {data.items.map((prog) => {
-            const colors = programAccents[prog.code] ?? { accent: "#F59E0B", bg: "#FEF3C7" };
+            const colors = programAccents[prog.code] ?? { accent: "#2563EB", bg: "#DBEAFE" };
             return (
               <a
                 key={prog.code}

@@ -53,10 +53,10 @@ const beritaData = [
 ];
 
 const categoryColors: Record<string, string> = {
-  Prestasi: "#0D9488",
-  "Kerja Sama": "#F59E0B",
-  Kegiatan: "#6366F1",
-  PPDB: "#EC4899",
+  Prestasi: "#2563EB",
+  "Kerja Sama": "#0EA5E9",
+  Kegiatan: "#1E3A5F",
+  PPDB: "#6366F1",
 };
 
 function Berita() {
@@ -82,7 +82,7 @@ function Berita() {
                 </div>
                 <span
                   className="berita-card-category"
-                  style={{ background: categoryColors[berita.category] ?? "#F59E0B" }}
+                  style={{ background: categoryColors[berita.category] ?? "#2563EB" }}
                 >
                   {berita.category}
                 </span>

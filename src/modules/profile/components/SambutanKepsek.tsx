@@ -31,10 +31,10 @@ function SambutanKepsek() {
             <div className="my-8 h-px w-full bg-slate/20" />
 
             <div>
-              <p className="font-heading text-2xl font-bold text-midnight md:text-3xl">
+              <p className="font-heading text-2xl font-bold text-navy md:text-3xl">
                 {data.name}
               </p>
-              <p className="mt-1 font-body text-sm font-medium text-amber md:text-base">
+              <p className="mt-1 font-body text-sm font-medium text-blue md:text-base">
                 {data.title}
               </p>
             </div>

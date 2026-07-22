@@ -4,7 +4,7 @@
 
 .footer {
   color: rgba(255, 255, 255, 0.65);
-  background: #0F172A;
+  background: #1E3A5F;
   font-size: 0.875rem;
   line-height: 1.6;
 }
@@ -32,7 +32,7 @@
   letter-spacing: 0.12em;
   margin: 0 0 16px;
   padding-bottom: 10px;
-  border-bottom: 2px solid #F59E0B;
+  border-bottom: 2px solid #2563EB;
   display: inline-block;
 }
 
@@ -89,12 +89,12 @@
 }
 
 .footer-nav-link:hover {
-  color: #F59E0B;
+  color: #2563EB;
   padding-left: 4px;
 }
 
 .footer-nav-link.active {
-  color: #F59E0B;
+  color: #2563EB;
   font-weight: 600;
 }
 
@@ -119,7 +119,7 @@
 .footer-contact-icon {
   flex-shrink: 0;
   margin-top: 2px;
-  color: #F59E0B;
+  color: #2563EB;
 }
 
 .footer-contact-label {
@@ -159,7 +159,7 @@
   height: 180px;
   border-radius: 12px;
   overflow: hidden;
-  background: #1E293B;
+  background: #2D4A6F;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -174,11 +174,11 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(245, 158, 11, 0.1);
-  border: 1px solid rgba(245, 158, 11, 0.3);
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.3);
   border-radius: 8px;
   padding: 8px 14px;
-  color: #F59E0B;
+  color: #2563EB;
   font-size: 0.8rem;
   font-weight: 500;
   text-decoration: none;
@@ -187,8 +187,8 @@
 }
 
 .footer-maps-btn:hover {
-  background: rgba(245, 158, 11, 0.2);
-  border-color: rgba(245, 158, 11, 0.5);
+  background: rgba(37, 99, 235, 0.2);
+  border-color: rgba(37, 99, 235, 0.5);
 }
 
 /* ---------- Copyright ---------- */

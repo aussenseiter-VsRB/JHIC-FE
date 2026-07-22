@@ -3,7 +3,7 @@ import data from "./data/hero.json";
 
 function Hero() {
   return (
-    <section className="relative flex w-full flex-col items-center overflow-hidden bg-midnight px-6 pt-32 pb-24 md:px-8 md:pt-40 md:pb-32">
+    <section className="relative flex w-full flex-col items-center overflow-hidden bg-navy px-6 pt-32 pb-24 md:px-8 md:pt-40 md:pb-32">
       {/* Geometric background pattern */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.03]">
         <div
@@ -15,10 +15,10 @@ function Hero() {
       </div>
 
       {/* Accent glow */}
-      <div className="pointer-events-none absolute top-1/4 left-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber/10 blur-[120px]" />
+      <div className="pointer-events-none absolute top-1/4 left-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue/10 blur-[120px]" />
 
       <div className="relative z-10 mt-[40px] flex max-w-[800px] flex-col items-center text-center">
-        <span className="mb-6 inline-block rounded-full border border-amber/30 bg-amber/10 px-4 py-1.5 font-poppins text-xs font-semibold uppercase tracking-widest text-amber">
+        <span className="mb-6 inline-block rounded-full border border-blue/30 bg-blue/10 px-4 py-1.5 font-poppins text-xs font-semibold uppercase tracking-widest text-blue">
           Sekolah Menengah Kejuruan Unggulan
         </span>
 
@@ -34,7 +34,7 @@ function Hero() {
       <div className="relative z-10 mt-12 flex flex-col gap-4 sm:flex-row">
         <a
           href={data.ctaPrimary.href}
-          className="flex h-[60px] w-full items-center justify-center rounded-xl bg-amber px-8 font-poppins text-[16px] font-semibold text-midnight transition-all duration-200 hover:bg-amber-dark hover:shadow-lg hover:shadow-amber/20 sm:w-[250px]"
+          className="flex h-[60px] w-full items-center justify-center rounded-xl bg-blue px-8 font-poppins text-[16px] font-semibold text-white transition-all duration-200 hover:bg-blue-dark hover:shadow-lg hover:shadow-blue/20 sm:w-[250px]"
         >
           {data.ctaPrimary.label}
         </a>

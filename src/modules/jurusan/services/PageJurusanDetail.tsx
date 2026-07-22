@@ -4,15 +4,15 @@ import { getJurusanBySlug } from "../data";
 import "../css/jurusan.css";
 
 const programAccents: Record<string, { accent: string; bg: string }> = {
-  PPLG: { accent: "#0D9488", bg: "#CCFBF1" },
-  AKL: { accent: "#F59E0B", bg: "#FEF3C7" },
-  HOTEL: { accent: "#6366F1", bg: "#E0E7FF" },
+  PPLG: { accent: "#0EA5E9", bg: "#E0F2FE" },
+  AKL: { accent: "#2563EB", bg: "#DBEAFE" },
+  HOTEL: { accent: "#1E3A5F", bg: "#E8EDF4" },
 };
 
 function PageJurusanDetail() {
   const { slug } = useParams<{ slug: string }>();
   const jurusan = getJurusanBySlug(slug ?? "");
-  const colors = jurusan ? programAccents[jurusan.code] ?? { accent: "#F59E0B", bg: "#FEF3C7" } : null;
+  const colors = jurusan ? programAccents[jurusan.code] ?? { accent: "#2563EB", bg: "#DBEAFE" } : null;
 
   if (!jurusan || !colors) {
     return (

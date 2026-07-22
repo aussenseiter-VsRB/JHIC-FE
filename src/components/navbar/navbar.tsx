@@ -41,8 +41,8 @@ export default function Navbar() {
       <div
         className={`flex h-[70px] w-full max-w-5xl items-center justify-between rounded-full border px-6 transition-all duration-300 md:px-8 ${
           scrolled
-            ? 'border-midnight/10 bg-midnight/95 shadow-lg shadow-midnight/20'
-            : 'border-white/20 bg-midnight/80 backdrop-blur-md'
+            ? 'border-navy/10 bg-navy/95 shadow-lg shadow-navy/20'
+            : 'border-white/20 bg-navy/80 backdrop-blur-md'
         }`}
       >
         {/* Logo */}
@@ -70,7 +70,7 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   `relative font-body text-[15px] font-medium transition-colors duration-200 ${
                     isActive
-                      ? 'font-semibold text-amber'
+                      ? 'font-semibold text-blue'
                       : 'text-white/80 hover:text-white'
                   }`
                 }
@@ -79,7 +79,7 @@ export default function Navbar() {
                   <>
                     {link.label}
                     {isActive && (
-                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-amber" />
+                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-blue" />
                     )}
                   </>
                 )}
@@ -92,13 +92,13 @@ export default function Navbar() {
         <div className="hidden items-center gap-3 md:flex">
           <a
             href="#brosur"
-            className="rounded-full border border-white/30 px-5 py-2 font-poppins text-sm font-semibold text-white transition-all duration-200 hover:border-amber hover:text-amber"
+            className="rounded-full border border-white/30 px-5 py-2 font-poppins text-sm font-semibold text-white transition-all duration-200 hover:border-blue hover:text-blue"
           >
             BROSUR
           </a>
           <a
             href="#daftar"
-            className="flex items-center gap-1.5 rounded-full bg-amber px-5 py-2 font-poppins text-sm font-semibold text-midnight transition-all duration-200 hover:bg-amber-dark"
+            className="flex items-center gap-1.5 rounded-full bg-blue px-5 py-2 font-poppins text-sm font-semibold text-white transition-all duration-200 hover:bg-blue-dark"
           >
             Daftar Sekarang
             <ArrowUpRight className="h-4 w-4" />
@@ -123,7 +123,7 @@ export default function Navbar() {
         id="mobile-menu"
         role="menu"
         aria-hidden={!mobileOpen}
-        className={`absolute top-[86px] left-4 right-4 z-50 overflow-y-auto rounded-3xl border border-white/10 bg-midnight shadow-lg shadow-midnight/30 transition-all duration-300 md:hidden ${
+        className={`absolute top-[86px] left-4 right-4 z-50 overflow-y-auto rounded-3xl border border-white/10 bg-navy shadow-lg shadow-navy/30 transition-all duration-300 md:hidden ${
           mobileOpen ? 'max-h-[80vh] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
         }`}
       >
@@ -140,7 +140,7 @@ export default function Navbar() {
                   className={({ isActive }) =>
                     `block rounded-xl px-4 py-3 font-body text-[16px] font-medium transition-colors duration-200 ${
                       isActive
-                        ? 'bg-amber/10 font-semibold text-amber'
+                        ? 'bg-blue/10 font-semibold text-blue'
                         : 'text-white/80 hover:bg-white/5 hover:text-white'
                     }`
                   }
@@ -160,7 +160,7 @@ export default function Navbar() {
               href="#brosur"
               role="menuitem"
               onClick={closeMobile}
-              className="rounded-full border border-white/30 px-5 py-2 font-poppins text-sm font-semibold text-white transition-all duration-200 hover:border-amber hover:text-amber"
+              className="rounded-full border border-white/30 px-5 py-2 font-poppins text-sm font-semibold text-white transition-all duration-200 hover:border-blue hover:text-blue"
             >
               BROSUR
             </a>
@@ -168,7 +168,7 @@ export default function Navbar() {
               href="#daftar"
               role="menuitem"
               onClick={closeMobile}
-              className="flex items-center gap-1.5 rounded-full bg-amber px-5 py-2 font-poppins text-sm font-semibold text-midnight transition-all duration-200 hover:bg-amber-dark"
+              className="flex items-center gap-1.5 rounded-full bg-blue px-5 py-2 font-poppins text-sm font-semibold text-white transition-all duration-200 hover:bg-blue-dark"
             >
               Daftar Sekarang
               <ArrowUpRight className="h-4 w-4" />

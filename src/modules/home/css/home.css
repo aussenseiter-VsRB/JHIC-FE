@@ -18,7 +18,7 @@
   font-weight: 800;
   text-align: center;
   margin-bottom: 16px;
-  color: #0F172A;
+  color: #1E3A5F;
   letter-spacing: -0.02em;
 }
 
@@ -31,7 +31,7 @@
 
 /* ---------- About ---------- */
 .about-section {
-  background-color: #F1F5F9;
+  background-color: #F5F5F5;
   position: relative;
 }
 
@@ -45,7 +45,7 @@
 .about-text h2 {
   font-size: 2rem;
   font-weight: 800;
-  color: #0F172A;
+  color: #1E3A5F;
   margin: 0 0 16px;
   letter-spacing: -0.02em;
 }
@@ -71,19 +71,19 @@
   background: white;
   border-radius: 16px;
   text-align: center;
-  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+  box-shadow: 0 4px 20px rgba(30, 58, 95, 0.05);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .stat-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.1);
+  box-shadow: 0 8px 30px rgba(30, 58, 95, 0.1);
 }
 
 .stat-number {
   font-size: 2.25rem;
   font-weight: 800;
-  color: #F59E0B;
+  color: #2563EB;
   letter-spacing: -0.02em;
 }
 
@@ -127,14 +127,14 @@
   left: 0;
   width: 4px;
   height: 100%;
-  background: var(--card-accent, #F59E0B);
+  background: var(--card-accent, #2563EB);
   opacity: 0;
   transition: opacity 0.3s;
 }
 
 .program-card:hover {
   border-color: transparent;
-  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 12px 40px rgba(30, 58, 95, 0.12);
   transform: translateY(-4px);
 }
 
@@ -149,8 +149,8 @@
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: var(--card-accent-bg, #FEF3C7);
-  color: var(--card-accent, #F59E0B);
+  background: var(--card-accent-bg, #DBEAFE);
+  color: var(--card-accent, #2563EB);
   font-size: 0.85rem;
   font-weight: 700;
   margin-bottom: 16px;
@@ -159,7 +159,7 @@
 .program-name {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #0F172A;
+  color: #1E3A5F;
   margin: 0 0 8px;
   line-height: 1.4;
 }
@@ -178,7 +178,7 @@
   gap: 6px;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--card-accent, #F59E0B);
+  color: var(--card-accent, #2563EB);
   transition: gap 0.2s;
 }
 

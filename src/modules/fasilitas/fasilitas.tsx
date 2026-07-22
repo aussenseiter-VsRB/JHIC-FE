@@ -1,4 +1,4 @@
-import { Wifi, Monitor, BookOpen, Utensils, Building, Dumbbell } from "lucide-react";
+import { Wifi, Monitor, BookOpen, Utensils, Building } from "lucide-react";
 import "./css/fasilitas.css";
 
 const fasilitasData = [
@@ -7,14 +7,14 @@ const fasilitasData = [
     name: "Lab Komputer",
     description: "Laboratorium komputer dengan perangkat terkini untuk praktikum pemrograman dan desain.",
     icon: Monitor,
-    color: "#0D9488",
+    color: "#0EA5E9",
   },
   {
     id: 2,
     name: "Perpustakaan",
     description: "Perpustakaan lengkap dengan koleksi buku referensi dan akses digital.",
     icon: BookOpen,
-    color: "#F59E0B",
+    color: "#2563EB",
   },
   {
     id: 3,

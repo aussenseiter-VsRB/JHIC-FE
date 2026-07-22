@@ -7,7 +7,7 @@
 }
 
 .jurusan-header-section {
-  background: #0F172A;
+  background: #1E3A5F;
   padding: 120px 24px 80px;
   text-align: center;
   position: relative;
@@ -32,15 +32,15 @@
 .jurusan-badge {
   display: inline-block;
   border-radius: 9999px;
-  border: 1px solid rgba(245, 158, 11, 0.3);
-  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  background: rgba(37, 99, 235, 0.1);
   padding: 6px 16px;
   font-family: var(--font-poppins);
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #F59E0B;
+  color: #2563EB;
   margin-bottom: 24px;
 }
 
@@ -96,14 +96,14 @@
   left: 0;
   width: 4px;
   height: 100%;
-  background: var(--card-accent, #F59E0B);
+  background: var(--card-accent, #2563EB);
   opacity: 0;
   transition: opacity 0.3s;
 }
 
 .jurusan-card:hover {
   border-color: transparent;
-  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 12px 40px rgba(30, 58, 95, 0.12);
   transform: translateY(-4px);
 }
 
@@ -118,8 +118,8 @@
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: var(--card-accent-bg, #FEF3C7);
-  color: var(--card-accent, #F59E0B);
+  background: var(--card-accent-bg, #DBEAFE);
+  color: var(--card-accent, #2563EB);
   font-family: var(--font-heading);
   font-size: 0.85rem;
   font-weight: 700;
@@ -130,7 +130,7 @@
   font-family: var(--font-heading);
   font-size: 1.1rem;
   font-weight: 700;
-  color: #0F172A;
+  color: #1E3A5F;
   margin: 0 0 8px;
   line-height: 1.4;
 }
@@ -151,7 +151,7 @@
   font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--card-accent, #F59E0B);
+  color: var(--card-accent, #2563EB);
   transition: gap 0.2s;
 }
 
@@ -184,7 +184,7 @@
 }
 
 .jurusan-back:hover {
-  color: #F59E0B;
+  color: #2563EB;
 }
 
 .jurusan-specific-code {
@@ -194,8 +194,8 @@
   width: 56px;
   height: 56px;
   border-radius: 14px;
-  background: var(--card-accent-bg, #FEF3C7);
-  color: var(--card-accent, #F59E0B);
+  background: var(--card-accent-bg, #DBEAFE);
+  color: var(--card-accent, #2563EB);
   font-family: var(--font-heading);
   font-size: 0.9rem;
   font-weight: 700;
@@ -206,7 +206,7 @@
   font-family: var(--font-heading);
   font-size: 2.25rem;
   font-weight: 800;
-  color: #0F172A;
+  color: #1E3A5F;
   margin: 0 0 12px;
   letter-spacing: -0.02em;
 }
@@ -234,7 +234,7 @@
   font-family: var(--font-heading);
   font-size: 1.25rem;
   font-weight: 700;
-  color: #0F172A;
+  color: #1E3A5F;
   margin: 0;
 }
 
@@ -269,7 +269,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #F59E0B;
+  background: #2563EB;
 }
 
 /* ---------- Responsive ---------- */
