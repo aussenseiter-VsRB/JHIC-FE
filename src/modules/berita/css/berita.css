@@ -4,8 +4,9 @@
 
 /* Stunning Premium Header */
 .berita-header-section {
-  background: linear-gradient(135deg, #0A192F 0%, #112240 50%, #1A365D 100%);
-  padding: 140px 24px 150px;
+  background: #1E3A5F;
+  padding: 120px 24px 120px;
+  text-align: center;
   position: relative;
   overflow: hidden;
 }
@@ -872,7 +873,7 @@
 
 @media (max-width: 768px) {
   .berita-header-section {
-    padding: 80px 20px 100px;
+    padding: 100px 20px 100px;
   }
 
   .berita-title {
