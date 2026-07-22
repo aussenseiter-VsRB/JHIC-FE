@@ -4,9 +4,9 @@ function About() {
   return (
     <section className="about-section">
       <div className="section-container">
-        <h2 className="section-title">{data.heading}</h2>
         <div className="about-grid">
           <div className="about-text">
+            <h2>{data.heading}</h2>
             <p>{data.paragraph}</p>
           </div>
           <div className="about-stats">

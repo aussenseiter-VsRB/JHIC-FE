@@ -1,2 +1,36 @@
 .profile {
+  width: 100%;
+}
+
+.profile-section {
+  background-color: white;
+  padding: 80px 24px;
+}
+
+.profile-section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.profile-section-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.profile-section-accent {
+  display: block;
+  height: 4px;
+  width: 60px;
+  background: #F59E0B;
+  border-radius: 2px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .profile-section {
+    padding: 60px 20px;
+  }
 }

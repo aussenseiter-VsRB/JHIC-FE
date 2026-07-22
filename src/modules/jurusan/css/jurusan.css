@@ -6,27 +6,65 @@
   width: 100%;
 }
 
+.jurusan-header-section {
+  background: #0F172A;
+  padding: 120px 24px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.jurusan-header-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 40px, currentColor 40px, currentColor 41px);
+}
+
+.jurusan-header-content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.jurusan-badge {
+  display: inline-block;
+  border-radius: 9999px;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  background: rgba(245, 158, 11, 0.1);
+  padding: 6px 16px;
+  font-family: var(--font-poppins);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #F59E0B;
+  margin-bottom: 24px;
+}
+
 .jurusan-container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 60px 24px;
 }
 
-.jurusan-header {
-  text-align: center;
-  margin-bottom: 48px;
-}
-
 .jurusan-title {
-  font-size: 2rem;
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
   font-weight: 800;
-  margin: 0 0 8px;
+  color: white;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
 }
 
 .jurusan-subtitle {
-  font-size: 1.05rem;
-  opacity: 0.7;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
   margin: 0;
+  line-height: 1.6;
 }
 
 /* ---------- Grid ---------- */
@@ -38,133 +76,214 @@
 
 /* ---------- Card ---------- */
 .jurusan-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: 32px 24px;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
+  background: white;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
   text-decoration: none;
   color: inherit;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+.jurusan-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--card-accent, #F59E0B);
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
 .jurusan-card:hover {
-  border-color: #999;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transform: translateY(-2px);
+  border-color: transparent;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12);
+  transform: translateY(-4px);
+}
+
+.jurusan-card:hover::before {
+  opacity: 1;
 }
 
 .jurusan-card-code {
-  font-size: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--card-accent-bg, #FEF3C7);
+  color: var(--card-accent, #F59E0B);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .jurusan-card-name {
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 0 0 12px;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 8px;
   line-height: 1.4;
 }
 
 .jurusan-card-desc {
-  font-size: 0.88rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
   line-height: 1.6;
-  opacity: 0.7;
+  color: #64748B;
   margin: 0 0 16px;
   flex: 1;
 }
 
 .jurusan-card-link {
-  font-size: 0.88rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
   font-weight: 600;
-  opacity: 0.6;
-  transition: opacity 0.2s;
+  color: var(--card-accent, #F59E0B);
+  transition: gap 0.2s;
 }
 
 .jurusan-card:hover .jurusan-card-link {
-  opacity: 1;
+  gap: 10px;
 }
 
 /* ---------- Specific Jurusan Page ---------- */
 .jurusan-specific {
-  max-width: 1100px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 40px 24px 60px;
+  padding: 60px 24px 80px;
 }
 
 .jurusan-specific-header {
-  margin-bottom: 40px;
+  margin-bottom: 48px;
 }
 
 .jurusan-back {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
   font-size: 0.9rem;
+  font-weight: 500;
   text-decoration: none;
-  opacity: 0.6;
-  margin-bottom: 20px;
-  transition: opacity 0.2s;
+  color: #64748B;
+  margin-bottom: 24px;
+  transition: color 0.2s;
 }
 
 .jurusan-back:hover {
-  opacity: 1;
-}
-
-.jurusan-specific-title {
-  font-size: 2rem;
-  font-weight: 800;
-  margin: 0 0 8px;
+  color: #F59E0B;
 }
 
 .jurusan-specific-code {
-  display: inline-block;
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 4px 12px;
-  border-radius: 4px;
-  background: #f0f0f0;
-  margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--card-accent-bg, #FEF3C7);
+  color: var(--card-accent, #F59E0B);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.jurusan-specific-title {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
 }
 
 .jurusan-specific-desc {
-  font-size: 1.05rem;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
   line-height: 1.7;
-  opacity: 0.8;
+  color: #64748B;
 }
 
 .jurusan-specific-content {
   padding: 40px 0;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid #E2E8F0;
 }
 
-.jurusan-specific-content h2 {
-  font-size: 1.35rem;
+.jurusan-content-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.jurusan-content-header h2 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
   font-weight: 700;
-  margin: 0 0 16px;
+  color: #0F172A;
+  margin: 0;
 }
 
 .jurusan-specific-content p {
-  font-size: 0.95rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
   line-height: 1.7;
-  opacity: 0.8;
+  color: #64748B;
   margin: 0 0 16px;
 }
 
 .jurusan-specific-content ul {
-  padding-left: 20px;
+  padding-left: 0;
   margin: 0;
+  list-style: none;
 }
 
 .jurusan-specific-content li {
-  font-size: 0.95rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
   line-height: 1.8;
-  opacity: 0.8;
+  color: #64748B;
+  padding-left: 20px;
+  position: relative;
+}
+
+.jurusan-specific-content li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #F59E0B;
 }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
+  .jurusan-header-section {
+    padding: 100px 20px 60px;
+  }
+
   .jurusan-title {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
+  }
+
+  .jurusan-container {
+    padding: 40px 20px;
   }
 
   .jurusan-grid {
@@ -172,7 +291,11 @@
     gap: 16px;
   }
 
+  .jurusan-specific {
+    padding: 40px 20px 60px;
+  }
+
   .jurusan-specific-title {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 }

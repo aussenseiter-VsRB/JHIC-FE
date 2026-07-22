@@ -2,14 +2,12 @@ import data from "./data/sambutan-kepsek.json";
 
 function SambutanKepsek() {
   return (
-    <section className="bg-white px-4 py-10 md:px-8 md:py-16">
-      <div className="mx-auto max-w-7xl">
-        <h2 className="font-heading text-3xl font-bold uppercase leading-tight tracking-wide text-gray-900 md:text-4xl">
-          {data.heading}
-        </h2>
-        <span className="mt-4 block h-1 w-20 rounded-full bg-primary" />
+    <section className="profile-section bg-white">
+      <div className="profile-section-inner">
+        <h2 className="profile-section-title">{data.heading}</h2>
+        <span className="profile-section-accent" />
 
-        <div className="mt-10 flex flex-col gap-10 lg:flex-row lg:gap-16">
+        <div className="mt-12 flex flex-col gap-12 lg:flex-row lg:gap-16">
           {/* Kolom Kiri — Foto Kepsek */}
           <div className="flex w-full lg:w-[35%]">
             <img
@@ -24,20 +22,22 @@ function SambutanKepsek() {
             {data.paragraphs.map((text) => (
               <p
                 key={text.slice(0, 20)}
-                className="mt-3 font-body text-sm leading-relaxed text-gray-600 md:text-base"
+                className="font-body text-base leading-relaxed text-slate md:text-lg"
               >
                 {text}
               </p>
             ))}
 
-            <div className="mt-3 h-px w-full bg-gray-200" />
+            <div className="my-8 h-px w-full bg-slate/20" />
 
-            <p className="mt-8 font-body text-[24px] font-bold text-gray-900 md:text-[28px]">
-              {data.name}
-            </p>
-            <p className="mt-1 font-body text-[14px] font-medium text-gray-500 md:text-[16px]">
-              {data.title}
-            </p>
+            <div>
+              <p className="font-heading text-2xl font-bold text-midnight md:text-3xl">
+                {data.name}
+              </p>
+              <p className="mt-1 font-body text-sm font-medium text-amber md:text-base">
+                {data.title}
+              </p>
+            </div>
           </div>
         </div>
       </div>

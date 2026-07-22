@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Menu, X, ArrowUpRight } from 'lucide-react'
 import logoSrc from '../../assets/Logo-yadika.webp'
@@ -17,14 +17,17 @@ const navLinks: NavItem[] = [
   { label: 'PPDB', to: '/ppdb' },
 ]
 
-const brosurBtnClass =
-  'rounded-full border border-gray-300 px-5 py-2 font-body text-sm font-medium text-gray-800 transition-all duration-200 hover:bg-primary hover:text-white'
-
-const daftarBtnClass =
-  'flex items-center gap-1.5 rounded-full bg-primary px-5 py-2 font-body text-sm font-semibold text-white transition-all duration-200 hover:bg-primary-dark'
-
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const toggleMobile = () => setMobileOpen((prev) => !prev)
   const closeMobile = () => setMobileOpen(false)
@@ -35,7 +38,13 @@ export default function Navbar() {
       role="navigation"
       aria-label="Main navigation"
     >
-      <div className="flex h-[70px] w-full max-w-5xl items-center justify-between rounded-full border-2 border-gray-200 bg-white px-6 md:px-8">
+      <div
+        className={`flex h-[70px] w-full max-w-5xl items-center justify-between rounded-full border px-6 transition-all duration-300 md:px-8 ${
+          scrolled
+            ? 'border-midnight/10 bg-midnight/95 shadow-lg shadow-midnight/20'
+            : 'border-white/20 bg-midnight/80 backdrop-blur-md'
+        }`}
+      >
         {/* Logo */}
         <NavLink
           to="/"
@@ -59,10 +68,10 @@ export default function Navbar() {
                 end={link.to === '/'}
                 role="menuitem"
                 className={({ isActive }) =>
-                  `relative font-body text-[16px] font-medium transition-colors duration-200 ${
+                  `relative font-body text-[15px] font-medium transition-colors duration-200 ${
                     isActive
-                      ? 'font-semibold text-primary'
-                      : 'text-gray-800 hover:text-primary'
+                      ? 'font-semibold text-amber'
+                      : 'text-white/80 hover:text-white'
                   }`
                 }
               >
@@ -70,7 +79,7 @@ export default function Navbar() {
                   <>
                     {link.label}
                     {isActive && (
-                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-primary" />
+                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-amber" />
                     )}
                   </>
                 )}
@@ -81,10 +90,16 @@ export default function Navbar() {
 
         {/* Desktop Right Controls */}
         <div className="hidden items-center gap-3 md:flex">
-          <a href="#brosur" className={brosurBtnClass}>
+          <a
+            href="#brosur"
+            className="rounded-full border border-white/30 px-5 py-2 font-poppins text-sm font-semibold text-white transition-all duration-200 hover:border-amber hover:text-amber"
+          >
             BROSUR
           </a>
-          <a href="#daftar" className={daftarBtnClass}>
+          <a
+            href="#daftar"
+            className="flex items-center gap-1.5 rounded-full bg-amber px-5 py-2 font-poppins text-sm font-semibold text-midnight transition-all duration-200 hover:bg-amber-dark"
+          >
             Daftar Sekarang
             <ArrowUpRight className="h-4 w-4" />
           </a>
@@ -94,7 +109,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={toggleMobile}
-          className="flex h-10 w-10 items-center justify-center rounded-full text-gray-700 transition-colors duration-200 hover:bg-gray-100 md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-full text-white transition-colors duration-200 hover:bg-white/10 md:hidden"
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileOpen}
           aria-controls="mobile-menu"
@@ -108,8 +123,8 @@ export default function Navbar() {
         id="mobile-menu"
         role="menu"
         aria-hidden={!mobileOpen}
-        className={`absolute top-[86px] left-4 right-4 z-50 overflow-y-auto rounded-3xl border border-gray-200 bg-white shadow-lg transition-all duration-200 md:hidden ${
-          mobileOpen ? 'max-h-[80vh] opacity-100' : 'max-h-0 opacity-0'
+        className={`absolute top-[86px] left-4 right-4 z-50 overflow-y-auto rounded-3xl border border-white/10 bg-midnight shadow-lg shadow-midnight/30 transition-all duration-300 md:hidden ${
+          mobileOpen ? 'max-h-[80vh] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
         }`}
       >
         <div className="flex flex-col gap-1 p-4">
@@ -125,8 +140,8 @@ export default function Navbar() {
                   className={({ isActive }) =>
                     `block rounded-xl px-4 py-3 font-body text-[16px] font-medium transition-colors duration-200 ${
                       isActive
-                        ? 'bg-primary/10 font-semibold text-primary'
-                        : 'text-gray-800 hover:bg-gray-50 hover:text-primary'
+                        ? 'bg-amber/10 font-semibold text-amber'
+                        : 'text-white/80 hover:bg-white/5 hover:text-white'
                     }`
                   }
                 >
@@ -137,7 +152,7 @@ export default function Navbar() {
           </ul>
 
           {/* Mobile Divider */}
-          <hr className="my-2 border-gray-100" />
+          <hr className="my-2 border-white/10" />
 
           {/* Mobile Buttons */}
           <div className="flex items-center gap-3 px-2">
@@ -145,7 +160,7 @@ export default function Navbar() {
               href="#brosur"
               role="menuitem"
               onClick={closeMobile}
-              className={brosurBtnClass}
+              className="rounded-full border border-white/30 px-5 py-2 font-poppins text-sm font-semibold text-white transition-all duration-200 hover:border-amber hover:text-amber"
             >
               BROSUR
             </a>
@@ -153,7 +168,7 @@ export default function Navbar() {
               href="#daftar"
               role="menuitem"
               onClick={closeMobile}
-              className={daftarBtnClass}
+              className="flex items-center gap-1.5 rounded-full bg-amber px-5 py-2 font-poppins text-sm font-semibold text-midnight transition-all duration-200 hover:bg-amber-dark"
             >
               Daftar Sekarang
               <ArrowUpRight className="h-4 w-4" />

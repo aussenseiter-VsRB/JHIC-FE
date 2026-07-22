@@ -17,7 +17,7 @@ function ScrollToTop() {
 
 function Layout() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-pearl">
       <ScrollToTop />
       <Navbar />
       <main className="pt-[102px]">

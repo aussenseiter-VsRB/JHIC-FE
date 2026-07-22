@@ -114,15 +114,6 @@ function Footer() {
             </div>
           </div>
         </div>
-
-        {/* ---- Sponsors ---- */}
-        <div className="footer-sponsors-section">
-          <h4>Sponsor</h4>
-          <div className="footer-sponsor-list">
-            <div className="footer-box">LOGO SEKDUS</div>
-            <div className="footer-box">LOGO SPONSOR</div>
-          </div>
-        </div>
       </div>
 
       {/* ---- Copyright ---- */}

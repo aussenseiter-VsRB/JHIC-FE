@@ -1,2 +1,135 @@
 .fasilitas {
+  width: 100%;
+}
+
+.fasilitas-header-section {
+  background: #0F172A;
+  padding: 120px 24px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.fasilitas-header-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 40px, currentColor 40px, currentColor 41px);
+}
+
+.fasilitas-header-content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.fasilitas-badge {
+  display: inline-block;
+  border-radius: 9999px;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  background: rgba(245, 158, 11, 0.1);
+  padding: 6px 16px;
+  font-family: var(--font-poppins);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #F59E0B;
+  margin-bottom: 24px;
+}
+
+.fasilitas-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.fasilitas-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.fasilitas-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+.fasilitas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.fasilitas-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid #E2E8F0;
+  transition: all 0.3s;
+}
+
+.fasilitas-card:hover {
+  border-color: transparent;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12);
+  transform: translateY(-4px);
+}
+
+.fasilitas-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.fasilitas-card-name {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 8px;
+}
+
+.fasilitas-card-desc {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: #64748B;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .fasilitas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .fasilitas-header-section {
+    padding: 100px 20px 60px;
+  }
+
+  .fasilitas-title {
+    font-size: 1.75rem;
+  }
+
+  .fasilitas-container {
+    padding: 40px 20px;
+  }
+
+  .fasilitas-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }
