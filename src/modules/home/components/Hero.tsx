@@ -58,7 +58,6 @@ function Hero() {
         </a>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-pearl" style={{ clipPath: 'polygon(0 60%, 100% 0, 100% 100%, 0 100%)' }} />
       {/* Animated wave bottom edge */}
       <div className="absolute bottom-0 left-0 right-0 h-20 overflow-hidden">
         <svg className="wave-scroll" viewBox="0 0 2880 120" fill="none" preserveAspectRatio="none" style={{ width: '200%', height: '80px' }}>
