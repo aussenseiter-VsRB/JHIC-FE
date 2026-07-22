@@ -40,7 +40,11 @@ Code lives next to what it serves:
 - UI state drives rendering — don't imperatively manipulate the DOM.
 - Tailwind classes describe *what* things look like, not *how* to change.
 
-### 5. Progressive Complexity
+### 5. No Dead Code
+
+Don't generate files, exports, or data that nothing consumes. Empty stubs create confusion and maintenance burden. If a file has no consumer, it shouldn't exist.
+
+### 6. Progressive Complexity
 
 Start simple. Add complexity only when the simple solution fails:
 - Inline types → extracted interfaces → shared type files.
@@ -71,3 +75,4 @@ After writing any code, ask:
 1. Is it simple and necessary right now?
 2. Is it isolated and predictable?
 3. Is it safe to run and deploy?
+4. Every file, import, and export has at least one consumer — no dead code.
