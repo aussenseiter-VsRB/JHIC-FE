@@ -1,4 +1,5 @@
 import { Play } from "lucide-react";
+import BlurText from "../../../components/blur-text/blur-text";
 import data from "./data/hero.json";
 
 function Hero() {
@@ -30,9 +31,13 @@ function Hero() {
           Sekolah Menengah Kejuruan Unggulan
         </span>
 
-        <h1 className="font-heading text-[40px] font-extrabold leading-[1.08] tracking-tight text-white animate-fade-in-up animate-delay-100 md:text-[64px]">
-          {data.title}
-        </h1>
+        <BlurText
+          text={data.title}
+          animateBy="words"
+          direction="top"
+          delay={150}
+          className="font-heading text-[40px] font-extrabold leading-[1.08] tracking-tight text-white md:text-[64px]"
+        />
 
         <p className="mt-6 max-w-[600px] font-body text-lg leading-relaxed text-white/55 animate-fade-in-up animate-delay-200 md:text-xl">
           Mencetak lulusan kompeten, berkarakter, dan siap bersaing di dunia industri melalui pendidikan berkualitas.
