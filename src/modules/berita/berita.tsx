@@ -1,4 +1,6 @@
+import { useState, useEffect } from "react";
 import { Calendar, ArrowRight } from "lucide-react";
+import SkeletonLoad from "../../components/skeleton/skeletonLoad";
 import "./css/berita.css";
 
 const beritaData = [
@@ -60,6 +62,40 @@ const categoryColors: Record<string, string> = {
 };
 
 function Berita() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (loading) return;
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    );
+
+    const elements = document.querySelectorAll(".reveal");
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, [loading]);
+
+  if (loading) {
+    return <SkeletonLoad />;
+  }
+
   return (
     <div className="berita">
       <div className="berita-header-section">
