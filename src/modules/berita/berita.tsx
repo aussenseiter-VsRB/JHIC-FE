@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Calendar, ArrowRight, User, Sparkles, Newspaper, ShieldCheck } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Calendar, ArrowRight } from "lucide-react";
 import SkeletonLoad from "../../components/skeleton/skeletonLoad";
-import beritaData from "./berita.json";
 import "./css/berita.css";
 
 interface BeritaItem {
@@ -22,7 +21,6 @@ const categoryColors: Record<string, string> = beritaData.categoryColors;
 
 function Berita() {
   const [loading, setLoading] = useState(true);
-  const [imgErrors, setImgErrors] = useState<Record<number, boolean>>({});
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1500);
@@ -52,76 +50,9 @@ function Berita() {
     return () => observer.disconnect();
   }, [loading]);
 
-  const handleImageError = (id: number) => {
-    setImgErrors((prev) => ({ ...prev, [id]: true }));
-  };
-
-  const [showAllTerkini, setShowAllTerkini] = useState(false);
-  const [activeSlide, setActiveSlide] = useState(0);
-  const beritaSekolahRef = React.useRef<HTMLDivElement>(null);
-
-  const initialTerkiniCount = 3;
-  const displayedTerkiniList = showAllTerkini
-    ? beritaData.beritaTerkini?.list || []
-    : (beritaData.beritaTerkini?.list || []).slice(0, initialTerkiniCount);
-
-  const totalCards = beritaData.beritaSekolah?.list.length || 0;
-
-  const getCardsPerPage = (): number => {
-    if (!beritaSekolahRef.current) return 3;
-    const w = beritaSekolahRef.current.clientWidth;
-    if (w < 768) return 1;
-    if (w < 1024) return 2;
-    return 3;
-  };
-
-  const totalPages = Math.ceil(totalCards / getCardsPerPage());
-
-  const goToSlide = (index: number) => {
-    const container = beritaSekolahRef.current;
-    if (!container) return;
-    const cardsPerPage = getCardsPerPage();
-    const targetIdx = Math.min(index * cardsPerPage, totalCards - 1);
-    const card = container.children[targetIdx] as HTMLElement;
-    if (card) {
-      container.scrollTo({ left: card.offsetLeft - 24, behavior: "smooth" });
-    }
-    setActiveSlide(index);
-  };
-
-  React.useEffect(() => {
-    const container = beritaSekolahRef.current;
-    if (!container) return;
-    let ticking = false;
-
-    const handleScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const cardsPerPage = getCardsPerPage();
-        const firstCard = container.children[0] as HTMLElement;
-        if (!firstCard) { ticking = false; return; }
-        const cardWidth = firstCard.offsetWidth;
-        const gap = 24;
-        const currentCard = Math.round(container.scrollLeft / (cardWidth + gap));
-        const page = Math.min(Math.floor(currentCard / cardsPerPage), totalPages - 1);
-        setActiveSlide(Math.max(0, page));
-        ticking = false;
-      });
-    };
-
-    container.addEventListener("scroll", handleScroll, { passive: true });
-    return () => container.removeEventListener("scroll", handleScroll);
-  }, [totalPages]);
-
   if (loading) {
     return <SkeletonLoad />;
   }
-
-  // Format header title to highlight the last word with gradient
-  const titleWords = (beritaData.header.title || "").split(" ");
-  const baseTitle = titleWords.slice(0, -1).join(" ");
-  const highlightedWord = titleWords[titleWords.length - 1];
 
   return (
     <div className="berita">
