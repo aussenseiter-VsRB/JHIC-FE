@@ -74,8 +74,8 @@ function Berita() {
 
       <div className="berita-container">
         <div className="berita-grid">
-          {beritaData.map((berita) => (
-            <article key={berita.id} className="berita-card">
+          {beritaData.map((berita, i) => (
+            <article key={berita.id} className={`berita-card reveal reveal-delay-${(i % 3) + 1}`}>
               <div className="berita-card-image">
                 <div className="berita-card-placeholder">
                   <span className="berita-card-placeholder-text">{berita.category}</span>

@@ -4,12 +4,13 @@ function SambutanKepsek() {
   return (
     <section className="profile-section bg-white">
       <div className="profile-section-inner">
-        <h2 className="profile-section-title">{data.heading}</h2>
-        <span className="profile-section-accent" />
+        <div className="reveal">
+          <h2 className="profile-section-title">{data.heading}</h2>
+          <span className="profile-section-accent" />
+        </div>
 
         <div className="mt-12 flex flex-col gap-12 lg:flex-row lg:gap-16">
-          {/* Kolom Kiri — Foto Kepsek */}
-          <div className="flex w-full lg:w-[35%]">
+          <div className="flex w-full lg:w-[35%] reveal">
             <img
               src={data.photo}
               alt={data.photoAlt}
@@ -17,8 +18,7 @@ function SambutanKepsek() {
             />
           </div>
 
-          {/* Kolom Kanan — Sambutan */}
-          <div className="flex w-full flex-col lg:w-[65%]">
+          <div className="flex w-full flex-col lg:w-[65%] reveal reveal-delay-2">
             {data.paragraphs.map((text) => (
               <p
                 key={text.slice(0, 20)}

@@ -1,21 +1,22 @@
 {
   "heading": "TENTANG SEKOLAH YADIKA SOREANG",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "description": "SMK Yadika Soreang merupakan institusi pendidikan menengah kejuruan yang telah berdiri sejak 2000-an di Soreang, Bandung. Dengan visi menjadi sekolah kejuruan unggulan yang menghasilkan lulusan berkualitas tinggi, kami terus berkomitmen mengembangkan potensi setiap siswa melalui kurikulum terkini, fasilitas modern, dan kemitraan industri yang luas.",
   "stats": [
     { "value": "1200+", "label": "Siswa" },
     { "value": "120+", "label": "Guru & Staff" },
     { "value": "16+", "label": "Program Keahlian" }
   ],
   "ctaText": "LIHAT JURUSAN",
-  "ctaLink": "#",
+  "ctaLink": "/jurusan",
   "visiMisi": {
     "heading": "VISI & MISI",
-    "visi": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "visi": "Menjadi sekolah menengah kejuruan unggulan yang menghasilkan lulusan kompeten, berkarakter, dan berdaya saing tinggi di era global.",
     "misi": [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "Sed do eiusmod tempor incididunt ut labore et dolore magna.",
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
-      "Duis aute irure dolor in reprehenderit in voluptate velit."
+      "Menyelenggarakan pendidikan kejuruan berkualitas berbasis kebutuhan industri dan masyarakat.",
+      "Mengembangkan potensi siswa secara optimal melalui pembelajaran yang kreatif, inovatif, dan menyenangkan.",
+      "Membangun karakter siswa yang berakhlak mulia, disiplin, dan bertanggung jawab.",
+      "Menjalin kemitraan strategis dengan dunia usaha dan dunia industri untuk mendukung pembelajaran kontekstual."
     ]
   }
+}
 }

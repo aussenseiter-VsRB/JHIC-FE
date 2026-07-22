@@ -20,14 +20,14 @@ function JurusanCard({ name, code, slug, description }: JurusanCardProps) {
   return (
     <Link
       to={`/jurusan/${slug}`}
-      className="jurusan-card"
+      className="jurusan-card reveal"
       style={{ "--card-accent": colors.accent, "--card-accent-bg": colors.bg } as React.CSSProperties}
     >
       <span className="jurusan-card-code">{code}</span>
       <h3 className="jurusan-card-name">{name}</h3>
       <p className="jurusan-card-desc">{description}</p>
       <span className="jurusan-card-link">
-        Selengkapnya <ArrowRight className="h-4 w-4" />
+        Selengkapnya <ArrowRight className="jurusan-card-link-arrow h-4 w-4" />
       </span>
     </Link>
   );

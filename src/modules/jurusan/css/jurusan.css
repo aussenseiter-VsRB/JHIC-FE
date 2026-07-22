@@ -18,8 +18,20 @@
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 0.03;
+  opacity: 0.06;
   background-image: repeating-linear-gradient(45deg, transparent, transparent 40px, currentColor 40px, currentColor 41px);
+}
+
+.jurusan-header-section::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .jurusan-header-content {
@@ -85,7 +97,7 @@
   border-radius: 16px;
   text-decoration: none;
   color: inherit;
-  transition: all 0.3s;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
 }
 
@@ -95,20 +107,19 @@
   top: 0;
   left: 0;
   width: 4px;
-  height: 100%;
+  height: 0;
   background: var(--card-accent, #2563EB);
-  opacity: 0;
-  transition: opacity 0.3s;
+  transition: height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .jurusan-card:hover {
   border-color: transparent;
-  box-shadow: 0 12px 40px rgba(30, 58, 95, 0.12);
-  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(30, 58, 95, 0.12);
+  transform: translateY(-6px);
 }
 
 .jurusan-card:hover::before {
-  opacity: 1;
+  height: 100%;
 }
 
 .jurusan-card-code {
@@ -124,6 +135,11 @@
   font-size: 0.85rem;
   font-weight: 700;
   margin-bottom: 16px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.jurusan-card:hover .jurusan-card-code {
+  transform: scale(1.08);
 }
 
 .jurusan-card-name {
@@ -152,11 +168,19 @@
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--card-accent, #2563EB);
-  transition: gap 0.2s;
+  transition: gap 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .jurusan-card:hover .jurusan-card-link {
   gap: 10px;
+}
+
+.jurusan-card-link-arrow {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.jurusan-card:hover .jurusan-card-link-arrow {
+  transform: translateX(3px);
 }
 
 /* ---------- Specific Jurusan Page ---------- */

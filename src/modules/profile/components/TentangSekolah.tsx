@@ -6,8 +6,7 @@ function TentangSekolah() {
     <section className="profile-section bg-pearl">
       <div className="profile-section-inner">
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
-          {/* Kolom Kiri */}
-          <div className="flex flex-1 flex-col">
+          <div className="flex flex-1 flex-col reveal">
             <h2 className="profile-section-title">{data.heading}</h2>
             <span className="profile-section-accent" />
 
@@ -40,7 +39,7 @@ function TentangSekolah() {
           </div>
 
           {/* Kolom Kanan */}
-          <div className="flex flex-1">
+          <div className="flex flex-1 reveal reveal-delay-2">
             <div className="flex w-full flex-col rounded-2xl border border-slate/10 bg-white p-8 shadow-sm md:min-h-[480px] md:p-10">
               <h3 className="font-heading text-xl font-bold uppercase tracking-wide text-blue md:text-2xl">
                 {data.visiMisi.heading}

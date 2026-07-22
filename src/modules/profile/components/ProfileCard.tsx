@@ -3,18 +3,17 @@ import { MapPin, Award, Users, GraduationCap } from "lucide-react";
 function ProfileCard() {
   return (
     <section className="relative overflow-hidden bg-navy px-6 pt-32 pb-24 md:px-8 md:pt-40 md:pb-32">
-      {/* Geometric background pattern */}
-      <div className="pointer-events-none absolute inset-0 opacity-[0.03]">
+      <div className="pointer-events-none absolute inset-0 opacity-[0.05]">
         <div
           className="h-full w-full"
           style={{
-            backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 40px, currentColor 40px, currentColor 41px)`,
+            backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 20px, currentColor 20px, currentColor 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, currentColor 20px, currentColor 21px)`,
           }}
         />
       </div>
 
-      {/* Accent glow */}
-      <div className="pointer-events-none absolute top-1/4 right-1/4 h-[300px] w-[300px] rounded-full bg-blue/10 blur-[100px]" />
+      <div className="pointer-events-none absolute top-1/3 left-1/4 h-[350px] w-[350px] rounded-full bg-sky/[0.07] blur-[120px]" />
+      <div className="pointer-events-none absolute bottom-1/3 right-1/3 h-[250px] w-[250px] rounded-full bg-blue/[0.06] blur-[100px]" />
 
       <div className="relative z-10 mx-auto max-w-5xl">
         <span className="mb-6 inline-block rounded-full border border-blue/30 bg-blue/10 px-4 py-1.5 font-poppins text-xs font-semibold uppercase tracking-widest text-blue">

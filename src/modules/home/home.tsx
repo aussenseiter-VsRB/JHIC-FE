@@ -32,7 +32,7 @@ function Home() {
       <Hero />
       <About />
       <section className="mitra-section">
-        <div className="section-container">
+        <div className="section-container reveal">
           <h2 className="section-title">Mitra Industri</h2>
           <p className="section-subtitle">
             Bermitra dengan berbagai perusahaan terkemuka untuk mendukung

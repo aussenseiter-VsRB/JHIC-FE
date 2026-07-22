@@ -61,10 +61,10 @@ function Fasilitas() {
 
       <div className="fasilitas-container">
         <div className="fasilitas-grid">
-          {fasilitasData.map((fasilitas) => {
+          {fasilitasData.map((fasilitas, i) => {
             const Icon = fasilitas.icon;
             return (
-              <div key={fasilitas.id} className="fasilitas-card">
+              <div key={fasilitas.id} className={`fasilitas-card reveal reveal-delay-${(i % 3) + 1}`}>
                 <div className="fasilitas-card-icon" style={{ background: `${fasilitas.color}15`, color: fasilitas.color }}>
                   <Icon className="h-6 w-6" />
                 </div>
