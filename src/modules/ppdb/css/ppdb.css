@@ -860,6 +860,56 @@
   margin: 0;
 }
 
+/* Registration Steps */
+.ppdb-register-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.ppdb-register-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #E2E8F0;
+  opacity: 0;
+  animation: ppdb-slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.ppdb-register-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(30, 58, 95, 0.1);
+  border-color: #2563EB;
+}
+
+.ppdb-register-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(37, 99, 235, 0.1);
+  margin-bottom: 16px;
+}
+
+.ppdb-register-card-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1E3A5F;
+  margin: 0 0 8px;
+}
+
+.ppdb-register-card-desc {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: #64748B;
+  line-height: 1.6;
+  margin: 0;
+}
+
 /* Registration Wave */
 .ppdb-section-subtitle {
   font-family: var(--font-body);
@@ -1256,6 +1306,27 @@
   .ppdb-cta-title { font-size: 1.4rem; }
 
   .ppdb-cta-button { padding: 12px 24px; font-size: 0.88rem; }
+}
+
+@media (max-width: 640px) {
+  .ppdb-register-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .ppdb-register-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ppdb-wave-table {
+    display: none;
+  }
+
+  .ppdb-wave-cards {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 640px) {
