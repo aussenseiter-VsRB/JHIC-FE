@@ -1,10 +1,19 @@
 import { ArrowRight } from "lucide-react";
 import data from "./data/programs.json";
+import iconPplg from "../../../assets/icon-pplg.svg";
+import iconAkl from "../../../assets/icon-akl.svg";
+import iconHotel from "../../../assets/icon-hotel.svg";
 
-const programAccents: Record<string, { accent: string; bg: string }> = {
-  PPLG: { accent: "#0EA5E9", bg: "#E0F2FE" },
-  AKL: { accent: "#2563EB", bg: "#DBEAFE" },
-  HTL: { accent: "#1E3A5F", bg: "#E8EDF4" },
+const programIcons: Record<string, string> = {
+  PPLG: iconPplg,
+  AKL: iconAkl,
+  HOTEL: iconHotel,
+};
+
+const programDescs: Record<string, string> = {
+  PPLG: "Pengembangan perangkat lunak, website, mobile apps, dan gim.",
+  AKL: "Pembukuan, laporan keuangan, perpajakan, dan administrasi.",
+  HOTEL: "Tata graha, tata boga, front office, dan layanan profesional.",
 };
 
 function Programs() {
@@ -18,28 +27,24 @@ function Programs() {
           </p>
         </div>
         <div className="programs-grid">
-          {data.items.map((prog, i) => {
-            const colors = programAccents[prog.code] ?? { accent: "#2563EB", bg: "#DBEAFE" };
-            return (
-              <a
-                key={prog.code}
-                href={`/jurusan/${prog.code.toLowerCase()}`}
-                className={`program-card reveal reveal-delay-${i + 1}`}
-                style={{ "--card-accent": colors.accent, "--card-accent-bg": colors.bg } as React.CSSProperties}
-              >
-                <span className="program-code">{prog.code}</span>
-                <h3 className="program-name">{prog.name}</h3>
-                <p className="program-desc">
-                  {prog.code === "PPLG" && "Pengembangan perangkat lunak, website, mobile apps, dan gim."}
-                  {prog.code === "AKL" && "Pembukuan, laporan keuangan, perpajakan, dan administrasi."}
-                  {prog.code === "HTL" && "Tata graha, tata boga, front office, dan layanan profesional."}
-                </p>
-                <span className="program-link">
-                  Selengkapnya <ArrowRight className="program-link-arrow h-4 w-4" />
-                </span>
-              </a>
-            );
-          })}
+          {data.items.map((prog, i) => (
+            <a
+              key={prog.code}
+              href={`/jurusan/${prog.code.toLowerCase()}`}
+              className={`program-card reveal reveal-delay-${i + 1}`}
+            >
+              <img
+                src={programIcons[prog.code]}
+                alt={`Logo ${prog.name}`}
+                className="program-icon"
+              />
+              <h3 className="program-name">{prog.name}</h3>
+              <p className="program-desc">{programDescs[prog.code]}</p>
+              <span className="program-link">
+                Selengkapnya <ArrowRight className="program-link-arrow h-4 w-4" />
+              </span>
+            </a>
+          ))}
         </div>
       </div>
     </section>
