@@ -8,7 +8,7 @@
 
 .jurusan-header-section {
   background: #1E3A5F;
-  padding: 120px 24px 80px;
+  padding: 120px 24px 120px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -299,7 +299,7 @@
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
   .jurusan-header-section {
-    padding: 100px 20px 60px;
+    padding: 100px 20px 100px;
   }
 
   .jurusan-title {
