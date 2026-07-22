@@ -1,5 +1,7 @@
 import { FileText, CheckCircle, ArrowRight, Phone, Mail, MapPin } from "lucide-react";
 import "./css/ppdb.css";
+import RegistrationSteps from "./components/RegistrationSteps";
+import RegistrationWave from "./components/RegistrationWave";
 
 const requirements = [
   "Fotokopi Ijazah SMA/SMP (2 lembar)",
@@ -47,6 +49,12 @@ function Ppdb() {
           </div>
         </div>
 
+        {/* Registration Steps */}
+        <RegistrationSteps />
+
+        {/* Registration Wave */}
+        <RegistrationWave />
+
         {/* Requirements Section */}
         <div className="ppdb-section ppdb-section-alt">
           <h2 className="ppdb-section-title">Persyaratan</h2>
@@ -60,7 +68,6 @@ function Ppdb() {
             ))}
           </div>
         </div>
-
         {/* CTA Section */}
         <div className="ppdb-cta-section">
           <div className="ppdb-cta-content">
