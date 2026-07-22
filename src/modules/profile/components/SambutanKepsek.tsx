@@ -4,7 +4,7 @@ function SambutanKepsek() {
   return (
     <section className="bg-white px-4 py-10 md:px-8 md:py-16">
       <div className="mx-auto max-w-7xl">
-        <h2 className="font-inter text-3xl font-bold uppercase leading-tight tracking-wide text-gray-900 md:text-4xl">
+        <h2 className="font-heading text-3xl font-bold uppercase leading-tight tracking-wide text-gray-900 md:text-4xl">
           {data.heading}
         </h2>
         <span className="mt-4 block h-1 w-20 rounded-full bg-primary" />
@@ -24,7 +24,7 @@ function SambutanKepsek() {
             {data.paragraphs.map((text) => (
               <p
                 key={text.slice(0, 20)}
-                className="mt-3 font-inter text-sm leading-relaxed text-gray-600 md:text-base"
+                className="mt-3 font-body text-sm leading-relaxed text-gray-600 md:text-base"
               >
                 {text}
               </p>
@@ -32,10 +32,10 @@ function SambutanKepsek() {
 
             <div className="mt-3 h-px w-full bg-gray-200" />
 
-            <p className="mt-8 font-inter text-[24px] font-bold text-gray-900 md:text-[28px]">
+            <p className="mt-8 font-body text-[24px] font-bold text-gray-900 md:text-[28px]">
               {data.name}
             </p>
-            <p className="mt-1 font-inter text-[14px] font-medium text-gray-500 md:text-[16px]">
+            <p className="mt-1 font-body text-[14px] font-medium text-gray-500 md:text-[16px]">
               {data.title}
             </p>
           </div>

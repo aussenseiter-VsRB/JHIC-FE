@@ -10,7 +10,7 @@ function Home() {
     <div className="home">
       <Hero />
       <section className="py-16">
-        <h2 className="mb-10 text-center font-inter text-[28px] font-bold text-gray-800">
+        <h2 className="mb-10 text-center font-heading text-[28px] font-bold text-gray-800">
           Mitra Industri
         </h2>
         <LogoLoop
