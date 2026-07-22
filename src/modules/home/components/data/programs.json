@@ -1,8 +1,8 @@
 {
   "heading": "Program Keahlian",
   "items": [
-    { "name": "Rekayasa Perangkat Lunak", "code": "RPL" },
-    { "name": "Akuntansi", "code": "AKL" },
-    { "name": "Perhotelan", "code": "HTL" }
+    { "name": "Pemrograman Perangkat Lunak dan Gim", "code": "PPLG" },
+    { "name": "Akuntansi dan Keuangan", "code": "AKL" },
+    { "name": "Perhotelan dan Jasa Pariwisata", "code": "HOTEL" }
   ]
 }
