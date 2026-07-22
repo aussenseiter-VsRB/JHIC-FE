@@ -42,7 +42,7 @@ Pattern: `{parent}{childName}` in PascalCase (e.g., `jurusanRPL`, `profileSettin
 
 ## 3. Static data from JSON
 
-Every page component must read its data from a co-located `{moduleName}.json` file. Never hardcode display data inside `.tsx` components.
+If a page has static data, it must come from a co-located `{moduleName}.json` file. Never hardcode display data inside `.tsx` components. If the page has no static data yet, skip the JSON file entirely.
 
 ```
 profile.tsx   → imports data from profile.json
@@ -145,3 +145,14 @@ CTA:      16px / 600 / font-poppins
 ### CSS files
 
 Module CSS files (`css/*.css`) must **not** set `font-family`. They inherit from `body` (Inter). Use font utility classes in JSX `className` instead.
+
+## 9. No dead code
+
+Don't generate files, exports, or data that nothing consumes. Empty stubs create confusion and maintenance burden.
+
+- **Don't scaffold empty stubs.** The standard file set (rule 4) lists `components/`, `services/`, and `data/` as optional — only create them when they will be used immediately.
+- **JSON must be consumed.** If `{moduleName}.json` exists, the page component must import and render at least one key from it.
+- **CSS must have declarations.** Don't create `.{name} {}` with empty braces. Only create the CSS file when there are actual styles to write.
+- **Every component must be real.** No placeholder `<div>Name</div>` stubs. Components must have props, meaningful JSX, and be imported somewhere.
+- **Every export must be consumed.** Every exported function, type, or component must be imported by at least one other file.
+- **Self-check before finishing.** After creating a module, verify: every file exists for a reason, every import resolves to a used symbol, every JSON key is rendered in JSX.
