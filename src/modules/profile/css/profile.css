@@ -16,7 +16,7 @@
   font-size: 2rem;
   font-weight: 800;
   color: #1E3A5F;
-  margin: 0 0 16px;
+  margin: 0 0 12px;
   letter-spacing: -0.02em;
 }
 
@@ -24,9 +24,13 @@
   display: block;
   height: 4px;
   width: 60px;
-  background: #2563EB;
+  background: linear-gradient(90deg, #2563EB, #0EA5E9);
   border-radius: 2px;
   margin-bottom: 40px;
+}
+
+.profile-section p {
+  line-height: 1.8;
 }
 
 @media (max-width: 768px) {

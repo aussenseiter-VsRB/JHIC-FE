@@ -11,18 +11,20 @@ function Programs() {
   return (
     <section className="programs-section">
       <div className="section-container">
-        <h2 className="section-title">{data.heading}</h2>
-        <p className="section-subtitle">
-          Pilih jurusan yang sesuai dengan minat dan bakatmu
-        </p>
+        <div className="reveal">
+          <h2 className="section-title">{data.heading}</h2>
+          <p className="section-subtitle">
+            Pilih jurusan yang sesuai dengan minat dan bakatmu
+          </p>
+        </div>
         <div className="programs-grid">
-          {data.items.map((prog) => {
+          {data.items.map((prog, i) => {
             const colors = programAccents[prog.code] ?? { accent: "#2563EB", bg: "#DBEAFE" };
             return (
               <a
                 key={prog.code}
                 href={`/jurusan/${prog.code.toLowerCase()}`}
-                className="program-card"
+                className={`program-card reveal reveal-delay-${i + 1}`}
                 style={{ "--card-accent": colors.accent, "--card-accent-bg": colors.bg } as React.CSSProperties}
               >
                 <span className="program-code">{prog.code}</span>
@@ -33,7 +35,7 @@ function Programs() {
                   {prog.code === "HTL" && "Tata graha, tata boga, front office, dan layanan profesional."}
                 </p>
                 <span className="program-link">
-                  Selengkapnya <ArrowRight className="h-4 w-4" />
+                  Selengkapnya <ArrowRight className="program-link-arrow h-4 w-4" />
                 </span>
               </a>
             );

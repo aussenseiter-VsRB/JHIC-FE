@@ -35,12 +35,12 @@ function Ppdb() {
 
       <div className="ppdb-container">
         {/* Timeline Section */}
-        <div className="ppdb-section">
+        <div className="ppdb-section reveal">
           <h2 className="ppdb-section-title">Tahap Pendaftaran</h2>
           <span className="ppdb-section-accent" />
           <div className="ppdb-steps">
-            {steps.map((step) => (
-              <div key={step.step} className="ppdb-step">
+            {steps.map((step, i) => (
+              <div key={step.step} className={`ppdb-step reveal reveal-delay-${i + 1}`}>
                 <span className="ppdb-step-number">{step.step}</span>
                 <h3 className="ppdb-step-title">{step.title}</h3>
                 <p className="ppdb-step-desc">{step.description}</p>
@@ -56,7 +56,7 @@ function Ppdb() {
         <RegistrationWave />
 
         {/* Requirements Section */}
-        <div className="ppdb-section ppdb-section-alt">
+        <div className="ppdb-section ppdb-section-alt reveal">
           <h2 className="ppdb-section-title">Persyaratan</h2>
           <span className="ppdb-section-accent" />
           <div className="ppdb-requirements">
@@ -69,7 +69,7 @@ function Ppdb() {
           </div>
         </div>
         {/* CTA Section */}
-        <div className="ppdb-cta-section">
+        <div className="ppdb-cta-section reveal">
           <div className="ppdb-cta-content">
             <FileText className="h-8 w-8 text-blue" />
             <h2 className="ppdb-cta-title">Siap untuk Mendaftar?</h2>
@@ -83,7 +83,7 @@ function Ppdb() {
         </div>
 
         {/* Contact Section */}
-        <div className="ppdb-section">
+        <div className="ppdb-section reveal">
           <h2 className="ppdb-section-title">Hubungi Kami</h2>
           <span className="ppdb-section-accent" />
           <div className="ppdb-contact">
