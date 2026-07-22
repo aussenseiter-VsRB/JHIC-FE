@@ -20,7 +20,7 @@ function Layout() {
     <div className="min-h-screen bg-pearl">
       <ScrollToTop />
       <Navbar />
-      <main className="pt-[102px]">
+      <main>
         <Outlet />
         <Footer />
       </main>
