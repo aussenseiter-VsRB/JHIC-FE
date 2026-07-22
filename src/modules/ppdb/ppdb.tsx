@@ -1,9 +1,7 @@
 import { FileText, CheckCircle, ArrowRight, Phone, Mail, MapPin } from "lucide-react";
 import "./css/ppdb.css";
-import PpdbHero from "./components/PpdbHero";
 import RegistrationSteps from "./components/RegistrationSteps";
 import RegistrationWave from "./components/RegistrationWave";
-import VerticalTimeline from "./components/VerticalTimeline";
 
 const requirements = [
   "Fotokopi Ijazah SMA/SMP (2 lembar)",
@@ -23,6 +21,12 @@ function Ppdb() {
       <div className="ppdb-container">
         {/* Timeline Section */}
         <VerticalTimeline />
+
+        {/* Registration Steps */}
+        <RegistrationSteps />
+
+        {/* Registration Wave */}
+        <RegistrationWave />
 
         {/* Registration Steps */}
         <RegistrationSteps />
