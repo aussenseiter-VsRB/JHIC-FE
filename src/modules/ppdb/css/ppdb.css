@@ -7,7 +7,8 @@
    ================================================================ */
 .ppdb-hero {
   background: #1E3A5F;
-  padding: 140px 0 160px;
+  padding: 120px 24px 120px;
+  text-align: center;
   position: relative;
   overflow: hidden;
 }
@@ -1191,8 +1192,10 @@
   .ppdb-contact { grid-template-columns: 1fr; gap: 20px; }
 }
 
-@media (max-width: 720px) {
-  .ppdb-hero { padding: 100px 0 120px; }
+@media (max-width: 768px) {
+  .ppdb-header-section {
+    padding: 100px 20px 100px;
+  }
 
   .ppdb-hero-inner {
     grid-template-columns: 1fr;
