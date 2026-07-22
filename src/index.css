@@ -48,4 +48,21 @@ html {
   html {
     scroll-behavior: auto;
   }
+
+  .wave-scroll {
+    animation: none !important;
+  }
+}
+
+@keyframes wave-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.wave-scroll {
+  animation: wave-scroll 8s linear infinite;
 }
