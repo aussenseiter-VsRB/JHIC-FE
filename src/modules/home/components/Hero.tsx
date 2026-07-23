@@ -27,9 +27,6 @@ function Hero() {
       <div className="pointer-events-none absolute bottom-1/4 right-1/4 h-[300px] w-[300px] rounded-full bg-sky/[0.06] blur-[100px]" />
 
       <div className="relative z-10 mt-[40px] flex max-w-[800px] flex-col items-center text-center">
-        <span className="mb-6 inline-block animate-fade-in-up rounded-full border border-blue/30 bg-blue/10 px-4 py-1.5 font-poppins text-xs font-semibold uppercase tracking-widest text-blue">
-          Sekolah Menengah Kejuruan Unggulan
-        </span>
 
         <BlurText
           text={data.title}

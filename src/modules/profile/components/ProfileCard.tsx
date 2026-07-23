@@ -51,9 +51,6 @@ function ProfileCard() {
 
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center gap-10 md:flex-row md:items-start">
         <div className="flex-1">
-          <span className="mb-6 inline-block rounded-full border border-blue/30 bg-blue/10 px-4 py-1.5 font-poppins text-xs font-semibold uppercase tracking-widest text-blue">
-            Profil Sekolah
-          </span>
 
           <h1 className="font-heading text-[40px] font-extrabold leading-[1.1] tracking-tight text-white md:text-[56px]">
             SMK YADIKA SOREANG
