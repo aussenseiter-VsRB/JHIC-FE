@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import iconPplg from "../../../assets/icon-pplg.svg";
+import iconAkl from "../../../assets/icon-akl.svg";
+import iconHotel from "../../../assets/icon-hotel.svg";
 
-const programAccents: Record<string, { accent: string; bg: string }> = {
-  PPLG: { accent: "#0EA5E9", bg: "#E0F2FE" },
-  AKL: { accent: "#2563EB", bg: "#DBEAFE" },
-  HOTEL: { accent: "#1E3A5F", bg: "#E8EDF4" },
+const programIcons: Record<string, string> = {
+  PPLG: iconPplg,
+  AKL: iconAkl,
+  HOTEL: iconHotel,
 };
 
 interface JurusanCardProps {
@@ -15,15 +18,16 @@ interface JurusanCardProps {
 }
 
 function JurusanCard({ name, code, slug, description }: JurusanCardProps) {
-  const colors = programAccents[code] ?? { accent: "#2563EB", bg: "#DBEAFE" };
-
   return (
     <Link
       to={`/jurusan/${slug}`}
       className="jurusan-card reveal"
-      style={{ "--card-accent": colors.accent, "--card-accent-bg": colors.bg } as React.CSSProperties}
     >
-      <span className="jurusan-card-code">{code}</span>
+      <img
+        src={programIcons[code]}
+        alt={`Logo ${name}`}
+        className="jurusan-card-icon"
+      />
       <h3 className="jurusan-card-name">{name}</h3>
       <p className="jurusan-card-desc">{description}</p>
       <span className="jurusan-card-link">
