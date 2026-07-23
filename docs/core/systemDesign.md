@@ -25,6 +25,19 @@ src/modules/{moduleName}/
 
 Pages may also live in `services/` when they serve as route-level page components with data-fetching logic. Sub-pages can be nested inside a parent module directory (e.g., `profile/settings/`).
 
+## Global components
+
+```
+src/components/
+├── navbar/        — Site-wide navigation
+├── footer/        — Site-wide footer
+└── ...
+```
+
+- Global components live in `src/components/`. They are imported **only** by `src/core/layout.tsx` and rendered in the page shell (above/below `<Outlet />`).
+- Individual modules must **not** import from `src/components/` directly. If a component is used by a single module, it belongs in that module's `components/` directory.
+- `src/components/` is reserved for components that appear on **every page** (navbar, footer) or are genuinely shared across multiple modules.
+
 ## Key principles
 
 - **Module hierarchy.** Each route is a top-level module. Sub-pages may be sibling modules with parent-prefixed names (e.g., `profileSettings/`) or nested inside the parent (e.g., `profile/settings/`).
