@@ -122,23 +122,14 @@
   height: 100%;
 }
 
-.jurusan-card-code {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.jurusan-card-icon {
   width: 48px;
   height: 48px;
-  border-radius: 12px;
-  background: var(--card-accent-bg, #DBEAFE);
-  color: var(--card-accent, #2563EB);
-  font-family: var(--font-heading);
-  font-size: 0.85rem;
-  font-weight: 700;
   margin-bottom: 16px;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.jurusan-card:hover .jurusan-card-code {
+.jurusan-card:hover .jurusan-card-icon {
   transform: scale(1.08);
 }
 
