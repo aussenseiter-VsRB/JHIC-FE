@@ -57,6 +57,7 @@ function Berita() {
   };
 
   const [showAllTerkini, setShowAllTerkini] = useState(false);
+  const [activeSlide, setActiveSlide] = useState(0);
   const beritaSekolahRef = React.useRef<HTMLDivElement>(null);
 
   const initialTerkiniCount = 3;
@@ -64,15 +65,54 @@ function Berita() {
     ? beritaData.beritaTerkini?.list || []
     : (beritaData.beritaTerkini?.list || []).slice(0, initialTerkiniCount);
 
-  const scrollSekolah = (direction: "left" | "right") => {
-    if (beritaSekolahRef.current) {
-      const scrollAmount = beritaSekolahRef.current.clientWidth * 0.8;
-      beritaSekolahRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
+  const totalCards = beritaData.beritaSekolah?.list.length || 0;
+
+  const getCardsPerPage = (): number => {
+    if (!beritaSekolahRef.current) return 3;
+    const w = beritaSekolahRef.current.clientWidth;
+    if (w < 768) return 1;
+    if (w < 1024) return 2;
+    return 3;
   };
+
+  const totalPages = Math.ceil(totalCards / getCardsPerPage());
+
+  const goToSlide = (index: number) => {
+    const container = beritaSekolahRef.current;
+    if (!container) return;
+    const cardsPerPage = getCardsPerPage();
+    const targetIdx = Math.min(index * cardsPerPage, totalCards - 1);
+    const card = container.children[targetIdx] as HTMLElement;
+    if (card) {
+      container.scrollTo({ left: card.offsetLeft - 24, behavior: "smooth" });
+    }
+    setActiveSlide(index);
+  };
+
+  React.useEffect(() => {
+    const container = beritaSekolahRef.current;
+    if (!container) return;
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const cardsPerPage = getCardsPerPage();
+        const firstCard = container.children[0] as HTMLElement;
+        if (!firstCard) { ticking = false; return; }
+        const cardWidth = firstCard.offsetWidth;
+        const gap = 24;
+        const currentCard = Math.round(container.scrollLeft / (cardWidth + gap));
+        const page = Math.min(Math.floor(currentCard / cardsPerPage), totalPages - 1);
+        setActiveSlide(Math.max(0, page));
+        ticking = false;
+      });
+    };
+
+    container.addEventListener("scroll", handleScroll, { passive: true });
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, [totalPages]);
 
   if (loading) {
     return <SkeletonLoad />;
@@ -172,10 +212,12 @@ function Berita() {
           </div>
         </div>
 
-        {/* Wave Animation Bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-20 overflow-hidden">
-          <svg className="wave-scroll" viewBox="0 0 2880 120" fill="none" preserveAspectRatio="none" style={{ width: '200%', height: '80px' }}>
-            <path d="M0,80 C320,120 420,40 720,80 C1020,120 1120,40 1440,80 C1760,120 1860,40 2160,80 C2460,120 2560,40 2880,80 L2880,120 L0,120 Z" fill="#F5F5F5" />
+        {/* Layered Wave Animation Bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 overflow-hidden pointer-events-none">
+          <svg className="wave-scroll" viewBox="0 0 2880 120" fill="none" preserveAspectRatio="none" style={{ width: '200%', height: '96px' }}>
+            <path d="M0,60 C360,110 450,20 720,60 C990,100 1080,30 1440,60 C1800,90 1890,20 2160,60 C2430,100 2520,30 2880,60 L2880,120 L0,120 Z" fill="#F5F5F5" opacity="0.3" />
+            <path d="M0,75 C300,40 500,100 720,75 C940,50 1140,110 1440,75 C1740,40 1940,100 2160,75 C2380,50 2580,110 2880,75 L2880,120 L0,120 Z" fill="#F5F5F5" opacity="0.6" />
+            <path d="M0,90 C320,120 420,50 720,90 C1020,130 1120,60 1440,90 C1760,120 1860,50 2160,90 C2460,130 2560,60 2880,90 L2880,120 L0,120 Z" fill="#F5F5F5" />
           </svg>
         </div>
       </div>
@@ -269,15 +311,17 @@ function Berita() {
             <div className="slider-controls">
               <button
                 className="slider-btn"
-                onClick={() => scrollSekolah("left")}
-                aria-label="Scroll Left"
+                onClick={() => goToSlide(Math.max(0, activeSlide - 1))}
+                disabled={activeSlide === 0}
+                aria-label="Previous Page"
               >
                 <ArrowRight className="h-5 w-5 rotate-180" />
               </button>
               <button
                 className="slider-btn"
-                onClick={() => scrollSekolah("right")}
-                aria-label="Scroll Right"
+                onClick={() => goToSlide(Math.min(totalPages - 1, activeSlide + 1))}
+                disabled={activeSlide === totalPages - 1}
+                aria-label="Next Page"
               >
                 <ArrowRight className="h-5 w-5" />
               </button>
@@ -310,6 +354,18 @@ function Berita() {
                   </span>
                 </div>
               </article>
+            ))}
+          </div>
+
+          {/* Dot Indicators */}
+          <div className="berita-slider-dots">
+            {Array.from({ length: totalPages }, (_, i) => (
+              <button
+                key={i}
+                className={`berita-slider-dot ${i === activeSlide ? "berita-slider-dot--active" : ""}`}
+                onClick={() => goToSlide(i)}
+                aria-label={`Page ${i + 1}`}
+              />
             ))}
           </div>
         </section>
