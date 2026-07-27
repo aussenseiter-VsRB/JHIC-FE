@@ -109,3 +109,25 @@ html {
 .wave-scroll {
   animation: wave-scroll 8s linear infinite;
 }
+
+@media (max-width: 768px) {
+  .wave-scroll {
+    width: 150% !important;
+    height: 64px !important;
+  }
+
+  .wave-scroll-container {
+    height: 64px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .wave-scroll {
+    width: 120% !important;
+    height: 48px !important;
+  }
+
+  .wave-scroll-container {
+    height: 48px !important;
+  }
+}
