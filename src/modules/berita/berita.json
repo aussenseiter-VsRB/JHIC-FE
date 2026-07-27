@@ -1,1 +1,130 @@
-{}
+{
+  "header": {
+    "title": "Informasi & Pengumuman",
+    "subtitle": "Ikuti perkembangan terbaru, pengumuman resmi, berita prestasi siswa, serta berbagai agenda kegiatan sekolah terkini dari SMK Yadika Soreang.",
+    "image": "",
+    "tag": "Pusat Informasi & Kegiatan",
+    "floatingBadges": {
+      "topRight": {
+        "title": "Berita & Agenda",
+        "value": "100+ Publikasi"
+      },
+      "bottomLeft": {
+        "status": "Update Terkini",
+        "detail": "Informasi Resmi Sekolah"
+      }
+    },
+    "stats": [
+      {
+        "number": "50+",
+        "label": "Prestasi Siswa"
+      },
+      {
+        "number": "30+",
+        "label": "Mitra Industri"
+      },
+      {
+        "number": "100%",
+        "label": "Informasi Terverifikasi"
+      }
+    ]
+  },
+  "beritaSekolah": {
+    "title": "BERITA SEKOLAH",
+    "list": [
+      {
+        "id": 1,
+        "title": "SMK Yadika Soreang Raih Juara Lomba Kompetensi Siswa",
+        "date": "15 Juli 2026",
+        "category": "Prestasi",
+        "excerpt": "Siswa SMK Yadika Soreang berhasil meraih juara dalam lomba kompetensi siswa tingkat provinsi.",
+        "image": "/images/berita-1.jpg"
+      },
+      {
+        "id": 2,
+        "title": "Kerja Sama Industri dengan Perusahaan Teknologi Terkemuka",
+        "date": "10 Juli 2026",
+        "category": "Kerja Sama",
+        "excerpt": "SMK Yadika Soreang menjalin kerja sama dengan perusahaan teknologi untuk program magang siswa.",
+        "image": "/images/berita-2.jpg"
+      },
+      {
+        "id": 3,
+        "title": "Kunjungan Industri ke Bandung Techno Park",
+        "date": "5 Juli 2026",
+        "category": "Kegiatan",
+        "excerpt": "Siswa PPLG melakukan kunjungan industri untuk mempelajari teknologi terkini.",
+        "image": "/images/berita-3.jpg"
+      },
+      {
+        "id": 4,
+        "title": "Penerimaan Peserta Didik Baru 2026/2027 Dibuka",
+        "date": "1 Juli 2026",
+        "category": "PPDB",
+        "excerpt": "Pendaftaran PPDB SMK Yadika Soreang tahun ajaran 2026/2027 telah resmi dibuka.",
+        "image": "/images/berita-4.jpg"
+      },
+      {
+        "id": 5,
+        "title": "Workshop Digital Marketing untuk Siswa AKL",
+        "date": "28 Juni 2026",
+        "category": "Kegiatan",
+        "excerpt": "Siswa Akuntansi mendapatkan pelatihan digital marketing dari praktisi industri.",
+        "image": "/images/berita-5.jpg"
+      },
+      {
+        "id": 6,
+        "title": "Prestasi Siswa Perhotelan di Kompetisi Nasional",
+        "date": "20 Juni 2026",
+        "category": "Prestasi",
+        "excerpt": "Siswa program Perhotelan meraih medali emas dalam kompetisi tata boga nasional.",
+        "image": "/images/berita-6.jpg"
+      }
+    ]
+  },
+  "beritaTerkini": {
+    "title": "BERITA TERKINI",
+    "readMoreText": "LIHAT SELENGKAPNYA",
+    "list": [
+      {
+        "id": 101,
+        "title": "SMK Yadika Soreang Raih Juara Lomba Kompetensi Siswa",
+        "date": "15 Juli 2026",
+        "category": "Prestasi",
+        "excerpt": "Siswa SMK Yadika Soreang berhasil meraih juara dalam lomba kompetensi siswa tingkat provinsi dengan menyabet medali emas di bidang IT Software Solutions for Business.",
+        "image": "/images/berita-1.jpg"
+      },
+      {
+        "id": 102,
+        "title": "Kerja Sama Industri dengan Perusahaan Teknologi Terkemuka",
+        "date": "10 Juli 2026",
+        "category": "Kerja Sama",
+        "excerpt": "SMK Yadika Soreang menjalin kerja sama strategis dengan perusahaan teknologi terkemuka untuk program penyelarasan kurikulum dan magang siswa.",
+        "image": "/images/berita-2.jpg"
+      },
+      {
+        "id": 103,
+        "title": "Kunjungan Industri ke Bandung Techno Park",
+        "date": "5 Juli 2026",
+        "category": "Kegiatan",
+        "excerpt": "Siswa PPLG melakukan kunjungan industri ke Bandung Techno Park untuk mempelajari ekosistem startup dan teknologi terkini langsung dari praktisi.",
+        "image": "/images/berita-3.jpg"
+      },
+      {
+        "id": 104,
+        "title": "Penerimaan Peserta Didik Baru 2026/2027 Dibuka",
+        "date": "1 Juli 2026",
+        "category": "PPDB",
+        "excerpt": "Pendaftaran PPDB SMK Yadika Soreang tahun ajaran 2026/2027 telah resmi dibuka dengan berbagai program keahlian unggulan dan fasilitas modern.",
+        "image": "/images/berita-4.jpg"
+      }
+    ]
+  },
+  "readMoreText": "Baca Selengkapnya",
+  "categoryColors": {
+    "Prestasi": "#2563EB",
+    "Kerja Sama": "#0EA5E9",
+    "Kegiatan": "#1E3A5F",
+    "PPDB": "#6366F1"
+  }
+}
