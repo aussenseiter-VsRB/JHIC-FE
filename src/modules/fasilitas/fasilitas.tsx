@@ -51,7 +51,6 @@ function Fasilitas() {
     <div className="fasilitas">
       <div className="fasilitas-header-section">
         <div className="fasilitas-header-content">
-          <span className="fasilitas-badge">Fasilitas</span>
           <h1 className="fasilitas-title">Sarana & Prasarana</h1>
           <p className="fasilitas-subtitle">
             Fasilitas modern untuk mendukung proses belajar mengajar yang optimal

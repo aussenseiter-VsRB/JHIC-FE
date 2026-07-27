@@ -7,7 +7,6 @@ function PageJurusan() {
     <div className="jurusan-page">
       <div className="jurusan-header-section">
         <div className="jurusan-header-content">
-          <span className="jurusan-badge">Program Keahlian</span>
           <h1 className="jurusan-title">Pilih Jurusanmu</h1>
           <p className="jurusan-subtitle">
             Pilih jurusan yang sesuai dengan minat dan bakatmu untuk masa depan yang lebih baik
