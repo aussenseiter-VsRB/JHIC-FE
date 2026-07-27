@@ -1,7 +1,9 @@
 import { FileText, CheckCircle, ArrowRight, Phone, Mail, MapPin } from "lucide-react";
 import "./css/ppdb.css";
+import PpdbHero from "./components/PpdbHero";
 import RegistrationSteps from "./components/RegistrationSteps";
 import RegistrationWave from "./components/RegistrationWave";
+import VerticalTimeline from "./components/VerticalTimeline";
 
 const requirements = [
   "Fotokopi Ijazah SMA/SMP (2 lembar)",
@@ -16,30 +18,11 @@ const requirements = [
 function Ppdb() {
   return (
     <div className="ppdb">
-      <div className="ppdb-header-section">
-        <div className="ppdb-header-content">
-          <span className="ppdb-badge">PPDB 2026/2027</span>
-          <h1 className="ppdb-title">Penerimaan Peserta Didik Baru</h1>
-          <p className="ppdb-subtitle">
-            Bergabunglah bersama kami dan wujudkan masa depanmu di SMK Yadika Soreang
-          </p>
-        </div>
-        <div className="absolute bottom-0 left-0 right-0 h-20 overflow-hidden">
-          <svg className="wave-scroll" viewBox="0 0 2880 120" fill="none" preserveAspectRatio="none" style={{ width: '200%', height: '80px' }}>
-            <path d="M0,80 C320,120 420,40 720,80 C1020,120 1120,40 1440,80 C1760,120 1860,40 2160,80 C2460,120 2560,40 2880,80 L2880,120 L0,120 Z" fill="#F5F5F5" />
-          </svg>
-        </div>
-      </div>
+      <PpdbHero />
 
       <div className="ppdb-container">
         {/* Timeline Section */}
         <VerticalTimeline />
-
-        {/* Registration Steps */}
-        <RegistrationSteps />
-
-        {/* Registration Wave */}
-        <RegistrationWave />
 
         {/* Registration Steps */}
         <RegistrationSteps />
