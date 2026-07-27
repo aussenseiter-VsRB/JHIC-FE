@@ -684,10 +684,112 @@
   z-index: 1;
 }
 
+/* Load More Container & Button */
+.berita-load-more-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.berita-btn-load-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 32px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #1E3A5F 0%, #0A192F 100%);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: var(--font-poppins);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(30, 58, 95, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.berita-btn-load-more:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(30, 58, 95, 0.35);
+  background: linear-gradient(135deg, #2563EB 0%, #1E3A5F 100%);
+}
+
+/* Berita Sekolah Slider Controls & Container */
+.berita-section-header-flex {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.slider-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.slider-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #E2E8F0;
+  background: white;
+  color: #1E3A5F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.slider-btn:hover {
+  background: #1E3A5F;
+  color: white;
+  border-color: #1E3A5F;
+  box-shadow: 0 6px 16px rgba(30, 58, 95, 0.25);
+  transform: translateY(-2px);
+}
+
+.berita-slider-container {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 24px;
+  margin-bottom: -24px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #CBD5E1 transparent;
+}
+
+.berita-slider-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.berita-slider-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.berita-slider-container::-webkit-scrollbar-thumb {
+  background-color: #CBD5E1;
+  border-radius: 9999px;
+}
+
+.berita-card-slide {
+  flex: 0 0 calc(33.333% - 16px);
+  min-width: 300px;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .berita-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .berita-card-slide {
+    flex: 0 0 calc(50% - 12px);
   }
 
   .berita-title {
@@ -766,6 +868,10 @@
   .berita-grid {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  .berita-card-slide {
+    flex: 0 0 85%;
   }
 
   .berita-row,
