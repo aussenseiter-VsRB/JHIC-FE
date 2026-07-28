@@ -40,10 +40,6 @@ body {
   color: #ffffff;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -88,10 +84,6 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
   .wave-scroll {
     animation: none !important;
   }
