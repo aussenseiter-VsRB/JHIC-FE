@@ -120,15 +120,6 @@ function Hero() {
         </div>
       </div>
 
-      <div className="pointer-events-none absolute inset-0 opacity-[0.04]">
-        <div
-          className="h-full w-full"
-          style={{
-            backgroundImage: `repeating-linear-gradient(-45deg, transparent, transparent 40px, currentColor 40px, currentColor 41px)`,
-          }}
-        />
-      </div>
-
       <div className="pointer-events-none absolute top-1/3 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue/[0.08] blur-[140px]" />
       <div className="pointer-events-none absolute bottom-1/4 right-1/4 h-[300px] w-[300px] rounded-full bg-sky/[0.06] blur-[100px]" />
 
