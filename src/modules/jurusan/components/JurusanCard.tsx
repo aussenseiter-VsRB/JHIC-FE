@@ -15,13 +15,15 @@ interface JurusanCardProps {
   code: string;
   slug: string;
   description: string;
+  delay: number;
 }
 
-function JurusanCard({ name, code, slug, description }: JurusanCardProps) {
+function JurusanCard({ name, code, slug, description, delay }: JurusanCardProps) {
   return (
     <Link
       to={`/jurusan/${slug}`}
       className="jurusan-card reveal"
+      style={{ transitionDelay: `${delay}ms` }}
     >
       <img
         src={programIcons[code]}
