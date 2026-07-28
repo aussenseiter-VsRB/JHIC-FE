@@ -386,6 +386,28 @@
   gap: 24px;
 }
 
+.berita-grid .berita-card {
+  animation: slideFadeIn 0.35s ease-out both;
+}
+
+.berita-grid .berita-card:nth-child(1) { animation-delay: 0ms; }
+.berita-grid .berita-card:nth-child(2) { animation-delay: 50ms; }
+.berita-grid .berita-card:nth-child(3) { animation-delay: 100ms; }
+.berita-grid .berita-card:nth-child(4) { animation-delay: 150ms; }
+.berita-grid .berita-card:nth-child(5) { animation-delay: 200ms; }
+.berita-grid .berita-card:nth-child(6) { animation-delay: 250ms; }
+
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .berita-card {
   background: white;
   border-radius: 16px;
@@ -716,7 +738,7 @@
   background: linear-gradient(135deg, #2563EB 0%, #1E3A5F 100%);
 }
 
-/* Berita Sekolah Slider Controls & Container */
+/* Berita Sekolah Paginated Controls */
 .berita-section-header-flex {
   display: flex;
   align-items: flex-end;
@@ -766,28 +788,6 @@
   border-color: #E2E8F0;
 }
 
-.berita-slider-container {
-  display: flex;
-  gap: 24px;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 8px;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-
-.berita-slider-container::-webkit-scrollbar {
-  display: none;
-}
-
-.berita-card-slide {
-  flex: 0 0 calc(33.333% - 16px);
-  min-width: 300px;
-  scroll-snap-align: start;
-}
-
-/* Dot Indicators */
 .berita-slider-dots {
   display: flex;
   justify-content: center;
@@ -817,20 +817,10 @@
   border-radius: 9999px;
 }
 
-.wave-scroll {
-  width: 200%;
-  height: 96px;
-  display: block;
-}
-
 /* Responsive */
 @media (max-width: 1024px) {
   .berita-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .berita-card-slide {
-    flex: 0 0 calc(50% - 12px);
   }
 
   .berita-title {
@@ -919,10 +909,6 @@
     gap: 16px;
   }
 
-  .berita-card-slide {
-    flex: 0 0 85%;
-  }
-
   .berita-row,
   .berita-row-reverse {
     flex-direction: column;
@@ -981,15 +967,6 @@
   .berita-btn-load-more {
     padding: 12px 24px;
     font-size: 0.8rem;
-  }
-
-  .wave-scroll {
-    width: 150%;
-    height: 64px;
-  }
-
-  .berita-wave-container {
-    height: 64px !important;
   }
 
   .berita-header-section::after {
@@ -1119,14 +1096,6 @@
     font-size: 0.8rem;
   }
 
-  .berita-card-slide {
-    flex: 0 0 90%;
-  }
-
-  .berita-slider-dots {
-    margin-top: 16px;
-  }
-
   .berita-btn-load-more {
     width: 100%;
     justify-content: center;
@@ -1136,14 +1105,5 @@
 
   .berita-load-more-container {
     margin-top: 32px;
-  }
-
-  .wave-scroll {
-    width: 120%;
-    height: 48px;
-  }
-
-  .berita-wave-container {
-    height: 48px !important;
   }
 }

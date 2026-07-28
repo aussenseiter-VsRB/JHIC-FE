@@ -79,6 +79,70 @@
         "category": "Prestasi",
         "excerpt": "Siswa program Perhotelan meraih medali emas dalam kompetisi tata boga nasional.",
         "image": "/images/berita-6.jpg"
+      },
+      {
+        "id": 7,
+        "title": "Ujian Kenaikan Tingkat Bahasa Jepang JLPT N3",
+        "date": "15 Juni 2026",
+        "category": "Kegiatan",
+        "excerpt": "Siswa pemrograman web mengikuti ujian JLPT N3 di bawah bimbingan guru bahasa Jepang sekolah.",
+        "image": "/images/berita-7.jpg"
+      },
+      {
+        "id": 8,
+        "title": "Pelatihan Keamanan Siber untuk Siswa PPLG",
+        "date": "10 Juni 2026",
+        "category": "Kegiatan",
+        "excerpt": "Workshop keamanan siber diadakan untuk meningkatkan kemampuan siswa dalam melindungi data digital.",
+        "image": "/images/berita-8.jpg"
+      },
+      {
+        "id": 9,
+        "title": "SMK Yadika Soreang Juara 2 Lomba Web Design Tingkat Kota",
+        "date": "5 Juni 2026",
+        "category": "Prestasi",
+        "excerpt": "Tim desain web sekolah berhasil meraih juara 2 dalam lomba desain website tingkat kota Bandung.",
+        "image": "/images/berita-9.jpg"
+      },
+      {
+        "id": 10,
+        "title": "Penandatanganan MoU dengan Bank BJB Cabang Soreang",
+        "date": "1 Juni 2026",
+        "category": "Kerja Sama",
+        "excerpt": "Perjanjian kerja sama untuk program praktik kerja lapangan siswa Akuntansi dan Keuangan.",
+        "image": "/images/berita-10.jpg"
+      },
+      {
+        "id": 11,
+        "title": "Kunjungan Siswa ke Balai Besar Standardisasi BPPPB",
+        "date": "25 Mei 2026",
+        "category": "Kegiatan",
+        "excerpt": "Siswa melihat langsung proses standardisasi dan uji laboratorium di balai pemerintah.",
+        "image": "/images/berita-11.jpg"
+      },
+      {
+        "id": 12,
+        "title": "Sosialisasi Pendidikan Karakter dan Anti-Bullying",
+        "date": "20 Mei 2026",
+        "category": "Kegiatan",
+        "excerpt": "Kegiatan rutin bulanan untuk membangun lingkungan sekolah yang aman dan nyaman bagi seluruh siswa.",
+        "image": "/images/berita-12.jpg"
+      },
+      {
+        "id": 13,
+        "title": "PPDB 2026/2027 Gelombang Kedua Dibuka 1 Juli",
+        "date": "15 Mei 2026",
+        "category": "PPDB",
+        "excerpt": "Gelombang kedua pendaftaran dibuka dengan kuota terbatas untuk semua program keahlian.",
+        "image": "/images/berita-13.jpg"
+      },
+      {
+        "id": 14,
+        "title": "Lomba Kreativitas Siswa Tingkat Provinsi Jawa Barat",
+        "date": "10 Mei 2026",
+        "category": "Prestasi",
+        "excerpt": "Siswa SMK Yadika Soreang mengirimkan tiga tim untuk berkompetisi di ajang kreativitas tingkat provinsi.",
+        "image": "/images/berita-14.jpg"
       }
     ]
   },
