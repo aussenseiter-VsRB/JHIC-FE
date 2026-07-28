@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import type { CSSProperties } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Menu, X, ArrowUpRight } from 'lucide-react'
 import logoSrc from '../../assets/Logo-yadika.webp'
@@ -17,13 +18,30 @@ const navLinks: NavItem[] = [
   { label: 'PPDB', to: '/ppdb' },
 ]
 
-export default function Navbar() {
+interface NavbarProps {
+  accentColor?: string;
+}
+
+export default function Navbar({ accentColor }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [hidden, setHidden] = useState(false)
   const lastScrollY = useRef<number>(typeof window !== 'undefined' ? window.scrollY : 0)
   const ticking = useRef(false)
   const nearFooter = useRef(false)
+
+  const navbarStyle = accentColor
+    ? {
+        '--nb-bg': accentColor,
+        '--nb-bg-80': `${accentColor}CC`,
+        '--nb-bg-95': `${accentColor}F2`,
+        '--nb-border-10': `${accentColor}1A`,
+        '--nb-shadow-20': `${accentColor}33`,
+        '--nb-shadow-30': `${accentColor}4D`,
+        '--nb-accent': accentColor,
+        '--nb-accent-10': `${accentColor}1A`,
+      } as CSSProperties
+    : {}
 
   useEffect(() => {
     const footer = document.querySelector('footer')
@@ -72,6 +90,7 @@ export default function Navbar() {
     <nav
       className="fixed top-4 left-4 right-4 z-50 flex justify-center md:left-8 md:right-8"
       style={{
+        ...navbarStyle,
         transform: hidden ? 'translateY(calc(-100% + -5px))' : 'translateY(0)',
         transition: 'transform 300ms ease-in-out',
       }}
@@ -81,11 +100,10 @@ export default function Navbar() {
       <div
         className={`flex h-[70px] w-full max-w-5xl items-center justify-between rounded-full border px-6 transition-all duration-300 md:px-8 ${
           scrolled
-            ? 'border-navy/10 bg-navy/95 shadow-lg shadow-navy/20'
-            : 'border-white/20 bg-navy/80 backdrop-blur-md'
+            ? 'border-[var(--nb-border-10,#1E3A5F1A)] bg-[var(--nb-bg-95,#1E3A5FF2)] shadow-lg shadow-[var(--nb-shadow-20,#1E3A5F33)]'
+            : 'border-white/20 bg-[var(--nb-bg-80,#1E3A5FCC)] backdrop-blur-md'
         }`}
       >
-        {/* Logo */}
         <NavLink
           to="/"
           aria-label="SMK YADIKA SOREANG - Beranda"
@@ -99,7 +117,6 @@ export default function Navbar() {
           />
         </NavLink>
 
-        {/* Desktop Navigation Links */}
         <ul className="hidden items-center gap-8 md:flex" role="menubar">
           {navLinks.map((link) => (
             <li key={link.to} role="none">
@@ -110,7 +127,7 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   `relative font-body text-[15px] font-medium transition-colors duration-200 ${
                     isActive
-                      ? 'font-semibold text-blue'
+                      ? 'font-semibold text-[var(--nb-accent,#2563EB)]'
                       : 'text-white/80 hover:text-white'
                   }`
                 }
@@ -119,7 +136,7 @@ export default function Navbar() {
                   <>
                     {link.label}
                     {isActive && (
-                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-blue" />
+                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-[var(--nb-accent,#2563EB)]" />
                     )}
                   </>
                 )}
@@ -128,7 +145,6 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Desktop Right Controls */}
         <div className="hidden items-center gap-3 md:flex">
           <a
             href="#brosur"
@@ -145,7 +161,6 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile Hamburger */}
         <button
           type="button"
           onClick={toggleMobile}
@@ -158,17 +173,15 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <div
         id="mobile-menu"
         role="menu"
         aria-hidden={!mobileOpen}
-        className={`absolute top-[86px] left-4 right-4 z-50 overflow-y-auto rounded-3xl border border-white/10 bg-navy shadow-lg shadow-navy/30 transition-all duration-300 md:hidden ${
+        className={`absolute top-[86px] left-4 right-4 z-50 overflow-y-auto rounded-3xl border border-white/10 bg-[var(--nb-bg,#1E3A5F)] shadow-lg shadow-[var(--nb-shadow-30,#1E3A5F4D)] transition-all duration-300 md:hidden ${
           mobileOpen ? 'max-h-[80vh] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
         }`}
       >
         <div className="flex flex-col gap-1 p-4">
-          {/* Mobile Nav Links */}
           <ul className="flex flex-col gap-1" role="menu">
             {navLinks.map((link) => (
               <li key={link.to} role="none">
@@ -180,7 +193,7 @@ export default function Navbar() {
                   className={({ isActive }) =>
                     `block rounded-xl px-4 py-3 font-body text-[16px] font-medium transition-colors duration-200 ${
                       isActive
-                        ? 'bg-blue/10 font-semibold text-blue'
+                        ? 'bg-[var(--nb-accent-10,#2563EB1A)] font-semibold text-[var(--nb-accent,#2563EB)]'
                         : 'text-white/80 hover:bg-white/5 hover:text-white'
                     }`
                   }
@@ -191,10 +204,8 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Mobile Divider */}
           <hr className="my-2 border-white/10" />
 
-          {/* Mobile Buttons */}
           <div className="flex items-center gap-3 px-2">
             <a
               href="#brosur"

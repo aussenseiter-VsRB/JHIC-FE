@@ -4,6 +4,12 @@
   "name": "Perhotelan dan Jasa Pariwisata",
   "description": "Mempelajari tata graha, tata boga, front office, dan layanan perhotelan profesional.",
   "detailDescription": "Mempelajari tata graha, tata boga, front office, dan layanan perhotelan profesional berskala internasional.",
+  "theme": {
+    "accent": "#18181B",
+    "accentBg": "#F4F4F5",
+    "gradientFrom": "#18181B",
+    "gradientTo": "#27272A"
+  },
   "subjects": [
     "Front Office dan reservasi",
     "Tata graha (housekeeping)",

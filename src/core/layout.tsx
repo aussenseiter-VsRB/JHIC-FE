@@ -39,13 +39,22 @@ function useRevealOnScroll() {
   }, [useLocation().pathname]);
 }
 
+const jurusanAccentMap: Record<string, string> = {
+  pplg: '#1E3A5F',
+  hotel: '#18181B',
+  akuntansi: '#B91C1C',
+};
+
 function Layout() {
   useRevealOnScroll();
+  const { pathname } = useLocation();
+  const jurusanMatch = pathname.match(/^\/jurusan\/([^/]+)/);
+  const accentColor = jurusanMatch ? jurusanAccentMap[jurusanMatch[1]] : undefined;
 
   return (
     <div className="min-h-screen bg-pearl">
       <ScrollToTop />
-      <Navbar />
+      <Navbar accentColor={accentColor} />
       <main>
         <Outlet />
         <Footer />

@@ -4,6 +4,12 @@
   "name": "Pemrograman Perangkat Lunak dan Gim",
   "description": "Mempelajari pengembangan perangkat lunak, website, mobile apps, dan pembuatan gim interaktif.",
   "detailDescription": "Mempelajari pengembangan perangkat lunak, website, mobile apps, dan pembuatan gim interaktif dari nol hingga siap kerja.",
+  "theme": {
+    "accent": "#1E3A5F",
+    "accentBg": "#E8EDF4",
+    "gradientFrom": "#1E3A5F",
+    "gradientTo": "#2D4A6F"
+  },
   "subjects": [
     "Pemrograman web (HTML, CSS, JavaScript, PHP)",
     "Basis data dan server-side programming",
