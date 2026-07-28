@@ -4,6 +4,12 @@
   "name": "Akuntansi dan Keuangan",
   "description": "Mempelajari pembukuan, laporan keuangan, perpajakan, dan administrasi keuangan.",
   "detailDescription": "Mempelajari pembukuan, laporan keuangan, perpajakan, dan administrasi keuangan secara profesional.",
+  "theme": {
+    "accent": "#B91C1C",
+    "accentBg": "#FEE2E2",
+    "gradientFrom": "#B91C1C",
+    "gradientTo": "#991B1B"
+  },
   "subjects": [
     "Pembukuan dan akuntansi dasar",
     "Akuntansi keuangan dan manajemen",
