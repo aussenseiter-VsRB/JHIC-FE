@@ -1,7 +1,9 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { BookOpen, Briefcase } from "lucide-react";
 import { jurusanData } from "../data";
+
+const EASE = [0.16, 1, 0.3, 1] as const;
 
 function JurusanHeroSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -16,11 +18,6 @@ function JurusanHeroSlider() {
   const goToNext = useCallback(() => {
     setDirection(1);
     setActiveIndex((prev) => (prev + 1) % jurusanData.length);
-  }, []);
-
-  const goToPrev = useCallback(() => {
-    setDirection(-1);
-    setActiveIndex((prev) => (prev - 1 + jurusanData.length) % jurusanData.length);
   }, []);
 
   useEffect(() => {
@@ -38,19 +35,15 @@ function JurusanHeroSlider() {
     "--slider-gradient-to": slide.theme.gradientTo,
   } as React.CSSProperties;
 
-  const variants = {
-    enter: (dir: number) => ({
-      x: dir > 0 ? 60 : -60,
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-    },
-    exit: (dir: number) => ({
-      x: dir > 0 ? -60 : 60,
-      opacity: 0,
-    }),
+  const slideVariants = {
+    enter: (dir: number) => ({ x: dir > 0 ? 40 : -40, opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (dir: number) => ({ x: dir > 0 ? -40 : 40, opacity: 0 }),
+  };
+
+  const staggerItem = {
+    hidden: { opacity: 0, y: 14 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
   };
 
   return (
@@ -60,61 +53,117 @@ function JurusanHeroSlider() {
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
+      <div className="jurusan-hero-orb jurusan-hero-orb--1" />
+      <div className="jurusan-hero-orb jurusan-hero-orb--2" />
+      <div className="jurusan-hero-orb jurusan-hero-orb--3" />
+      <div className="jurusan-hero-dots-overlay" />
       <div className="jurusan-hero-glow" />
 
-      <div className="jurusan-hero-content">
-        <AnimatePresence mode="wait" custom={direction}>
-          <motion.div
-            key={slide.code}
-            custom={direction}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <span className="jurusan-badge" style={{ color: slide.theme.accent, borderColor: `${slide.theme.accent}4D`, background: `${slide.theme.accent}1A` }}>
-              {slide.code}
-            </span>
-            <h1 className="jurusan-hero-title">{slide.name}</h1>
-            <p className="jurusan-hero-desc">{slide.description}</p>
-          </motion.div>
-        </AnimatePresence>
-      </div>
+      <div className="jurusan-hero-inner">
+        <div className="jurusan-hero-content">
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={slide.code}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.45, ease: EASE }}
+              className="jurusan-hero-text-group"
+            >
+              <motion.span
+                className="jurusan-hero-label"
+                variants={staggerItem}
+              >
+                <span className="jurusan-hero-label-dot" style={{ background: slide.theme.accent }} />
+                Program Keahlian
+              </motion.span>
+              <motion.h1 className="jurusan-hero-title" variants={staggerItem}>
+                {slide.name}
+              </motion.h1>
+              <motion.p className="jurusan-hero-desc" variants={staggerItem}>
+                {slide.description}
+              </motion.p>
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
-      <div className="jurusan-hero-visual">
-        <AnimatePresence mode="wait" custom={direction}>
-          <motion.div
-            key={slide.code}
-            custom={direction}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="jurusan-hero-placeholder"
-          />
-        </AnimatePresence>
+        <div className="jurusan-hero-visual">
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={slide.code}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.45, ease: EASE }}
+              className="jurusan-hero-placeholder"
+            >
+              <span className="jurusan-hero-placeholder-code">{slide.code}</span>
+            </motion.div>
+          </AnimatePresence>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`info-subjects-${slide.code}`}
+              className="jurusan-hero-info-card jurusan-hero-info-card--subjects"
+              initial={{ opacity: 0, scale: 0.9, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 10 }}
+              transition={{ duration: 0.5, delay: 0.3, ease: EASE }}
+            >
+              <div className="jurusan-hero-info-card-icon">
+                <BookOpen className="h-4 w-4" />
+              </div>
+              <div className="jurusan-hero-info-card-text">
+                <span className="jurusan-hero-info-card-value">{slide.subjects.length}</span>
+                <span className="jurusan-hero-info-card-label">Mata Pelajaran</span>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`info-career-${slide.code}`}
+              className="jurusan-hero-info-card jurusan-hero-info-card--career"
+              initial={{ opacity: 0, scale: 0.9, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 10 }}
+              transition={{ duration: 0.5, delay: 0.45, ease: EASE }}
+            >
+              <div className="jurusan-hero-info-card-icon jurusan-hero-info-card-icon--gold">
+                <Briefcase className="h-4 w-4" />
+              </div>
+              <div className="jurusan-hero-info-card-text">
+                <span className="jurusan-hero-info-card-value">Lulusan</span>
+                <span className="jurusan-hero-info-card-label">{slide.code}</span>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
 
       <div className="jurusan-hero-controls">
-        <div className="jurusan-hero-dots">
+        <div className="jurusan-hero-segment">
           {jurusanData.map((j, i) => (
             <button
               key={j.slug}
-              className={`jurusan-hero-dot ${i === activeIndex ? "jurusan-hero-dot-active" : ""}`}
+              className="jurusan-hero-segment-btn"
               onClick={() => goToSlide(i)}
               aria-label={`Go to slide ${j.code}`}
-            />
+            >
+              {i === activeIndex && (
+                <motion.span
+                  className="jurusan-hero-segment-indicator"
+                  layoutId="segment-active"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
+              <span className="jurusan-hero-segment-label">{j.code}</span>
+            </button>
           ))}
-        </div>
-        <div className="jurusan-hero-arrows">
-          <button className="jurusan-hero-arrow-btn" onClick={goToPrev} aria-label="Previous slide">
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-          <button className="jurusan-hero-arrow-btn" onClick={goToNext} aria-label="Next slide">
-            <ChevronRight className="h-5 w-5" />
-          </button>
         </div>
       </div>
 

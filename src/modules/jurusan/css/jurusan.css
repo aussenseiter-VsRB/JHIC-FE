@@ -7,51 +7,130 @@
 }
 
 .jurusan-badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   border-radius: 9999px;
   border: 1px solid rgba(37, 99, 235, 0.3);
   background: rgba(37, 99, 235, 0.1);
-  padding: 6px 16px;
+  padding: 6px 14px;
   font-family: var(--font-poppins);
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #2563EB;
-  margin-bottom: 24px;
+}
+
+.jurusan-hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-poppins);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 14px;
+}
+
+.jurusan-hero-label-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  animation: jurusan-label-dot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes jurusan-label-dot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(1.4); }
 }
 
 .jurusan-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 24px;
+  padding: 80px 24px;
 }
 
-/* ---------- Hero Slider ---------- */
+/* ==============================
+   Hero Slider
+   ============================== */
 
 .jurusan-hero-slider {
   position: relative;
   width: 100%;
-  min-height: 420px;
-  padding-top: 80px;
-  padding-bottom: 50px;
   background: var(--slider-accent, #1E3A5F);
-  display: flex;
-  align-items: center;
   overflow: hidden;
   transition: background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.jurusan-hero-slider::before {
-  content: "";
+.jurusan-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 140px 64px 100px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+/* Floating Orbs */
+
+.jurusan-hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.jurusan-hero-orb--1 {
+  width: 480px;
+  height: 480px;
+  top: -10%;
+  right: -5%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  animation: jurusan-orb-drift 9s ease-in-out infinite;
+}
+
+.jurusan-hero-orb--2 {
+  width: 300px;
+  height: 300px;
+  bottom: 5%;
+  left: 5%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  animation: jurusan-orb-drift 11s ease-in-out infinite reverse;
+}
+
+.jurusan-hero-orb--3 {
+  width: 160px;
+  height: 160px;
+  top: 50%;
+  left: 45%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, transparent 70%);
+  animation: jurusan-orb-drift 7s ease-in-out infinite 2s;
+}
+
+@keyframes jurusan-orb-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(24px, -18px) scale(1.04); }
+  66%      { transform: translate(-16px, 12px) scale(0.96); }
+}
+
+/* Dot Pattern Overlay */
+
+.jurusan-hero-dots-overlay {
   position: absolute;
   inset: 0;
-  opacity: 0.05;
-  background-image:
-    radial-gradient(circle at 20% 50%, rgba(255,255,255,0.08) 0%, transparent 50%),
-    repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,0.03) 40px, rgba(255,255,255,0.03) 41px);
+  opacity: 0.035;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.8) 1px, transparent 1px);
+  background-size: 28px 28px;
   pointer-events: none;
+  mask-image: radial-gradient(ellipse 60% 55% at 50% 45%, black 20%, transparent 100%);
 }
+
+/* Glow */
 
 .jurusan-hero-glow {
   position: absolute;
@@ -60,22 +139,32 @@
   width: 400px;
   height: 400px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
   transform: translateY(-50%);
   pointer-events: none;
+  animation: jurusan-glow-pulse 5s ease-in-out infinite;
 }
 
+@keyframes jurusan-glow-pulse {
+  0%, 100% { opacity: 1; transform: translateY(-50%) scale(1); }
+  50%      { opacity: 0.6; transform: translateY(-50%) scale(1.1); }
+}
+
+/* Content (left) */
+
 .jurusan-hero-content {
-  position: relative;
-  z-index: 2;
   flex: 1;
-  max-width: 560px;
-  padding: 60px 48px 80px 64px;
+  max-width: 520px;
+}
+
+.jurusan-hero-text-group {
+  display: flex;
+  flex-direction: column;
 }
 
 .jurusan-hero-title {
   font-family: var(--font-heading);
-  font-size: 2.75rem;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
   font-weight: 800;
   color: white;
   margin: 0 0 16px;
@@ -85,91 +174,188 @@
 
 .jurusan-hero-desc {
   font-family: var(--font-body);
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.55);
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.7;
+  max-width: 440px;
 }
+
+/* Visual (right) */
 
 .jurusan-hero-visual {
   position: relative;
-  z-index: 2;
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 60px;
+  min-height: 340px;
 }
 
 .jurusan-hero-placeholder {
-  width: 320px;
-  height: 320px;
+  width: 300px;
+  height: 300px;
   border-radius: 24px;
   background: linear-gradient(135deg, var(--slider-gradient-from, #0EA5E9), var(--slider-gradient-to, #0284C7));
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15);
-}
-
-.jurusan-hero-controls {
-  position: absolute;
-  bottom: 40px;
-  left: 64px;
-  right: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 4;
-}
-
-.jurusan-hero-dots {
-  display: flex;
-  gap: 8px;
-}
-
-.jurusan-hero-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 9999px;
-  border: none;
-  background: rgba(255, 255, 255, 0.3);
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  padding: 0;
-}
-
-.jurusan-hero-dot-active {
-  background: rgba(255, 255, 255, 0.9);
-  width: 24px;
-}
-
-.jurusan-hero-arrows {
-  display: flex;
-  gap: 12px;
-}
-
-.jurusan-hero-arrow-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.06);
-  color: white;
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: jurusan-placeholder-float 6s ease-in-out infinite;
+}
+
+.jurusan-hero-placeholder-code {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.15);
+  letter-spacing: 0.05em;
+  user-select: none;
+}
+
+@keyframes jurusan-placeholder-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+/* Info Cards */
+
+.jurusan-hero-info-card {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  padding: 12px 16px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+}
+
+.jurusan-hero-info-card--subjects {
+  top: 8%;
+  right: 0;
+  animation: jurusan-card-bob 5s ease-in-out infinite;
+}
+
+.jurusan-hero-info-card--career {
+  bottom: 8%;
+  left: 0;
+  animation: jurusan-card-bob 5s ease-in-out infinite 1.2s;
+}
+
+@keyframes jurusan-card-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+.jurusan-hero-info-card-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.jurusan-hero-info-card-icon--gold {
+  background: linear-gradient(135deg, #C9A84C, #A8893A);
+}
+
+.jurusan-hero-info-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.jurusan-hero-info-card-value {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.jurusan-hero-info-card-label {
+  font-family: var(--font-poppins);
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Controls */
+
+.jurusan-hero-controls {
+  position: absolute;
+  bottom: 36px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 4;
+}
+
+.jurusan-hero-segment {
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 100px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.jurusan-hero-segment-btn {
+  position: relative;
+  padding: 8px 22px;
+  border-radius: 100px;
+  border: none;
+  background: transparent;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  backdrop-filter: blur(12px);
+  transition: color 0.25s ease;
+  white-space: nowrap;
 }
 
-.jurusan-hero-arrow-btn:hover {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.3);
-  transform: scale(1.05);
+.jurusan-hero-segment-label {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.45);
+  transition: color 0.25s ease;
+  pointer-events: none;
 }
 
-.jurusan-hero-arrow-btn:active {
-  transform: scale(0.97);
+.jurusan-hero-segment-btn:hover .jurusan-hero-segment-label {
+  color: rgba(255, 255, 255, 0.75);
 }
+
+.jurusan-hero-segment-indicator {
+  position: absolute;
+  inset: 0;
+  border-radius: 100px;
+  background: var(--slider-accent, #1E3A5F);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.jurusan-hero-segment-indicator + .jurusan-hero-segment-label {
+  color: #fff;
+}
+
+/* Wave */
 
 .wave-scroll-container {
   position: absolute;
@@ -188,14 +374,49 @@
   animation: wave-scroll 8s linear infinite;
 }
 
-/* ---------- Grid ---------- */
+/* ==============================
+   Section Header
+   ============================== */
+
+.jurusan-section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.jurusan-section-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1E3A5F;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+}
+
+.jurusan-section-desc {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: #64748B;
+  margin: 0;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* ==============================
+   Grid
+   ============================== */
+
 .jurusan-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
-/* ---------- Card ---------- */
+/* ==============================
+   Card
+   ============================== */
+
 .jurusan-card {
   position: relative;
   display: flex;
@@ -298,11 +519,14 @@
   transform: translateX(3px);
 }
 
-/* ---------- Specific Jurusan Page ---------- */
+/* ==============================
+   Specific Jurusan Page
+   ============================== */
+
 .jurusan-specific {
   max-width: 800px;
   margin: 0 auto;
-  padding: 60px 24px 80px;
+  padding: 80px 24px 100px;
 }
 
 .jurusan-specific-header {
@@ -411,12 +635,37 @@
   background: #2563EB;
 }
 
-/* ---------- Responsive ---------- */
+/* ==============================
+   Responsive
+   ============================== */
+
+@media (max-width: 1024px) {
+  .jurusan-hero-inner {
+    padding: 120px 40px 90px;
+    gap: 32px;
+  }
+
+  .jurusan-hero-placeholder {
+    width: 260px;
+    height: 260px;
+  }
+}
+
 @media (max-width: 768px) {
   .jurusan-hero-slider {
+    background: var(--slider-accent, #1E3A5F);
+  }
+
+  .jurusan-hero-inner {
     flex-direction: column;
-    min-height: auto;
-    padding: 100px 20px 120px;
+    padding: 110px 24px 100px;
+    gap: 0;
+    text-align: center;
+  }
+
+  .jurusan-hero-orb,
+  .jurusan-hero-dots-overlay {
+    display: none;
   }
 
   .jurusan-hero-glow {
@@ -426,9 +675,15 @@
   }
 
   .jurusan-hero-content {
-    padding: 0;
     max-width: 100%;
-    text-align: center;
+  }
+
+  .jurusan-hero-label {
+    justify-content: center;
+  }
+
+  .jurusan-hero-desc {
+    max-width: 100%;
   }
 
   .jurusan-hero-title {
@@ -436,7 +691,8 @@
   }
 
   .jurusan-hero-visual {
-    padding: 40px 20px;
+    min-height: 260px;
+    padding: 32px 0 0;
   }
 
   .jurusan-hero-placeholder {
@@ -444,13 +700,28 @@
     height: 200px;
   }
 
+  .jurusan-hero-placeholder-code {
+    font-size: 2rem;
+  }
+
+  .jurusan-hero-info-card {
+    display: none;
+  }
+
   .jurusan-hero-controls {
-    left: 20px;
-    right: 20px;
+    bottom: 28px;
   }
 
   .jurusan-container {
-    padding: 40px 20px;
+    padding: 56px 20px;
+  }
+
+  .jurusan-section-header {
+    margin-bottom: 32px;
+  }
+
+  .jurusan-section-title {
+    font-size: 1.5rem;
   }
 
   .jurusan-grid {
@@ -459,10 +730,36 @@
   }
 
   .jurusan-specific {
-    padding: 40px 20px 60px;
+    padding: 56px 20px 80px;
   }
 
   .jurusan-specific-title {
     font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .jurusan-hero-inner {
+    padding: 100px 16px 90px;
+  }
+
+  .jurusan-hero-title {
+    font-size: 1.5rem;
+  }
+
+  .jurusan-hero-desc {
+    font-size: 0.95rem;
+  }
+
+  .jurusan-hero-controls {
+    bottom: 24px;
+  }
+
+  .jurusan-container {
+    padding: 48px 16px;
+  }
+
+  .jurusan-specific {
+    padding: 48px 16px 64px;
   }
 }

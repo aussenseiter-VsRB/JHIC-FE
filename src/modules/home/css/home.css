@@ -14,20 +14,7 @@
   overflow: hidden;
 }
 
-.home-hero-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.04;
-  background-image: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 28px,
-    rgba(255, 255, 255, 0.7) 28px,
-    rgba(255, 255, 255, 0.7) 29px
-  );
-  pointer-events: none;
-}
+
 
 .home-hero-orb {
   position: absolute;
