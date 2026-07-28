@@ -167,8 +167,7 @@ function Berita() {
           </div>
         </div>
 
-        {/* Layered Wave Animation Bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 overflow-hidden pointer-events-none wave-scroll-container">
+        {/* Layered Wave Animation Bottom */} origin/max
           <svg className="wave-scroll" viewBox="0 0 2880 120" fill="none" preserveAspectRatio="none" style={{ width: '200%', height: '96px' }}>
             <path d="M0,60 C360,110 450,20 720,60 C990,100 1080,30 1440,60 C1800,90 1890,20 2160,60 C2430,100 2520,30 2880,60 L2880,120 L0,120 Z" fill="#F5F5F5" opacity="0.3" />
             <path d="M0,75 C300,40 500,100 720,75 C940,50 1140,110 1440,75 C1740,40 1940,100 2160,75 C2380,50 2580,110 2880,75 L2880,120 L0,120 Z" fill="#F5F5F5" opacity="0.6" />
@@ -253,21 +252,14 @@ function Berita() {
             </div>
           )}
         </section>
-
-        {/* Section: Berita Sekolah (Paginated Grid) */}
+x
         <section className="berita-section">
           <div className="berita-section-header-flex reveal">
             <div>
               <h2 className="berita-section-title">{beritaData.beritaSekolah?.title || "BERITA SEKOLAH"}</h2>
               <span className="berita-section-accent" />
             </div>
-
-            <div className="slider-controls">
-              <button
-                className="slider-btn"
-                onClick={() => setActivePage((p) => Math.max(0, p - 1))}
-                disabled={activePage === 0}
-                aria-label="Previous Page"
+revious Page"
               >
                 <ArrowRight className="h-5 w-5 rotate-180" />
               </button>
@@ -275,6 +267,8 @@ function Berita() {
                 className="slider-btn"
                 onClick={() => setActivePage((p) => Math.min(totalPages - 1, p + 1))}
                 disabled={activePage === totalPages - 1}
+                onClick={() => goToSlide(Math.min(totalPages - 1, activeSlide + 1))}
+                disabled={activeSlide === totalPages - 1}
                 aria-label="Next Page"
               >
                 <ArrowRight className="h-5 w-5" />
@@ -285,6 +279,9 @@ function Berita() {
           <div className="berita-grid" key={activePage}>
             {pagedCards.map((berita: BeritaItem) => (
               <article key={berita.id} className="berita-card">
+          <div className="berita-slider-container" ref={beritaSekolahRef}>
+            {beritaData.beritaSekolah?.list.map((berita: BeritaItem, i: number) => (
+              <article key={berita.id} className={`berita-card berita-card-slide reveal reveal-delay-${(i % 3) + 1}`}>
                 <div className="berita-card-image">
                   <div className="berita-card-placeholder">
                     <span className="berita-card-placeholder-text">{berita.category}</span>
@@ -311,12 +308,15 @@ function Berita() {
             ))}
           </div>
 
+          {/* Dot Indicators */}
           <div className="berita-slider-dots">
             {Array.from({ length: totalPages }, (_, i) => (
               <button
                 key={i}
                 className={`berita-slider-dot ${i === activePage ? "berita-slider-dot--active" : ""}`}
                 onClick={() => setActivePage(i)}
+                className={`berita-slider-dot ${i === activeSlide ? "berita-slider-dot--active" : ""}`}
+                onClick={() => goToSlide(i)}
                 aria-label={`Page ${i + 1}`}
               />
             ))}
