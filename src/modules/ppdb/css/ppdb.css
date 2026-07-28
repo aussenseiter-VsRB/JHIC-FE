@@ -808,6 +808,10 @@
     display: flex;
     flex-direction: column;
   }
+
+  .ppdb-hero-wave {
+    height: 64px;
+  }
 }
 
 /* Registration Steps */

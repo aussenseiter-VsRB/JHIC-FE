@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Menu, X, ArrowUpRight } from 'lucide-react'
 import logoSrc from '../../assets/Logo-yadika.webp'
@@ -20,10 +20,46 @@ const navLinks: NavItem[] = [
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [hidden, setHidden] = useState(false)
+  const lastScrollY = useRef<number>(typeof window !== 'undefined' ? window.scrollY : 0)
+  const ticking = useRef(false)
+  const nearFooter = useRef(false)
 
   useEffect(() => {
+    const footer = document.querySelector('footer')
+    if (!footer) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        nearFooter.current = entry.isIntersecting
+      },
+      { rootMargin: '100px 0px 0px 0px' },
+    )
+    observer.observe(footer)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    lastScrollY.current = window.scrollY
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
+      if (!ticking.current) {
+        window.requestAnimationFrame(() => {
+          const currentY = window.scrollY
+          setScrolled(currentY > 20)
+
+          if (currentY > lastScrollY.current && currentY > 80 && nearFooter.current) {
+            setHidden(true)
+            setMobileOpen(false)
+          } else if (lastScrollY.current - currentY > 10) {
+            setHidden(false)
+          }
+
+          lastScrollY.current = currentY
+          ticking.current = false
+        })
+        ticking.current = true
+      }
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
@@ -35,6 +71,10 @@ export default function Navbar() {
   return (
     <nav
       className="fixed top-4 left-4 right-4 z-50 flex justify-center md:left-8 md:right-8"
+      style={{
+        transform: hidden ? 'translateY(calc(-100% + -5px))' : 'translateY(0)',
+        transition: 'transform 300ms ease-in-out',
+      }}
       role="navigation"
       aria-label="Main navigation"
     >

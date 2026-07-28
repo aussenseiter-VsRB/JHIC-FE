@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Calendar, ArrowRight, User, Sparkles, Newspaper, ShieldCheck } from "lucide-react";
+import { Calendar, ArrowRight, User, Newspaper } from "lucide-react";
 import SkeletonLoad from "../../components/skeleton/skeletonLoad";
 import beritaData from "./berita.json";
 import "./css/berita.css";
@@ -57,62 +57,17 @@ function Berita() {
   };
 
   const [showAllTerkini, setShowAllTerkini] = useState(false);
-  const [activeSlide, setActiveSlide] = useState(0);
-  const beritaSekolahRef = React.useRef<HTMLDivElement>(null);
+  const [activePage, setActivePage] = useState(0);
+  const cardsPerPage = 6;
+
+  const beritaSekolahList = beritaData.beritaSekolah?.list || [];
+  const totalPages = Math.ceil(beritaSekolahList.length / cardsPerPage);
+  const pagedCards = beritaSekolahList.slice(activePage * cardsPerPage, activePage * cardsPerPage + cardsPerPage);
 
   const initialTerkiniCount = 3;
   const displayedTerkiniList = showAllTerkini
     ? beritaData.beritaTerkini?.list || []
     : (beritaData.beritaTerkini?.list || []).slice(0, initialTerkiniCount);
-
-  const totalCards = beritaData.beritaSekolah?.list.length || 0;
-
-  const getCardsPerPage = (): number => {
-    if (!beritaSekolahRef.current) return 3;
-    const w = beritaSekolahRef.current.clientWidth;
-    if (w < 768) return 1;
-    if (w < 1024) return 2;
-    return 3;
-  };
-
-  const totalPages = Math.ceil(totalCards / getCardsPerPage());
-
-  const goToSlide = (index: number) => {
-    const container = beritaSekolahRef.current;
-    if (!container) return;
-    const cardsPerPage = getCardsPerPage();
-    const targetIdx = Math.min(index * cardsPerPage, totalCards - 1);
-    const card = container.children[targetIdx] as HTMLElement;
-    if (card) {
-      container.scrollTo({ left: card.offsetLeft - 24, behavior: "smooth" });
-    }
-    setActiveSlide(index);
-  };
-
-  React.useEffect(() => {
-    const container = beritaSekolahRef.current;
-    if (!container) return;
-    let ticking = false;
-
-    const handleScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const cardsPerPage = getCardsPerPage();
-        const firstCard = container.children[0] as HTMLElement;
-        if (!firstCard) { ticking = false; return; }
-        const cardWidth = firstCard.offsetWidth;
-        const gap = 24;
-        const currentCard = Math.round(container.scrollLeft / (cardWidth + gap));
-        const page = Math.min(Math.floor(currentCard / cardsPerPage), totalPages - 1);
-        setActiveSlide(Math.max(0, page));
-        ticking = false;
-      });
-    };
-
-    container.addEventListener("scroll", handleScroll, { passive: true });
-    return () => container.removeEventListener("scroll", handleScroll);
-  }, [totalPages]);
 
   if (loading) {
     return <SkeletonLoad />;
@@ -213,7 +168,7 @@ function Berita() {
         </div>
 
         {/* Layered Wave Animation Bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 overflow-hidden pointer-events-none">
+        <div className="absolute bottom-0 left-0 right-0 h-24 overflow-hidden pointer-events-none wave-scroll-container">
           <svg className="wave-scroll" viewBox="0 0 2880 120" fill="none" preserveAspectRatio="none" style={{ width: '200%', height: '96px' }}>
             <path d="M0,60 C360,110 450,20 720,60 C990,100 1080,30 1440,60 C1800,90 1890,20 2160,60 C2430,100 2520,30 2880,60 L2880,120 L0,120 Z" fill="#F5F5F5" opacity="0.3" />
             <path d="M0,75 C300,40 500,100 720,75 C940,50 1140,110 1440,75 C1740,40 1940,100 2160,75 C2380,50 2580,110 2880,75 L2880,120 L0,120 Z" fill="#F5F5F5" opacity="0.6" />
@@ -299,7 +254,7 @@ function Berita() {
           )}
         </section>
 
-        {/* Section: Berita Sekolah (Slide / Carousel Layout) */}
+        {/* Section: Berita Sekolah (Paginated Grid) */}
         <section className="berita-section">
           <div className="berita-section-header-flex reveal">
             <div>
@@ -307,20 +262,19 @@ function Berita() {
               <span className="berita-section-accent" />
             </div>
 
-            {/* Slider Navigation Buttons */}
             <div className="slider-controls">
               <button
                 className="slider-btn"
-                onClick={() => goToSlide(Math.max(0, activeSlide - 1))}
-                disabled={activeSlide === 0}
+                onClick={() => setActivePage((p) => Math.max(0, p - 1))}
+                disabled={activePage === 0}
                 aria-label="Previous Page"
               >
                 <ArrowRight className="h-5 w-5 rotate-180" />
               </button>
               <button
                 className="slider-btn"
-                onClick={() => goToSlide(Math.min(totalPages - 1, activeSlide + 1))}
-                disabled={activeSlide === totalPages - 1}
+                onClick={() => setActivePage((p) => Math.min(totalPages - 1, p + 1))}
+                disabled={activePage === totalPages - 1}
                 aria-label="Next Page"
               >
                 <ArrowRight className="h-5 w-5" />
@@ -328,9 +282,9 @@ function Berita() {
             </div>
           </div>
 
-          <div className="berita-slider-container" ref={beritaSekolahRef}>
-            {beritaData.beritaSekolah?.list.map((berita: BeritaItem, i: number) => (
-              <article key={berita.id} className={`berita-card berita-card-slide reveal reveal-delay-${(i % 3) + 1}`}>
+          <div className="berita-grid" key={activePage}>
+            {pagedCards.map((berita: BeritaItem) => (
+              <article key={berita.id} className="berita-card">
                 <div className="berita-card-image">
                   <div className="berita-card-placeholder">
                     <span className="berita-card-placeholder-text">{berita.category}</span>
@@ -357,13 +311,12 @@ function Berita() {
             ))}
           </div>
 
-          {/* Dot Indicators */}
           <div className="berita-slider-dots">
             {Array.from({ length: totalPages }, (_, i) => (
               <button
                 key={i}
-                className={`berita-slider-dot ${i === activeSlide ? "berita-slider-dot--active" : ""}`}
-                onClick={() => goToSlide(i)}
+                className={`berita-slider-dot ${i === activePage ? "berita-slider-dot--active" : ""}`}
+                onClick={() => setActivePage(i)}
                 aria-label={`Page ${i + 1}`}
               />
             ))}
