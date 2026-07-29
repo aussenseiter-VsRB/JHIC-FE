@@ -31,13 +31,15 @@ const mitraLogos: { node: ReactNode; title: string }[] = [
 
 function Home() {
   return (
-    <div className="home">
+    <div className="w-full">
       <Hero />
       <About />
-      <section className="mitra-section">
-        <div className="section-container reveal">
-          <h2 className="section-title">Mitra Industri</h2>
-          <p className="section-subtitle">
+      <section className="bg-white py-[45px]">
+        <div className="reveal mx-auto max-w-[1200px] px-6 pb-10 max-md:px-5">
+          <h2 className="mb-4 text-center text-[2rem] font-extrabold -tracking-[0.02em] text-[#1E3A5F]">
+            Mitra Industri
+          </h2>
+          <p className="mb-12 text-center text-[1.1rem] text-[#64748B]">
             Bermitra dengan berbagai perusahaan terkemuka untuk mendukung
             pendidikan dan karier siswa
           </p>
@@ -53,9 +55,13 @@ function Home() {
           renderItem={(item) => {
             const logo = item as { node: ReactNode; title: string };
             return (
-              <div className="mitra-logo-container">
-                <span className="mitra-logo-icon">{logo.node}</span>
-                <span className="mitra-logo-title">{logo.title}</span>
+              <div className="flex min-w-[160px] min-h-[100px] flex-col items-center justify-center gap-2.5 rounded-2xl border border-[#e2e8f0] bg-[#f8fafc] px-8 py-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#cbd5e1] hover:shadow-[0_8px_24px_rgba(30,58,95,0.08)]">
+                <span className="flex items-center justify-center text-[#2563eb]">
+                  {logo.node}
+                </span>
+                <span className="whitespace-nowrap text-center text-[0.75rem] font-semibold leading-[1.3] text-[#64748b]">
+                  {logo.title}
+                </span>
               </div>
             );
           }}

@@ -4,8 +4,7 @@
 
 .profilguru-header-section {
   background: #1E3A5F;
-  padding: 120px 24px 120px;
-  text-align: center;
+  padding: 100px 24px 80px;
   position: relative;
   overflow: hidden;
 }
@@ -30,17 +29,75 @@
   pointer-events: none;
 }
 
-.profilguru-header-content {
+.profilguru-header-inner {
   position: relative;
   z-index: 1;
-  max-width: 600px;
+  max-width: 960px;
   margin: 0 auto;
+  padding-top: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 56px;
+}
+
+.profilguru-header-visual {
+  flex-shrink: 0;
+}
+
+.profilguru-header-circles {
+  width: 280px;
+  height: 280px;
+  position: relative;
+}
+
+.profilguru-header-circle {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.2);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.profilguru-header-circle:hover {
+  transform: scale(1.06);
+}
+
+.profilguru-header-circle-1 {
+  width: 160px;
+  height: 160px;
+  top: 10px;
+  left: 10px;
+  background: rgba(37, 99, 235, 0.15);
+}
+
+.profilguru-header-circle-2 {
+  width: 120px;
+  height: 120px;
+  bottom: 30px;
+  right: 15px;
+  background: rgba(14, 165, 233, 0.15);
+}
+
+.profilguru-header-circle-3 {
+  width: 90px;
+  height: 90px;
+  top: 100px;
+  right: 80px;
+  background: rgba(5, 150, 105, 0.15);
+}
+
+.profilguru-header-content {
+  flex: 1;
+  min-width: 0;
 }
 
 .profilguru-title {
   font-size: 2.5rem;
   color: white;
-  margin: 0 0 16px;
+  margin: 16px 0 16px;
   letter-spacing: -0.02em;
 }
 
@@ -49,24 +106,33 @@
   color: rgba(255, 255, 255, 0.6);
   margin: 0;
   line-height: 1.6;
+  max-width: 540px;
 }
 
-.profilguru-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 60px 24px;
+/* ── Stat Icons ── */
+.profilguru-stat-icons {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  color: rgba(255, 255, 255, 0.2);
 }
+
+/* ── Stats ── */
 
 .profilguru-stats {
+  position: relative;
+  z-index: 1;
   display: flex;
   justify-content: center;
   gap: 48px;
-  margin-top: 40px;
+  margin-top: 48px;
   flex-wrap: wrap;
 }
 
 .profilguru-stat {
   text-align: center;
+  min-width: 120px;
 }
 
 .profilguru-stat-number {
@@ -75,6 +141,7 @@
   font-weight: 800;
   color: #2563EB;
   margin-bottom: 4px;
+  font-variant-numeric: tabular-nums;
 }
 
 .profilguru-stat-label {
@@ -85,123 +152,907 @@
   letter-spacing: 0.05em;
 }
 
-.profilguru-department {
+/* ── Toolbar ── */
+
+.profilguru-toolbar {
   margin-bottom: 48px;
 }
 
-.profilguru-department:last-child {
-  margin-bottom: 0;
+.profilguru-search-wrapper {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto 20px;
 }
 
-.profilguru-department-header {
-  margin-bottom: 24px;
+.profilguru-search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94A3B8;
+  pointer-events: none;
 }
 
-.profilguru-department-name {
-  font-size: 1.5rem;
+.profilguru-search-input {
+  width: 100%;
+  padding: 14px 44px 14px 46px;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  font-size: 0.95rem;
   color: #1E3A5F;
-  margin: 0 0 4px;
+  background: white;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.profilguru-department-full {
-  font-size: 0.85rem;
+.profilguru-search-input::placeholder {
+  color: #94A3B8;
+}
+
+.profilguru-search-input:focus {
+  border-color: #2563EB;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.profilguru-search-clear {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: #94A3B8;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+
+.profilguru-search-clear:hover {
+  background: #F1F5F9;
   color: #64748B;
-  margin: 0;
 }
 
-.profilguru-department-accent {
-  display: block;
-  width: 50px;
-  height: 3px;
-  background: #2563EB;
-  border-radius: 2px;
+.profilguru-search-result {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #64748B;
   margin-top: 12px;
 }
+
+/* ── Container ── */
+
+.profilguru-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+/* ── Grid ── */
 
 .profilguru-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 24px;
 }
+
+/* ── Card ── */
 
 .profilguru-card {
-  background: white;
   border-radius: 16px;
-  padding: 32px 24px;
-  border: 1px solid #E2E8F0;
-  text-align: center;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
   overflow: hidden;
-}
-
-.profilguru-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #2563EB, transparent);
-  opacity: 0;
-  transition: opacity 0.3s;
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
 }
 
 .profilguru-card:hover {
-  border-color: transparent;
-  box-shadow: 0 16px 48px rgba(30, 58, 95, 0.12);
   transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(30, 58, 95, 0.12);
 }
 
-.profilguru-card:hover::before {
-  opacity: 1;
+.profilguru-card-img {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
 }
 
-.profilguru-card-avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: #2563EB10;
-  color: #2563EB;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 16px;
-  font-size: 1.75rem;
-  font-weight: 700;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+.profilguru-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.profilguru-card:hover .profilguru-card-avatar {
-  transform: scale(1.08);
+.profilguru-card:hover .profilguru-card-img img {
+  transform: scale(1.06);
+}
+
+.profilguru-card-body {
+  padding: 20px;
 }
 
 .profilguru-card-name {
   font-size: 1rem;
   color: #1E3A5F;
-  margin: 0 0 6px;
+  margin: 0 0 4px;
   line-height: 1.3;
 }
 
 .profilguru-card-subject {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
+  color: var(--dept-color, #2563EB);
+  font-weight: 600;
+  margin: 0 0 8px;
+  display: block;
+}
+
+.profilguru-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profilguru-card-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: #94A3B8;
+}
+
+/* ── Section ── */
+
+.profilguru-section {
+  margin-bottom: 64px;
+}
+
+.profilguru-section:last-child {
+  margin-bottom: 0;
+}
+
+.profilguru-section-header {
+  margin-bottom: 32px;
+}
+
+.profilguru-section-header-centered {
+  text-align: center;
+}
+
+.profilguru-section-header-centered .profilguru-section-accent {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profilguru-section-title {
+  font-size: 1.75rem;
+  color: #1E3A5F;
+  margin: 0 0 6px;
+}
+
+.profilguru-section-desc {
+  font-size: 0.9rem;
+  color: #64748B;
+  margin: 0 0 12px;
+}
+
+.profilguru-section-accent {
+  display: block;
+  width: 56px;
+  height: 3px;
+  border-radius: 2px;
+  margin-top: 12px;
+}
+
+/* ── Main Profile (Section 1) ── */
+
+.main-profile {
+  display: flex;
+  gap: 56px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.main-profile-photo {
+  flex: 0 0 38%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(30, 58, 95, 0.12);
+}
+
+.main-profile-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.main-profile-photo:hover img {
+  transform: scale(1.04);
+}
+
+.main-profile-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.main-profile-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #1E3A5F;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 18px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
+
+.main-profile-name {
+  font-size: 2rem;
+  color: #1E3A5F;
+  margin: 0 0 12px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.main-profile-motto {
+  font-size: 1rem;
+  color: #64748B;
+  line-height: 1.7;
+  margin: 0 0 28px;
+  font-style: italic;
+  border-left: 3px solid #2563EB;
+  padding-left: 16px;
+}
+
+.main-profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 32px;
+}
+
+.main-profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.main-profile-field-full {
+  grid-column: 1 / -1;
+}
+
+.main-profile-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.main-profile-value {
+  font-size: 0.92rem;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.main-profile-photo-wrapper {
+  flex: 0 0 38%;
+  padding: 4px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #2563EB, #0EA5E9);
+}
+
+.main-profile-photo {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(30, 58, 95, 0.12);
+  height: 100%;
+}
+
+.main-profile-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.main-profile-contact-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #2563EB;
+  color: white;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.main-profile-contact-link:hover {
+  background: #1E3A5F;
+  transform: scale(1.08);
+}
+
+.main-profile-keahlian {
+  margin-top: 24px;
+}
+
+.main-profile-keahlian-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* ── Skill Chips ── */
+.skill-chip {
+  font-size: 0.7rem;
+  padding: 2px 10px;
+  border-radius: 100px;
+  background: #2563EB0D;
   color: #2563EB;
+  white-space: nowrap;
+  display: inline-block;
+  transition: background 0.2s, color 0.2s;
+}
+
+.skill-chip-more {
+  background: transparent;
+  border: 1px dashed #2563EB40;
+  color: #2563EB80;
+}
+
+.carousel-card-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+/* ── Enhanced Card ── */
+.carousel-card {
+  position: relative;
+  cursor: pointer;
+}
+
+.carousel-card-accent {
+  height: 3px;
+  border-radius: 16px 16px 0 0;
+  transition: height 0.2s;
+}
+
+.carousel-card:hover .carousel-card-accent {
+  height: 4px;
+}
+
+.carousel-card-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 58, 95, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: 16px;
+  pointer-events: none;
+}
+
+.carousel-card:hover .carousel-card-hover-overlay {
+  opacity: 1;
+}
+
+.carousel-card-hover-overlay span {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 100px;
+  backdrop-filter: blur(2px);
+}
+
+/* ── Filter Nav ── */
+.profilguru-filter-nav {
+  position: sticky;
+  top: 80px;
+  z-index: 10;
+  background: #F5F5F5;
+  padding: 16px 0;
+  margin-bottom: 32px;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.profilguru-filter-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-pill {
+  flex-shrink: 0;
+  padding: 8px 20px;
+  border-radius: 100px;
+  border: 1px solid #E2E8F0;
+  background: white;
+  color: #64748B;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.filter-pill:hover {
+  border-color: #2563EB;
+  color: #2563EB;
+  background: rgba(37, 99, 235, 0.04);
+}
+
+.filter-pill[data-active="true"] {
+  background: #2563EB;
+  color: white;
+  border-color: #2563EB;
+}
+
+/* ── Teacher Modal ── */
+.teacher-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.teacher-modal {
+  background: white;
+  border-radius: 20px;
+  max-width: 720px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: auto;
+  position: relative;
+  animation: fadeScale 0.3s ease-out;
+}
+
+@keyframes fadeScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.teacher-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #F1F5F9;
+  color: #64748B;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  z-index: 1;
+}
+
+.teacher-modal-close:hover {
+  background: #E2E8F0;
+  color: #1E3A5F;
+}
+
+.teacher-modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 32px;
+  padding: 40px;
+}
+
+.teacher-modal-photo {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.teacher-modal-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+  display: block;
+}
+
+.teacher-modal-info h2 {
+  font-size: 1.5rem;
+  color: #1E3A5F;
+  margin: 0 0 6px;
+  line-height: 1.25;
+}
+
+.teacher-modal-role {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2563EB;
+  margin-bottom: 12px;
+}
+
+.teacher-modal-motto {
+  font-size: 0.9rem;
+  color: #64748B;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0 0 24px;
+  padding-left: 16px;
+  border-left: 3px solid #2563EB;
+}
+
+.teacher-modal-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.teacher-modal-details > div label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.teacher-modal-details > div > span {
+  font-size: 0.9rem;
+  color: #334155;
+}
+
+.teacher-modal-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+/* ── Carousel (Section 3) ── */
+
+.profile-carousel {
+  position: relative;
+  margin-top: 24px;
+}
+
+.carousel-track-wrapper {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 8px 4px;
+}
+
+.carousel-track-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-card {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+  border-radius: 16px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+}
+
+.carousel-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(30, 58, 95, 0.12);
+}
+
+.carousel-card-img {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.carousel-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carousel-card:hover .carousel-card-img img {
+  transform: scale(1.06);
+}
+
+.carousel-card-body {
+  padding: 20px;
+}
+
+.carousel-card-name {
+  font-size: 1rem;
+  color: #1E3A5F;
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+
+.carousel-card-role {
+  font-size: 0.82rem;
+  color: #2563EB;
+  font-weight: 600;
+  margin: 0 0 8px;
+  display: block;
+}
+
+.carousel-card-edu {
+  font-size: 0.82rem;
+  color: #64748B;
+  margin: 0 0 6px;
+}
+
+.carousel-card-exp {
+  font-size: 0.78rem;
+  color: #94A3B8;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 35%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  color: #1E3A5F;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.carousel-btn:hover:not(.disabled) {
+  background: #1E3A5F;
+  color: white;
+  box-shadow: 0 6px 20px rgba(30, 58, 95, 0.2);
+}
+
+.carousel-btn.disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.carousel-btn-prev {
+  left: -22px;
+}
+
+.carousel-btn-next {
+  right: -22px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #2563EB;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s;
+}
+
+.carousel-dot.active {
+  background: #2563EB;
+  border-color: #2563EB;
+}
+
+.carousel-dot:hover {
+  border-color: #1E3A5F;
+}
+
+/* ── Department group (within produktif) ── */
+
+.profilguru-dept-group {
+  margin-bottom: 36px;
+}
+
+.profilguru-dept-group:last-child {
+  margin-bottom: 0;
+}
+
+.profilguru-dept-group-header {
+  margin-bottom: 20px;
+}
+
+.profilguru-dept-group-name {
+  font-size: 1.25rem;
+  color: #1E3A5F;
+  margin: 0 0 4px;
+}
+
+.profilguru-dept-group-full {
+  font-size: 0.82rem;
+  color: #64748B;
   margin: 0;
 }
+
+.profilguru-dept-group-accent {
+  display: block;
+  width: 44px;
+  height: 3px;
+  border-radius: 2px;
+  margin-top: 10px;
+  transition: width 0.3s;
+}
+
+.profilguru-dept-group:hover .profilguru-dept-group-accent {
+  width: 70px;
+}
+
+
+
+/* ── Empty state ── */
+
+.profilguru-empty {
+  text-align: center;
+  padding: 80px 24px;
+  color: #94A3B8;
+}
+
+.profilguru-empty h3 {
+  font-size: 1.25rem;
+  color: #64748B;
+  margin: 16px 0 8px;
+}
+
+.profilguru-empty p {
+  font-size: 0.9rem;
+  color: #94A3B8;
+  margin: 0;
+}
+
+/* ── Responsive ── */
 
 @media (max-width: 1024px) {
   .profilguru-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .profilguru-header-circles {
+    width: 220px;
+    height: 220px;
+  }
+
+  .profilguru-header-circle-1 {
+    width: 130px;
+    height: 130px;
+    top: 8px;
+    left: 8px;
+  }
+
+  .profilguru-header-circle-2 {
+    width: 100px;
+    height: 100px;
+    bottom: 25px;
+    right: 12px;
+  }
+
+  .profilguru-header-circle-3 {
+    width: 70px;
+    height: 70px;
+    top: 80px;
+    right: 60px;
+  }
+
+  .profilguru-header-inner {
+    gap: 40px;
+  }
+
+  .main-profile {
+    gap: 40px;
+  }
+
+  .main-profile-photo-wrapper {
+    flex: 0 0 40%;
+  }
+
+  .main-profile-name {
+    font-size: 1.6rem;
+  }
+
+  .carousel-btn {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
   .profilguru-header-section {
-    padding: 100px 20px 100px;
+    padding: 80px 20px 60px;
+  }
+
+  .profilguru-header-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 32px;
+  }
+
+  .profilguru-header-visual {
+    order: -1;
+  }
+
+  .profilguru-header-circles {
+    width: 180px;
+    height: 180px;
+  }
+
+  .profilguru-header-circle-1 {
+    width: 110px;
+    height: 110px;
+    top: 5px;
+    left: 5px;
+  }
+
+  .profilguru-header-circle-2 {
+    width: 80px;
+    height: 80px;
+    bottom: 20px;
+    right: 10px;
+  }
+
+  .profilguru-header-circle-3 {
+    width: 60px;
+    height: 60px;
+    top: 70px;
+    right: 50px;
+  }
+
+  .profilguru-header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profilguru-subtitle {
+    max-width: 100%;
   }
 
   .profilguru-title {
     font-size: 1.75rem;
+    text-align: center;
   }
 
   .profilguru-container {
@@ -219,5 +1070,69 @@
 
   .profilguru-stat-number {
     font-size: 1.5rem;
+  }
+
+  .profilguru-toolbar {
+    margin-bottom: 32px;
+  }
+
+  /* ── Responsive Main Profile ── */
+
+  .main-profile {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .main-profile-photo-wrapper {
+    flex: none;
+    width: 70%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .main-profile-info {
+    text-align: center;
+  }
+
+  .main-profile-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    text-align: left;
+  }
+
+  .main-profile-name {
+    font-size: 1.4rem;
+  }
+
+  .main-profile-badge-row {
+    justify-content: center;
+  }
+
+  .main-profile-motto {
+    text-align: left;
+  }
+
+  /* ── Responsive Carousel ── */
+
+  .carousel-card {
+    flex: 0 0 240px;
+  }
+
+  .carousel-btn {
+    display: none;
+  }
+
+  .teacher-modal-grid {
+    grid-template-columns: 1fr;
+    padding: 32px 24px;
+  }
+
+  .teacher-modal-photo {
+    max-width: 240px;
+    margin: 0 auto;
+  }
+
+  .profilguru-filter-nav {
+    top: 60px;
   }
 }
