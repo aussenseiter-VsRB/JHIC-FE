@@ -10,6 +10,7 @@ import ProfileSettings from "../modules/profile/settings/page";
 import Berita from "../modules/berita/berita";
 import Fasilitas from "../modules/fasilitas/fasilitas";
 import Ppdb from "../modules/ppdb/ppdb";
+import Ekstrakulikuler from "../modules/ekstrakulikuler/ekstrakulikuler";
 
 const routes: RouteObject[] = [
   {
@@ -34,6 +35,7 @@ const routes: RouteObject[] = [
       { path: "/berita", element: <Berita /> },
       { path: "/fasilitas", element: <Fasilitas /> },
       { path: "/ppdb", element: <Ppdb /> },
+      { path: "/ekstrakulikuler", element: <Ekstrakulikuler /> },
     ],
   },
 ];
