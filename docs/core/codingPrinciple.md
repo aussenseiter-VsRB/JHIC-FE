@@ -38,7 +38,7 @@ Code lives next to what it serves:
 
 - Routes are declarative objects in `routes.tsx`, not programmatic navigation.
 - UI state drives rendering — don't imperatively manipulate the DOM.
-- Tailwind classes describe *what* things look like, not *how* to change.
+- UI structure uses semantic CSS classes; visual properties live in `.css` files, not in JSX `className` strings.
 
 ### 5. No Dead Code
 

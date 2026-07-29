@@ -111,7 +111,7 @@ function BlurText({
 
         return (
           <motion.span
-            className="inline-block will-change-[transform,filter,opacity]"
+            style={{ display: "inline-block", willChange: "transform, filter, opacity" }}
             key={index}
             initial={fromSnapshot}
             animate={inView ? animateKeyframes : fromSnapshot}

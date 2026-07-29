@@ -2,39 +2,39 @@ import data from "./data/sambutan-kepsek.json";
 
 function SambutanKepsek() {
   return (
-    <section className="profile-section bg-white">
+    <section className="profile-section">
       <div className="profile-section-inner">
         <div className="reveal">
           <h2 className="profile-section-title">{data.heading}</h2>
           <span className="profile-section-accent" />
         </div>
 
-        <div className="mt-12 flex flex-col gap-12 lg:flex-row lg:gap-16">
-          <div className="flex w-full lg:w-[35%] reveal">
+        <div className="sambutan-grid">
+          <div className="sambutan-photo-col reveal">
             <img
               src={data.photo}
               alt={data.photoAlt}
-              className="h-[400px] w-full rounded-2xl object-cover shadow-lg"
+              className="sambutan-photo"
             />
           </div>
 
-          <div className="flex w-full flex-col lg:w-[65%] reveal reveal-delay-2">
+          <div className="sambutan-text-col reveal reveal-delay-2">
             {data.paragraphs.map((text) => (
               <p
                 key={text.slice(0, 20)}
-                className="font-body text-base leading-relaxed text-slate md:text-lg"
+                className="font-body sambutan-paragraph"
               >
                 {text}
               </p>
             ))}
 
-            <div className="my-8 h-px w-full bg-slate/20" />
+            <div className="sambutan-divider" />
 
             <div>
-              <p className="font-heading text-2xl font-bold text-navy md:text-3xl">
+              <p className="font-heading sambutan-name">
                 {data.name}
               </p>
-              <p className="mt-1 font-body text-sm font-medium text-blue md:text-base">
+              <p className="font-body sambutan-title">
                 {data.title}
               </p>
             </div>

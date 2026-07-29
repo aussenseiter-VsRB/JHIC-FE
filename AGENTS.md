@@ -64,7 +64,7 @@ Routes live in a single array in `src/core/routes.tsx`. All pages are children o
 
 ## Style conventions
 
-- **Tailwind-first**: styling via Tailwind utility classes in JSX. Component CSS files exist but are currently minimal. Prefer utilities over custom CSS.
+- **CSS-first**: styling via module `.css` files. Tailwind utility classes are used only for typography (`font-heading`, `font-body`, `font-poppins`) and responsive breakpoint prefixes (`md:`, `lg:`, `max-md:`, etc.). Third-party/library components are exempt.
 - **Function components only**: no class components, no hooks wrappers — plain `function` declarations with default export.
 - **No comments**: coding standard is explicit about this not being needed; keep code self-documenting.
 - **Naming**: files and directories are `kebab-case`; components exported as `PascalCase` functions. CSS class names match the module/page kebab name.

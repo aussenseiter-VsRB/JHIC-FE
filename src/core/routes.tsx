@@ -6,11 +6,10 @@ import Profile from "../modules/profile/profile";
 import PageJurusan from "../modules/jurusan/services/PageJurusan";
 import PageJurusanDetail from "../modules/jurusan/services/PageJurusanDetail";
 
-import ProfileSettings from "../modules/profile/settings/page";
 import Berita from "../modules/berita/berita";
 import Fasilitas from "../modules/fasilitas/fasilitas";
 import Ppdb from "../modules/ppdb/ppdb";
-import Ekstrakulikuler from "../modules/ekstrakulikuler/ekstrakulikuler";
+import Ekstrakurikuler from "../modules/ekstrakurikuler/ekstrakurikuler";
 import Profilguru from "../modules/profilguru/profilguru";
 import Hubin from "../modules/hubin/hubin";
 
@@ -19,13 +18,7 @@ const routes: RouteObject[] = [
     element: <Layout />,
     children: [
       { path: "/", element: <Home /> },
-      {
-        path: "/profile",
-        element: <Profile />,
-        children: [
-          { path: "settings", element: <ProfileSettings /> },
-        ],
-      },
+      { path: "/profile", element: <Profile /> },
       {
         path: "/jurusan",
         element: <PageJurusan />,
@@ -37,7 +30,7 @@ const routes: RouteObject[] = [
       { path: "/berita", element: <Berita /> },
       { path: "/fasilitas", element: <Fasilitas /> },
       { path: "/ppdb", element: <Ppdb /> },
-      { path: "/ekstrakurikuler", element: <Ekstrakulikuler /> },
+      { path: "/ekstrakurikuler", element: <Ekstrakurikuler /> },
       { path: "/profilguru", element: <Profilguru /> },
       { path: "/hubin", element: <Hubin /> },
     ],
