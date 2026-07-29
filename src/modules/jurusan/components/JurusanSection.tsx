@@ -64,43 +64,42 @@ function JurusanItemCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, delay: index * 0.2, ease: [0.16, 1, 0.3, 1] }}
-      className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center mb-[100px] last:mb-0"
+      className="jurusan-section-item"
+      data-reverse={isEven || undefined}
     >
-      <div className={`order-1 ${isEven ? "md:order-2" : ""}`}>
+      <div className="jurusan-section-image-wrap">
         <motion.img
           src={item.image}
           alt={`Foto ${item.name}`}
           loading="lazy"
           whileHover={{ scale: 1.03 }}
           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full aspect-[4/3] rounded-[20px] object-cover shadow-lg"
+          className="jurusan-section-image"
         />
       </div>
 
-      <div
-        className={`order-2 flex flex-col gap-4 text-center md:text-left ${isEven ? "md:order-1" : ""}`}
-      >
-        <span className="text-sm font-semibold tracking-widest text-gray-400 uppercase">
+      <div className="jurusan-section-text">
+        <span className="jurusan-section-code">
           {item.code}
         </span>
 
-        <h3 className="text-2xl md:text-3xl font-bold text-black leading-tight">
+        <h3 className="jurusan-section-name">
           {item.name}
         </h3>
 
         {item.paragraphs.map((paragraph, i) => (
-          <p key={i} className="text-base leading-relaxed text-[#6B7280]">
+          <p key={i} className="jurusan-section-paragraph">
             {paragraph}
           </p>
         ))}
 
-        <div className="mt-2">
+        <div className="jurusan-section-cta-wrap">
           <Link
             to={`/jurusan/${item.slug}`}
-            className="inline-flex items-center gap-2 bg-black text-white rounded-full px-6 py-3 text-sm font-semibold transition-colors duration-300 hover:bg-gray-800"
+            className="jurusan-section-cta"
           >
             Pelajari Lebih Lanjut
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight />
           </Link>
         </div>
       </div>
@@ -110,14 +109,14 @@ function JurusanItemCard({
 
 function JurusanSection() {
   return (
-    <section className="bg-white py-[120px]">
-      <div className="max-w-[1200px] mx-auto px-6">
+    <section className="jurusan-section">
+      <div className="jurusan-section-inner">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-3xl md:text-4xl lg:text-5xl font-bold text-black text-center mb-20 leading-tight"
+          className="jurusan-section-heading"
         >
           Belajar Apa Aja di Yadika
         </motion.h2>

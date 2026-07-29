@@ -73,22 +73,21 @@ function Berita() {
     return <SkeletonLoad />;
   }
 
-  // Format header title to highlight the last word with gradient
   const titleWords = (beritaData.header.title || "").split(" ");
   const baseTitle = titleWords.slice(0, -1).join(" ");
   const highlightedWord = titleWords[titleWords.length - 1];
 
   return (
     <div className="berita">
-      {/* Header Banner (2-Column Premium Layout with Rich Decorative Elements) */}
+      
       <div className="berita-header-section">
-        {/* Glow Spheres in background */}
+        
         <div className="berita-header-glow-right"></div>
         
         <div className="berita-header-inner">
-          {/* Left: Person Placeholder + Floating Badges */}
+          
           <div className="berita-header-left reveal">
-            {/* Top Right Floating Badge */}
+            
             {beritaData.header.floatingBadges?.topRight && (
               <div className="floating-badge floating-badge-tr">
                 <div className="badge-icon-box">
@@ -101,7 +100,7 @@ function Berita() {
               </div>
             )}
 
-            {/* Bottom Left Floating Badge */}
+            
             {beritaData.header.floatingBadges?.bottomLeft && (
               <div className="floating-badge floating-badge-bl">
                 <div className="badge-pulse-dot"></div>
@@ -112,7 +111,7 @@ function Berita() {
               </div>
             )}
 
-            {/* Glassmorphic Portal / Card Frame */}
+            
             <div className="berita-header-person-wrapper">
               {beritaData.header.image ? (
                 <img
@@ -122,7 +121,7 @@ function Berita() {
                 />
               ) : (
                 <div className="berita-header-person-placeholder">
-                  {/* Decorative corner brackets */}
+                  
                   <div className="placeholder-corner placeholder-corner-tl"></div>
                   <div className="placeholder-corner placeholder-corner-tr"></div>
                   <div className="placeholder-corner placeholder-corner-bl"></div>
@@ -140,7 +139,7 @@ function Berita() {
             </div>
           </div>
 
-          {/* Right: Header Title, Subtitle, & Quick Stats */}
+          
           <div className="berita-header-right reveal reveal-delay-2">
             
             <h1 className="berita-title">
@@ -150,7 +149,7 @@ function Berita() {
             
             <p className="berita-subtitle">{beritaData.header.subtitle}</p>
 
-            {/* Quick Stats Row */}
+            
             {beritaData.header.stats && beritaData.header.stats.length > 0 && (
               <div className="berita-header-stats">
                 {beritaData.header.stats.map((stat: StatItem, idx: number) => (
@@ -167,7 +166,7 @@ function Berita() {
           </div>
         </div>
 
-        {/* Layered Wave Animation Bottom */}
+        
         <div className="wave-scroll-container">
           <svg className="wave-scroll" viewBox="0 0 2880 120" fill="none" preserveAspectRatio="none">
             <path d="M0,60 C360,110 450,20 720,60 C990,100 1080,30 1440,60 C1800,90 1890,20 2160,60 C2430,100 2520,30 2880,60 L2880,120 L0,120 Z" fill="#F5F5F5" opacity="0.3" />
@@ -177,10 +176,10 @@ function Berita() {
         </div>
       </div>
 
-      {/* Main Content Area */}
+      
       <div className="berita-container">
         
-        {/* Section: Berita Terkini */}
+        
         <section className="berita-section">
           <div className="berita-section-header reveal">
             <h2 className="berita-section-title">{beritaData.beritaTerkini?.title || "BERITA TERKINI"}</h2>
@@ -197,7 +196,7 @@ function Berita() {
                   key={berita.id}
                   className={`berita-row ${isReverse ? "berita-row-reverse" : ""} reveal reveal-delay-${(i % 3) + 1}`}
                 >
-                  {/* Content Box */}
+                  
                   <div className="berita-row-content">
                     <div className="berita-meta">
                       <span
@@ -221,7 +220,7 @@ function Berita() {
                     </button>
                   </div>
 
-                  {/* Image Box */}
+                  
                   <div className="berita-row-image">
                     {!hasImgError && berita.image ? (
                       <img
@@ -240,7 +239,7 @@ function Berita() {
             })}
           </div>
 
-          {/* Tombol Lihat Selengkapnya jika berita terkini lebih banyak dari batas awal */}
+          
           {(beritaData.beritaTerkini?.list.length || 0) > initialTerkiniCount && (
             <div className="berita-load-more-container reveal">
               <button
@@ -317,7 +316,7 @@ function Berita() {
             </button>
           </div>
 
-          {/* Dot Indicators */}
+          
           <div className="berita-slider-dots">
             {Array.from({ length: totalPages }, (_, i) => (
               <button

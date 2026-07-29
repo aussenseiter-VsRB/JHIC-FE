@@ -123,7 +123,7 @@ This project uses a **three-font pairing** defined in `src/index.css`. All compo
 2. **Everything else** → `font-body`. This is the default for all readable text: paragraphs, nav items, form labels, card content, list items, table data.
 3. **CTAs and accent labels** → `font-poppins`. Use sparingly for call-to-action buttons, badge numbers, and small accent text that needs visual weight.
 4. **Never use raw Tailwind `font-sans`/`font-serif`/`font-mono`** — always use one of the three classes above.
-5. **Never define `font-family` inline** in JSX `style={{}}` or in CSS files. Use the utility class.
+5. **Prefer `font-*` utility classes** for typography. Define `font-family` in CSS files only as a fallback when a component cannot use the utility class (e.g., third-party overrides). Never define `font-family` inline in JSX `style={{}}`.
 6. **Do not import additional Google Fonts** without updating `src/index.css` and this document.
 7. **Font weights are fixed** — do not use weights outside the imported ranges:
    - Plus Jakarta Sans: 700, 800 only
@@ -144,7 +144,7 @@ CTA:      16px / 600 / font-poppins
 
 ### CSS files
 
-Module CSS files (`css/*.css`) must **not** set `font-family`. They inherit from `body` (Inter). Use font utility classes in JSX `className` instead.
+Module CSS files (`css/*.css`) are the **primary styling mechanism** for layout, colors, spacing, animations, and visual design. They may set `font-family` when necessary (e.g., for elements outside the standard heading/body/CTA taxonomy), but prefer `font-*` utility classes in JSX `className` for standard typography.
 
 ## 9. No dead code
 
@@ -156,3 +156,21 @@ Don't generate files, exports, or data that nothing consumes. Empty stubs create
 - **Every component must be real.** No placeholder `<div>Name</div>` stubs. Components must have props, meaningful JSX, and be imported somewhere.
 - **Every export must be consumed.** Every exported function, type, or component must be imported by at least one other file.
 - **Self-check before finishing.** After creating a module, verify: every file exists for a reason, every import resolves to a used symbol, every JSON key is rendered in JSX.
+
+## 10. Styling approach
+
+This project uses a **CSS-first** convention:
+
+| Concern | Tool | Location |
+|---------|------|----------|
+| Typography (heading/body/CTA) | Tailwind utility class | JSX `className` |
+| Responsive breakpoints | Tailwind prefix (`md:`, `lg:`, etc.) | JSX `className` |
+| Everything else (layout, colors, spacing, shadows, animations, borders, sizing) | Vanilla CSS | Module `.css` files |
+
+### Rules
+
+1. **CSS is the default.** Write styles in the module's `.css` file. Reference them via semantic class names in JSX.
+2. **Typography uses utility classes.** Always use `font-heading`, `font-body`, or `font-poppins` in JSX for text elements.
+3. **Responsive uses Tailwind prefixes.** Use `md:`, `lg:`, `max-md:`, etc. for breakpoint-specific variants. Avoid writing media queries in CSS unless the Tailwind prefix is insufficient.
+4. **Third-party exemption.** Library components (e.g., carousel, chatbot SDK) may keep whatever styling approach they ship with.
+5. **Transition period.** Existing components with heavy Tailwind classes in JSX should be refactored to CSS-first gradually, module by module.
