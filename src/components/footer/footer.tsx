@@ -14,9 +14,14 @@ const footerLinks = [
   { label: "PPDB", to: "/ppdb" },
 ];
 
-function Footer() {
+interface FooterProps {
+  accentColor?: string;
+  bgColor?: string;
+}
+
+function Footer({ accentColor, bgColor }: FooterProps) {
   return (
-    <footer className="footer">
+    <footer className="footer" style={{ "--footer-accent": accentColor ?? "#2563EB", "--footer-bg": bgColor ?? "#1E3A5F" } as React.CSSProperties}>
       <div className="footer-top">
         <div className="footer-grid">
           {/* ---- Brand + Description ---- */}

@@ -4,6 +4,7 @@
   "name": "Perhotelan dan Jasa Pariwisata",
   "description": "Mempelajari tata graha, tata boga, front office, dan layanan perhotelan profesional.",
   "detailDescription": "Mempelajari tata graha, tata boga, front office, dan layanan perhotelan profesional berskala internasional.",
+  "about": "Jurusan HTL (Perhotelan dan Jasa Pariwisata) merupakan program keahlian yang mempersiapkan siswa untuk berkarier di industri perhotelan dan pariwisata. Siswa akan mempelajari tata graha, tata boga, layanan front office, serta manajemen operasional hotel secara profesional. Pembelajaran dilakukan dengan praktik langsung di laboratorium perhotelan yang lengkap dan standar industri.",
   "theme": {
     "accent": "#18181B",
     "accentBg": "#F4F4F5",
@@ -11,12 +12,35 @@
     "gradientTo": "#27272A"
   },
   "certCount": 3,
+  "certifications": [
+    "Sertifikasi BNSP Front Office",
+    "Sertifikasi BNSP Housekeeping",
+    "Sertifikasi BNSP Food & Beverage Service"
+  ],
   "subjects": [
     "Front Office dan reservasi",
     "Tata graha (housekeeping)",
     "Tata boga dan product knowledge",
     "Service excellence dan komunikasi",
-    "Manajemen operasional hotel"
+    "Manajemen operasional hotel",
+    "Bahasa Inggris perhotelan"
   ],
-  "career": "Lulusan Perhotelan dapat bekerja sebagai Front Office, Housekeeping Supervisor, Chef, Barista, atau melanjutkan studi ke program pariwisata dan hospitality di perguruan tinggi."
+  "career": "Lulusan Perhotelan dapat bekerja sebagai Front Office, Housekeeping Supervisor, Chef, Barista, atau melanjutkan studi ke program pariwisata dan hospitality di perguruan tinggi.",
+  "careerPaths": [
+    { "title": "Front Office Staff", "description": "Menangani reservasi, check-in/out, dan layanan tamu hotel." },
+    { "title": "Housekeeping Supervisor", "description": "Mengelola kebersihan dan kenyamanan kamar serta area hotel." },
+    { "title": "Chef / Cook", "description": "Menyiapkan dan mengolah makanan di dapur hotel atau restoran." },
+    { "title": "Barista", "description": "Menyajikan kopi dan minuman berkualitas di kafe atau hotel." },
+    { "title": "Event Coordinator", "description": "Merencanakan dan mengkoordinasikan acara di hotel." }
+  ],
+  "teachers": [
+    { "name": "Siti Nurjanah, S.Par., M.Par.", "subject": "Front Office & Housekeeping" },
+    { "name": "Agus Supriyadi, S.ST.Par.", "subject": "Tata Boga & Pelayanan" },
+    { "name": "Dewi Sartika, S.Si.", "subject": "Sanitasi & Hygiene" }
+  ],
+  "stats": [
+    { "number": "3", "label": "Sertifikasi" },
+    { "number": "6", "label": "Bidang Studi" },
+    { "number": "8+", "label": "Mitra Industri" }
+  ]
 }
