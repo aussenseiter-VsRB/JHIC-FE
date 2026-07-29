@@ -1,6 +1,10 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, forwardRef, useImperativeHandle } from "react";
 import { MessageCircle, X, Send, Trash2, Phone } from "lucide-react";
 import "./chatbot.css";
+
+export interface ChatbotHandle {
+  toggle: () => void;
+}
 
 const STORAGE_KEY = "chatbot-history";
 const BADGE_DISMISSED_KEY = "chatbot-badge-dismissed";
@@ -19,6 +23,7 @@ export interface ChatbotWidgetProps {
   whatsappNumber?: string;
   greeting?: string;
   botName?: string;
+  hideFab?: boolean;
 }
 
 const defaultGreeting =
@@ -75,12 +80,13 @@ function makeGreeting(greeting: string): ChatMessage {
   };
 }
 
-export default function ChatbotWidget({
+const ChatbotWidget = forwardRef<ChatbotHandle, ChatbotWidgetProps>(function ChatbotWidget({
   onSendMessage,
   whatsappNumber,
   greeting = defaultGreeting,
   botName = "Yadika Bot",
-}: ChatbotWidgetProps) {
+  hideFab = false,
+}, ref) {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>(() => {
     const history = readHistory();
@@ -124,13 +130,14 @@ export default function ChatbotWidget({
     if (!isOpen) return;
 
     function handleClickOutside(e: MouseEvent) {
+      const target = e.target as HTMLElement;
+      if (target.closest("[data-chatbot-toggle]")) return;
+
       const overlay = overlayRef.current;
       const fab = fabRef.current;
-      if (!overlay || !fab) return;
-      if (
-        !overlay.contains(e.target as Node) &&
-        !fab.contains(e.target as Node)
-      ) {
+      if (!overlay) return;
+      if (fab && fab.contains(target)) return;
+      if (!overlay.contains(target)) {
         setIsOpen(false);
       }
     }
@@ -159,6 +166,8 @@ export default function ChatbotWidget({
       return !prev;
     });
   }, []);
+
+  useImperativeHandle(ref, () => ({ toggle }), [toggle]);
 
   const handleSend = useCallback(async () => {
     const text = input.trim();
@@ -220,20 +229,23 @@ export default function ChatbotWidget({
   return (
     <>
       {/* FAB Button */}
-      <button
-        ref={fabRef}
-        type="button"
-        className="chatbot-fab"
-        onClick={toggle}
-        aria-label={isOpen ? "Tutup chat" : "Buka chat"}
-      >
-        {isOpen ? <X size={22} /> : <MessageCircle size={22} />}
+      {!hideFab && (
+        <button
+          ref={fabRef}
+          type="button"
+          className="chatbot-fab"
+          data-chatbot-toggle
+          onClick={toggle}
+          aria-label={isOpen ? "Tutup chat" : "Buka chat"}
+        >
+          {isOpen ? <X size={22} /> : <MessageCircle size={22} />}
 
-        {/* Feature2: notification badge */}
-        {showBadge && !isOpen && (
-          <span className="chatbot-fab-badge" />
-        )}
-      </button>
+          {/* Feature2: notification badge */}
+          {showBadge && !isOpen && (
+            <span className="chatbot-fab-badge" />
+          )}
+        </button>
+      )}
 
       {/* Feature5: suggestions floating above FAB when closed */}
       {!isOpen && showSuggestions && (
@@ -386,4 +398,6 @@ export default function ChatbotWidget({
       )}
     </>
   );
-}
+});
+
+export default ChatbotWidget;
