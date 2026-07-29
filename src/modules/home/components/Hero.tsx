@@ -1,5 +1,6 @@
-import { Play, ArrowRight, GraduationCap, Users, Award } from "lucide-react";
+import { Play, ArrowRight, Users, Award } from "lucide-react";
 import { motion } from "motion/react";
+import { Link } from "react-router-dom";
 import data from "./data/hero.json";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -54,13 +55,13 @@ function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.55, ease: EASE }}
           >
-            <a
-              href={data.ctaPrimary.href}
+            <Link
+              to={data.ctaPrimary.href}
               className="home-hero-btn home-hero-btn--primary"
             >
               {data.ctaPrimary.label}
               <ArrowRight className="h-4 w-4" />
-            </a>
+            </Link>
             <a
               href={data.ctaSecondary.href}
               className="home-hero-btn home-hero-btn--ghost"
@@ -89,17 +90,14 @@ function Hero() {
             </div>
           </motion.div>
 
-          {/* Photo frame / Placeholder */}
+          {/* Photo frame */}
           <motion.div
             className="home-hero-photo-frame"
             initial={{ opacity: 0, y: 24, scale: 0.92 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4, ease: EASE }}
           >
-            <div className="home-hero-photo-placeholder">
-              <GraduationCap className="h-12 w-12 text-white/30" />
-              <span>SMK Yadika Soreang</span>
-            </div>
+            <div className="home-hero-photo-placeholder" />
           </motion.div>
 
           {/* Decorative badge — Achievement */}

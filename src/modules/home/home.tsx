@@ -14,6 +14,8 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import LogoLoop from "./components/LogoLoop";
 import Programs from "./components/Programs";
+import BeritaPreview from "./components/BeritaPreview";
+import CtaSection from "./components/CtaSection";
 import Testimonials from "./components/Testimonials";
 
 const mitraLogos: { node: ReactNode; title: string }[] = [
@@ -60,6 +62,8 @@ function Home() {
         />
       </section>
       <Programs />
+      <BeritaPreview />
+      <CtaSection />
       <Testimonials />
     </div>
   );
