@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "../components/navbar/navbar";
 import Footer from "../components/footer/footer";
-import ChatbotWidget from "../components/chatbot/chatbot";
+import ChatbotWidget, { type ChatbotHandle } from "../components/chatbot/chatbot";
+import BottomNav from "../components/bottom-nav/bottom-nav";
 import { getJurusanBySlug } from "../modules/jurusan/data";
 import "./layout.css";
 
@@ -20,7 +21,7 @@ function ScrollToTop() {
   return null;
 }
 
-function useRevealOnScroll() {
+function useRevealOnScroll(pathname: string) {
   useEffect(() => {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReduced) return;
@@ -41,13 +42,23 @@ function useRevealOnScroll() {
     elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
-  }, [useLocation().pathname]);
+  }, [pathname]);
 }
 
 function Layout() {
-  useRevealOnScroll();
   const { pathname } = useLocation();
+  useRevealOnScroll(pathname);
+  const chatbotRef = useRef<ChatbotHandle>(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const [jurusanListingAccent, setJurusanListingAccent] = useState<string>();
+
   const jurusanMatch = pathname.match(/^\/jurusan\/([^/]+)/);
   const jurusanData = useMemo(() => jurusanMatch ? getJurusanBySlug(jurusanMatch[1]) : undefined, [jurusanMatch]);
   const detailAccentColor = jurusanData?.theme.accent;
@@ -55,26 +66,25 @@ function Layout() {
   const useLightNavbarActive = pathname === "/jurusan" && Boolean(jurusanListingAccent) && jurusanListingAccent !== "#1E3A5F";
   const navbarActiveColor = pathname === "/jurusan" && jurusanListingAccent === "#1E3A5F" ? "#2563EB" : undefined;
 
-  useEffect(() => {
-    if (pathname !== "/jurusan") {
-      setJurusanListingAccent(undefined);
-    }
-  }, [pathname]);
-
   return (
     <div className="min-h-screen bg-pearl">
       <ScrollToTop />
-      <Navbar accentColor={navbarAccentColor} lightActive={useLightNavbarActive} activeColor={navbarActiveColor} />
+      {!isMobile && <Navbar accentColor={navbarAccentColor} lightActive={useLightNavbarActive} activeColor={navbarActiveColor} />}
       <main>
         <Outlet context={{ setJurusanListingAccent } satisfies LayoutOutletContext} />
         <Footer accentColor={detailAccentColor} bgColor={jurusanData?.theme.gradientFrom} />
       </main>
       <ChatbotWidget
+        ref={chatbotRef}
+        hideFab={isMobile}
         onSendMessage={async (msg) => {
           console.log("Chatbot received:", msg);
           return "Terima kasih atas pesannya! Tim kami akan segera merespon.";
         }}
         whatsappNumber="6281234567890"
+      />
+      <BottomNav
+        onChatbotToggle={() => chatbotRef.current?.toggle()}
       />
     </div>
   );

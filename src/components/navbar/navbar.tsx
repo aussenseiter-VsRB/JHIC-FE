@@ -247,7 +247,7 @@ export default function Navbar({ accentColor, lightActive = false, activeColor }
             to="/my-jurusan"
             className="rounded-full border border-white/30 px-5 py-2 font-poppins text-sm font-semibold text-white transition-all duration-200 hover:border-blue hover:text-blue"
           >
-            MYJURUSAN
+            myJurusan
           </NavLink>
           <a
             href="#daftar"
@@ -361,7 +361,7 @@ export default function Navbar({ accentColor, lightActive = false, activeColor }
               onClick={closeMobile}
               className="rounded-full border border-white/30 px-5 py-2 font-poppins text-sm font-semibold text-white transition-all duration-200 hover:border-blue hover:text-blue"
             >
-              MYJURUSAN
+              myJurusan
             </NavLink>
             <a
               href="#daftar"
