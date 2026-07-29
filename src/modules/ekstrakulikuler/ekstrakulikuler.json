@@ -1,0 +1,71 @@
+{
+  "header": {
+    "title": "Ekstrakurikuler",
+    "subtitle": "Berbagai kegiatan ekstrakurikuler untuk mengembangkan bakat, minat, dan potensi siswa"
+  },
+  "list": [
+    {
+      "id": 1,
+      "name": "Paskibra",
+      "description": "Latihan baris-berbaris dan pengibaran bendera untuk membentuk karakter disiplin dan kepemimpinan.",
+      "icon": "Trophy",
+      "color": "#EF4444"
+    },
+    {
+      "id": 2,
+      "name": "Pramuka",
+      "description": "Kegiatan kepramukaan yang mengembangkan kemandirian, kerjasama, dan cinta alam.",
+      "icon": "Globe",
+      "color": "#10B981"
+    },
+    {
+      "id": 3,
+      "name": "Rohis",
+      "description": "Forum kerohanian Islam untuk memperdalam pemahaman agama dan membangun akhlak mulia.",
+      "icon": "BookOpen",
+      "color": "#2563EB"
+    },
+    {
+      "id": 4,
+      "name": "Seni Tari",
+      "description": "Mempelajari dan melestarikan tarian tradisional maupun kreasi baru.",
+      "icon": "Music",
+      "color": "#EC4899"
+    },
+    {
+      "id": 5,
+      "name": "Seni Lukis",
+      "description": "Mengembangkan bakat seni rupa melalui berbagai teknik melukis dan menggambar.",
+      "icon": "Palette",
+      "color": "#8B5CF6"
+    },
+    {
+      "id": 6,
+      "name": "Fotografi",
+      "description": "Belajar teknik fotografi dan videografi untuk mengabadikan momen kreatif.",
+      "icon": "Camera",
+      "color": "#F59E0B"
+    },
+    {
+      "id": 7,
+      "name": "English Club",
+      "description": "Meningkatkan kemampuan berbahasa Inggris melalui diskusi, debat, dan presentasi.",
+      "icon": "Globe",
+      "color": "#06B6D4"
+    },
+    {
+      "id": 8,
+      "name": "Teater",
+      "description": "Mengembangkan bakat akting dan seni peran melalui pementasan drama.",
+      "icon": "Theater",
+      "color": "#6366F1"
+    },
+    {
+      "id": 9,
+      "name": "KIR",
+      "description": "Kelompok Ilmiah Remaja untuk penelitian dan eksperimen sains.",
+      "icon": "Microscope",
+      "color": "#14B8A6"
+    }
+  ]
+}
