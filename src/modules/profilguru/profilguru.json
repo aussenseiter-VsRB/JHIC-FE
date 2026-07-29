@@ -1,0 +1,40 @@
+{
+  "header": {
+    "title": "Profil Guru",
+    "subtitle": "Tenaga pendidik profesional dan berdedikasi yang siap membimbing siswa meraih prestasi"
+  },
+  "stats": [
+    { "number": "30+", "label": "Guru Profesional" },
+    { "number": "80%", "label": "Berkualifikasi S2" },
+    { "number": "10+", "label": "Tahun Pengalaman Rata-rata" }
+  ],
+  "departments": [
+    {
+      "name": "PPLG",
+      "fullName": "Pengembangan Perangkat Lunak & Gim",
+      "teachers": [
+        { "id": 1, "name": "Dr. Ahmad Fauzi, S.Kom., M.Kom.", "subject": "Pemrograman Web & Mobile", "image": "" },
+        { "id": 2, "name": "Rina Wijaya, S.T., M.T.", "subject": "Basis Data & Jaringan", "image": "" },
+        { "id": 3, "name": "Dedi Kusnadi, S.Kom.", "subject": "Pemrograman Dasar", "image": "" }
+      ]
+    },
+    {
+      "name": "Hotel",
+      "fullName": "Perhotelan & Tata Boga",
+      "teachers": [
+        { "id": 4, "name": "Siti Nurjanah, S.Par., M.Par.", "subject": "Front Office & Housekeeping", "image": "" },
+        { "id": 5, "name": "Agus Supriyadi, S.ST.Par.", "subject": "Tata Boga & Pelayanan", "image": "" },
+        { "id": 6, "name": "Dewi Sartika, S.Si.", "subject": "Sanitasi & Hygiene", "image": "" }
+      ]
+    },
+    {
+      "name": "Akuntansi",
+      "fullName": "Akuntansi & Keuangan",
+      "teachers": [
+        { "id": 7, "name": "Hj. Neng Dewi, S.E., M.Si.", "subject": "Akuntansi Keuangan", "image": "" },
+        { "id": 8, "name": "Asep Ruhimat, S.E., M.Ak.", "subject": "Perpajakan", "image": "" },
+        { "id": 9, "name": "Tuti Alawiyah, S.Pd.", "subject": "Komputer Akuntansi", "image": "" }
+      ]
+    }
+  ]
+}

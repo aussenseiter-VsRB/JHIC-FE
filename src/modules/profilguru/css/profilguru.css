@@ -1,2 +1,223 @@
 .profilguru {
+  width: 100%;
+}
+
+.profilguru-header-section {
+  background: #1E3A5F;
+  padding: 120px 24px 120px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.profilguru-header-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 40px, currentColor 40px, currentColor 41px);
+}
+
+.profilguru-header-section::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  width: 350px;
+  height: 350px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.profilguru-header-content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.profilguru-title {
+  font-size: 2.5rem;
+  color: white;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.profilguru-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.profilguru-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+.profilguru-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.profilguru-stat {
+  text-align: center;
+}
+
+.profilguru-stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #2563EB;
+  margin-bottom: 4px;
+}
+
+.profilguru-stat-label {
+  display: block;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.profilguru-department {
+  margin-bottom: 48px;
+}
+
+.profilguru-department:last-child {
+  margin-bottom: 0;
+}
+
+.profilguru-department-header {
+  margin-bottom: 24px;
+}
+
+.profilguru-department-name {
+  font-size: 1.5rem;
+  color: #1E3A5F;
+  margin: 0 0 4px;
+}
+
+.profilguru-department-full {
+  font-size: 0.85rem;
+  color: #64748B;
+  margin: 0;
+}
+
+.profilguru-department-accent {
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #2563EB;
+  border-radius: 2px;
+  margin-top: 12px;
+}
+
+.profilguru-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.profilguru-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px 24px;
+  border: 1px solid #E2E8F0;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.profilguru-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #2563EB, transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.profilguru-card:hover {
+  border-color: transparent;
+  box-shadow: 0 16px 48px rgba(30, 58, 95, 0.12);
+  transform: translateY(-6px);
+}
+
+.profilguru-card:hover::before {
+  opacity: 1;
+}
+
+.profilguru-card-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #2563EB10;
+  color: #2563EB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 1.75rem;
+  font-weight: 700;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.profilguru-card:hover .profilguru-card-avatar {
+  transform: scale(1.08);
+}
+
+.profilguru-card-name {
+  font-size: 1rem;
+  color: #1E3A5F;
+  margin: 0 0 6px;
+  line-height: 1.3;
+}
+
+.profilguru-card-subject {
+  font-size: 0.85rem;
+  color: #2563EB;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .profilguru-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .profilguru-header-section {
+    padding: 100px 20px 100px;
+  }
+
+  .profilguru-title {
+    font-size: 1.75rem;
+  }
+
+  .profilguru-container {
+    padding: 40px 20px;
+  }
+
+  .profilguru-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .profilguru-stats {
+    gap: 24px;
+  }
+
+  .profilguru-stat-number {
+    font-size: 1.5rem;
+  }
 }
