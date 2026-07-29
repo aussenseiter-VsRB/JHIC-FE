@@ -1,9 +1,30 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { BookOpen, Briefcase } from "lucide-react";
+import { BadgeCheck, Briefcase } from "lucide-react";
 import { jurusanData } from "../data";
+import jurusanPplg from "../../../assets/jurusan-pplg.svg";
+import jurusanHtl from "../../../assets/jurusan-htl.svg";
+import jurusanAk from "../../../assets/jurusan-ak.svg";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
+
+const jurusanImages: Record<string, string> = {
+  PPLG: jurusanPplg,
+  HOTEL: jurusanHtl,
+  AKL: jurusanAk,
+};
+
+const containerVariants = {
+  enter: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+  center: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+  exit: { transition: { staggerChildren: 0.04 } },
+};
+
+const childVariants = {
+  enter: { opacity: 0, y: 20 },
+  center: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
+  exit: { opacity: 0, y: -10, transition: { duration: 0.25, ease: EASE } },
+};
 
 function JurusanHeroSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -27,6 +48,7 @@ function JurusanHeroSlider() {
   }, [isAutoPlaying, goToNext]);
 
   const slide = jurusanData[activeIndex];
+  const slideImage = jurusanImages[slide.code];
 
   const sliderStyle = {
     "--slider-accent": slide.theme.accent,
@@ -36,22 +58,15 @@ function JurusanHeroSlider() {
   } as React.CSSProperties;
 
   const slideVariants = {
-    enter: (dir: number) => ({ x: dir > 0 ? 40 : -40, opacity: 0 }),
+    enter: (dir: number) => ({ x: dir > 0 ? 50 : -50, opacity: 0 }),
     center: { x: 0, opacity: 1 },
-    exit: (dir: number) => ({ x: dir > 0 ? -40 : 40, opacity: 0 }),
-  };
-
-  const staggerItem = {
-    hidden: { opacity: 0, y: 14 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
+    exit: (dir: number) => ({ x: dir > 0 ? -50 : 50, opacity: 0 }),
   };
 
   return (
     <div
       className="jurusan-hero-slider"
       style={sliderStyle}
-      onMouseEnter={() => setIsAutoPlaying(false)}
-      onMouseLeave={() => setIsAutoPlaying(true)}
     >
       <div className="jurusan-hero-orb jurusan-hero-orb--1" />
       <div className="jurusan-hero-orb jurusan-hero-orb--2" />
@@ -70,21 +85,31 @@ function JurusanHeroSlider() {
               animate="center"
               exit="exit"
               transition={{ duration: 0.45, ease: EASE }}
-              className="jurusan-hero-text-group"
             >
-              <motion.span
-                className="jurusan-hero-label"
-                variants={staggerItem}
+              <motion.div
+                variants={containerVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                className="jurusan-hero-text-group"
               >
-                <span className="jurusan-hero-label-dot" style={{ background: slide.theme.accent }} />
-                Program Keahlian
-              </motion.span>
-              <motion.h1 className="jurusan-hero-title" variants={staggerItem}>
-                {slide.name}
-              </motion.h1>
-              <motion.p className="jurusan-hero-desc" variants={staggerItem}>
-                {slide.description}
-              </motion.p>
+                <motion.span
+                  className="jurusan-hero-label"
+                  variants={childVariants}
+                >
+                  <span className="jurusan-hero-label-dot" style={{ background: slide.theme.accent }} />
+                  Program Keahlian
+                </motion.span>
+                <motion.h1 className="jurusan-hero-title" variants={childVariants}>
+                  {slide.name}
+                </motion.h1>
+                <motion.p className="jurusan-hero-desc" variants={childVariants}>
+                  {slide.description}
+                </motion.p>
+                <motion.p className="jurusan-hero-tagline" variants={childVariants}>
+                  Kompeten, Siap Kerja, Berkarakter
+                </motion.p>
+              </motion.div>
             </motion.div>
           </AnimatePresence>
         </div>
@@ -99,9 +124,15 @@ function JurusanHeroSlider() {
               animate="center"
               exit="exit"
               transition={{ duration: 0.45, ease: EASE }}
-              className="jurusan-hero-placeholder"
+              className="jurusan-hero-image-wrap"
+              onMouseEnter={() => setIsAutoPlaying(false)}
+              onMouseLeave={() => setIsAutoPlaying(true)}
             >
-              <span className="jurusan-hero-placeholder-code">{slide.code}</span>
+              <img
+                src={slideImage}
+                alt={slide.name}
+                className="jurusan-hero-image"
+              />
             </motion.div>
           </AnimatePresence>
 
@@ -115,11 +146,11 @@ function JurusanHeroSlider() {
               transition={{ duration: 0.5, delay: 0.3, ease: EASE }}
             >
               <div className="jurusan-hero-info-card-icon">
-                <BookOpen className="h-4 w-4" />
+                <BadgeCheck className="h-4 w-4" />
               </div>
               <div className="jurusan-hero-info-card-text">
-                <span className="jurusan-hero-info-card-value">{slide.subjects.length}</span>
-                <span className="jurusan-hero-info-card-label">Mata Pelajaran</span>
+                <span className="jurusan-hero-info-card-value">{slide.certCount}</span>
+                <span className="jurusan-hero-info-card-label">Sertifikasi</span>
               </div>
             </motion.div>
           </AnimatePresence>

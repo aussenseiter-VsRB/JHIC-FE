@@ -10,6 +10,7 @@
     "gradientFrom": "#1E3A5F",
     "gradientTo": "#2D4A6F"
   },
+  "certCount": 4,
   "subjects": [
     "Pemrograman web (HTML, CSS, JavaScript, PHP)",
     "Basis data dan server-side programming",
