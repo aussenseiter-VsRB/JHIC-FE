@@ -227,12 +227,12 @@ export default function Navbar({ accentColor }: NavbarProps) {
         </ul>
 
         <div className="hidden items-center gap-3 md:flex">
-          <a
-            href="#brosur"
+          <NavLink
+            to="/my-jurusan"
             className="rounded-full border border-white/30 px-5 py-2 font-poppins text-sm font-semibold text-white transition-all duration-200 hover:border-blue hover:text-blue"
           >
-            BROSUR
-          </a>
+            MYJURUSAN
+          </NavLink>
           <a
             href="#daftar"
             className="flex items-center gap-1.5 rounded-full bg-blue px-5 py-2 font-poppins text-sm font-semibold text-white transition-all duration-200 hover:bg-blue-dark"
@@ -332,14 +332,14 @@ export default function Navbar({ accentColor }: NavbarProps) {
           <hr className="my-2 border-white/10" />
 
           <div className="flex items-center gap-3 px-2">
-            <a
-              href="#brosur"
+            <NavLink
+              to="/my-jurusan"
               role="menuitem"
               onClick={closeMobile}
               className="rounded-full border border-white/30 px-5 py-2 font-poppins text-sm font-semibold text-white transition-all duration-200 hover:border-blue hover:text-blue"
             >
-              BROSUR
-            </a>
+              MYJURUSAN
+            </NavLink>
             <a
               href="#daftar"
               role="menuitem"
