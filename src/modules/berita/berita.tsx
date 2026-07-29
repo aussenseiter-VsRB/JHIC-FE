@@ -260,53 +260,61 @@ function Berita() {
               <h2 className="berita-section-title">{beritaData.beritaSekolah?.title || "BERITA SEKOLAH"}</h2>
               <span className="berita-section-accent" />
             </div>
-            <div className="berita-pagination">
-              <button
-                className="slider-btn"
-                onClick={() => setActivePage((p) => Math.max(0, p - 1))}
-                disabled={activePage === 0}
-                aria-label="Previous Page"
-              >
-                <ArrowRight className="h-5 w-5 rotate-180" />
-              </button>
-              <button
-                className="slider-btn"
-                onClick={() => setActivePage((p) => Math.min(totalPages - 1, p + 1))}
-                disabled={activePage === totalPages - 1}
-                aria-label="Next Page"
-              >
-                <ArrowRight className="h-5 w-5" />
-              </button>
-            </div>
           </div>
 
-          <div className="berita-grid" key={activePage}>
-            {pagedCards.map((berita: BeritaItem) => (
-              <article key={berita.id} className="berita-card">
-                <div className="berita-card-image">
-                  <div className="berita-card-placeholder">
-                    <span className="berita-card-placeholder-text">{berita.category}</span>
+          <div className="berita-grid-wrapper">
+            <button
+              className="berita-nav-arrow"
+              onClick={() => setActivePage((p) => Math.max(0, p - 1))}
+              disabled={activePage === 0}
+              aria-label="Previous Page"
+            >
+              <ArrowRight className="h-6 w-6 rotate-180" />
+            </button>
+
+            <div className="berita-grid" key={activePage}>
+              {pagedCards.map((berita: BeritaItem) => (
+                <article key={berita.id} className="berita-card">
+                  <div className="berita-card-image">
+                    <div className="berita-card-placeholder">
+                      <span className="berita-card-placeholder-text">{berita.category}</span>
+                    </div>
+                    <span
+                      className="berita-card-category"
+                      style={{ background: categoryColors[berita.category] ?? "#2563EB" }}
+                    >
+                      {berita.category}
+                    </span>
                   </div>
-                  <span
-                    className="berita-card-category"
-                    style={{ background: categoryColors[berita.category] ?? "#2563EB" }}
-                  >
-                    {berita.category}
-                  </span>
-                </div>
-                <div className="berita-card-content">
-                  <div className="berita-card-date">
-                    <Calendar className="h-4 w-4" />
-                    <span>{berita.date}</span>
+                  <div className="berita-card-content">
+                    <div className="berita-card-date">
+                      <Calendar className="h-4 w-4" />
+                      <span>{berita.date}</span>
+                    </div>
+                    <h3 className="berita-card-title">{berita.title}</h3>
+                    <p className="berita-card-excerpt">{berita.excerpt}</p>
+                    <span className="berita-card-link">
+                      {beritaData.readMoreText || "Baca Selengkapnya"} <ArrowRight className="h-4 w-4" />
+                    </span>
                   </div>
-                  <h3 className="berita-card-title">{berita.title}</h3>
-                  <p className="berita-card-excerpt">{berita.excerpt}</p>
-                  <span className="berita-card-link">
-                    {beritaData.readMoreText || "Baca Selengkapnya"} <ArrowRight className="h-4 w-4" />
-                  </span>
+                </article>
+              ))}
+              {Array.from({ length: cardsPerPage - pagedCards.length }, (_, i) => (
+                <div key={`filler-${i}`} className="berita-card berita-card--filler" aria-hidden="true">
+                  <div className="berita-card-image" />
+                  <div className="berita-card-content" />
                 </div>
-              </article>
-            ))}
+              ))}
+            </div>
+
+            <button
+              className="berita-nav-arrow"
+              onClick={() => setActivePage((p) => Math.min(totalPages - 1, p + 1))}
+              disabled={activePage === totalPages - 1}
+              aria-label="Next Page"
+            >
+              <ArrowRight className="h-6 w-6" />
+            </button>
           </div>
 
           {/* Dot Indicators */}

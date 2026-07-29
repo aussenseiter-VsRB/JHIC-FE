@@ -1,12 +1,14 @@
 import { useState, useEffect, useRef } from 'react'
-import type { CSSProperties } from 'react'
+import type { CSSProperties, ElementType } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
-import { Menu, X, ArrowUpRight, ChevronDown, BookOpen, Sparkles } from 'lucide-react'
+import { Menu, X, ArrowUpRight, ChevronDown, GraduationCap, Users, Handshake, BookOpen, Sparkles } from 'lucide-react'
 import logoSrc from '../../assets/Logo-yadika.webp'
 
 interface SubMenuItem {
   label: string
   to: string
+  icon?: ElementType
+  description?: string
 }
 
 interface NavItem {
@@ -17,12 +19,19 @@ interface NavItem {
 
 const navLinks: NavItem[] = [
   { label: 'Beranda', to: '/' },
-  { label: 'Profil', to: '/profile' },
+  {
+    label: 'Tentang Kami',
+    children: [
+      { label: 'Profil Sekolah', to: '/profile', icon: GraduationCap, description: 'Informasi dan profil sekolah' },
+      { label: 'Profil Guru', to: '/profilguru', icon: Users, description: 'Data tenaga pendidik' },
+      { label: 'Hubungan Industri', to: '/hubin', icon: Handshake, description: 'Kerja sama dengan industri' },
+    ],
+  },
   {
     label: 'Program',
     children: [
-      { label: 'Jurusan', to: '/jurusan' },
-      { label: 'Ekstrakurikuler', to: '/ekstrakurikuler' },
+      { label: 'Jurusan', to: '/jurusan', icon: BookOpen, description: 'Program keahlian' },
+      { label: 'Ekstrakurikuler', to: '/ekstrakurikuler', icon: Sparkles, description: 'Kegiatan pengembangan bakat' },
     ],
   },
   { label: 'Fasilitas', to: '/fasilitas' },
@@ -32,9 +41,11 @@ const navLinks: NavItem[] = [
 
 interface NavbarProps {
   accentColor?: string;
+  lightActive?: boolean;
+  activeColor?: string;
 }
 
-export default function Navbar({ accentColor }: NavbarProps) {
+export default function Navbar({ accentColor, lightActive = false, activeColor }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [hidden, setHidden] = useState(false)
@@ -55,6 +66,8 @@ export default function Navbar({ accentColor }: NavbarProps) {
         '--nb-shadow-30': `${accentColor}4D`,
         '--nb-accent': accentColor,
         '--nb-accent-10': `${accentColor}1A`,
+        '--nb-active': lightActive ? '#FFFFFF' : activeColor ?? accentColor,
+        '--nb-active-bg': lightActive ? '#FFFFFF1A' : `${activeColor ?? accentColor}1A`,
       } as CSSProperties
     : {}
 
@@ -153,50 +166,53 @@ export default function Navbar({ accentColor }: NavbarProps) {
                   <button
                     className={`relative flex items-center gap-1.5 font-body text-[15px] font-medium transition-colors duration-200 ${
                       isChildActive(link.children)
-                        ? 'font-semibold text-[var(--nb-accent,#2563EB)]'
+                        ? 'font-semibold text-[var(--nb-active,#2563EB)]'
                         : 'text-white/80 hover:text-white'
                     }`}
                   >
                     {link.label}
                     <ChevronDown className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180" />
                   </button>
-                  <div className="absolute -left-[15px] top-full min-w-[380px] pt-2 opacity-0 translate-y-[-8px] pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
-                    <div className="relative rounded-xl border border-[#e5e7eb] bg-white p-1.5 shadow-lg">
-                      <div className="flex items-stretch">
-                        {link.children.map((child, index) => {
-                          const Icon = child.label === 'Jurusan' ? BookOpen : Sparkles
-                          const desc = child.label === 'Jurusan'
-                            ? 'Program keahlian untuk mempersiapkan masa depan yang cerah'
-                            : 'Wadah pengembangan bakat, minat, dan kreativitas siswa'
-                          return (
-                            <NavLink
-                              key={child.to}
-                              to={child.to}
-                              end
-                              style={{ transitionDelay: `${index * 60}ms` }}
-                              className={({ isActive }) =>
-                                `flex flex-1 items-center gap-3 px-4 py-4 font-body transition-all duration-200 opacity-0 group-hover:opacity-100 ${
-                                  index === 0 ? 'rounded-l-lg border-r border-[#e5e7eb]' : 'rounded-r-lg'
-                                } ${
+                    <div className="absolute -left-[1px] top-full min-w-[280px] pt-1.5 opacity-0 translate-y-[-8px] pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
+                     <div className="relative rounded-xl border border-[#e5e7eb] bg-white p-1.5 shadow-lg">
+                      <div className="flex flex-col">
+                        {link.children!.map((child) => (
+                          <NavLink
+                            key={child.to}
+                            to={child.to}
+                            end
+                             className={({ isActive }) =>
+                                `rounded-lg px-4 py-3 font-body transition-all duration-200 border-l-2 ${
                                   isActive
-                                    ? 'bg-[#2563EB]/10 text-[#2563EB]'
-                                    : 'text-gray-700 hover:bg-[#2563EB]/5 hover:text-[#2563EB]'
+                                    ? 'bg-[var(--nb-active-bg,#2563EB1A)] border-[var(--nb-active,#2563EB)] text-[var(--nb-active,#2563EB)]'
+                                    : 'hover:bg-black/5 border-transparent text-gray-700'
                                 }`
-                              }
-                            >
-                              <Icon className="h-5 w-5 shrink-0" />
-                              <div className="flex flex-col gap-0.5">
-                                <span className="text-[15px] font-semibold leading-tight">{child.label}</span>
-                                <span className="text-[11px] leading-snug opacity-60">{desc}</span>
+                             }
+                           >
+                             {({ isActive }) => (
+                               <div className="flex items-start gap-3">
+                                 {child.icon && (
+                                   <child.icon className="h-5 w-5 mt-0.5 shrink-0 text-blue" />
+                                 )}
+                                 <div className="min-w-0">
+                                   <div className={`text-[15px] leading-tight ${isActive ? 'text-[var(--nb-active,#2563EB)]' : 'text-gray-700'}`}>
+                                     {child.label}
+                                   </div>
+                                  {child.description && (
+                                    <div className="text-[13px] text-gray-400 leading-tight mt-0.5">
+                                      {child.description}
+                                    </div>
+                                  )}
+                                </div>
                               </div>
-                            </NavLink>
-                          )
-                        })}
+                            )}
+                          </NavLink>
+                        ))}
                       </div>
                     </div>
                   </div>
                   {isChildActive(link.children) && (
-                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-[var(--nb-accent,#2563EB)]" />
+                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-[var(--nb-active,#2563EB)]" />
                   )}
                 </div>
               ) : (
@@ -207,7 +223,7 @@ export default function Navbar({ accentColor }: NavbarProps) {
                   className={({ isActive }) =>
                     `relative font-body text-[15px] font-medium transition-colors duration-200 ${
                       isActive
-                        ? 'font-semibold text-[var(--nb-accent,#2563EB)]'
+                        ? 'font-semibold text-[var(--nb-active,#2563EB)]'
                         : 'text-white/80 hover:text-white'
                     }`
                   }
@@ -216,7 +232,7 @@ export default function Navbar({ accentColor }: NavbarProps) {
                     <>
                       {link.label}
                       {isActive && (
-                        <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-[var(--nb-accent,#2563EB)]" />
+                        <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-[var(--nb-active,#2563EB)]" />
                       )}
                     </>
                   )}
@@ -271,7 +287,7 @@ export default function Navbar({ accentColor }: NavbarProps) {
                     onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
                     className={`flex w-full items-center justify-between rounded-xl px-4 py-3 font-body text-[16px] font-medium transition-colors duration-200 ${
                       isChildActive(link.children)
-                        ? 'bg-[var(--nb-accent-10,#2563EB1A)] font-semibold text-[var(--nb-accent,#2563EB)]'
+                        ? 'bg-[var(--nb-active-bg,#2563EB1A)] font-semibold text-[var(--nb-active,#2563EB)]'
                         : 'text-white/80 hover:bg-white/5 hover:text-white'
                     }`}
                   >
@@ -294,14 +310,21 @@ export default function Navbar({ accentColor }: NavbarProps) {
                           end
                           onClick={closeMobile}
                           className={({ isActive }) =>
-                            `block rounded-xl px-4 py-2.5 font-body text-[15px] font-medium transition-colors duration-200 ${
+                            `rounded-xl px-4 py-2.5 font-body text-[15px] font-medium transition-colors duration-200 ${
                               isActive
-                                ? 'bg-[var(--nb-accent-10,#2563EB1A)] font-semibold text-[var(--nb-accent,#2563EB)]'
+                                ? 'bg-[var(--nb-active-bg,#2563EB1A)] font-semibold text-[var(--nb-active,#2563EB)]'
                                 : 'text-white/70 hover:bg-white/5 hover:text-white'
                             }`
                           }
                         >
-                          {child.label}
+                          {({ isActive }) => (
+                            <div className="flex items-center gap-3">
+                              {child.icon && (
+                                <child.icon className={`h-4 w-4 shrink-0 ${isActive ? 'text-[var(--nb-active,#2563EB)]' : 'text-white/50'}`} />
+                              )}
+                              <span>{child.label}</span>
+                            </div>
+                          )}
                         </NavLink>
                       ))}
                     </div>
@@ -317,7 +340,7 @@ export default function Navbar({ accentColor }: NavbarProps) {
                     className={({ isActive }) =>
                       `block rounded-xl px-4 py-3 font-body text-[16px] font-medium transition-colors duration-200 ${
                         isActive
-                          ? 'bg-[var(--nb-accent-10,#2563EB1A)] font-semibold text-[var(--nb-accent,#2563EB)]'
+                          ? 'bg-[var(--nb-active-bg,#2563EB1A)] font-semibold text-[var(--nb-active,#2563EB)]'
                           : 'text-white/80 hover:bg-white/5 hover:text-white'
                       }`
                     }

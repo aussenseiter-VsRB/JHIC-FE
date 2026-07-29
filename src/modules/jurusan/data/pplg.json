@@ -1,9 +1,10 @@
 {
   "code": "PPLG",
   "slug": "pplg",
-  "name": "Pemrograman Perangkat Lunak dan Gim",
+  "name": "Pengembangan Perangkat Lunak dan Gim",
   "description": "Mempelajari pengembangan perangkat lunak, website, mobile apps, dan pembuatan gim interaktif.",
   "detailDescription": "Mempelajari pengembangan perangkat lunak, website, mobile apps, dan pembuatan gim interaktif dari nol hingga siap kerja.",
+  "about": "Jurusan PPLG (Pengembangan Perangkat Lunak dan Gim) adalah program keahlian yang berfokus pada pengembangan teknologi digital. Siswa akan belajar menciptakan perangkat lunak, membangun aplikasi web dan mobile, serta merancang gim interaktif dari dasar hingga siap pakai. Kurikulum dirancang untuk membangun kompetensi teknis yang kuat dengan praktik langsung menggunakan teknologi terkini yang digunakan di industri.",
   "theme": {
     "accent": "#1E3A5F",
     "accentBg": "#E8EDF4",
@@ -11,12 +12,36 @@
     "gradientTo": "#2D4A6F"
   },
   "certCount": 4,
+  "certifications": [
+    "Sertifikasi BNSP Pemrograman Web",
+    "Sertifikasi BNSP Junior Mobile Developer",
+    "Sertifikasi BNSP Junior Network Administrator",
+    "Sertifikasi Internasional Oracle Java Fundamentals"
+  ],
   "subjects": [
     "Pemrograman web (HTML, CSS, JavaScript, PHP)",
     "Basis data dan server-side programming",
     "Pengembangan mobile (Android / Flutter)",
     "Desain dan pengembangan gim (Unity, Godot)",
-    "UI/UX Design"
+    "UI/UX Design",
+    "Algoritma dan struktur data"
   ],
-  "career": "Lulusan PPLG dapat bekerja sebagai Web Developer, Mobile Developer, Game Developer, UI/UX Designer, atau melanjutkan studi ke perguruan tinggi di bidang teknologi informasi."
+  "career": "Lulusan PPLG dapat bekerja sebagai Web Developer, Mobile Developer, Game Developer, UI/UX Designer, atau melanjutkan studi ke perguruan tinggi di bidang teknologi informasi.",
+  "careerPaths": [
+    { "title": "Web Developer", "description": "Membangun dan memelihara website serta aplikasi berbasis web." },
+    { "title": "Mobile Developer", "description": "Mengembangkan aplikasi mobile untuk platform Android dan iOS." },
+    { "title": "Game Developer", "description": "Merancang dan mengembangkan gim interaktif untuk berbagai platform." },
+    { "title": "UI/UX Designer", "description": "Merancang antarmuka dan pengalaman pengguna yang intuitif." },
+    { "title": "System Analyst", "description": "Menganalisis dan merancang sistem informasi untuk kebutuhan bisnis." }
+  ],
+  "teachers": [
+    { "name": "Dr. Ahmad Fauzi, S.Kom., M.Kom.", "subject": "Pemrograman Web & Mobile" },
+    { "name": "Rina Wijaya, S.T., M.T.", "subject": "Basis Data & Jaringan" },
+    { "name": "Dedi Kusnadi, S.Kom.", "subject": "Pemrograman Dasar" }
+  ],
+  "stats": [
+    { "number": "4", "label": "Sertifikasi" },
+    { "number": "6", "label": "Bidang Studi" },
+    { "number": "5+", "label": "Mitra Industri" }
+  ]
 }
