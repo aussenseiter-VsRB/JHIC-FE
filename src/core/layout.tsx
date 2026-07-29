@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "../components/navbar/navbar";
 import Footer from "../components/footer/footer";
 import ChatbotWidget from "../components/chatbot/chatbot";
+import { getJurusanBySlug } from "../modules/jurusan/data";
 import "./layout.css";
 
 function ScrollToTop() {
@@ -39,17 +40,12 @@ function useRevealOnScroll() {
   }, [useLocation().pathname]);
 }
 
-const jurusanAccentMap: Record<string, string> = {
-  pplg: '#1E3A5F',
-  hotel: '#18181B',
-  akuntansi: '#B91C1C',
-};
-
 function Layout() {
   useRevealOnScroll();
   const { pathname } = useLocation();
   const jurusanMatch = pathname.match(/^\/jurusan\/([^/]+)/);
-  const accentColor = jurusanMatch ? jurusanAccentMap[jurusanMatch[1]] : undefined;
+  const jurusanData = useMemo(() => jurusanMatch ? getJurusanBySlug(jurusanMatch[1]) : undefined, [jurusanMatch]);
+  const accentColor = jurusanData?.theme.accent;
 
   return (
     <div className="min-h-screen bg-pearl">
@@ -57,7 +53,7 @@ function Layout() {
       <Navbar accentColor={accentColor} />
       <main>
         <Outlet />
-        <Footer />
+        <Footer accentColor={accentColor} bgColor={jurusanData?.theme.gradientFrom} />
       </main>
       <ChatbotWidget
         onSendMessage={async (msg) => {

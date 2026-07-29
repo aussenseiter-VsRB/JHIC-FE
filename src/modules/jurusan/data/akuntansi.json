@@ -4,6 +4,7 @@
   "name": "Akuntansi dan Keuangan",
   "description": "Mempelajari pembukuan, laporan keuangan, perpajakan, dan administrasi keuangan.",
   "detailDescription": "Mempelajari pembukuan, laporan keuangan, perpajakan, dan administrasi keuangan secara profesional.",
+  "about": "Jurusan AK (Akuntansi dan Keuangan) adalah program keahlian yang membekali siswa dengan kemampuan mengelola pembukuan, menyusun laporan keuangan, memahami perpajakan, dan menjalankan administrasi keuangan secara profesional dan akurat. Siswa dilatih untuk teliti dan memiliki integritas tinggi, siap bekerja di berbagai sektor industri dan jasa.",
   "theme": {
     "accent": "#A31D1D",
     "accentBg": "#FEE2E2",
@@ -11,12 +12,35 @@
     "gradientTo": "#8B1A1A"
   },
   "certCount": 3,
+  "certifications": [
+    "Sertifikasi BNSP Junior Accountant",
+    "Sertifikasi Brevet Pajak A & B",
+    "Sertifikasi MYOB Certified User"
+  ],
   "subjects": [
     "Pembukuan dan akuntansi dasar",
     "Akuntansi keuangan dan manajemen",
     "Perpajakan (PPN, PPh)",
     "Software akuntansi (MYOB, Accurate)",
-    "Administrasi keuangan dan bank"
+    "Administrasi keuangan dan bank",
+    "Komputer akuntansi dan spreadsheet"
   ],
-  "career": "Lulusan AKL dapat bekerja sebagai Staff Accounting, Kasir, Administrasi Keuangan, Tax Consultant, atau melanjutkan studi ke bidang akuntansi dan manajemen keuangan."
+  "career": "Lulusan AKL dapat bekerja sebagai Staff Accounting, Kasir, Administrasi Keuangan, Tax Consultant, atau melanjutkan studi ke bidang akuntansi dan manajemen keuangan.",
+  "careerPaths": [
+    { "title": "Staff Accounting", "description": "Mengelola pembukuan, jurnal, dan laporan keuangan perusahaan." },
+    { "title": "Tax Consultant", "description": "Membantu wajib pajak dalam menghitung dan melaporkan perpajakan." },
+    { "title": "Kasir / Teller", "description": "Menangani transaksi keuangan di bank atau perusahaan." },
+    { "title": "Administrasi Keuangan", "description": "Mengelola dokumen dan administrasi keuangan perusahaan." },
+    { "title": "Internal Auditor", "description": "Melakukan audit internal untuk memastikan kepatuhan keuangan." }
+  ],
+  "teachers": [
+    { "name": "Hj. Neng Dewi, S.E., M.Si.", "subject": "Akuntansi Keuangan" },
+    { "name": "Asep Ruhimat, S.E., M.Ak.", "subject": "Perpajakan" },
+    { "name": "Tuti Alawiyah, S.Pd.", "subject": "Komputer Akuntansi" }
+  ],
+  "stats": [
+    { "number": "3", "label": "Sertifikasi" },
+    { "number": "6", "label": "Bidang Studi" },
+    { "number": "6+", "label": "Mitra Industri" }
+  ]
 }
