@@ -4,16 +4,7 @@ import PpdbHero from "./components/PpdbHero";
 import RegistrationSteps from "./components/RegistrationSteps";
 import RegistrationWave from "./components/RegistrationWave";
 import VerticalTimeline from "./components/VerticalTimeline";
-
-const requirements = [
-  "Fotokopi Ijazah SMA/SMP (2 lembar)",
-  "Fotokopi SKHUN (2 lembar)",
-  "Fotokopi Kartu Keluarga (2 lembar)",
-  "Fotokopi Akta Kelahiran (2 lembar)",
-  "Pas foto 3x4 (4 lembar)",
-  "Surat Keterangan Sehat dari Dokter",
-  "Surat Keterangan Tidak Buta Warna",
-];
+import ppdbData from "./ppdb.json";
 
 function Ppdb() {
   return (
@@ -21,21 +12,14 @@ function Ppdb() {
       <PpdbHero />
 
       <div className="ppdb-container">
-        {/* Timeline Section */}
         <VerticalTimeline />
-
-        {/* Registration Steps */}
         <RegistrationSteps />
-
-        {/* Registration Wave */}
         <RegistrationWave />
-
-        {/* Requirements Section */}
         <div className="ppdb-section ppdb-section-alt reveal">
           <h2 className="ppdb-section-title">Persyaratan</h2>
           <span className="ppdb-section-accent" />
           <div className="ppdb-requirements">
-            {requirements.map((req, i) => (
+            {ppdbData.requirements.map((req, i) => (
               <div key={i} className="ppdb-requirement">
                 <CheckCircle className="h-5 w-5 text-sky" />
                 <span>{req}</span>
@@ -43,7 +27,6 @@ function Ppdb() {
             ))}
           </div>
         </div>
-        {/* CTA Section */}
         <div className="ppdb-cta-section reveal" id="daftar">
           <div className="ppdb-cta-content">
             <FileText className="h-8 w-8 text-blue" />
@@ -57,7 +40,6 @@ function Ppdb() {
           </div>
         </div>
 
-        {/* Contact Section */}
         <div className="ppdb-section reveal">
           <h2 className="ppdb-section-title">Hubungi Kami</h2>
           <span className="ppdb-section-accent" />

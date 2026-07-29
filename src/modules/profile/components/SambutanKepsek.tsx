@@ -1,4 +1,4 @@
-import data from "./data/sambutan-kepsek.json";
+import data from "../data/sambutan-kepsek.json";
 
 function SambutanKepsek() {
   return (

@@ -1,49 +1,23 @@
 import { MapPin, Award, Users, GraduationCap, Target, BookOpen, Building2, Trophy, Sparkles } from "lucide-react";
-import Carousel from "../../../components/carousel/carousel";
+import type { LucideIcon } from "lucide-react";
+import Carousel from "./carousel/carousel";
 import Breadcrumb from "../../../components/breadcrumb/breadcrumb";
+import profileData from "../profile.json";
 
-const carouselItems = [
-  {
-    title: "Visi & Misi",
-    description: "Menjadi sekolah kejuruan terdepan yang menghasilkan lulusan berkarakter dan kompeten.",
-    id: 1,
-    icon: <Target className="carousel-icon" />,
-  },
-  {
-    title: "Sejarah",
-    description: "Berdiri sejak 1985, SMK Yadika Soreang telah melahirkan ribuan lulusan berkualitas.",
-    id: 2,
-    icon: <BookOpen className="carousel-icon" />,
-  },
-  {
-    title: "Fasilitas",
-    description: "Laboratorium modern, bengkel praktik, perpustakaan digital, dan lapangan olahraga.",
-    id: 3,
-    icon: <Building2 className="carousel-icon" />,
-  },
-  {
-    title: "Prestasi",
-    description: "Meraih berbagai penghargaan di tingkat kabupaten, provinsi, dan nasional.",
-    id: 4,
-    icon: <Trophy className="carousel-icon" />,
-  },
-  {
-    title: "Ekstrakurikuler",
-    description: "Pramuka, PMR, Paskibra, Robotik, dan berbagai klub pengembangan bakat lainnya.",
-    id: 5,
-    icon: <Sparkles className="carousel-icon" />,
-  },
-];
+const carouselIconMap: Record<string, LucideIcon> = {
+  Target, BookOpen, Building2, Trophy, Sparkles,
+};
+
+const carouselItems = profileData.carouselItems.map((item) => {
+  const Icon = carouselIconMap[item.icon];
+  return { ...item, icon: <Icon className="carousel-icon" /> };
+});
 
 function ProfileCard() {
   return (
     <section className="profile-card-hero">
       <div className="profile-card-hero-pattern">
-        <div
-          style={{
-            backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 20px, currentColor 20px, currentColor 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, currentColor 20px, currentColor 21px)`,
-          }}
-        />
+        <div />
       </div>
 
       <div className="profile-card-hero-glow profile-card-hero-glow--sky" />
@@ -51,38 +25,26 @@ function ProfileCard() {
 
       <div className="profile-card-hero-inner">
         <div className="profile-card-hero-main">
-          <Breadcrumb
-            items={[
-              { label: "Tentang Kami" },
-              { label: "Profil Sekolah" },
-            ]}
-          />
+          <Breadcrumb items={profileData.breadcrumb} />
 
           <h1 className="font-heading profile-card-hero-title">
-            SMK YADIKA SOREANG
+            {profileData.title}
           </h1>
 
           <p className="font-body profile-card-hero-desc">
-            Sekolah menengah kejuruan yang berkomitmen menghasilkan lulusan kompeten, berkarakter, dan siap bersaing di dunia kerja.
+            {profileData.tagline}
           </p>
 
           <div className="profile-card-hero-info">
-            <div className="profile-card-hero-info-item">
-              <MapPin className="profile-card-hero-info-icon" />
-              <span className="font-body profile-card-hero-info-text">Soreang, Bandung</span>
-            </div>
-            <div className="profile-card-hero-info-item">
-              <Award className="profile-card-hero-info-icon" />
-              <span className="font-body profile-card-hero-info-text">Terakreditasi</span>
-            </div>
-            <div className="profile-card-hero-info-item">
-              <Users className="profile-card-hero-info-icon" />
-              <span className="font-body profile-card-hero-info-text">1200+ Siswa</span>
-            </div>
-            <div className="profile-card-hero-info-item">
-              <GraduationCap className="profile-card-hero-info-icon" />
-              <span className="font-body profile-card-hero-info-text">3 Program Keahlian</span>
-            </div>
+            {profileData.infoItems.map((item, i) => {
+              const InfoIcon = { MapPin, Award, Users, GraduationCap }[item.icon] as LucideIcon;
+              return (
+                <div key={i} className="profile-card-hero-info-item">
+                  <InfoIcon className="profile-card-hero-info-icon" />
+                  <span className="font-body profile-card-hero-info-text">{item.text}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
 

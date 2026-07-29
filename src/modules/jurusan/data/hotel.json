@@ -5,6 +5,12 @@
   "description": "Mempelajari tata graha, tata boga, front office, dan layanan perhotelan profesional.",
   "detailDescription": "Mempelajari tata graha, tata boga, front office, dan layanan perhotelan profesional berskala internasional.",
   "about": "Jurusan HTL (Perhotelan dan Jasa Pariwisata) merupakan program keahlian yang mempersiapkan siswa untuk berkarier di industri perhotelan dan pariwisata. Siswa akan mempelajari tata graha, tata boga, layanan front office, serta manajemen operasional hotel secara profesional. Pembelajaran dilakukan dengan praktik langsung di laboratorium perhotelan yang lengkap dan standar industri.",
+  "paragraphs": [
+    "Jurusan HTL (Perhotelan dan Jasa Pariwisata) merupakan program keahlian yang mempersiapkan siswa untuk berkarier di industri perhotelan dan pariwisata. Siswa akan mempelajari tata graha, tata boga, layanan front office, serta manajemen operasional hotel secara profesional.",
+    "Materi pembelajaran HTL meliputi front office dan reservasi, housekeeping, tata boga dan product knowledge, service excellence, serta manajemen operasional hotel. Pembelajaran dilakukan dengan praktik langsung di laboratorium perhotelan yang lengkap.",
+    "Lulusan HTL dapat bekerja sebagai Front Office, Housekeeping Supervisor, Chef, Barista, atau melanjutkan studi ke program pariwisata dan hospitality. Industri perhotelan yang terus berkembang membuka banyak peluang bagi lulusan yang kompeten."
+  ],
+  "image": "jurusan-htl.svg",
   "theme": {
     "accent": "#18181B",
     "accentBg": "#F4F4F5",

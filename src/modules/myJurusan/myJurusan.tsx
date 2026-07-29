@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { ArrowLeft, ArrowRight, RotateCcw, Bot } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import "./css/myJurusan.css";
+import myJurusanData from "./myJurusan.json";
 
 interface JurusanResult {
   nama_jurusan: string;
@@ -11,34 +12,13 @@ interface JurusanResult {
   persentase_hotel: number;
 }
 
-const dummyResult: JurusanResult = {
-  nama_jurusan: "PPLG",
-  alasan:
-    "Dari jawabanmu, terlihat kamu memiliki ketelitian tinggi, nyaman bekerja dengan data dan teknologi, serta lebih suka fokus mandiri. Jurusan PPLG (Pengembangan Perangkat Lunak dan Gim) sangat cocok untukmu karena kamu akan banyak berkutat dengan logika pemrograman, analisis sistem, dan pengembangan aplikasi. Kemampuanmu dalam memecahkan masalah secara terstruktur akan sangat berguna di bidang ini.",
-  persentase_akuntansi: 20,
-  persentase_pplg: 65,
-  persentase_hotel: 15,
-};
+const dummyResult: JurusanResult = myJurusanData.dummyResult;
 
-const questions = [
-  "Kalau lagi punya waktu luang, kamu lebih suka ngapain?",
-  "Pelajaran atau kegiatan apa di sekolah yang menurutmu paling gampang atau paling kamu suka, dan kenapa?",
-  "Kalau kamu kerja kelompok, biasanya kamu paling sering kebagian tugas apa?",
-  "Kamu lebih suka kerja sendirian fokus di depan komputer/data, kerja tim bikin sesuatu baru, atau ketemu banyak orang tiap hari?",
-  "Kalau ada tugas yang harus teliti banget, gimana perasaanmu — semangat, biasa aja, atau bosen?",
-];
+const questions = myJurusanData.questions;
 
-const jurusanColors: Record<string, string> = {
-  Akuntansi: "#B91C1C",
-  PPLG: "#1E3A5F",
-  Perhotelan: "#18181B",
-};
+const jurusanColors: Record<string, string> = myJurusanData.jurusanColors;
 
-const jurusanLongName: Record<string, string> = {
-  PPLG: "Pengembangan Perangkat Lunak dan Gim",
-  Akuntansi: "Akuntansi dan Keuangan Lembaga",
-  Perhotelan: "Perhotelan",
-};
+const jurusanLongName: Record<string, string> = myJurusanData.jurusanLongName;
 
 function WavingHand() {
   return (
@@ -325,7 +305,7 @@ function IntroSection({ onStart }: { onStart: () => void }) {
       <div className="pointer-events-none absolute bottom-1/4 right-1/4 h-[300px] w-[300px] rounded-full bg-sky/[0.06] blur-[100px]" />
 
       <div className="absolute bottom-0 left-0 right-0 h-24 overflow-hidden pointer-events-none wave-scroll-container">
-        <svg className="wave-scroll" viewBox="0 0 2880 120" fill="none" preserveAspectRatio="none" style={{ width: "200%", height: "96px" }}>
+        <svg className="wave-scroll" viewBox="0 0 2880 120" fill="none" preserveAspectRatio="none">
           <path d="M0,60 C360,110 450,20 720,60 C990,100 1080,30 1440,60 C1800,90 1890,20 2160,60 C2430,100 2520,30 2880,60 L2880,120 L0,120 Z" fill="#F5F5F5" opacity="0.3" />
           <path d="M0,75 C300,40 500,100 720,75 C940,50 1140,110 1440,75 C1740,40 1940,100 2160,75 C2380,50 2580,110 2880,75 L2880,120 L0,120 Z" fill="#F5F5F5" opacity="0.6" />
           <path d="M0,90 C320,120 420,50 720,90 C1020,130 1120,60 1440,90 C1760,120 1860,50 2160,90 C2460,130 2560,60 2880,90 L2880,120 L0,120 Z" fill="#F5F5F5" />
@@ -472,8 +452,7 @@ function ResultSection({
             <button
               type="button"
               onClick={onDaftar}
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue px-8 py-3 font-body text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-dark hover:shadow-lg active:scale-95 sm:w-auto"
-              style={{ minHeight: "44px" }}
+              className="myJurusan-daftar-btn flex w-full items-center justify-center gap-2 rounded-xl bg-blue px-8 py-3 font-body text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-dark hover:shadow-lg active:scale-95 sm:w-auto"
             >
               Daftar ke Jurusan Ini
               <ArrowRight className="h-4 w-4" />

@@ -1,13 +1,8 @@
 import {
-  Building2,
-  Factory,
-  Briefcase,
-  GraduationCap,
-  Handshake,
-  Landmark,
-  ShieldCheck,
-  Cpu,
+  Building2, Factory, Briefcase, GraduationCap,
+  Handshake, Landmark, ShieldCheck, Cpu,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
 import "./css/home.css";
 import Hero from "./components/Hero";
@@ -17,17 +12,16 @@ import Programs from "./components/Programs";
 import BeritaPreview from "./components/BeritaPreview";
 import CtaSection from "./components/CtaSection";
 import Testimonials from "./components/Testimonials";
+import mitraData from "./data/mitra.json";
 
-const mitraLogos: { node: ReactNode; title: string }[] = [
-  { node: <Building2 size={32} />, title: "PT Teknologi Nusantara" },
-  { node: <Factory size={32} />, title: "PT Manufaktur Jaya" },
-  { node: <Briefcase size={32} />, title: "PT Digital Solusi" },
-  { node: <GraduationCap size={32} />, title: "Yayasan Pendidikan Yadika" },
-  { node: <Handshake size={32} />, title: "PT Karya Bersama" },
-  { node: <Landmark size={32} />, title: "Bank Pembangunan Daerah" },
-  { node: <ShieldCheck size={32} />, title: "PT Asuransi Utama" },
-  { node: <Cpu size={32} />, title: "PT Sistem Mikro Elektronik" },
-];
+const mitraIconMap: Record<string, LucideIcon> = {
+  Building2, Factory, Briefcase, GraduationCap, Handshake, Landmark, ShieldCheck, Cpu,
+};
+
+const mitraLogos: { node: ReactNode; title: string }[] = mitraData.map((m) => {
+  const Icon = mitraIconMap[m.icon];
+  return { node: <Icon size={32} />, title: m.title };
+});
 
 function Home() {
   return (

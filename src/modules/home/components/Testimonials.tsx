@@ -1,5 +1,5 @@
 import { Star } from "lucide-react";
-import data from "./data/testimonials.json";
+import data from "../data/testimonials.json";
 
 function StarRating({ rating }: { rating: number }) {
   return (

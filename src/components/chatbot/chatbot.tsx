@@ -101,31 +101,26 @@ const ChatbotWidget = forwardRef<ChatbotHandle, ChatbotWidgetProps>(function Cha
   const inputRef = useRef<HTMLInputElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Feature2: badge notification after3 seconds
   useEffect(() => {
     if (wasBadgeDismissed()) return;
     const timer = setTimeout(() => setShowBadge(true), 3000);
     return () => clearTimeout(timer);
   }, []);
 
-  // Feature1: persist to localStorage
   useEffect(() => {
     writeHistory(messages);
   }, [messages]);
 
-  // Auto-scroll
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isTyping]);
 
-  // Auto-focus input when opened
   useEffect(() => {
     if (isOpen) {
       requestAnimationFrame(() => inputRef.current?.focus());
     }
   }, [isOpen]);
 
-  // Feature5: click outside to close
   useEffect(() => {
     if (!isOpen) return;
 
@@ -146,7 +141,6 @@ const ChatbotWidget = forwardRef<ChatbotHandle, ChatbotWidgetProps>(function Cha
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isOpen]);
 
-  // ESC to close
   useEffect(() => {
     if (!isOpen) return;
     function handleKey(e: KeyboardEvent) {
@@ -159,7 +153,6 @@ const ChatbotWidget = forwardRef<ChatbotHandle, ChatbotWidgetProps>(function Cha
   const toggle = useCallback(() => {
     setIsOpen((prev) => {
       if (!prev) {
-        // Feature2: dismiss badge permanently on first open
         dismissBadge();
         setShowBadge(false);
       }
@@ -214,7 +207,6 @@ const ChatbotWidget = forwardRef<ChatbotHandle, ChatbotWidgetProps>(function Cha
     []
   );
 
-  // Feature6: reset conversation
   const handleReset = useCallback(() => {
     if (!confirm("Hapus semua percakapan?")) return;
     const fresh = [makeGreeting(greeting)];
@@ -228,7 +220,6 @@ const ChatbotWidget = forwardRef<ChatbotHandle, ChatbotWidgetProps>(function Cha
 
   return (
     <>
-      {/* FAB Button */}
       {!hideFab && (
         <button
           ref={fabRef}
@@ -240,14 +231,12 @@ const ChatbotWidget = forwardRef<ChatbotHandle, ChatbotWidgetProps>(function Cha
         >
           {isOpen ? <X size={22} /> : <MessageCircle size={22} />}
 
-          {/* Feature2: notification badge */}
           {showBadge && !isOpen && (
             <span className="chatbot-fab-badge" />
           )}
         </button>
       )}
 
-      {/* Feature5: suggestions floating above FAB when closed */}
       {!isOpen && showSuggestions && (
         <div className="chatbot-suggestions-fab">
           {defaultSuggestions.map((s) => (
@@ -272,14 +261,12 @@ const ChatbotWidget = forwardRef<ChatbotHandle, ChatbotWidgetProps>(function Cha
       {isOpen && (
         <div className="chatbot-overlay">
           <div ref={overlayRef} className="chatbot-panel">
-            {/* Header */}
             <div className="chatbot-header">
               <div className="chatbot-header-info">
                 <span className="chatbot-header-name">{botName}</span>
                 <span className="chatbot-header-status">Online</span>
               </div>
               <div className="chatbot-header-actions">
-                {/* Feature3: WhatsApp fallback */}
                 {whatsappNumber && (
                   <a
                     href={`https://wa.me/${whatsappNumber}`}
@@ -291,7 +278,6 @@ const ChatbotWidget = forwardRef<ChatbotHandle, ChatbotWidgetProps>(function Cha
                     <Phone size={16} />
                   </a>
                 )}
-                {/* Feature6: reset */}
                 <button
                   type="button"
                   className="chatbot-header-icon-btn"
@@ -311,7 +297,6 @@ const ChatbotWidget = forwardRef<ChatbotHandle, ChatbotWidgetProps>(function Cha
               </div>
             </div>
 
-            {/* Messages area */}
             <div className="chatbot-messages">
               {messages.map((msg) => (
                 <div
@@ -325,7 +310,6 @@ const ChatbotWidget = forwardRef<ChatbotHandle, ChatbotWidgetProps>(function Cha
                 </div>
               ))}
 
-              {/* Typing indicator */}
               {isTyping && (
                 <div className="chatbot-bubble chatbot-bubble--bot">
                   <span className="chatbot-bubble-avatar">Y</span>
@@ -339,7 +323,6 @@ const ChatbotWidget = forwardRef<ChatbotHandle, ChatbotWidgetProps>(function Cha
 
               <div ref={messagesEndRef} />
 
-              {/* Suggestions inside chat when empty */}
               {showSuggestions && (
                 <div className="chatbot-suggestions-inline">
                   <p className="chatbot-suggestions-label">
@@ -359,7 +342,6 @@ const ChatbotWidget = forwardRef<ChatbotHandle, ChatbotWidgetProps>(function Cha
               )}
             </div>
 
-            {/* Input area */}
             <div className="chatbot-input-area">
               {nearLimit && (
                 <span className="chatbot-char-counter">

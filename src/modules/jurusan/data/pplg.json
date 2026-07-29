@@ -5,6 +5,12 @@
   "description": "Mempelajari pengembangan perangkat lunak, website, mobile apps, dan pembuatan gim interaktif.",
   "detailDescription": "Mempelajari pengembangan perangkat lunak, website, mobile apps, dan pembuatan gim interaktif dari nol hingga siap kerja.",
   "about": "Jurusan PPLG (Pengembangan Perangkat Lunak dan Gim) adalah program keahlian yang berfokus pada pengembangan teknologi digital. Siswa akan belajar menciptakan perangkat lunak, membangun aplikasi web dan mobile, serta merancang gim interaktif dari dasar hingga siap pakai. Kurikulum dirancang untuk membangun kompetensi teknis yang kuat dengan praktik langsung menggunakan teknologi terkini yang digunakan di industri.",
+  "paragraphs": [
+    "Jurusan PPLG (Pengembangan Perangkat Lunak dan Gim) adalah program keahlian yang berfokus pada pengembangan teknologi digital. Siswa akan belajar menciptakan perangkat lunak, membangun aplikasi web dan mobile, serta merancang gim interaktif dari dasar hingga siap pakai.",
+    "Kurikulum PPLG mencakup pemrograman web menggunakan HTML, CSS, JavaScript, dan PHP, pengelolaan basis data, pengembangan aplikasi mobile dengan Flutter, hingga desain dan pengembangan gim menggunakan Unity dan Godot. Setiap materi dirancang untuk membangun kompetensi teknis yang kuat.",
+    "Lulusan PPLG memiliki peluang karier yang luas sebagai Web Developer, Mobile Developer, Game Developer, atau UI/UX Designer. Dengan pesatnya transformasi digital di berbagai sektor, kebutuhan akan lulusan PPLG terus meningkat setiap tahunnya."
+  ],
+  "image": "jurusan-pplg.svg",
   "theme": {
     "accent": "#1E3A5F",
     "accentBg": "#E8EDF4",

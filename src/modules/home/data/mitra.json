@@ -1,0 +1,10 @@
+[
+  { "icon": "Building2", "title": "PT Teknologi Nusantara" },
+  { "icon": "Factory", "title": "PT Manufaktur Jaya" },
+  { "icon": "Briefcase", "title": "PT Digital Solusi" },
+  { "icon": "GraduationCap", "title": "Yayasan Pendidikan Yadika" },
+  { "icon": "Handshake", "title": "PT Karya Bersama" },
+  { "icon": "Landmark", "title": "Bank Pembangunan Daerah" },
+  { "icon": "ShieldCheck", "title": "PT Asuransi Utama" },
+  { "icon": "Cpu", "title": "PT Sistem Mikro Elektronik" }
+]

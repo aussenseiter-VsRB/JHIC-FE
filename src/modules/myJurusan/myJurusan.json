@@ -1,3 +1,26 @@
 {
-
+  "questions": [
+    "Kalau lagi punya waktu luang, kamu lebih suka ngapain?",
+    "Pelajaran atau kegiatan apa di sekolah yang menurutmu paling gampang atau paling kamu suka, dan kenapa?",
+    "Kalau kamu kerja kelompok, biasanya kamu paling sering kebagian tugas apa?",
+    "Kamu lebih suka kerja sendirian fokus di depan komputer/data, kerja tim bikin sesuatu baru, atau ketemu banyak orang tiap hari?",
+    "Kalau ada tugas yang harus teliti banget, gimana perasaanmu — semangat, biasa aja, atau bosen?"
+  ],
+  "jurusanColors": {
+    "Akuntansi": "#B91C1C",
+    "PPLG": "#1E3A5F",
+    "Perhotelan": "#18181B"
+  },
+  "jurusanLongName": {
+    "PPLG": "Pengembangan Perangkat Lunak dan Gim",
+    "Akuntansi": "Akuntansi dan Keuangan Lembaga",
+    "Perhotelan": "Perhotelan"
+  },
+  "dummyResult": {
+    "nama_jurusan": "PPLG",
+    "alasan": "Dari jawabanmu, terlihat kamu memiliki ketelitian tinggi, nyaman bekerja dengan data dan teknologi, serta lebih suka fokus mandiri. Jurusan PPLG (Pengembangan Perangkat Lunak dan Gim) sangat cocok untukmu karena kamu akan banyak berkutat dengan logika pemrograman, analisis sistem, dan pengembangan aplikasi. Kemampuanmu dalam memecahkan masalah secara terstruktur akan sangat berguna di bidang ini.",
+    "persentase_akuntansi": 20,
+    "persentase_pplg": 65,
+    "persentase_hotel": 15
+  }
 }

@@ -1,7 +1,7 @@
 function SkeletonLoad() {
   return (
     <div className="berita">
-      <div className="berita-container" style={{ paddingTop: 120 }}>
+      <div className="berita-container berita-container--loading">
         <div className="berita-grid">
           {Array.from({ length: 6 }).map((_, i) => (
             <article key={i} className="berita-card">

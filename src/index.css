@@ -100,6 +100,8 @@ body {
 
 .wave-scroll {
   animation: wave-scroll 8s linear infinite;
+  width: 200%;
+  height: 96px;
 }
 
 .wave-scroll-container {

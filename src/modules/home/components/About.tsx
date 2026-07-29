@@ -1,4 +1,4 @@
-import data from "./data/about.json";
+import data from "../data/about.json";
 
 function About() {
   return (

@@ -1,0 +1,46 @@
+{
+  "carouselItems": [
+    {
+      "title": "Visi & Misi",
+      "description": "Menjadi sekolah kejuruan terdepan yang menghasilkan lulusan berkarakter dan kompeten.",
+      "id": 1,
+      "icon": "Target"
+    },
+    {
+      "title": "Sejarah",
+      "description": "Berdiri sejak 1985, SMK Yadika Soreang telah melahirkan ribuan lulusan berkualitas.",
+      "id": 2,
+      "icon": "BookOpen"
+    },
+    {
+      "title": "Fasilitas",
+      "description": "Laboratorium modern, bengkel praktik, perpustakaan digital, dan lapangan olahraga.",
+      "id": 3,
+      "icon": "Building2"
+    },
+    {
+      "title": "Prestasi",
+      "description": "Meraih berbagai penghargaan di tingkat kabupaten, provinsi, dan nasional.",
+      "id": 4,
+      "icon": "Trophy"
+    },
+    {
+      "title": "Ekstrakurikuler",
+      "description": "Pramuka, PMR, Paskibra, Robotik, dan berbagai klub pengembangan bakat lainnya.",
+      "id": 5,
+      "icon": "Sparkles"
+    }
+  ],
+  "breadcrumb": [
+    { "label": "Tentang Kami" },
+    { "label": "Profil Sekolah" }
+  ],
+  "title": "SMK YADIKA SOREANG",
+  "tagline": "Sekolah menengah kejuruan yang berkomitmen menghasilkan lulusan kompeten, berkarakter, dan siap bersaing di dunia kerja.",
+  "infoItems": [
+    { "icon": "MapPin", "text": "Soreang, Bandung" },
+    { "icon": "Award", "text": "Terakreditasi" },
+    { "icon": "Users", "text": "1200+ Siswa" },
+    { "icon": "GraduationCap", "text": "3 Program Keahlian" }
+  ]
+}
