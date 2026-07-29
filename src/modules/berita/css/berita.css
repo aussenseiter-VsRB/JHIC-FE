@@ -401,6 +401,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  flex: 1;
+  min-width: 0;
 }
 
 .berita-grid .berita-card {
@@ -554,6 +556,11 @@
 
 .berita-card:hover .berita-card-link svg {
   transform: translateX(3px);
+}
+
+.berita-card--filler {
+  visibility: hidden;
+  pointer-events: none;
 }
 
 /* Section 2: Berita Terkini Zig-zag Layout */
@@ -761,6 +768,44 @@
   align-items: flex-end;
   justify-content: space-between;
   margin-bottom: 32px;
+}
+
+.berita-grid-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.berita-nav-arrow {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 50%;
+  background: white;
+  color: #94A3B8;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.berita-nav-arrow:hover:not(:disabled) {
+  border-color: #2563EB;
+  color: #2563EB;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.15);
+  transform: scale(1.06);
+}
+
+.berita-nav-arrow:active:not(:disabled) {
+  transform: scale(0.94);
+}
+
+.berita-nav-arrow:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
 }
 
 .slider-controls {
@@ -971,12 +1016,22 @@
     width: 100%;
   }
 
+  .berita-grid-wrapper {
+    gap: 12px;
+  }
+
+  .berita-nav-arrow {
+    width: 52px;
+    height: 52px;
+  }
+
   .berita-section-header-flex {
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
   }
 
+  .berita-pagination,
   .slider-controls {
     align-self: flex-end;
   }
@@ -1065,6 +1120,15 @@
 
   .berita-container {
     padding: 32px 16px 48px;
+  }
+
+  .berita-grid-wrapper {
+    gap: 8px;
+  }
+
+  .berita-nav-arrow {
+    width: 44px;
+    height: 44px;
   }
 
   .berita-section {

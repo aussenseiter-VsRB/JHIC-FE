@@ -1,0 +1,105 @@
+{
+  "header": {
+    "title": "Hubungan Industri",
+    "subtitle": "Menjalin kemitraan strategis dengan berbagai perusahaan dan dunia usaha untuk mendukung program magang, sertifikasi, dan penyaluran lulusan"
+  },
+  "stats": [
+    { "number": "10+", "label": "Mitra Industri" },
+    { "number": "50+", "label": "Siswa Magang/Tahun" },
+    { "number": "90%", "label": "Penyerapan Lulusan" }
+  ],
+  "programs": [
+    {
+      "id": 1,
+      "name": "Praktik Kerja Lapangan",
+      "description": "Program magang industri selama 6 bulan yang memberikan pengalaman kerja nyata sesuai bidang keahlian siswa.",
+      "icon": "Briefcase",
+      "color": "#2563EB"
+    },
+    {
+      "id": 2,
+      "name": "Kunjungan Industri",
+      "description": "Kegiatan kunjungan ke perusahaan mitra untuk memperkenalkan dunia usaha kepada siswa secara langsung.",
+      "icon": "Building2",
+      "color": "#0EA5E9"
+    },
+    {
+      "id": 3,
+      "name": "Sertifikasi Profesi",
+      "description": "Program sertifikasi kompetensi yang diakui industri untuk meningkatkan daya saing lulusan.",
+      "icon": "Award",
+      "color": "#6366F1"
+    },
+    {
+      "id": 4,
+      "name": "Penyelarasan Kurikulum",
+      "description": "Penyesuaian kurikulum dengan kebutuhan industri agar lulusan siap kerja sesuai standar dunia usaha.",
+      "icon": "BookOpen",
+      "color": "#EC4899"
+    },
+    {
+      "id": 5,
+      "name": "Guru Tamu Industri",
+      "description": "Praktisi industri yang menjadi pengajar tamu untuk memberikan wawasan terkini tentang dunia kerja.",
+      "icon": "UserCheck",
+      "color": "#14B8A6"
+    },
+    {
+      "id": 6,
+      "name": "Penyaluran Lulusan",
+      "description": "Bursa kerja khusus yang menghubungkan lulusan dengan mitra perusahaan yang membutuhkan tenaga kerja.",
+      "icon": "Handshake",
+      "color": "#F59E0B"
+    }
+  ],
+  "mitra": [
+    {
+      "id": 1,
+      "name": "PT Teknologi Nusantara",
+      "address": "Bandung, Jawa Barat",
+      "focus": "Rekayasa Perangkat Lunak"
+    },
+    {
+      "id": 2,
+      "name": "Hotel Grand Panghegar",
+      "address": "Bandung, Jawa Barat",
+      "focus": "Perhotelan & Tata Boga"
+    },
+    {
+      "id": 3,
+      "name": "PT Kereta Api Indonesia",
+      "address": "Bandung, Jawa Barat",
+      "focus": "Akuntansi & Keuangan"
+    },
+    {
+      "id": 4,
+      "name": "Bank BJB Cabang Soreang",
+      "address": "Soreang, Jawa Barat",
+      "focus": "Akuntansi & Perbankan"
+    },
+    {
+      "id": 5,
+      "name": "PT Pos Indonesia",
+      "address": "Bandung, Jawa Barat",
+      "focus": "Manajemen Perkantoran"
+    },
+    {
+      "id": 6,
+      "name": "Bandung Techno Park",
+      "address": "Bandung, Jawa Barat",
+      "focus": "Teknologi & Startup"
+    },
+    {
+      "id": 7,
+      "name": "PT Bio Farma",
+      "address": "Bandung, Jawa Barat",
+      "focus": "Logistik & Supply Chain"
+    },
+    {
+      "id": 8,
+      "name": "Hotel Hilton Bandung",
+      "address": "Bandung, Jawa Barat",
+      "focus": "Perhotelan & Pariwisata"
+    }
+  ]
+}
