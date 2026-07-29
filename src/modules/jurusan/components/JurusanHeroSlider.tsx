@@ -1,7 +1,30 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { BadgeCheck, Briefcase } from "lucide-react";
 import { jurusanData } from "../data";
+import jurusanPplg from "../../../assets/jurusan-pplg.svg";
+import jurusanHtl from "../../../assets/jurusan-htl.svg";
+import jurusanAk from "../../../assets/jurusan-ak.svg";
+
+const EASE = [0.16, 1, 0.3, 1] as const;
+
+const jurusanImages: Record<string, string> = {
+  PPLG: jurusanPplg,
+  HOTEL: jurusanHtl,
+  AKL: jurusanAk,
+};
+
+const containerVariants = {
+  enter: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+  center: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+  exit: { transition: { staggerChildren: 0.04 } },
+};
+
+const childVariants = {
+  enter: { opacity: 0, y: 20 },
+  center: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
+  exit: { opacity: 0, y: -10, transition: { duration: 0.25, ease: EASE } },
+};
 
 function JurusanHeroSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -18,11 +41,6 @@ function JurusanHeroSlider() {
     setActiveIndex((prev) => (prev + 1) % jurusanData.length);
   }, []);
 
-  const goToPrev = useCallback(() => {
-    setDirection(-1);
-    setActiveIndex((prev) => (prev - 1 + jurusanData.length) % jurusanData.length);
-  }, []);
-
   useEffect(() => {
     if (!isAutoPlaying) return;
     const interval = setInterval(goToNext, 5000);
@@ -30,6 +48,7 @@ function JurusanHeroSlider() {
   }, [isAutoPlaying, goToNext]);
 
   const slide = jurusanData[activeIndex];
+  const slideImage = jurusanImages[slide.code];
 
   const sliderStyle = {
     "--slider-accent": slide.theme.accent,
@@ -38,83 +57,144 @@ function JurusanHeroSlider() {
     "--slider-gradient-to": slide.theme.gradientTo,
   } as React.CSSProperties;
 
-  const variants = {
-    enter: (dir: number) => ({
-      x: dir > 0 ? 60 : -60,
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-    },
-    exit: (dir: number) => ({
-      x: dir > 0 ? -60 : 60,
-      opacity: 0,
-    }),
+  const slideVariants = {
+    enter: (dir: number) => ({ x: dir > 0 ? 50 : -50, opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (dir: number) => ({ x: dir > 0 ? -50 : 50, opacity: 0 }),
   };
 
   return (
     <div
       className="jurusan-hero-slider"
       style={sliderStyle}
-      onMouseEnter={() => setIsAutoPlaying(false)}
-      onMouseLeave={() => setIsAutoPlaying(true)}
     >
+      <div className="jurusan-hero-orb jurusan-hero-orb--1" />
+      <div className="jurusan-hero-orb jurusan-hero-orb--2" />
+      <div className="jurusan-hero-orb jurusan-hero-orb--3" />
+      <div className="jurusan-hero-dots-overlay" />
       <div className="jurusan-hero-glow" />
 
-      <div className="jurusan-hero-content">
-        <AnimatePresence mode="wait" custom={direction}>
-          <motion.div
-            key={slide.code}
-            custom={direction}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <span className="jurusan-badge" style={{ color: slide.theme.accent, borderColor: `${slide.theme.accent}4D`, background: `${slide.theme.accent}1A` }}>
-              {slide.code}
-            </span>
-            <h1 className="jurusan-hero-title">{slide.name}</h1>
-            <p className="jurusan-hero-desc">{slide.description}</p>
-          </motion.div>
-        </AnimatePresence>
-      </div>
+      <div className="jurusan-hero-inner">
+        <div className="jurusan-hero-content">
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={slide.code}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.45, ease: EASE }}
+            >
+              <motion.div
+                variants={containerVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                className="jurusan-hero-text-group"
+              >
+                <motion.span
+                  className="jurusan-hero-label"
+                  variants={childVariants}
+                >
+                  <span className="jurusan-hero-label-dot" style={{ background: slide.theme.accent }} />
+                  Program Keahlian
+                </motion.span>
+                <motion.h1 className="jurusan-hero-title" variants={childVariants}>
+                  {slide.name}
+                </motion.h1>
+                <motion.p className="jurusan-hero-desc" variants={childVariants}>
+                  {slide.description}
+                </motion.p>
+                <motion.p className="jurusan-hero-tagline" variants={childVariants}>
+                  Kompeten, Siap Kerja, Berkarakter
+                </motion.p>
+              </motion.div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
-      <div className="jurusan-hero-visual">
-        <AnimatePresence mode="wait" custom={direction}>
-          <motion.div
-            key={slide.code}
-            custom={direction}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="jurusan-hero-placeholder"
-          />
-        </AnimatePresence>
+        <div className="jurusan-hero-visual">
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={slide.code}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.45, ease: EASE }}
+              className="jurusan-hero-image-wrap"
+              onMouseEnter={() => setIsAutoPlaying(false)}
+              onMouseLeave={() => setIsAutoPlaying(true)}
+            >
+              <img
+                src={slideImage}
+                alt={slide.name}
+                className="jurusan-hero-image"
+              />
+            </motion.div>
+          </AnimatePresence>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`info-subjects-${slide.code}`}
+              className="jurusan-hero-info-card jurusan-hero-info-card--subjects"
+              initial={{ opacity: 0, scale: 0.9, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 10 }}
+              transition={{ duration: 0.5, delay: 0.3, ease: EASE }}
+            >
+              <div className="jurusan-hero-info-card-icon">
+                <BadgeCheck className="h-4 w-4" />
+              </div>
+              <div className="jurusan-hero-info-card-text">
+                <span className="jurusan-hero-info-card-value">{slide.certCount}</span>
+                <span className="jurusan-hero-info-card-label">Sertifikasi</span>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`info-career-${slide.code}`}
+              className="jurusan-hero-info-card jurusan-hero-info-card--career"
+              initial={{ opacity: 0, scale: 0.9, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 10 }}
+              transition={{ duration: 0.5, delay: 0.45, ease: EASE }}
+            >
+              <div className="jurusan-hero-info-card-icon jurusan-hero-info-card-icon--gold">
+                <Briefcase className="h-4 w-4" />
+              </div>
+              <div className="jurusan-hero-info-card-text">
+                <span className="jurusan-hero-info-card-value">Lulusan</span>
+                <span className="jurusan-hero-info-card-label">{slide.code}</span>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
 
       <div className="jurusan-hero-controls">
-        <div className="jurusan-hero-dots">
+        <div className="jurusan-hero-segment">
           {jurusanData.map((j, i) => (
             <button
               key={j.slug}
-              className={`jurusan-hero-dot ${i === activeIndex ? "jurusan-hero-dot-active" : ""}`}
+              className="jurusan-hero-segment-btn"
               onClick={() => goToSlide(i)}
               aria-label={`Go to slide ${j.code}`}
-            />
+            >
+              {i === activeIndex && (
+                <motion.span
+                  className="jurusan-hero-segment-indicator"
+                  layoutId="segment-active"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
+              <span className="jurusan-hero-segment-label">{j.code}</span>
+            </button>
           ))}
-        </div>
-        <div className="jurusan-hero-arrows">
-          <button className="jurusan-hero-arrow-btn" onClick={goToPrev} aria-label="Previous slide">
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-          <button className="jurusan-hero-arrow-btn" onClick={goToNext} aria-label="Next slide">
-            <ChevronRight className="h-5 w-5" />
-          </button>
         </div>
       </div>
 
