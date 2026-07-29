@@ -1,39 +1,103 @@
 {
   "header": {
     "title": "Profil Guru",
-    "subtitle": "Tenaga pendidik profesional dan berdedikasi yang siap membimbing siswa meraih prestasi"
+    "subtitle": "Tenaga pendidik profesional dan berdedikasi yang siap membimbing siswa meraih prestasi, dengan kompetensi unggul di bidangnya serta pengalaman panjang dalam menciptakan generasi muda yang siap menghadapi tantangan global"
   },
   "stats": [
     { "number": "30+", "label": "Guru Profesional" },
     { "number": "80%", "label": "Berkualifikasi S2" },
-    { "number": "10+", "label": "Tahun Pengalaman Rata-rata" }
+    { "number": "10+", "label": "Tahun Pengalaman" },
+    { "number": "500+", "label": "Siswa Dibimbing" }
   ],
-  "departments": [
+  "sections": [
     {
-      "name": "PPLG",
-      "fullName": "Pengembangan Perangkat Lunak & Gim",
+      "id": "kepala-sekolah",
+      "type": "featured",
+      "title": "Kepala Sekolah",
+      "color": "#1E3A5F",
       "teachers": [
-        { "id": 1, "name": "Dr. Ahmad Fauzi, S.Kom., M.Kom.", "subject": "Pemrograman Web & Mobile", "image": "" },
-        { "id": 2, "name": "Rina Wijaya, S.T., M.T.", "subject": "Basis Data & Jaringan", "image": "" },
-        { "id": 3, "name": "Dedi Kusnadi, S.Kom.", "subject": "Pemrograman Dasar", "image": "" }
+        { "id": 1, "name": "Dr. H. Engkus Kusnadi, S.Pd., M.M.Pd.", "subject": "Kepala Sekolah", "keahlian": ["Manajemen Pendidikan", "Kurikulum", "Leadership"], "pendidikan": "S3 Manajemen Pendidikan", "pengalaman": 25, "image": "", "motto": "Pendidikan adalah seni menanamkan semangat kepemimpinan dan karakter pada setiap generasi" }
       ]
     },
     {
-      "name": "Hotel",
-      "fullName": "Perhotelan & Tata Boga",
+      "id": "wakil-kepala",
+      "type": "grid",
+      "title": "Wakil Kepala Bidang",
+      "color": "#2563EB",
       "teachers": [
-        { "id": 4, "name": "Siti Nurjanah, S.Par., M.Par.", "subject": "Front Office & Housekeeping", "image": "" },
-        { "id": 5, "name": "Agus Supriyadi, S.ST.Par.", "subject": "Tata Boga & Pelayanan", "image": "" },
-        { "id": 6, "name": "Dewi Sartika, S.Si.", "subject": "Sanitasi & Hygiene", "image": "" }
+        { "id": 2, "name": "Drs. H. Ade Sunarya", "subject": "Wakasek Kurikulum", "keahlian": ["Pengembangan Kurikulum", "Evaluasi", "AKM"], "pendidikan": "S2 Pendidikan", "pengalaman": 20, "image": "" },
+        { "id": 3, "name": "H. Aep Saepudin, S.Pd., M.Pd.", "subject": "Wakasek Kesiswaan", "keahlian": ["Bimbingan Konseling", "Organisasi", "Karakter"], "pendidikan": "S2 Bimbingan Konseling", "pengalaman": 18, "image": "" },
+        { "id": 4, "name": "Yanti Mulyanti, S.Pd., M.M.", "subject": "Wakasek Sarana Prasarana", "keahlian": ["Manajemen Aset", "Inventarisasi", "Pengadaan"], "pendidikan": "S2 Manajemen", "pengalaman": 16, "image": "" },
+        { "id": 5, "name": "Drs. H. Ujang Hermawan", "subject": "Wakasek Humas", "keahlian": ["Hubungan Masyarakat", "Kerjasama Industri", "Public Speaking"], "pendidikan": "S2 Komunikasi", "pengalaman": 19, "image": "" }
       ]
     },
     {
-      "name": "Akuntansi",
-      "fullName": "Akuntansi & Keuangan",
+      "id": "guru-produktif",
+      "type": "departments",
+      "title": "Guru Produktif",
+      "description": "Tenaga pendidik keahlian jurusan produktif",
+      "color": "#0EA5E9",
+      "departments": [
+        {
+          "name": "PPLG",
+          "fullName": "Pengembangan Perangkat Lunak & Gim",
+          "color": "#2563EB",
+          "teachers": [
+            { "id": 6, "name": "Dr. Ahmad Fauzi, S.Kom., M.Kom.", "subject": "Pemrograman Web & Mobile", "keahlian": ["React", "Laravel", "Flutter"], "pendidikan": "S3 Ilmu Komputer", "pengalaman": 15, "image": "" },
+            { "id": 7, "name": "Rina Wijaya, S.T., M.T.", "subject": "Basis Data & Jaringan", "keahlian": ["SQL", "Cisco", "Cloud"], "pendidikan": "S2 Teknik Informatika", "pengalaman": 12, "image": "" },
+            { "id": 8, "name": "Dedi Kusnadi, S.Kom.", "subject": "Pemrograman Dasar", "keahlian": ["Python", "Java", "C++"], "pendidikan": "S1 Ilmu Komputer", "pengalaman": 8, "image": "" },
+            { "id": 9, "name": "Fitri Handayani, S.Kom., M.Kom.", "subject": "UI/UX Design", "keahlian": ["Figma", "Adobe XD", "Design Thinking"], "pendidikan": "S2 Desain", "pengalaman": 10, "image": "" }
+          ]
+        },
+        {
+          "name": "Hotel",
+          "fullName": "Perhotelan & Tata Boga",
+          "color": "#0EA5E9",
+          "teachers": [
+            { "id": 10, "name": "Siti Nurjanah, S.Par., M.Par.", "subject": "Front Office & Housekeeping", "keahlian": ["Hotel Operation", "Reservation System", "Hospitality"], "pendidikan": "S2 Pariwisata", "pengalaman": 14, "image": "" },
+            { "id": 11, "name": "Agus Supriyadi, S.ST.Par.", "subject": "Tata Boga & Pelayanan", "keahlian": ["Pastry", "Table Manner", "Menu Planning"], "pendidikan": "S1 Pariwisata", "pengalaman": 11, "image": "" },
+            { "id": 12, "name": "Dewi Sartika, S.Si.", "subject": "Sanitasi & Hygiene", "keahlian": ["Food Safety", "HACCP", "Cleaning Procedure"], "pendidikan": "S1 Sains", "pengalaman": 9, "image": "" }
+          ]
+        },
+        {
+          "name": "Akuntansi",
+          "fullName": "Akuntansi & Keuangan",
+          "color": "#059669",
+          "teachers": [
+            { "id": 13, "name": "Hj. Neng Dewi, S.E., M.Si.", "subject": "Akuntansi Keuangan", "keahlian": ["PSAK", "Audit", "Financial Report"], "pendidikan": "S2 Akuntansi", "pengalaman": 18, "image": "" },
+            { "id": 14, "name": "Asep Ruhimat, S.E., M.Ak.", "subject": "Perpajakan", "keahlian": ["PPh", "PPN", "Tax Planning"], "pendidikan": "S2 Akuntansi", "pengalaman": 13, "image": "" },
+            { "id": 15, "name": "Tuti Alawiyah, S.Pd.", "subject": "Komputer Akuntansi", "keahlian": ["MYOB", "Accurate", "Excel"], "pendidikan": "S1 Pendidikan Akuntansi", "pengalaman": 10, "image": "" },
+            { "id": 16, "name": "Drs. Hendra Gunawan", "subject": "Ekonomi Bisnis", "keahlian": ["Microeconomics", "Business Plan", "Marketing"], "pendidikan": "S1 Ekonomi", "pengalaman": 20, "image": "" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guru-non-produktif",
+      "type": "grid",
+      "title": "Guru Non Produktif",
+      "color": "#D97706",
       "teachers": [
-        { "id": 7, "name": "Hj. Neng Dewi, S.E., M.Si.", "subject": "Akuntansi Keuangan", "image": "" },
-        { "id": 8, "name": "Asep Ruhimat, S.E., M.Ak.", "subject": "Perpajakan", "image": "" },
-        { "id": 9, "name": "Tuti Alawiyah, S.Pd.", "subject": "Komputer Akuntansi", "image": "" }
+        { "id": 17, "name": "Dra. Hj. Imas Masitoh", "subject": "Pendidikan Agama Islam", "keahlian": ["Fiqih", "Tahsin", "Akidah Akhlak"], "pendidikan": "S2 Pendidikan Agama", "pengalaman": 22, "image": "" },
+        { "id": 18, "name": "Drs. H. Edi Suryadi, M.Pd.", "subject": "Pendidikan Kewarganegaraan", "keahlian": ["Hukum", "Demokrasi", "Hak Asasi"], "pendidikan": "S2 Pendidikan Pancasila", "pengalaman": 21, "image": "" },
+        { "id": 19, "name": "Lilis Suhartini, S.Pd., M.Pd.", "subject": "Bahasa Indonesia", "keahlian": ["Linguistik", "Sastra", "Penulisan"], "pendidikan": "S2 Pendidikan Bahasa", "pengalaman": 17, "image": "" },
+        { "id": 20, "name": "Dede Mariana, S.Pd., M.Pd.", "subject": "Matematika", "keahlian": ["Statistika", "Aljabar", "Geometri"], "pendidikan": "S2 Pendidikan Matematika", "pengalaman": 15, "image": "" },
+        { "id": 21, "name": "Hj. Euis Kartini, S.S., M.Pd.", "subject": "Bahasa Inggris", "keahlian": ["Grammar", "Speaking", "TOEFL"], "pendidikan": "S2 Pendidikan Bahasa Inggris", "pengalaman": 16, "image": "" },
+        { "id": 22, "name": "Drs. H. Usep Saepuloh", "subject": "Penjaskes", "keahlian": ["Olahraga", "Kebugaran", "Wasit"], "pendidikan": "S1 Pendidikan Olahraga", "pengalaman": 19, "image": "" },
+        { "id": 23, "name": "Dra. Hj. Nining Nuraeni", "subject": "Seni Budaya", "keahlian": ["Seni Rupa", "Musik", "Teater"], "pendidikan": "S1 Pendidikan Seni", "pengalaman": 18, "image": "" }
+      ]
+    },
+    {
+      "id": "staff",
+      "type": "grid",
+      "title": "Staff dan Karyawan",
+      "color": "#64748B",
+      "teachers": [
+        { "id": 24, "name": "Rudi Haryanto, S.Kom.", "subject": "Kepala Tata Usaha", "keahlian": ["Administrasi", "Kepegawaian", "Sistem Informasi"], "pendidikan": "S1 Ilmu Komputer", "pengalaman": 14, "image": "" },
+        { "id": 25, "name": "Asep Roni", "subject": "Staf Administrasi", "keahlian": ["Arsip", "Kearsipan", "Pelaporan"], "pendidikan": "SMA", "pengalaman": 12, "image": "" },
+        { "id": 26, "name": "Yayah Rokayah", "subject": "Staf Keuangan", "keahlian": ["Pembukuan", "SPJ", "Anggaran"], "pendidikan": "D3 Akuntansi", "pengalaman": 10, "image": "" },
+        { "id": 27, "name": "Deden Suryana", "subject": "Petugas Perpustakaan", "keahlian": ["Katalogisasi", "Literasi", "Digital Library"], "pendidikan": "S1 Perpustakaan", "pengalaman": 8, "image": "" },
+        { "id": 28, "name": "Ade Kurniawan", "subject": "Petugas Kebersihan & Keamanan", "keahlian": ["Maintenance", "Keamanan", "Kebersihan"], "pendidikan": "SMA", "pengalaman": 7, "image": "" }
       ]
     }
   ]
