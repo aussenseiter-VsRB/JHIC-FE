@@ -1,5 +1,6 @@
 import { Building2, Briefcase, Handshake, BookOpen, UserCheck, Award, Factory } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import Breadcrumb from "../../components/breadcrumb/breadcrumb";
 import "./css/hubin.css";
 import data from "./hubin.json";
 
@@ -36,6 +37,13 @@ function Hubin() {
     <div className="hubin">
       <div className="hubin-header-section">
         <div className="hubin-header-content">
+          <Breadcrumb
+            items={[
+              { label: "Tentang Kami" },
+              { label: "Hubungan Industri" },
+            ]}
+            className="justify-center"
+          />
           <h1 className="hubin-title font-heading">{data.header.title}</h1>
           <p className="hubin-subtitle font-body">{data.header.subtitle}</p>
 

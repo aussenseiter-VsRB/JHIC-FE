@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { BadgeCheck, Briefcase } from "lucide-react";
+import Breadcrumb from "../../../components/breadcrumb/breadcrumb";
 import { jurusanData } from "../data";
 import jurusanPplg from "../../../assets/jurusan-pplg.svg";
 import jurusanHtl from "../../../assets/jurusan-htl.svg";
@@ -84,6 +85,12 @@ function JurusanHeroSlider({ onAccentChange }: JurusanHeroSliderProps) {
 
       <div className="jurusan-hero-inner">
         <div className="jurusan-hero-content">
+          <Breadcrumb
+            items={[
+              { label: "Program" },
+              { label: "Jurusan" },
+            ]}
+          />
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={slide.code}

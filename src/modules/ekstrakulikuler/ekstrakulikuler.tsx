@@ -1,4 +1,5 @@
 import { Music, Camera, Trophy, BookOpen, Palette, Globe, Microscope, Theater, type LucideIcon } from "lucide-react";
+import Breadcrumb from "../../components/breadcrumb/breadcrumb";
 import "./css/ekstrakulikuler.css";
 import data from "./ekstrakulikuler.json";
 
@@ -21,6 +22,13 @@ function Ekstrakulikuler() {
     <div className="ekstrakulikuler">
       <div className="ekstrakulikuler-header-section">
         <div className="ekstrakulikuler-header-content">
+          <Breadcrumb
+            items={[
+              { label: "Program" },
+              { label: "Ekstrakurikuler" },
+            ]}
+            className="justify-center"
+          />
           <h1 className="ekstrakulikuler-title">{data.header.title}</h1>
           <p className="ekstrakulikuler-subtitle">{data.header.subtitle}</p>
         </div>
