@@ -1,4 +1,5 @@
 import { GraduationCap } from "lucide-react";
+import Breadcrumb from "../../components/breadcrumb/breadcrumb";
 import "./css/profilguru.css";
 import data from "./profilguru.json";
 
@@ -28,6 +29,13 @@ function Profilguru() {
     <div className="profilguru">
       <div className="profilguru-header-section">
         <div className="profilguru-header-content">
+          <Breadcrumb
+            items={[
+              { label: "Tentang Kami" },
+              { label: "Profil Guru" },
+            ]}
+            className="justify-center"
+          />
           <h1 className="profilguru-title font-heading">{data.header.title}</h1>
           <p className="profilguru-subtitle font-body">{data.header.subtitle}</p>
 
