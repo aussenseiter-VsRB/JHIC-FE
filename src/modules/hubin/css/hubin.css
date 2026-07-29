@@ -1,2 +1,263 @@
 .hubin {
+  width: 100%;
+}
+
+.hubin-header-section {
+  background: #1E3A5F;
+  padding: 120px 24px 120px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hubin-header-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 40px, currentColor 40px, currentColor 41px);
+}
+
+.hubin-header-section::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  width: 350px;
+  height: 350px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hubin-header-content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hubin-title {
+  font-size: 2.5rem;
+  color: white;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.hubin-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.hubin-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+.hubin-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.hubin-stat {
+  text-align: center;
+}
+
+.hubin-stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0EA5E9;
+  margin-bottom: 4px;
+}
+
+.hubin-stat-label {
+  display: block;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hubin-section {
+  margin-bottom: 60px;
+}
+
+.hubin-section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.hubin-section-title {
+  font-size: 1.75rem;
+  color: #1E3A5F;
+  margin: 0 0 12px;
+}
+
+.hubin-section-accent {
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #2563EB;
+  border-radius: 2px;
+  margin: 0 auto;
+}
+
+.hubin-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.hubin-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid #E2E8F0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.hubin-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--card-accent, #2563EB), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.hubin-card:hover {
+  border-color: transparent;
+  box-shadow: 0 16px 48px rgba(30, 58, 95, 0.12);
+  transform: translateY(-6px);
+}
+
+.hubin-card:hover::before {
+  opacity: 1;
+}
+
+.hubin-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hubin-card:hover .hubin-card-icon {
+  transform: scale(1.08);
+}
+
+.hubin-card-name {
+  font-size: 1.1rem;
+  color: #1E3A5F;
+  margin: 0 0 8px;
+}
+
+.hubin-card-desc {
+  font-size: 0.9rem;
+  color: #64748B;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.hubin-mitra-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.hubin-mitra-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #E2E8F0;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hubin-mitra-card:hover {
+  border-color: #2563EB;
+  box-shadow: 0 8px 32px rgba(37, 99, 235, 0.1);
+  transform: translateY(-4px);
+}
+
+.hubin-mitra-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #2563EB10;
+  color: #2563EB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.hubin-mitra-name {
+  font-size: 1rem;
+  color: #1E3A5F;
+  margin: 0 0 4px;
+}
+
+.hubin-mitra-detail {
+  font-size: 0.8rem;
+  color: #64748B;
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  .hubin-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hubin-mitra-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hubin-header-section {
+    padding: 100px 20px 100px;
+  }
+
+  .hubin-title {
+    font-size: 1.75rem;
+  }
+
+  .hubin-container {
+    padding: 40px 20px;
+  }
+
+  .hubin-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .hubin-mitra-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hubin-stats {
+    gap: 24px;
+  }
+
+  .hubin-stat-number {
+    font-size: 1.5rem;
+  }
 }
