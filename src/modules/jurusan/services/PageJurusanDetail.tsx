@@ -4,6 +4,7 @@ import {
   Code, BarChart3, Hotel,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import Breadcrumb from "../../../components/breadcrumb/breadcrumb";
 import { getJurusanBySlug } from "../data";
 import "../css/jurusan.css";
 
@@ -52,6 +53,13 @@ function PageJurusanDetail() {
               <ArrowLeft className="h-4 w-4" />
               <span>Kembali ke Program Keahlian</span>
             </Link>
+            <Breadcrumb
+              items={[
+                { label: "Program" },
+                { label: "Jurusan", to: "/jurusan" },
+                { label: jurusan.name },
+              ]}
+            />
             <div className="jurusan-specific-hero-badge" style={{ background: `${jurusan.theme.accent}20`, color: jurusan.theme.accent }}>
               <GraduationCap className="h-3.5 w-3.5" />
               Program Keahlian

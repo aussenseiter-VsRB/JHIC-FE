@@ -41,9 +41,11 @@ const navLinks: NavItem[] = [
 
 interface NavbarProps {
   accentColor?: string;
+  lightActive?: boolean;
+  activeColor?: string;
 }
 
-export default function Navbar({ accentColor }: NavbarProps) {
+export default function Navbar({ accentColor, lightActive = false, activeColor }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [hidden, setHidden] = useState(false)
@@ -64,6 +66,8 @@ export default function Navbar({ accentColor }: NavbarProps) {
         '--nb-shadow-30': `${accentColor}4D`,
         '--nb-accent': accentColor,
         '--nb-accent-10': `${accentColor}1A`,
+        '--nb-active': lightActive ? '#FFFFFF' : activeColor ?? accentColor,
+        '--nb-active-bg': lightActive ? '#FFFFFF1A' : `${activeColor ?? accentColor}1A`,
       } as CSSProperties
     : {}
 
@@ -162,7 +166,7 @@ export default function Navbar({ accentColor }: NavbarProps) {
                   <button
                     className={`relative flex items-center gap-1.5 font-body text-[15px] font-medium transition-colors duration-200 ${
                       isChildActive(link.children)
-                        ? 'font-semibold text-[var(--nb-accent,#2563EB)]'
+                        ? 'font-semibold text-[var(--nb-active,#2563EB)]'
                         : 'text-white/80 hover:text-white'
                     }`}
                   >
@@ -180,7 +184,7 @@ export default function Navbar({ accentColor }: NavbarProps) {
                              className={({ isActive }) =>
                                 `rounded-lg px-4 py-3 font-body transition-all duration-200 border-l-2 ${
                                   isActive
-                                    ? 'bg-[var(--nb-accent-10,#2563EB1A)] border-[var(--nb-accent,#2563EB)] text-[var(--nb-accent,#2563EB)]'
+                                    ? 'bg-[var(--nb-active-bg,#2563EB1A)] border-[var(--nb-active,#2563EB)] text-[var(--nb-active,#2563EB)]'
                                     : 'hover:bg-black/5 border-transparent text-gray-700'
                                 }`
                              }
@@ -191,7 +195,7 @@ export default function Navbar({ accentColor }: NavbarProps) {
                                    <child.icon className="h-5 w-5 mt-0.5 shrink-0 text-blue" />
                                  )}
                                  <div className="min-w-0">
-                                   <div className={`text-[15px] leading-tight ${isActive ? 'text-[var(--nb-accent,#2563EB)]' : 'text-gray-700'}`}>
+                                   <div className={`text-[15px] leading-tight ${isActive ? 'text-[var(--nb-active,#2563EB)]' : 'text-gray-700'}`}>
                                      {child.label}
                                    </div>
                                   {child.description && (
@@ -208,7 +212,7 @@ export default function Navbar({ accentColor }: NavbarProps) {
                     </div>
                   </div>
                   {isChildActive(link.children) && (
-                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-[var(--nb-accent,#2563EB)]" />
+                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-[var(--nb-active,#2563EB)]" />
                   )}
                 </div>
               ) : (
@@ -219,7 +223,7 @@ export default function Navbar({ accentColor }: NavbarProps) {
                   className={({ isActive }) =>
                     `relative font-body text-[15px] font-medium transition-colors duration-200 ${
                       isActive
-                        ? 'font-semibold text-[var(--nb-accent,#2563EB)]'
+                        ? 'font-semibold text-[var(--nb-active,#2563EB)]'
                         : 'text-white/80 hover:text-white'
                     }`
                   }
@@ -228,7 +232,7 @@ export default function Navbar({ accentColor }: NavbarProps) {
                     <>
                       {link.label}
                       {isActive && (
-                        <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-[var(--nb-accent,#2563EB)]" />
+                        <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-[var(--nb-active,#2563EB)]" />
                       )}
                     </>
                   )}
@@ -283,7 +287,7 @@ export default function Navbar({ accentColor }: NavbarProps) {
                     onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
                     className={`flex w-full items-center justify-between rounded-xl px-4 py-3 font-body text-[16px] font-medium transition-colors duration-200 ${
                       isChildActive(link.children)
-                        ? 'bg-[var(--nb-accent-10,#2563EB1A)] font-semibold text-[var(--nb-accent,#2563EB)]'
+                        ? 'bg-[var(--nb-active-bg,#2563EB1A)] font-semibold text-[var(--nb-active,#2563EB)]'
                         : 'text-white/80 hover:bg-white/5 hover:text-white'
                     }`}
                   >
@@ -308,7 +312,7 @@ export default function Navbar({ accentColor }: NavbarProps) {
                           className={({ isActive }) =>
                             `rounded-xl px-4 py-2.5 font-body text-[15px] font-medium transition-colors duration-200 ${
                               isActive
-                                ? 'bg-[var(--nb-accent-10,#2563EB1A)] font-semibold text-[var(--nb-accent,#2563EB)]'
+                                ? 'bg-[var(--nb-active-bg,#2563EB1A)] font-semibold text-[var(--nb-active,#2563EB)]'
                                 : 'text-white/70 hover:bg-white/5 hover:text-white'
                             }`
                           }
@@ -316,7 +320,7 @@ export default function Navbar({ accentColor }: NavbarProps) {
                           {({ isActive }) => (
                             <div className="flex items-center gap-3">
                               {child.icon && (
-                                <child.icon className={`h-4 w-4 shrink-0 ${isActive ? 'text-[var(--nb-accent,#2563EB)]' : 'text-white/50'}`} />
+                                <child.icon className={`h-4 w-4 shrink-0 ${isActive ? 'text-[var(--nb-active,#2563EB)]' : 'text-white/50'}`} />
                               )}
                               <span>{child.label}</span>
                             </div>
@@ -336,7 +340,7 @@ export default function Navbar({ accentColor }: NavbarProps) {
                     className={({ isActive }) =>
                       `block rounded-xl px-4 py-3 font-body text-[16px] font-medium transition-colors duration-200 ${
                         isActive
-                          ? 'bg-[var(--nb-accent-10,#2563EB1A)] font-semibold text-[var(--nb-accent,#2563EB)]'
+                          ? 'bg-[var(--nb-active-bg,#2563EB1A)] font-semibold text-[var(--nb-active,#2563EB)]'
                           : 'text-white/80 hover:bg-white/5 hover:text-white'
                       }`
                     }

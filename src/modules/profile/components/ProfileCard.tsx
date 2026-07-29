@@ -1,5 +1,6 @@
 import { MapPin, Award, Users, GraduationCap, Target, BookOpen, Building2, Trophy, Sparkles } from "lucide-react";
 import Carousel from "../../../components/carousel/carousel";
+import Breadcrumb from "../../../components/breadcrumb/breadcrumb";
 
 const carouselItems = [
   {
@@ -51,6 +52,13 @@ function ProfileCard() {
 
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center gap-10 md:flex-row md:items-start">
         <div className="flex-1">
+
+          <Breadcrumb
+            items={[
+              { label: "Tentang Kami" },
+              { label: "Profil Sekolah" },
+            ]}
+          />
 
           <h1 className="font-heading text-[40px] font-extrabold leading-[1.1] tracking-tight text-white md:text-[56px]">
             SMK YADIKA SOREANG

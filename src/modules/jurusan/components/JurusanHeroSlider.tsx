@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { BadgeCheck, Briefcase } from "lucide-react";
+import Breadcrumb from "../../../components/breadcrumb/breadcrumb";
 import { jurusanData } from "../data";
 import jurusanPplg from "../../../assets/jurusan-pplg.svg";
 import jurusanHtl from "../../../assets/jurusan-htl.svg";
@@ -14,6 +15,10 @@ const jurusanImages: Record<string, string> = {
   AKL: jurusanAk,
 };
 
+interface JurusanHeroSliderProps {
+  onAccentChange?: (accentColor: string) => void;
+}
+
 const containerVariants = {
   enter: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
   center: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
@@ -26,7 +31,7 @@ const childVariants = {
   exit: { opacity: 0, y: -10, transition: { duration: 0.25, ease: EASE } },
 };
 
-function JurusanHeroSlider() {
+function JurusanHeroSlider({ onAccentChange }: JurusanHeroSliderProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [direction, setDirection] = useState(1);
@@ -49,6 +54,10 @@ function JurusanHeroSlider() {
 
   const slide = jurusanData[activeIndex];
   const slideImage = jurusanImages[slide.code];
+
+  useEffect(() => {
+    onAccentChange?.(slide.theme.accent);
+  }, [onAccentChange, slide.theme.accent]);
 
   const sliderStyle = {
     "--slider-accent": slide.theme.accent,
@@ -76,6 +85,12 @@ function JurusanHeroSlider() {
 
       <div className="jurusan-hero-inner">
         <div className="jurusan-hero-content">
+          <Breadcrumb
+            items={[
+              { label: "Program" },
+              { label: "Jurusan" },
+            ]}
+          />
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={slide.code}
