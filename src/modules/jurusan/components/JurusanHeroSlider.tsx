@@ -14,6 +14,10 @@ const jurusanImages: Record<string, string> = {
   AKL: jurusanAk,
 };
 
+interface JurusanHeroSliderProps {
+  onAccentChange?: (accentColor: string) => void;
+}
+
 const containerVariants = {
   enter: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
   center: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
@@ -26,7 +30,7 @@ const childVariants = {
   exit: { opacity: 0, y: -10, transition: { duration: 0.25, ease: EASE } },
 };
 
-function JurusanHeroSlider() {
+function JurusanHeroSlider({ onAccentChange }: JurusanHeroSliderProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [direction, setDirection] = useState(1);
@@ -49,6 +53,10 @@ function JurusanHeroSlider() {
 
   const slide = jurusanData[activeIndex];
   const slideImage = jurusanImages[slide.code];
+
+  useEffect(() => {
+    onAccentChange?.(slide.theme.accent);
+  }, [onAccentChange, slide.theme.accent]);
 
   const sliderStyle = {
     "--slider-accent": slide.theme.accent,
