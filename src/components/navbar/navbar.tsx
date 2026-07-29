@@ -1,18 +1,30 @@
 import { useState, useEffect, useRef } from 'react'
 import type { CSSProperties } from 'react'
-import { NavLink } from 'react-router-dom'
-import { Menu, X, ArrowUpRight } from 'lucide-react'
+import { NavLink, useLocation } from 'react-router-dom'
+import { Menu, X, ArrowUpRight, ChevronDown, BookOpen, Sparkles } from 'lucide-react'
 import logoSrc from '../../assets/Logo-yadika.webp'
+
+interface SubMenuItem {
+  label: string
+  to: string
+}
 
 interface NavItem {
   label: string
-  to: string
+  to?: string
+  children?: SubMenuItem[]
 }
 
 const navLinks: NavItem[] = [
   { label: 'Beranda', to: '/' },
   { label: 'Profil', to: '/profile' },
-  { label: 'Jurusan', to: '/jurusan' },
+  {
+    label: 'Program',
+    children: [
+      { label: 'Jurusan', to: '/jurusan' },
+      { label: 'Ekstrakurikuler', to: '/ekstrakurikuler' },
+    ],
+  },
   { label: 'Fasilitas', to: '/fasilitas' },
   { label: 'Berita', to: '/berita' },
   { label: 'PPDB', to: '/ppdb' },
@@ -26,9 +38,12 @@ export default function Navbar({ accentColor }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [hidden, setHidden] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const lastScrollY = useRef<number>(typeof window !== 'undefined' ? window.scrollY : 0)
   const ticking = useRef(false)
   const nearFooter = useRef(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
+  const location = useLocation()
 
   const navbarStyle = accentColor
     ? {
@@ -83,6 +98,19 @@ export default function Navbar({ accentColor }: NavbarProps) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setOpenDropdown(null)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  const isChildActive = (children: SubMenuItem[]) =>
+    children.some(child => location.pathname === child.to)
+
   const toggleMobile = () => setMobileOpen((prev) => !prev)
   const closeMobile = () => setMobileOpen(false)
 
@@ -119,28 +147,81 @@ export default function Navbar({ accentColor }: NavbarProps) {
 
         <ul className="hidden items-center gap-8 md:flex" role="menubar">
           {navLinks.map((link) => (
-            <li key={link.to} role="none">
-              <NavLink
-                to={link.to}
-                end={link.to === '/'}
-                role="menuitem"
-                className={({ isActive }) =>
-                  `relative font-body text-[15px] font-medium transition-colors duration-200 ${
-                    isActive
-                      ? 'font-semibold text-[var(--nb-accent,#2563EB)]'
-                      : 'text-white/80 hover:text-white'
-                  }`
-                }
-              >
-                {({ isActive }) => (
-                  <>
+            <li key={link.label} role="none" className="relative">
+              {link.children ? (
+                <div className="group relative">
+                  <button
+                    className={`relative flex items-center gap-1.5 font-body text-[15px] font-medium transition-colors duration-200 ${
+                      isChildActive(link.children)
+                        ? 'font-semibold text-[var(--nb-accent,#2563EB)]'
+                        : 'text-white/80 hover:text-white'
+                    }`}
+                  >
                     {link.label}
-                    {isActive && (
-                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-[var(--nb-accent,#2563EB)]" />
-                    )}
-                  </>
-                )}
-              </NavLink>
+                    <ChevronDown className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180" />
+                  </button>
+                  <div className="absolute -left-[15px] top-full min-w-[380px] pt-2 opacity-0 translate-y-[-8px] pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
+                    <div className="relative rounded-xl border border-[#e5e7eb] bg-white p-1.5 shadow-lg">
+                      <div className="flex items-stretch">
+                        {link.children.map((child, index) => {
+                          const Icon = child.label === 'Jurusan' ? BookOpen : Sparkles
+                          const desc = child.label === 'Jurusan'
+                            ? 'Program keahlian untuk mempersiapkan masa depan yang cerah'
+                            : 'Wadah pengembangan bakat, minat, dan kreativitas siswa'
+                          return (
+                            <NavLink
+                              key={child.to}
+                              to={child.to}
+                              end
+                              style={{ transitionDelay: `${index * 60}ms` }}
+                              className={({ isActive }) =>
+                                `flex flex-1 items-center gap-3 px-4 py-4 font-body transition-all duration-200 opacity-0 group-hover:opacity-100 ${
+                                  index === 0 ? 'rounded-l-lg border-r border-[#e5e7eb]' : 'rounded-r-lg'
+                                } ${
+                                  isActive
+                                    ? 'bg-[#2563EB]/10 text-[#2563EB]'
+                                    : 'text-gray-700 hover:bg-[#2563EB]/5 hover:text-[#2563EB]'
+                                }`
+                              }
+                            >
+                              <Icon className="h-5 w-5 shrink-0" />
+                              <div className="flex flex-col gap-0.5">
+                                <span className="text-[15px] font-semibold leading-tight">{child.label}</span>
+                                <span className="text-[11px] leading-snug opacity-60">{desc}</span>
+                              </div>
+                            </NavLink>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                  {isChildActive(link.children) && (
+                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-[var(--nb-accent,#2563EB)]" />
+                  )}
+                </div>
+              ) : (
+                <NavLink
+                  to={link.to!}
+                  end={link.to === '/'}
+                  role="menuitem"
+                  className={({ isActive }) =>
+                    `relative font-body text-[15px] font-medium transition-colors duration-200 ${
+                      isActive
+                        ? 'font-semibold text-[var(--nb-accent,#2563EB)]'
+                        : 'text-white/80 hover:text-white'
+                    }`
+                  }
+                >
+                  {({ isActive }) => (
+                    <>
+                      {link.label}
+                      {isActive && (
+                        <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-[var(--nb-accent,#2563EB)]" />
+                      )}
+                    </>
+                  )}
+                </NavLink>
+              )}
             </li>
           ))}
         </ul>
@@ -184,23 +265,67 @@ export default function Navbar({ accentColor }: NavbarProps) {
         <div className="flex flex-col gap-1 p-4">
           <ul className="flex flex-col gap-1" role="menu">
             {navLinks.map((link) => (
-              <li key={link.to} role="none">
-                <NavLink
-                  to={link.to}
-                  end={link.to === '/'}
-                  role="menuitem"
-                  onClick={closeMobile}
-                  className={({ isActive }) =>
-                    `block rounded-xl px-4 py-3 font-body text-[16px] font-medium transition-colors duration-200 ${
-                      isActive
+              link.children ? (
+                <li key={link.label} role="none">
+                  <button
+                    onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
+                    className={`flex w-full items-center justify-between rounded-xl px-4 py-3 font-body text-[16px] font-medium transition-colors duration-200 ${
+                      isChildActive(link.children)
                         ? 'bg-[var(--nb-accent-10,#2563EB1A)] font-semibold text-[var(--nb-accent,#2563EB)]'
                         : 'text-white/80 hover:bg-white/5 hover:text-white'
-                    }`
-                  }
-                >
-                  {link.label}
-                </NavLink>
-              </li>
+                    }`}
+                  >
+                    {link.label}
+                    <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${
+                      openDropdown === link.label ? 'rotate-180' : ''
+                    }`} />
+                  </button>
+                  <div
+                    ref={dropdownRef}
+                    className={`overflow-hidden transition-all duration-200 ${
+                      openDropdown === link.label ? 'max-h-40 opacity-100 mt-1' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <div className="ml-4 flex flex-col gap-1 border-l border-white/10 pl-3 pb-1">
+                      {link.children.map((child) => (
+                        <NavLink
+                          key={child.to}
+                          to={child.to}
+                          end
+                          onClick={closeMobile}
+                          className={({ isActive }) =>
+                            `block rounded-xl px-4 py-2.5 font-body text-[15px] font-medium transition-colors duration-200 ${
+                              isActive
+                                ? 'bg-[var(--nb-accent-10,#2563EB1A)] font-semibold text-[var(--nb-accent,#2563EB)]'
+                                : 'text-white/70 hover:bg-white/5 hover:text-white'
+                            }`
+                          }
+                        >
+                          {child.label}
+                        </NavLink>
+                      ))}
+                    </div>
+                  </div>
+                </li>
+              ) : (
+                <li key={link.label} role="none">
+                  <NavLink
+                    to={link.to!}
+                    end={link.to === '/'}
+                    role="menuitem"
+                    onClick={closeMobile}
+                    className={({ isActive }) =>
+                      `block rounded-xl px-4 py-3 font-body text-[16px] font-medium transition-colors duration-200 ${
+                        isActive
+                          ? 'bg-[var(--nb-accent-10,#2563EB1A)] font-semibold text-[var(--nb-accent,#2563EB)]'
+                          : 'text-white/80 hover:bg-white/5 hover:text-white'
+                      }`
+                    }
+                  >
+                    {link.label}
+                  </NavLink>
+                </li>
+              )
             ))}
           </ul>
 
