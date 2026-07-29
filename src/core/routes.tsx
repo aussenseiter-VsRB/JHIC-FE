@@ -10,6 +10,7 @@ import Berita from "../modules/berita/berita";
 import Fasilitas from "../modules/fasilitas/fasilitas";
 import Ppdb from "../modules/ppdb/ppdb";
 import Ekstrakurikuler from "../modules/ekstrakurikuler/ekstrakurikuler";
+import MyJurusan from "../modules/myJurusan/myJurusan";
 import Profilguru from "../modules/profilguru/profilguru";
 import Hubin from "../modules/hubin/hubin";
 
@@ -31,6 +32,7 @@ const routes: RouteObject[] = [
       { path: "/fasilitas", element: <Fasilitas /> },
       { path: "/ppdb", element: <Ppdb /> },
       { path: "/ekstrakurikuler", element: <Ekstrakurikuler /> },
+      { path: "/my-jurusan", element: <MyJurusan /> },
       { path: "/profilguru", element: <Profilguru /> },
       { path: "/hubin", element: <Hubin /> },
     ],

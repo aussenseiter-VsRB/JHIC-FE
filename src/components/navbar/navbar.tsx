@@ -228,9 +228,9 @@ export default function Navbar({ accentColor, lightActive = false, activeColor }
         </ul>
 
         <div className="navbar-ctas">
-          <a href="#brosur" className="navbar-btn-brosur">
-            BROSUR
-          </a>
+          <NavLink to="/my-jurusan" className="navbar-btn-brosur">
+            myJurusan
+          </NavLink>
           <a href="#daftar" className="navbar-btn-daftar">
             Daftar Sekarang
             <ArrowUpRight />
@@ -316,14 +316,14 @@ export default function Navbar({ accentColor, lightActive = false, activeColor }
           <hr className="navbar-mobile-divider" />
 
           <div className="navbar-mobile-ctas">
-            <a
-              href="#brosur"
+            <NavLink
+              to="/my-jurusan"
               role="menuitem"
               onClick={closeMobile}
               className="navbar-btn-brosur"
             >
-              BROSUR
-            </a>
+              myJurusan
+            </NavLink>
             <a
               href="#daftar"
               role="menuitem"
