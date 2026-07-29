@@ -221,6 +221,11 @@
   line-height: 1.5;
 }
 
+.hubin-mitra-focus {
+  color: #2563EB;
+  margin-top: 8px;
+}
+
 @media (max-width: 1024px) {
   .hubin-grid {
     grid-template-columns: repeat(2, 1fr);

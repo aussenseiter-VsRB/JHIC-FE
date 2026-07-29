@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import data from "./data/tentang-sekolah.json";
+import data from "../data/tentang-sekolah.json";
 
 function TentangSekolah() {
   return (

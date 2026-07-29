@@ -1,7 +1,7 @@
 import { Play, ArrowRight, Users, Award } from "lucide-react";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import data from "./data/hero.json";
+import data from "../data/hero.json";
 import heroImg from "../../../assets/hero.png";
 
 const EASE = [0.16, 1, 0.3, 1] as const;

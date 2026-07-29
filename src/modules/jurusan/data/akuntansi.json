@@ -5,6 +5,12 @@
   "description": "Mempelajari pembukuan, laporan keuangan, perpajakan, dan administrasi keuangan.",
   "detailDescription": "Mempelajari pembukuan, laporan keuangan, perpajakan, dan administrasi keuangan secara profesional.",
   "about": "Jurusan AK (Akuntansi dan Keuangan) adalah program keahlian yang membekali siswa dengan kemampuan mengelola pembukuan, menyusun laporan keuangan, memahami perpajakan, dan menjalankan administrasi keuangan secara profesional dan akurat. Siswa dilatih untuk teliti dan memiliki integritas tinggi, siap bekerja di berbagai sektor industri dan jasa.",
+  "paragraphs": [
+    "Jurusan AK (Akuntansi dan Keuangan) adalah program keahlian yang membekali siswa dengan kemampuan mengelola pembukuan, menyusun laporan keuangan, memahami perpajakan, dan menjalankan administrasi keuangan secara profesional dan akurat.",
+    "Pembelajaran di jurusan AK mencakup akuntansi dasar dan keuangan, perpajakan (PPN, PPh), penggunaan software akuntansi seperti MYOB dan Accurate, serta administrasi keuangan dan perbankan. Siswa dilatih untuk teliti dan memiliki integritas tinggi.",
+    "Lulusan AK memiliki prospek karier sebagai Staff Accounting, Kasir, Administrasi Keuangan, atau Tax Consultant. Hampir setiap perusahaan membutuhkan tenaga akuntansi, sehingga lulusan AK memiliki peluang kerja yang sangat luas."
+  ],
+  "image": "jurusan-ak.svg",
   "theme": {
     "accent": "#A31D1D",
     "accentBg": "#FEE2E2",

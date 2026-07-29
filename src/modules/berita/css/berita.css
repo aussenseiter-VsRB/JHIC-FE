@@ -370,6 +370,10 @@
   padding: 60px 24px 100px;
 }
 
+.berita-container--loading {
+  padding-top: 120px;
+}
+
 .berita-section {
   margin-bottom: 80px;
 }

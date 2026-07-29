@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Calendar, ArrowRight, User, Newspaper } from "lucide-react";
-import SkeletonLoad from "../../components/skeleton/skeletonLoad";
+import SkeletonLoad from "./components/skeleton/skeletonLoad";
 import beritaData from "./berita.json";
 import "./css/berita.css";
 

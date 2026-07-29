@@ -251,7 +251,17 @@
     gap: 32px;
   }
 
-  .footer-map-frame {
+.footer-map-wrapper-inner {
+  height: 100%;
+  width: 100%;
+}
+
+.footer-map-container {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.footer-map-frame {
     height: 160px;
   }
 

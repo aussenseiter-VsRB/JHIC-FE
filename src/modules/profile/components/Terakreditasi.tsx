@@ -1,4 +1,4 @@
-import data from "./data/terakreditasi.json";
+import data from "../data/terakreditasi.json";
 
 function Terakreditasi() {
   return (
