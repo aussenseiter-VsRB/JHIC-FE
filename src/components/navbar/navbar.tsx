@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import type { CSSProperties } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
-import { Menu, X, ArrowUpRight, ChevronDown, BookOpen, Sparkles } from 'lucide-react'
+import { Menu, X, ArrowUpRight, ChevronDown } from 'lucide-react'
 import logoSrc from '../../assets/Logo-yadika.webp'
 
 interface SubMenuItem {
@@ -160,38 +160,29 @@ export default function Navbar({ accentColor }: NavbarProps) {
                     {link.label}
                     <ChevronDown className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180" />
                   </button>
-                  <div className="absolute -left-[15px] top-full min-w-[380px] pt-2 opacity-0 translate-y-[-8px] pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
+                  <div className="absolute -left-[1px] top-full min-w-[260px] pt-2 opacity-0 translate-y-[-8px] pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
                     <div className="relative rounded-xl border border-[#e5e7eb] bg-white p-1.5 shadow-lg">
+                      <div className="absolute -top-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-l border-t border-[#e5e7eb] bg-white" />
                       <div className="flex items-stretch">
-                        {link.children.map((child, index) => {
-                          const Icon = child.label === 'Jurusan' ? BookOpen : Sparkles
-                          const desc = child.label === 'Jurusan'
-                            ? 'Program keahlian untuk mempersiapkan masa depan yang cerah'
-                            : 'Wadah pengembangan bakat, minat, dan kreativitas siswa'
-                          return (
-                            <NavLink
-                              key={child.to}
-                              to={child.to}
-                              end
-                              style={{ transitionDelay: `${index * 60}ms` }}
-                              className={({ isActive }) =>
-                                `flex flex-1 items-center gap-3 px-4 py-4 font-body transition-all duration-200 opacity-0 group-hover:opacity-100 ${
-                                  index === 0 ? 'rounded-l-lg border-r border-[#e5e7eb]' : 'rounded-r-lg'
-                                } ${
-                                  isActive
-                                    ? 'bg-[#2563EB]/10 text-[#2563EB]'
-                                    : 'text-gray-700 hover:bg-[#2563EB]/5 hover:text-[#2563EB]'
-                                }`
-                              }
-                            >
-                              <Icon className="h-5 w-5 shrink-0" />
-                              <div className="flex flex-col gap-0.5">
-                                <span className="text-[15px] font-semibold leading-tight">{child.label}</span>
-                                <span className="text-[11px] leading-snug opacity-60">{desc}</span>
-                              </div>
-                            </NavLink>
-                          )
-                        })}
+                        {link.children.map((child, index) => (
+                          <NavLink
+                            key={child.to}
+                            to={child.to}
+                            end
+                            style={{ transitionDelay: `${index * 60}ms` }}
+                            className={({ isActive }) =>
+                              `flex-1 px-5 py-[13px] font-body text-[15px] text-center transition-all duration-200 opacity-0 group-hover:opacity-100 ${
+                                index === 0 ? 'rounded-l-lg border-r border-[#e5e7eb]' : 'rounded-r-lg'
+                              } ${
+                                isActive
+                                  ? 'bg-[#2563EB]/10 font-semibold text-[#2563EB]'
+                                  : 'text-gray-700 hover:bg-[#2563EB]/5 hover:text-[#2563EB]'
+                              }`
+                            }
+                          >
+                            {child.label}
+                          </NavLink>
+                        ))}
                       </div>
                     </div>
                   </div>
