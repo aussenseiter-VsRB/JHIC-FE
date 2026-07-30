@@ -1,12 +1,44 @@
 {
   "header": {
     "title": "Hubungan Industri",
-    "subtitle": "Menjalin kemitraan strategis dengan berbagai perusahaan dan dunia usaha untuk mendukung program magang, sertifikasi, dan penyaluran lulusan"
+    "subtitle": "Menjalin kemitraan strategis dengan berbagai perusahaan dan dunia usaha untuk mendukung program magang, sertifikasi, dan penyaluran lulusan. Hubungan industri merupakan jembatan antara dunia pendidikan dan dunia kerja yang memastikan setiap lulusan memiliki kompetensi yang relevan dan siap bersaing di era global."
   },
   "stats": [
     { "number": "10+", "label": "Mitra Industri" },
     { "number": "50+", "label": "Siswa Magang/Tahun" },
     { "number": "90%", "label": "Penyerapan Lulusan" }
+  ],
+  "alur": [
+    {
+      "id": 1,
+      "step": "01",
+      "name": "Rekrutmen Mitra",
+      "description": "Menjalin kerjasama dengan perusahaan dan dunia usaha yang relevan dengan kompetensi keahlian SMK."
+    },
+    {
+      "id": 2,
+      "step": "02",
+      "name": "Pemetaan Siswa",
+      "description": "Menyesuaikan minat dan kompetensi siswa dengan kebutuhan mitra industri untuk penempatan yang tepat."
+    },
+    {
+      "id": 3,
+      "step": "03",
+      "name": "Pelaksanaan PKL",
+      "description": "Siswa menjalani praktik kerja lapangan selama 6 bulan dengan bimbingan langsung dari pembimbing industri."
+    },
+    {
+      "id": 4,
+      "step": "04",
+      "name": "Sertifikasi",
+      "description": "Uji kompetensi dan sertifikasi profesi yang diakui industri sebagai bekal memasuki dunia kerja."
+    },
+    {
+      "id": 5,
+      "step": "05",
+      "name": "Penyaluran Lulusan",
+      "description": "Menghubungkan lulusan terbaik dengan mitra perusahaan yang membutuhkan tenaga kerja sesuai bidang."
+    }
   ],
   "programs": [
     {
@@ -57,49 +89,62 @@
       "id": 1,
       "name": "PT Teknologi Nusantara",
       "address": "Bandung, Jawa Barat",
-      "focus": "Rekayasa Perangkat Lunak"
+      "focus": "Rekayasa Perangkat Lunak",
+      "icon": "Code"
     },
     {
       "id": 2,
       "name": "Hotel Grand Panghegar",
       "address": "Bandung, Jawa Barat",
-      "focus": "Perhotelan & Tata Boga"
+      "focus": "Perhotelan & Tata Boga",
+      "icon": "Building"
     },
     {
       "id": 3,
       "name": "PT Kereta Api Indonesia",
       "address": "Bandung, Jawa Barat",
-      "focus": "Akuntansi & Keuangan"
+      "focus": "Akuntansi & Keuangan",
+      "icon": "ShieldCheck"
     },
     {
       "id": 4,
       "name": "Bank BJB Cabang Soreang",
       "address": "Soreang, Jawa Barat",
-      "focus": "Akuntansi & Perbankan"
+      "focus": "Akuntansi & Perbankan",
+      "icon": "ShieldCheck"
     },
     {
       "id": 5,
       "name": "PT Pos Indonesia",
       "address": "Bandung, Jawa Barat",
-      "focus": "Manajemen Perkantoran"
+      "focus": "Manajemen Perkantoran",
+      "icon": "Headphones"
     },
     {
       "id": 6,
       "name": "Bandung Techno Park",
       "address": "Bandung, Jawa Barat",
-      "focus": "Teknologi & Startup"
+      "focus": "Teknologi & Startup",
+      "icon": "Cog"
     },
     {
       "id": 7,
       "name": "PT Bio Farma",
       "address": "Bandung, Jawa Barat",
-      "focus": "Logistik & Supply Chain"
+      "focus": "Logistik & Supply Chain",
+      "icon": "Cog"
     },
     {
       "id": 8,
       "name": "Hotel Hilton Bandung",
       "address": "Bandung, Jawa Barat",
-      "focus": "Perhotelan & Pariwisata"
+      "focus": "Perhotelan & Pariwisata",
+      "icon": "Building"
     }
-  ]
+  ],
+  "cta": {
+    "title": "Berminat Menjadi Mitra Industri?",
+    "description": "Kami membuka peluang kerjasama dengan perusahaan dan dunia usaha untuk bersama-sama mengembangkan kompetensi lulusan SMK yang siap kerja.",
+    "button": "Hubungi Kami"
+  }
 }
