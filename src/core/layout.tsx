@@ -3,6 +3,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "../components/navbar/navbar";
 import Footer from "../components/footer/footer";
 import ChatbotWidget, { type ChatbotHandle } from "../components/chatbot/chatbot";
+import { sendToN8n, resetSession } from "../services/chatbot";
 import BottomNav from "../components/bottom-nav/bottom-nav";
 import { getJurusanBySlug } from "../modules/jurusan/data";
 import "./layout.css";
@@ -77,10 +78,8 @@ function Layout() {
       <ChatbotWidget
         ref={chatbotRef}
         hideFab={isMobile}
-        onSendMessage={async (msg) => {
-          console.log("Chatbot received:", msg);
-          return "Terima kasih atas pesannya! Tim kami akan segera merespon.";
-        }}
+        onSendMessage={sendToN8n}
+        onClear={resetSession}
         whatsappNumber="6281234567890"
       />
       <BottomNav

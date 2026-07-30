@@ -24,6 +24,7 @@ export interface ChatbotWidgetProps {
   greeting?: string;
   botName?: string;
   hideFab?: boolean;
+  onClear?: () => void;
 }
 
 const defaultGreeting =
@@ -84,8 +85,9 @@ const ChatbotWidget = forwardRef<ChatbotHandle, ChatbotWidgetProps>(function Cha
   onSendMessage,
   whatsappNumber,
   greeting = defaultGreeting,
-  botName = "Yadika Bot",
+  botName = "Nexxa AI",
   hideFab = false,
+  onClear,
 }, ref) {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>(() => {
@@ -212,7 +214,8 @@ const ChatbotWidget = forwardRef<ChatbotHandle, ChatbotWidgetProps>(function Cha
     const fresh = [makeGreeting(greeting)];
     setMessages(fresh);
     writeHistory(fresh);
-  }, [greeting]);
+    onClear?.();
+  }, [greeting, onClear]);
 
   const showSuggestions = messages.length <= 1 && !isTyping;
   const charCount = input.length;
