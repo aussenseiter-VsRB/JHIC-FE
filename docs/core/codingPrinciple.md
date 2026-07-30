@@ -38,13 +38,28 @@ Code lives next to what it serves:
 
 - Routes are declarative objects in `routes.tsx`, not programmatic navigation.
 - UI state drives rendering — don't imperatively manipulate the DOM.
-- Tailwind classes describe *what* things look like, not *how* to change.
+- UI structure uses semantic CSS classes; visual properties live in `.css` files, not in JSX `className` strings.
 
 ### 5. No Dead Code
 
 Don't generate files, exports, or data that nothing consumes. Empty stubs create confusion and maintenance burden. If a file has no consumer, it shouldn't exist.
 
-### 6. Progressive Complexity
+### 6. Comments for Intent, Not for Structure
+
+Comments are reserved for code that is genuinely non-obvious:
+- Empty catch blocks must have `// intentionally empty` or similar.
+- Lint suppressions must say why.
+- Complex state invariants or workarounds for third-party quirks.
+
+All structural comments are forbidden:
+- Section labels in JSX (`{/* Hero */}`, `{/* Contact */}`).
+- Feature markers (`// Feature5: ...`, `// Step 3 logic`).
+- Auto-behavior labels (`// Auto-scroll`, `// Toggle menu`).
+- CSS section dividers (`/* Hero Section */`).
+
+If the code is hard to follow without section labels, extract it into a well-named component instead.
+
+### 7. Progressive Complexity
 
 Start simple. Add complexity only when the simple solution fails:
 - Inline types → extracted interfaces → shared type files.

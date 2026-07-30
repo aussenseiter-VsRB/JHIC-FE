@@ -12,7 +12,6 @@ function PpdbHero() {
       <div className="ppdb-hero-dots" />
 
       <div className="ppdb-hero-inner">
-        {/* ── LEFT: Text ── */}
         <div className="ppdb-hero-text">
           <motion.span
             className="ppdb-hero-badge"
@@ -82,9 +81,7 @@ function PpdbHero() {
           </motion.div>
         </div>
 
-        {/* ── RIGHT: Visual ── */}
         <div className="ppdb-hero-visual">
-          {/* Segel / medali shape */}
           <motion.div
             className="ppdb-hero-segel"
             aria-hidden="true"
@@ -118,7 +115,6 @@ function PpdbHero() {
             </svg>
           </motion.div>
 
-          {/* Photo frame */}
           <motion.div
             className="ppdb-hero-photo-frame"
             initial={{ opacity: 0, y: 24, scale: 0.92 }}
@@ -144,7 +140,6 @@ function PpdbHero() {
             </div>
           </motion.div>
 
-          {/* Floating info badge */}
           <motion.div
             className="ppdb-hero-info"
             initial={{ opacity: 0, y: 16 }}
@@ -160,7 +155,6 @@ function PpdbHero() {
             </div>
           </motion.div>
 
-          {/* Chat bubble */}
           <motion.div
             className="ppdb-hero-chat"
             initial={{ opacity: 0, y: 10, scale: 0.92 }}
@@ -176,14 +170,12 @@ function PpdbHero() {
         </div>
       </div>
 
-      {/* Wave divider */}
       <div className="ppdb-hero-wave pointer-events-none">
         <svg
           className="wave-scroll"
           viewBox="0 0 2880 120"
           fill="none"
           preserveAspectRatio="none"
-          style={{ width: "200%", height: "96px" }}
         >
           <path d="M0,60 C360,110 450,20 720,60 C990,100 1080,30 1440,60 C1800,90 1890,20 2160,60 C2430,100 2520,30 2880,60 L2880,120 L0,120 Z" fill="#F5F5F5" opacity="0.3" />
           <path d="M0,75 C300,40 500,100 720,75 C940,50 1140,110 1440,75 C1740,40 1940,100 2160,75 C2380,50 2580,110 2880,75 L2880,120 L0,120 Z" fill="#F5F5F5" opacity="0.6" />

@@ -24,3 +24,9 @@ type: Enforce
 **Decision:** `components/` holds reusable UI pieces. `services/` holds API calls and business logic.
 
 **Rationale:** Clear separation between presentation and data logic prevents components from becoming tangled with side effects. Services remain independently testable.
+
+## CSS-first styling (2026-07-29)
+
+**Decision:** Styling is done primarily in module `.css` files. Tailwind is restricted to typography utility classes (`font-heading`, `font-body`, `font-poppins`) and responsive breakpoint prefixes (`md:`, `lg:`, etc.).
+
+**Rationale:** Tailwind utility classes in JSX make the codebase hard to read and maintain. Separating visual styles into CSS files keeps JSX focused on structure and logic. Tailwind's typography system and responsive breakpoint syntax are genuinely useful and remain.

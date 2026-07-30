@@ -1,28 +1,28 @@
 import { ArrowRight } from "lucide-react";
-import data from "./data/tentang-sekolah.json";
+import data from "../data/tentang-sekolah.json";
 
 function TentangSekolah() {
   return (
-    <section className="profile-section bg-pearl">
+    <section className="profile-section profile-section--pearl">
       <div className="profile-section-inner">
-        <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
-          <div className="flex flex-1 flex-col reveal">
+        <div className="tentang-grid">
+          <div className="tentang-content reveal">
             <h2 className="profile-section-title">{data.heading}</h2>
             <span className="profile-section-accent" />
 
-            <p className="font-body text-base leading-relaxed text-slate md:text-lg">
+            <p className="font-body tentang-text">
               {data.description}
             </p>
 
-            <div className="my-8 h-px w-full bg-slate/20" />
+            <div className="tentang-divider" />
 
-            <div className="grid grid-cols-3 gap-6">
+            <div className="tentang-stats">
               {data.stats.map((stat) => (
-                <div key={stat.label} className="text-center md:text-left">
-                  <p className="font-heading text-3xl font-bold text-blue md:text-4xl">
+                <div key={stat.label} className="tentang-stat">
+                  <p className="font-heading tentang-stat-value">
                     {stat.value}
                   </p>
-                  <p className="mt-1 font-body text-sm text-slate md:text-base">
+                  <p className="font-body tentang-stat-label">
                     {stat.label}
                   </p>
                 </div>
@@ -31,40 +31,39 @@ function TentangSekolah() {
 
             <a
               href={data.ctaLink}
-              className="mt-10 inline-flex h-14 w-full items-center justify-center rounded-xl bg-blue font-poppins text-sm font-semibold uppercase tracking-wider text-white shadow-md shadow-blue/20 transition-all duration-200 hover:bg-blue-dark hover:shadow-lg hover:shadow-blue/30 md:w-64"
+              className="font-poppins tentang-cta"
             >
               {data.ctaText}
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRight className="tentang-cta-icon" />
             </a>
           </div>
 
-          {/* Kolom Kanan */}
-          <div className="flex flex-1 reveal reveal-delay-2">
-            <div className="flex w-full flex-col rounded-2xl border border-slate/10 bg-white p-8 shadow-sm md:min-h-[480px] md:p-10">
-              <h3 className="font-heading text-xl font-bold uppercase tracking-wide text-blue md:text-2xl">
+          <div className="flex-1 reveal reveal-delay-2">
+            <div className="tentang-visi-panel">
+              <h3 className="font-heading tentang-visi-title">
                 {data.visiMisi.heading}
               </h3>
 
-              <div className="mt-8 flex flex-1 flex-col gap-6">
+              <div className="tentang-visi-body">
                 <div>
-                  <h4 className="font-body text-sm font-semibold uppercase text-navy">
+                  <h4 className="font-body tentang-visi-label">
                     Visi
                   </h4>
-                  <p className="mt-3 font-body text-sm leading-relaxed text-slate md:text-base">
+                  <p className="font-body tentang-visi-text">
                     {data.visiMisi.visi}
                   </p>
                 </div>
 
-                <div className="h-px w-full bg-slate/20" />
+                <div className="tentang-divider" />
 
                 <div>
-                  <h4 className="font-body text-sm font-semibold uppercase text-navy">
+                  <h4 className="font-body tentang-visi-label">
                     Misi
                   </h4>
-                  <ul className="mt-3 space-y-3 font-body text-sm leading-relaxed text-slate md:text-base">
+                  <ul className="font-body tentang-misi-list">
                     {data.visiMisi.misi.map((item) => (
-                      <li key={item.slice(0, 20)} className="flex gap-3">
-                        <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue" />
+                      <li key={item.slice(0, 20)} className="tentang-misi-item">
+                        <span className="tentang-misi-bullet" />
                         {item}
                       </li>
                     ))}

@@ -24,7 +24,6 @@ function Footer({ accentColor, bgColor }: FooterProps) {
     <footer className="footer" style={{ "--footer-accent": accentColor ?? "#2563EB", "--footer-bg": bgColor ?? "#1E3A5F" } as React.CSSProperties}>
       <div className="footer-top">
         <div className="footer-grid">
-          {/* ---- Brand + Description ---- */}
           <div className="footer-col footer-col-brand">
             <div className="footer-brand">
               <img src={LogoYadika} alt="Logo SMK Yadika" className="footer-logo" />
@@ -40,7 +39,6 @@ function Footer({ accentColor, bgColor }: FooterProps) {
             </p>
           </div>
 
-          {/* ---- Navigasi ---- */}
           <div className="footer-col footer-col-nav">
             <h4>Navigasi</h4>
             <ul className="footer-nav-list">
@@ -60,7 +58,6 @@ function Footer({ accentColor, bgColor }: FooterProps) {
             </ul>
           </div>
 
-          {/* ---- Hubungi Kami ---- */}
           <div className="footer-col footer-col-contact">
             <h4>Hubungi Kami</h4>
             <ul className="footer-contact-list">
@@ -97,7 +94,6 @@ function Footer({ accentColor, bgColor }: FooterProps) {
             </ul>
           </div>
 
-          {/* ---- Map ---- */}
           <div className="footer-col footer-col-map">
             <h4>Lokasi Sekolah</h4>
             <div className="footer-map-wrapper">
@@ -121,7 +117,6 @@ function Footer({ accentColor, bgColor }: FooterProps) {
         </div>
       </div>
 
-      {/* ---- Copyright ---- */}
       <div className="footer-copyright">
         <span>&copy; {new Date().getFullYear()} SMK Yadika Soreang. All rights reserved.</span>
       </div>

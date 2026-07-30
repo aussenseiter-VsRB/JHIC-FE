@@ -1,1 +1,44 @@
-{}
+[
+  {
+    "id": 1,
+    "name": "Lab Komputer",
+    "description": "Laboratorium komputer dengan perangkat terkini untuk praktikum pemrograman dan desain.",
+    "icon": "Monitor",
+    "color": "#0EA5E9"
+  },
+  {
+    "id": 2,
+    "name": "Perpustakaan",
+    "description": "Perpustakaan lengkap dengan koleksi buku referensi dan akses digital.",
+    "icon": "BookOpen",
+    "color": "#2563EB"
+  },
+  {
+    "id": 3,
+    "name": "Ruang Kelas Modern",
+    "description": "Ruang kelas dengan fasilitas AC dan proyektor untuk pembelajaran optimal.",
+    "icon": "Building",
+    "color": "#6366F1"
+  },
+  {
+    "id": 4,
+    "name": "Kantin Sehat",
+    "description": "Kantin dengan standar kebersihan tinggi dan menu makanan bergizi.",
+    "icon": "Utensils",
+    "color": "#EC4899"
+  },
+  {
+    "id": 5,
+    "name": "Lab Perhotelan",
+    "description": "Laboratorium perhotelan lengkap untuk praktik front office dan housekeeping.",
+    "icon": "Building",
+    "color": "#8B5CF6"
+  },
+  {
+    "id": 6,
+    "name": "Akses WiFi",
+    "description": "Akses internet nirkabel cepat di seluruh area sekolah.",
+    "icon": "Wifi",
+    "color": "#14B8A6"
+  }
+]

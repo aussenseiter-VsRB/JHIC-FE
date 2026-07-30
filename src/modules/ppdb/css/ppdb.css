@@ -835,6 +835,12 @@
   margin-bottom: 16px;
 }
 
+.ppdb-register-icon-svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-primary);
+}
+
 .ppdb-register-card-title {
   font-family: var(--font-heading);
   font-size: 1rem;

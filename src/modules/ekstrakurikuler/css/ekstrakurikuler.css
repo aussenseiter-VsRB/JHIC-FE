@@ -1,8 +1,8 @@
-.ekstrakulikuler {
+.ekstrakurikuler {
   width: 100%;
 }
 
-.ekstrakulikuler-header-section {
+.ekstrakurikuler-header-section {
   background: #1E3A5F;
   padding: 120px 24px 120px;
   text-align: center;
@@ -10,7 +10,7 @@
   overflow: hidden;
 }
 
-.ekstrakulikuler-header-section::before {
+.ekstrakurikuler-header-section::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -18,7 +18,7 @@
   background-image: repeating-linear-gradient(45deg, transparent, transparent 40px, currentColor 40px, currentColor 41px);
 }
 
-.ekstrakulikuler-header-section::after {
+.ekstrakurikuler-header-section::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -30,14 +30,14 @@
   pointer-events: none;
 }
 
-.ekstrakulikuler-header-content {
+.ekstrakurikuler-header-content {
   position: relative;
   z-index: 1;
   max-width: 600px;
   margin: 0 auto;
 }
 
-.ekstrakulikuler-title {
+.ekstrakurikuler-title {
   font-family: var(--font-heading);
   font-size: 2.5rem;
   font-weight: 800;
@@ -46,7 +46,7 @@
   letter-spacing: -0.02em;
 }
 
-.ekstrakulikuler-subtitle {
+.ekstrakurikuler-subtitle {
   font-family: var(--font-body);
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.6);
@@ -54,19 +54,19 @@
   line-height: 1.6;
 }
 
-.ekstrakulikuler-container {
+.ekstrakurikuler-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 60px 24px;
 }
 
-.ekstrakulikuler-grid {
+.ekstrakurikuler-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
-.ekstrakulikuler-card {
+.ekstrakurikuler-card {
   background: white;
   border-radius: 16px;
   padding: 32px;
@@ -76,7 +76,7 @@
   overflow: hidden;
 }
 
-.ekstrakulikuler-card::before {
+.ekstrakurikuler-card::before {
   content: "";
   position: absolute;
   top: 0;
@@ -88,17 +88,17 @@
   transition: opacity 0.3s;
 }
 
-.ekstrakulikuler-card:hover {
+.ekstrakurikuler-card:hover {
   border-color: transparent;
   box-shadow: 0 16px 48px rgba(30, 58, 95, 0.12);
   transform: translateY(-6px);
 }
 
-.ekstrakulikuler-card:hover::before {
+.ekstrakurikuler-card:hover::before {
   opacity: 1;
 }
 
-.ekstrakulikuler-card-icon {
+.ekstrakurikuler-card-icon {
   width: 56px;
   height: 56px;
   border-radius: 14px;
@@ -109,11 +109,11 @@
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.ekstrakulikuler-card:hover .ekstrakulikuler-card-icon {
+.ekstrakurikuler-card:hover .ekstrakurikuler-card-icon {
   transform: scale(1.08);
 }
 
-.ekstrakulikuler-card-name {
+.ekstrakurikuler-card-name {
   font-family: var(--font-heading);
   font-size: 1.1rem;
   font-weight: 700;
@@ -121,7 +121,7 @@
   margin: 0 0 8px;
 }
 
-.ekstrakulikuler-card-desc {
+.ekstrakurikuler-card-desc {
   font-family: var(--font-body);
   font-size: 0.9rem;
   color: #64748B;
@@ -130,25 +130,25 @@
 }
 
 @media (max-width: 1024px) {
-  .ekstrakulikuler-grid {
+  .ekstrakurikuler-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .ekstrakulikuler-header-section {
+  .ekstrakurikuler-header-section {
     padding: 100px 20px 100px;
   }
 
-  .ekstrakulikuler-title {
+  .ekstrakurikuler-title {
     font-size: 1.75rem;
   }
 
-  .ekstrakulikuler-container {
+  .ekstrakurikuler-container {
     padding: 40px 20px;
   }
 
-  .ekstrakulikuler-grid {
+  .ekstrakurikuler-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }

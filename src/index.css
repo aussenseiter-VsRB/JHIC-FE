@@ -100,4 +100,17 @@ body {
 
 .wave-scroll {
   animation: wave-scroll 8s linear infinite;
+  width: 200%;
+  height: 96px;
+}
+
+.wave-scroll-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 96px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 3;
 }

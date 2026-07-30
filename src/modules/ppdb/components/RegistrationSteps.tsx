@@ -45,7 +45,7 @@ function RegistrationSteps() {
               style={{ animationDelay: `${0.15 + index * 0.12}s` }}
             >
               <div className="ppdb-register-icon">
-                <Icon className="h-6 w-6 text-[color:var(--color-primary)]" />
+                <Icon className="ppdb-register-icon-svg" />
               </div>
               <h3 className="ppdb-register-card-title">{step.title}</h3>
               <p className="ppdb-register-card-desc">{step.description}</p>

@@ -31,12 +31,14 @@ Pages may also live in `services/` when they serve as route-level page component
 src/components/
 ├── navbar/        — Site-wide navigation
 ├── footer/        — Site-wide footer
+├── breadcrumb/    — Shared breadcrumb (used by 5+ modules)
+├── chatbot/       — Site-wide FAB chatbot widget
 └── ...
 ```
 
 - Global components live in `src/components/`. They are imported **only** by `src/core/layout.tsx` and rendered in the page shell (above/below `<Outlet />`).
-- Individual modules must **not** import from `src/components/` directly. If a component is used by a single module, it belongs in that module's `components/` directory.
-- `src/components/` is reserved for components that appear on **every page** (navbar, footer) or are genuinely shared across multiple modules.
+- `src/components/` is reserved for components that appear on **every page** (navbar, footer, chatbot) or are genuinely shared across multiple modules (breadcrumb).
+- If a component is used by a single module, it belongs in that module's `components/` directory — not in `src/components/`.
 
 ## Key principles
 
