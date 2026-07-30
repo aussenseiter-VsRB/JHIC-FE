@@ -4,8 +4,7 @@
 
 .hubin-header-section {
   background: #1E3A5F;
-  padding: 120px 24px 120px;
-  text-align: center;
+  padding: 170px 24px 140px;
   position: relative;
   overflow: hidden;
 }
@@ -30,17 +29,60 @@
   pointer-events: none;
 }
 
-.hubin-header-content {
+.hubin-header-inner {
   position: relative;
   z-index: 1;
-  max-width: 600px;
+  max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
+.hubin-header-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hubin-header-visual {
+  flex-shrink: 0;
+  width: 400px;
+}
+
+.hubin-photo-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  transition: border-color 0.3s;
+}
+
+.hubin-photo-placeholder:hover {
+  border-color: rgba(14, 165, 233, 0.4);
+}
+
+.hubin-photo-icon {
+  width: 48px;
+  height: 48px;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.hubin-photo-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.03em;
 }
 
 .hubin-title {
   font-size: 2.5rem;
   color: white;
-  margin: 0 0 16px;
+  margin: 16px 0 16px;
   letter-spacing: -0.02em;
 }
 
@@ -49,6 +91,39 @@
   color: rgba(255, 255, 255, 0.6);
   margin: 0;
   line-height: 1.6;
+}
+
+.hubin-explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  background: #2563EB;
+  color: white;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+}
+
+.hubin-explore-btn:hover {
+  background: #1D4ED8;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+  transform: translateY(-2px);
+}
+
+.hubin-explore-icon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.25s ease;
+}
+
+.hubin-explore-btn:hover .hubin-explore-icon {
+  transform: translateX(4px);
 }
 
 .hubin-container {
@@ -86,12 +161,30 @@
 }
 
 .hubin-section {
-  margin-bottom: 60px;
+  margin-bottom: 80px;
+}
+
+.hubin-section:last-of-type {
+  margin-bottom: 0;
 }
 
 .hubin-section-header {
   text-align: center;
   margin-bottom: 48px;
+}
+
+.hubin-section-badge {
+  display: inline-block;
+  border-radius: 9999px;
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  background: rgba(37, 99, 235, 0.08);
+  padding: 6px 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #2563EB;
+  margin-bottom: 16px;
 }
 
 .hubin-section-title {
@@ -109,6 +202,81 @@
   margin: 0 auto;
 }
 
+/* Alur / Process Flow */
+.hubin-alur {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hubin-alur-item {
+  display: flex;
+  gap: 24px;
+  position: relative;
+}
+
+.hubin-alur-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 72px;
+}
+
+.hubin-alur-number {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #2563EB;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25);
+}
+
+.hubin-alur-line {
+  width: 2px;
+  flex: 1;
+  background: linear-gradient(180deg, #2563EB 0%, rgba(37, 99, 235, 0.15) 100%);
+  min-height: 40px;
+}
+
+.hubin-alur-item:last-child .hubin-alur-line {
+  display: none;
+}
+
+.hubin-alur-content {
+  padding: 12px 0 48px;
+  flex: 1;
+}
+
+.hubin-alur-item:last-child .hubin-alur-content {
+  padding-bottom: 0;
+}
+
+.hubin-alur-name {
+  font-size: 1.15rem;
+  color: #1E3A5F;
+  margin: 0 0 8px;
+}
+
+.hubin-alur-desc {
+  font-size: 0.9rem;
+  color: #64748B;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 520px;
+}
+
+/* Program Cards */
 .hubin-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -175,6 +343,39 @@
   margin: 0;
 }
 
+/* Mitra Filter */
+.hubin-mitra-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.hubin-filter-btn {
+  padding: 8px 18px;
+  border-radius: 9999px;
+  border: 1px solid #E2E8F0;
+  background: white;
+  color: #64748B;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hubin-filter-btn:hover {
+  border-color: #2563EB;
+  color: #2563EB;
+}
+
+.hubin-filter-btn--active {
+  background: #2563EB;
+  border-color: #2563EB;
+  color: white;
+}
+
+/* Mitra Cards */
 .hubin-mitra-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -206,6 +407,11 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto 16px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hubin-mitra-card:hover .hubin-mitra-icon {
+  transform: scale(1.1);
 }
 
 .hubin-mitra-name {
@@ -224,6 +430,78 @@
 .hubin-mitra-focus {
   color: #2563EB;
   margin-top: 8px;
+  font-weight: 500;
+}
+
+/* CTA Section */
+.hubin-cta-section {
+  background: #1E3A5F;
+  padding: 80px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hubin-cta-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: repeating-linear-gradient(-45deg, transparent, transparent 30px, currentColor 30px, currentColor 31px);
+}
+
+.hubin-cta-container {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hubin-cta-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.hubin-cta-desc {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  margin: 0 0 32px;
+}
+
+.hubin-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  border: none;
+  background: #2563EB;
+  color: white;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+}
+
+.hubin-cta-button:hover {
+  background: #1D4ED8;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+  transform: translateY(-2px);
+}
+
+.hubin-cta-icon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.25s ease;
+}
+
+.hubin-cta-button:hover .hubin-cta-icon {
+  transform: translateX(4px);
 }
 
 @media (max-width: 1024px) {
@@ -236,9 +514,24 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .hubin-header-visual {
+    display: none;
+  }
+
+  .hubin-header-text {
+    max-width: 100%;
+    text-align: center;
+  }
+}
+
 @media (max-width: 768px) {
   .hubin-header-section {
     padding: 100px 20px 100px;
+  }
+
+  .hubin-header-inner {
+    gap: 32px;
   }
 
   .hubin-title {
@@ -258,11 +551,104 @@
     grid-template-columns: 1fr;
   }
 
+  .hubin-stats-section {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 60px;
+  }
+
+  .hubin-stat-card {
+    padding: 28px 20px;
+  }
+
+  .hubin-stat-card-number {
+    font-size: 2rem;
+  }
+
   .hubin-stats {
     gap: 24px;
   }
 
   .hubin-stat-number {
     font-size: 1.5rem;
+  }
+
+/* Stats Section */
+.hubin-stats-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 80px;
+}
+
+.hubin-stat-card {
+  background: white;
+  border-radius: 16px;
+  padding: 36px 24px;
+  text-align: center;
+  border: 1px solid #E2E8F0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hubin-stat-card:hover {
+  border-color: transparent;
+  box-shadow: 0 12px 40px rgba(30, 58, 95, 0.1);
+  transform: translateY(-4px);
+}
+
+.hubin-stat-card-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #2563EB;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.hubin-stat-card-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #64748B;
+  line-height: 1.4;
+}
+
+.hubin-section {
+    margin-bottom: 60px;
+  }
+
+  .hubin-alur-item {
+    gap: 16px;
+  }
+
+  .hubin-alur-step {
+    width: 56px;
+  }
+
+  .hubin-alur-number {
+    width: 56px;
+    height: 56px;
+    font-size: 0.95rem;
+  }
+
+  .hubin-alur-content {
+    padding: 8px 0 36px;
+  }
+
+  .hubin-cta-section {
+    padding: 60px 20px;
+  }
+
+  .hubin-cta-title {
+    font-size: 1.5rem;
+  }
+
+  .hubin-mitra-filter {
+    gap: 6px;
+    margin-bottom: 24px;
+  }
+
+  .hubin-filter-btn {
+    font-size: 0.75rem;
+    padding: 6px 14px;
   }
 }

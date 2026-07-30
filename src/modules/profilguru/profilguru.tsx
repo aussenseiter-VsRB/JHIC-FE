@@ -1,4 +1,4 @@
-import { GraduationCap, Search, BookOpen, Clock, Award, ChevronLeft, ChevronRight, Phone, Mail, X } from "lucide-react";
+import { GraduationCap, Search, BookOpen, Clock, Award, ChevronLeft, ChevronRight, Mail, X } from "lucide-react";
 import { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import { createPortal } from "react-dom";
 import Breadcrumb from "../../components/breadcrumb/breadcrumb";
@@ -9,7 +9,6 @@ interface TeacherItem {
   id: number;
   name: string;
   subject: string;
-  keahlian: string[];
   pendidikan: string;
   pengalaman: number;
   image: string;
@@ -122,10 +121,6 @@ function AnimatedStat({ number, label }: { number: string; label: string }) {
 
   return (
     <div ref={ref} className="profilguru-stat reveal">
-      <div className="profilguru-stat-icons">
-        <Mail size={10} />
-        <Phone size={10} />
-      </div>
       <span className="profilguru-stat-number font-heading">{displayed || "0"}</span>
       <span className="profilguru-stat-label font-body">{label}</span>
     </div>
@@ -226,14 +221,6 @@ function TeacherModal({
                 <label>Pengalaman</label>
                 <span>{teacher.pengalaman} Tahun</span>
               </div>
-              <div>
-                <label>Keahlian</label>
-                <div className="teacher-modal-skills">
-                  {teacher.keahlian.map((s) => (
-                    <span key={s} className="skill-chip">{s}</span>
-                  ))}
-                </div>
-              </div>
               {teacher.kontak && (
                 <div>
                   <label>Kontak</label>
@@ -256,8 +243,7 @@ function GridSection({ section, searchQuery, onTeacherClick }: { section: GridSe
   const filtered = section.teachers.filter(
     (t) =>
       t.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      t.subject.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      t.keahlian.some((k) => k.toLowerCase().includes(searchQuery.toLowerCase()))
+      t.subject.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   if (filtered.length === 0) return null;
@@ -299,8 +285,7 @@ function DepartmentsSection({ section, searchQuery, onTeacherClick }: { section:
       teachers: dept.teachers.filter(
         (t) =>
           t.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          t.subject.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          t.keahlian.some((k) => k.toLowerCase().includes(searchQuery.toLowerCase()))
+          t.subject.toLowerCase().includes(searchQuery.toLowerCase())
       ),
     }))
     .filter((dept) => dept.teachers.length > 0);
@@ -369,16 +354,6 @@ function MainProfile({ teacher }: { teacher: TeacherItem }) {
             </div>
           )}
         </div>
-        {teacher.keahlian.length > 0 && (
-          <div className="main-profile-keahlian">
-            <span className="main-profile-label">Bidang Keahlian</span>
-            <div className="main-profile-keahlian-chips">
-              {teacher.keahlian.map((k) => (
-                <span key={k} className="skill-chip">{k}</span>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
@@ -458,14 +433,6 @@ function ProfileCarousel({ teachers, color, onTeacherClick }: { teachers: Teache
               <h4 className="carousel-card-name font-heading">{teacher.name}</h4>
               <span className="carousel-card-role font-body">{teacher.subject}</span>
               <p className="carousel-card-edu font-body">{teacher.pendidikan}</p>
-              <div className="carousel-card-skills">
-                {teacher.keahlian.slice(0, 3).map((skill) => (
-                  <span key={skill} className="skill-chip">{skill}</span>
-                ))}
-                {teacher.keahlian.length > 3 && (
-                  <span className="skill-chip skill-chip-more">+{teacher.keahlian.length - 3}</span>
-                )}
-              </div>
               <span className="carousel-card-exp font-body">
                 <Clock size={12} />
                 {teacher.pengalaman} thn pengalaman
@@ -556,17 +523,15 @@ function Profilguru() {
     return sections.reduce((sum, s) => {
       if (s.type === "departments") {
         return sum + s.departments.reduce((a, d) => a + d.teachers.filter(
-          (t) =>
-            t.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            t.subject.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            t.keahlian.some((k) => k.toLowerCase().includes(searchQuery.toLowerCase()))
-        ).length, 0);
+        (t) =>
+          t.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          t.subject.toLowerCase().includes(searchQuery.toLowerCase())
+      ).length, 0);
       }
       return sum + s.teachers.filter(
         (t) =>
           t.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          t.subject.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          t.keahlian.some((k) => k.toLowerCase().includes(searchQuery.toLowerCase()))
+          t.subject.toLowerCase().includes(searchQuery.toLowerCase())
       ).length;
     }, 0);
   }, [sections, searchQuery]);
@@ -628,7 +593,7 @@ function Profilguru() {
           ))}
         </div>
         <div className="wave-scroll-container">
-          <svg className="wave-scroll" viewBox="0 0 2880 120" fill="none" preserveAspectRatio="none" style={{ width: '200%', height: '96px' }}>
+          <svg className="wave-scroll" viewBox="0 0 2880 120" fill="none" preserveAspectRatio="none">
             <path d="M0,60 C360,110 450,20 720,60 C990,100 1080,30 1440,60 C1800,90 1890,20 2160,60 C2430,100 2520,30 2880,60 L2880,120 L0,120 Z" fill="#F5F5F5" opacity="0.3" />
             <path d="M0,75 C300,40 500,100 720,75 C940,50 1140,110 1440,75 C1740,40 1940,100 2160,75 C2380,50 2580,110 2880,75 L2880,120 L0,120 Z" fill="#F5F5F5" opacity="0.6" />
             <path d="M0,90 C320,120 420,50 720,90 C1020,130 1120,60 1440,90 C1760,120 1860,50 2160,90 C2460,130 2560,60 2880,90 L2880,120 L0,120 Z" fill="#F5F5F5" />
@@ -637,37 +602,13 @@ function Profilguru() {
       </div>
 
       <div className="profilguru-container">
-        <FilterNav
-          activeFilter={activeFilter}
-          onFilterChange={setActiveFilter}
-          counts={filterCounts}
-          total={filterCounts.semua}
-        />
-
-        {showPrincipal && principal && principal.teachers.length > 0 && (
-          <MainProfile teacher={principal.teachers[0]} />
-        )}
-
-        {showViceHeads && viceHeads && viceHeads.teachers.length > 0 && (
-          <div className="profilguru-section" id="wakil-kepala">
-            <div className="profilguru-section-header profilguru-section-header-centered">
-              <h2 className="profilguru-section-title font-heading">{viceHeads.title}</h2>
-              <p className="profilguru-section-desc font-body">Wakil kepala sekolah yang mendukung visi dan misi sekolah</p>
-              <span className="profilguru-section-accent" style={{ backgroundColor: viceHeads.color, margin: "12px auto 0" }} />
-            </div>
-            <ProfileCarousel teachers={viceHeads.teachers} color={viceHeads.color} onTeacherClick={setSelectedTeacher} />
-          </div>
-        )}
-
-        {visibleSections.map((section) => renderSection(section))}
-
         <div className="profilguru-toolbar reveal">
           <div className="profilguru-search-wrapper">
             <Search className="profilguru-search-icon" size={18} />
             <input
               type="text"
               className="profilguru-search-input font-body"
-              placeholder="Cari guru, mata pelajaran, atau keahlian..."
+              placeholder="Cari guru atau mata pelajaran..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -691,6 +632,30 @@ function Profilguru() {
             <p>Coba ubah kata kunci pencarian Anda</p>
           </div>
         )}
+
+        <FilterNav
+          activeFilter={activeFilter}
+          onFilterChange={setActiveFilter}
+          counts={filterCounts}
+          total={filterCounts.semua}
+        />
+
+        {showPrincipal && principal && principal.teachers.length > 0 && (
+          <MainProfile teacher={principal.teachers[0]} />
+        )}
+
+        {showViceHeads && viceHeads && viceHeads.teachers.length > 0 && (
+          <div className="profilguru-section" id="wakil-kepala">
+            <div className="profilguru-section-header profilguru-section-header-centered">
+              <h2 className="profilguru-section-title font-heading">{viceHeads.title}</h2>
+              <p className="profilguru-section-desc font-body">Wakil kepala sekolah yang mendukung visi dan misi sekolah</p>
+              <span className="profilguru-section-accent" style={{ backgroundColor: viceHeads.color, margin: "12px auto 0" }} />
+            </div>
+            <ProfileCarousel teachers={viceHeads.teachers} color={viceHeads.color} onTeacherClick={setSelectedTeacher} />
+          </div>
+        )}
+
+        {visibleSections.map((section) => renderSection(section))}
       </div>
 
       {selectedTeacher && (
