@@ -3,70 +3,126 @@
 }
 
 .fasilitas-header-section {
-  background: #1E3A5F;
-  padding: 120px 24px 120px;
-  text-align: center;
+  background: linear-gradient(160deg, #14243F 0%, #1E3A5F 48%, #2D4A6F 100%);
+  padding: 150px 24px 130px;
   position: relative;
   overflow: hidden;
-}
-
-.fasilitas-header-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.06;
-  background-image: repeating-linear-gradient(45deg, transparent, transparent 40px, currentColor 40px, currentColor 41px);
 }
 
 .fasilitas-header-section::after {
   content: "";
   position: absolute;
-  top: 50%;
-  left: 40%;
-  width: 350px;
-  height: 350px;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.06) 0%, transparent 70%);
+  top: 15%;
+  right: -140px;
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.18) 0%, transparent 70%);
   pointer-events: none;
+  filter: blur(40px);
 }
 
-.fasilitas-header-content {
+.fasilitas-header-inner {
   position: relative;
   z-index: 1;
-  max-width: 600px;
+  max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
 }
 
-.fasilitas-badge {
-  display: inline-block;
-  border-radius: 9999px;
-  border: 1px solid rgba(37, 99, 235, 0.3);
-  background: rgba(37, 99, 235, 0.1);
-  padding: 6px 16px;
-  font-family: var(--font-poppins);
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #2563EB;
-  margin-bottom: 24px;
+.fasilitas-header-text {
+  flex: 1;
+  max-width: 560px;
 }
 
 .fasilitas-title {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 800;
   color: white;
-  margin: 0 0 16px;
+  margin: 8px 0 16px;
   letter-spacing: -0.02em;
+  line-height: 1.12;
 }
 
 .fasilitas-subtitle {
   font-family: var(--font-body);
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.62);
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.65;
+}
+
+.fasilitas-explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  background: #2563EB;
+  color: white;
+  font-family: var(--font-poppins);
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+}
+
+.fasilitas-explore-btn:hover {
+  background: #1D4ED8;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+  transform: translateY(-2px);
+}
+
+.fasilitas-explore-icon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.25s ease;
+}
+
+.fasilitas-explore-btn:hover .fasilitas-explore-icon {
+  transform: translateX(4px);
+}
+
+.fasilitas-header-visual {
+  flex-shrink: 0;
+  width: 420px;
+}
+
+.fasilitas-photo-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  transition: border-color 0.3s;
+}
+
+.fasilitas-photo-placeholder:hover {
+  border-color: rgba(37, 99, 235, 0.4);
+}
+
+.fasilitas-photo-icon {
+  width: 48px;
+  height: 48px;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.fasilitas-photo-label {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.03em;
 }
 
 .fasilitas-stats-section {
@@ -220,15 +276,29 @@
   .fasilitas-stats-container {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .fasilitas-header-visual {
+    display: none;
+  }
+
+  .fasilitas-header-text {
+    max-width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 768px) {
   .fasilitas-header-section {
-    padding: 100px 20px 100px;
+    padding: 130px 20px 110px;
   }
 
   .fasilitas-title {
-    font-size: 1.75rem;
+    font-size: 2rem;
+  }
+
+  .fasilitas-subtitle {
+    font-size: 1rem;
   }
 
   .fasilitas-stats-section {

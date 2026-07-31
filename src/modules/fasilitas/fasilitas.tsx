@@ -1,5 +1,6 @@
-import { Wifi, Monitor, BookOpen, Utensils, Building, FlaskConical, School, Users, Award } from "lucide-react";
+import { Wifi, Monitor, BookOpen, Utensils, Building, Building2, FlaskConical, School, Users, Award, ArrowRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import Breadcrumb from "../../components/breadcrumb/breadcrumb";
 import "./css/fasilitas.css";
 import fasilitasData from "./fasilitas.json";
 
@@ -28,11 +29,34 @@ function Fasilitas() {
   return (
     <div className="fasilitas">
       <div className="fasilitas-header-section">
-        <div className="fasilitas-header-content">
-          <h1 className="fasilitas-title">Sarana & Prasarana</h1>
-          <p className="fasilitas-subtitle">
-            Fasilitas modern untuk mendukung proses belajar mengajar yang optimal
-          </p>
+        <div className="fasilitas-header-inner">
+          <div className="fasilitas-header-text">
+            <Breadcrumb
+              items={[
+                { label: "Fasilitas" },
+                { label: "Fasilitas Umum" },
+              ]}
+            />
+            <h1 className="fasilitas-title">Sarana &amp; Prasarana</h1>
+            <p className="fasilitas-subtitle">
+              Fasilitas modern untuk mendukung proses belajar mengajar yang optimal
+            </p>
+            <button
+              type="button"
+              className="fasilitas-explore-btn"
+              onClick={() => document.getElementById("fasilitas-konten")?.scrollIntoView({ behavior: "smooth" })}
+            >
+              Jelajahi Fasilitas
+              <ArrowRight className="fasilitas-explore-icon" />
+            </button>
+          </div>
+
+          <div className="fasilitas-header-visual">
+            <div className="fasilitas-photo-placeholder">
+              <Building2 className="fasilitas-photo-icon" />
+              <span className="fasilitas-photo-label">Foto Sarana &amp; Prasarana</span>
+            </div>
+          </div>
         </div>
         <div className="wave-scroll-container">
           <svg className="wave-scroll" viewBox="0 0 2880 120" fill="none" preserveAspectRatio="none">
@@ -43,7 +67,7 @@ function Fasilitas() {
         </div>
       </div>
 
-      <div className="fasilitas-stats-section reveal">
+      <div id="fasilitas-konten" className="fasilitas-stats-section reveal">
         <div className="fasilitas-stats-container">
           {stats.map((stat, i) => {
             const StatIcon = stat.icon;
