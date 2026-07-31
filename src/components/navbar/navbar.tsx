@@ -42,7 +42,6 @@ const navLinks: NavItem[] = [
       { label: 'Fasilitas Jurusan', to: '/fasilitas-jurusan', icon: Cog, description: 'Peralatan dan fasilitas jurusan' },
     ],
   },
-  { label: 'Berita', to: '/berita' },
   {
     label: 'Berita',
     children: [
