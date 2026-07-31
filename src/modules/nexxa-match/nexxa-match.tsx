@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { ArrowLeft, ArrowRight, RotateCcw, Bot } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import "./css/myJurusan.css";
-import myJurusanData from "./myJurusan.json";
+import "./css/nexxa-match.css";
+import nexxaMatchData from "./nexxa-match.json";
 
 interface JurusanResult {
   nama_jurusan: string;
@@ -12,18 +12,18 @@ interface JurusanResult {
   persentase_hotel: number;
 }
 
-const dummyResult: JurusanResult = myJurusanData.dummyResult;
+const dummyResult: JurusanResult = nexxaMatchData.dummyResult;
 
-const questions = myJurusanData.questions;
+const questions = nexxaMatchData.questions;
 
-const jurusanColors: Record<string, string> = myJurusanData.jurusanColors;
+const jurusanColors: Record<string, string> = nexxaMatchData.jurusanColors;
 
-const jurusanLongName: Record<string, string> = myJurusanData.jurusanLongName;
+const jurusanLongName: Record<string, string> = nexxaMatchData.jurusanLongName;
 
 function WavingHand() {
   return (
     <svg
-      className="myJurusan-mascot-arm"
+      className="nexxa-match-mascot-arm"
       width="28"
       height="28"
       viewBox="0 0 28 28"
@@ -40,7 +40,7 @@ function WavingHand() {
   );
 }
 
-function MyJurusan() {
+function NexxaMatch() {
   const navigate = useNavigate();
   const [step, setStep] = useState<"intro" | "quiz" | "loading" | "result">("intro");
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -262,38 +262,38 @@ function MyJurusan() {
 
 function IntroSection({ onStart }: { onStart: () => void }) {
   return (
-    <section className="myJurusan-header-section">
-      <div className="myJurusan-header-orb myJurusan-header-orb--1" />
-      <div className="myJurusan-header-orb myJurusan-header-orb--2" />
-      <div className="myJurusan-header-dots" />
+    <section className="nexxa-match-header-section">
+      <div className="nexxa-match-header-orb nexxa-match-header-orb--1" />
+      <div className="nexxa-match-header-orb nexxa-match-header-orb--2" />
+      <div className="nexxa-match-header-dots" />
 
-      <div className="myJurusan-header-inner">
+      <div className="nexxa-match-header-inner">
         <div className="flex justify-center md:justify-end">
-          <div className="myJurusan-mascot-box">
-            <div className="myJurusan-mascot-robot">
+          <div className="nexxa-match-mascot-box">
+            <div className="nexxa-match-mascot-robot">
               <Bot className="h-32 w-32 text-white/80 md:h-36 md:w-36" />
               <WavingHand />
             </div>
-            <div className="myJurusan-speech-bubble">
+            <div className="nexxa-match-speech-bubble">
               Hi! 👋
             </div>
           </div>
         </div>
 
         <div>
-          <h1 className="myJurusan-title">
+          <h1 className="nexxa-match-title">
             Bingung Mau Masuk
             <br />
             Jurusan Apa?
           </h1>
-          <p className="myJurusan-subtitle">
+          <p className="nexxa-match-subtitle">
             Jawab 5 pertanyaan singkat, dan kami akan bantu carikan jurusan
             yang paling cocok buat kamu.
           </p>
           <button
             type="button"
             onClick={onStart}
-            className="myJurusan-cta-button"
+            className="nexxa-match-cta-button"
           >
             Mulai Kuis
             <ArrowRight className="h-5 w-5" />
@@ -444,7 +444,7 @@ function ResultSection({
             <button
               type="button"
               onClick={onDaftar}
-              className="myJurusan-daftar-btn flex w-full items-center justify-center gap-2 rounded-xl bg-blue px-8 py-3 font-body text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-dark hover:shadow-lg active:scale-95 sm:w-auto"
+              className="nexxa-match-daftar-btn flex w-full items-center justify-center gap-2 rounded-xl bg-blue px-8 py-3 font-body text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-dark hover:shadow-lg active:scale-95 sm:w-auto"
             >
               Daftar ke Jurusan Ini
               <ArrowRight className="h-4 w-4" />
@@ -456,4 +456,4 @@ function ResultSection({
   );
 }
 
-export default MyJurusan;
+export default NexxaMatch;
