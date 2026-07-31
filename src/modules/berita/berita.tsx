@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Calendar, ArrowRight, User, Newspaper } from "lucide-react";
+import { Calendar, ArrowRight, User } from "lucide-react";
 import SkeletonLoad from "./components/skeleton/skeletonLoad";
 import AnimatedNumber from "../../components/animated-number/AnimatedNumber";
 import beritaData from "./berita.json";
@@ -88,31 +88,6 @@ function Berita() {
         <div className="berita-header-inner">
           
           <div className="berita-header-left reveal">
-            
-            {beritaData.header.floatingBadges?.topRight && (
-              <div className="floating-badge floating-badge-tr">
-                <div className="badge-icon-box">
-                  <Newspaper className="h-4 w-4" />
-                </div>
-                <div>
-                  <span className="badge-text-title">{beritaData.header.floatingBadges.topRight.title}</span>
-                  <span className="badge-text-value">{beritaData.header.floatingBadges.topRight.value}</span>
-                </div>
-              </div>
-            )}
-
-            
-            {beritaData.header.floatingBadges?.bottomLeft && (
-              <div className="floating-badge floating-badge-bl">
-                <div className="badge-pulse-dot"></div>
-                <div>
-                  <span className="badge-text-value">{beritaData.header.floatingBadges.bottomLeft.status}</span>
-                  <span className="badge-text-title">{beritaData.header.floatingBadges.bottomLeft.detail}</span>
-                </div>
-              </div>
-            )}
-
-            
             <div className="berita-header-person-wrapper">
               {beritaData.header.image ? (
                 <img
