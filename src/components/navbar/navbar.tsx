@@ -35,7 +35,13 @@ const navLinks: NavItem[] = [
       { label: 'Ekstrakurikuler', to: '/ekstrakurikuler', icon: Sparkles, description: 'Kegiatan pengembangan bakat' },
     ],
   },
-  { label: 'Fasilitas', to: '/fasilitas' },
+  {
+    label: 'Fasilitas',
+    children: [
+      { label: 'Fasilitas Umum', to: '/fasilitas', icon: Building2, description: 'Sarana dan prasarana sekolah' },
+      { label: 'Fasilitas Jurusan', to: '/fasilitas-jurusan', icon: Cog, description: 'Peralatan dan fasilitas jurusan' },
+    ],
+  },
   {
     label: 'Berita',
     children: [
