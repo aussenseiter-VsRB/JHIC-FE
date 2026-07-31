@@ -3,48 +3,72 @@
     "id": 1,
     "name": "Lab Komputer",
     "description": "Laboratorium komputer dengan perangkat terkini untuk praktikum pemrograman dan desain.",
-    "category": "Laboratorium",
-    "icon": "Monitor",
-    "color": "#0EA5E9"
+    "photo": "/images/fasilitas/lab-komputer.jpg"
   },
   {
     "id": 2,
     "name": "Perpustakaan",
     "description": "Perpustakaan lengkap dengan koleksi buku referensi dan akses digital.",
-    "category": "Fasilitas Umum",
-    "icon": "BookOpen",
-    "color": "#2563EB"
+    "photo": "/images/fasilitas/perpustakaan.jpg"
   },
   {
     "id": 3,
     "name": "Ruang Kelas Modern",
     "description": "Ruang kelas dengan fasilitas AC dan proyektor untuk pembelajaran optimal.",
-    "category": "Fasilitas Umum",
-    "icon": "Building",
-    "color": "#6366F1"
+    "photo": "/images/fasilitas/ruang-kelas.jpg"
   },
   {
     "id": 4,
     "name": "Kantin Sehat",
     "description": "Kantin dengan standar kebersihan tinggi dan menu makanan bergizi.",
-    "category": "Fasilitas Umum",
-    "icon": "Utensils",
-    "color": "#EC4899"
+    "photo": "/images/fasilitas/kantin.jpg"
   },
   {
     "id": 5,
     "name": "Lab Perhotelan",
     "description": "Laboratorium perhotelan lengkap untuk praktik front office dan housekeeping.",
-    "category": "Laboratorium",
-    "icon": "Building",
-    "color": "#8B5CF6"
+    "photo": "/images/fasilitas/lab-perhotelan.jpg"
   },
   {
     "id": 6,
     "name": "Akses WiFi",
     "description": "Akses internet nirkabel cepat di seluruh area sekolah.",
-    "category": "Fasilitas Umum",
-    "icon": "Wifi",
-    "color": "#14B8A6"
+    "photo": "/images/fasilitas/wifi.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Masjid",
+    "description": "Tempat ibadah yang nyaman untuk kegiatan keagamaan dan pembinaan karakter siswa.",
+    "photo": "/images/fasilitas/masjid.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Lapangan Olahraga",
+    "description": "Lapangan serbaguna untuk kegiatan olahraga, upacara, dan acara sekolah.",
+    "photo": "/images/fasilitas/lapangan.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Aula Serbaguna",
+    "description": "Aula luas untuk seminar, pentas seni, dan kegiatan bersama seluruh siswa.",
+    "photo": "/images/fasilitas/aula.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Ruang OSIS",
+    "description": "Ruang kegiatan organisasi siswa untuk rapat, latihan, dan administrasi kepengurusan.",
+    "photo": "/images/fasilitas/ruang-osis.jpg"
+  },
+  {
+    "id": 11,
+    "name": "UKS",
+    "description": "Unit kesehatan sekolah dengan peralatan P3K dan ruang istirahat siswa.",
+    "photo": "/images/fasilitas/uks.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Ruang Seni",
+    "description": "Ruang kreativitas untuk praktik seni musik, tari, dan kegiatan ekstrakurikuler seni.",
+    "photo": "/images/fasilitas/ruang-seni.jpg"
   }
 ]
