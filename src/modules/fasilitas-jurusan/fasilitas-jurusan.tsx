@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Orbit } from "lucide-react";
+import { Orbit, Cog, ArrowRight } from "lucide-react";
+import Breadcrumb from "../../components/breadcrumb/breadcrumb";
 import "./css/fasilitas-jurusan.css";
 import fasilitasJurusanData from "./fasilitas-jurusan.json";
 import jurusanPplg from "../../assets/jurusan-pplg.svg";
@@ -109,11 +110,37 @@ function FasilitasJurusan() {
   return (
     <div className="fasilitas-jurusan">
       <div className="fasilitas-jurusan-header-section">
-        <div className="fasilitas-jurusan-header-content">
-          <h1 className="fasilitas-jurusan-title">Fasilitas Jurusan</h1>
-          <p className="fasilitas-jurusan-subtitle">
-            Perlengkapan dan fasilitas khusus untuk setiap program keahlian
-          </p>
+        <div className="fasilitas-jurusan-header-inner">
+          <div className="fasilitas-jurusan-header-text">
+            <Breadcrumb
+              items={[
+                { label: "Fasilitas" },
+                { label: "Fasilitas Jurusan" },
+              ]}
+            />
+            <h1 className="fasilitas-jurusan-title">Fasilitas Jurusan</h1>
+            <p className="fasilitas-jurusan-subtitle">
+              Setiap program keahlian di SMK YADIKA SOREANG dilengkapi dengan perlengkapan dan
+              fasilitas praktik yang menunjang proses belajar, mulai dari laboratorium komputer,
+              ruang praktik perhotelan, hingga studio akuntansi semuanya standar industri untuk
+              membekali siswa keterampilan yang siap digunakan di dunia kerja.
+            </p>
+            <button
+              type="button"
+              className="fasilitas-jurusan-explore-btn"
+              onClick={() => document.getElementById("fasilitas-jurusan-konten")?.scrollIntoView({ behavior: "smooth" })}
+            >
+              Jelajahi Fasilitas Jurusan
+              <ArrowRight className="fasilitas-jurusan-explore-icon" />
+            </button>
+          </div>
+
+          <div className="fasilitas-jurusan-header-visual">
+            <div className="fasilitas-jurusan-photo-placeholder">
+              <Cog className="fasilitas-jurusan-photo-icon" />
+              <span className="fasilitas-jurusan-photo-label">Foto Fasilitas Jurusan</span>
+            </div>
+          </div>
         </div>
         <div className="wave-scroll-container">
           <svg className="wave-scroll" viewBox="0 0 2880 120" fill="none" preserveAspectRatio="none">
@@ -124,7 +151,7 @@ function FasilitasJurusan() {
         </div>
       </div>
 
-      <div className="fasilitas-jurusan-container">
+      <div id="fasilitas-jurusan-konten" className="fasilitas-jurusan-container">
         {jurusanMeta.map((meta) => (
           <JurusanSection key={meta.code} meta={meta} />
         ))}
