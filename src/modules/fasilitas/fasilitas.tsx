@@ -1,11 +1,28 @@
-import { Wifi, Monitor, BookOpen, Utensils, Building } from "lucide-react";
+import { Wifi, Monitor, BookOpen, Utensils, Building, FlaskConical, School, Users, Award } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import "./css/fasilitas.css";
 import fasilitasData from "./fasilitas.json";
 
+interface FasilitasItem {
+  id: number;
+  name: string;
+  description: string;
+  category: string;
+  icon: string;
+  color: string;
+}
+
 const iconMap: Record<string, LucideIcon> = {
   Monitor, BookOpen, Building, Utensils, Wifi,
 };
+
+const stats = [
+  { icon: Building, value: "6+", label: "Fasilitas Unggulan", color: "#0EA5E9" },
+  { icon: FlaskConical, value: "3+", label: "Laboratorium", color: "#8B5CF6" },
+  { icon: School, value: "24", label: "Ruang Kelas", color: "#6366F1" },
+  { icon: Users, value: "1000+", label: "Siswa Terfasilitasi", color: "#EC4899" },
+  { icon: Award, value: "A", label: "Akreditasi", color: "#F59E0B" },
+];
 
 function Fasilitas() {
   return (
@@ -26,12 +43,32 @@ function Fasilitas() {
         </div>
       </div>
 
+      <div className="fasilitas-stats-section reveal">
+        <div className="fasilitas-stats-container">
+          {stats.map((stat, i) => {
+            const StatIcon = stat.icon;
+            return (
+              <div key={i} className="fasilitas-stat-card">
+                <div className="fasilitas-stat-icon" style={{ background: `${stat.color}15`, color: stat.color }}>
+                  <StatIcon className="h-6 w-6" />
+                </div>
+                <span className="fasilitas-stat-value" style={{ color: stat.color }}>{stat.value}</span>
+                <span className="fasilitas-stat-label">{stat.label}</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
       <div className="fasilitas-container">
         <div className="fasilitas-grid">
-          {fasilitasData.map((fasilitas: { id: number; name: string; description: string; icon: string; color: string }, i) => {
+          {fasilitasData.map((fasilitas: FasilitasItem, i: number) => {
             const Icon = iconMap[fasilitas.icon];
             return (
               <div key={fasilitas.id} className={`fasilitas-card reveal reveal-delay-${(i % 3) + 1}`}>
+                <span className="fasilitas-card-category" style={{ background: `${fasilitas.color}15`, color: fasilitas.color }}>
+                  {fasilitas.category}
+                </span>
                 <div className="fasilitas-card-icon" style={{ background: `${fasilitas.color}15`, color: fasilitas.color }}>
                   <Icon className="h-6 w-6" />
                 </div>

@@ -1,51 +1,56 @@
 [
   {
     "id": 1,
-    "name": "Lab TKJ",
-    "description": "Laboratorium Teknik Komputer dan Jaringan dengan perangkat jaringan dan server terkini.",
+    "name": "Lab Komputer PPLG",
+    "description": "Laboratorium komputer dengan spesifikasi tinggi untuk pengembangan perangkat lunak dan gim.",
+    "jurusan": "PPLG",
     "icon": "Cpu",
-    "color": "#0EA5E9"
+    "color": "#0EA5E9",
+    "photo": "/images/fasilitas-jurusan/lab-pplg.jpg"
   },
   {
     "id": 2,
-    "name": "Lab RPL",
-    "description": "Laboratorium Rekayasa Perangkat Lunak dengan komputer spesifikasi tinggi untuk pengembangan aplikasi.",
-    "icon": "Wrench",
-    "color": "#2563EB"
+    "name": "Lab Jaringan Komputer",
+    "description": "Laboratorium jaringan dengan perangkat server dan router untuk praktik konfigurasi jaringan.",
+    "jurusan": "PPLG",
+    "icon": "Network",
+    "color": "#2563EB",
+    "photo": "/images/fasilitas-jurusan/lab-jaringan.jpg"
   },
   {
     "id": 3,
-    "name": "Lab Keperawatan",
-    "description": "Laboratorium keperawatan dengan alat peraga medis dan manekin untuk praktik klinik.",
-    "icon": "Syringe",
-    "color": "#EC4899"
+    "name": "Lab Front Office",
+    "description": "Ruang praktik front office dengan meja resepsionis standar industri perhotelan.",
+    "jurusan": "HOTEL",
+    "icon": "ConciergeBell",
+    "color": "#8B5CF6",
+    "photo": "/images/fasilitas-jurusan/lab-front-office.jpg"
   },
   {
     "id": 4,
-    "name": "Lab Farmasi",
-    "description": "Laboratorium farmasi lengkap dengan alat uji dan bahan praktik peracikan obat.",
-    "icon": "Stethoscope",
-    "color": "#8B5CF6"
+    "name": "Dapur Produksi",
+    "description": "Dapur produksi dengan peralatan modern untuk praktik tata boga dan pastry.",
+    "jurusan": "HOTEL",
+    "icon": "ChefHat",
+    "color": "#F59E0B",
+    "photo": "/images/fasilitas-jurusan/dapur-produksi.jpg"
   },
   {
     "id": 5,
-    "name": "Dapur Produksi",
-    "description": "Dapur produksi dengan peralatan modern untuk praktik kuliner dan pastry.",
-    "icon": "ChefHat",
-    "color": "#F59E0B"
+    "name": "Ruang Housekeeping",
+    "description": "Ruang praktik housekeeping dengan fasilitas penataan kamar dan laundry standar hotel.",
+    "jurusan": "HOTEL",
+    "icon": "BedDouble",
+    "color": "#EC4899",
+    "photo": "/images/fasilitas-jurusan/ruang-housekeeping.jpg"
   },
   {
     "id": 6,
-    "name": "Ruang Perhotelan",
-    "description": "Ruang praktik perhotelan dengan fasilitas front office dan housekeeping standar industri.",
-    "icon": "Building",
-    "color": "#6366F1"
-  },
-  {
-    "id": 7,
-    "name": "Bengkel Otomotif",
-    "description": "Bengkel otomotif dengan alat diagnostik dan peralatan praktik perbaikan kendaraan.",
-    "icon": "Hammer",
-    "color": "#EF4444"
+    "name": "Lab Akuntansi",
+    "description": "Laboratorium komputer dengan software akuntansi untuk praktik pembukuan dan keuangan.",
+    "jurusan": "AKL",
+    "icon": "Calculator",
+    "color": "#EF4444",
+    "photo": "/images/fasilitas-jurusan/lab-akuntansi.jpg"
   }
 ]
