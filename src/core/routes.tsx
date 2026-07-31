@@ -14,6 +14,7 @@ import Ekstrakurikuler from "../modules/ekstrakurikuler/ekstrakurikuler";
 import MyJurusan from "../modules/myJurusan/myJurusan";
 import Profilguru from "../modules/profilguru/profilguru";
 import Hubin from "../modules/hubin/hubin";
+import Panorama from "../modules/panorama/panorama";
 
 const routes: RouteObject[] = [
   {
@@ -32,6 +33,7 @@ const routes: RouteObject[] = [
       { path: "/berita", element: <Berita /> },
       { path: "/fasilitas", element: <Fasilitas /> },
       { path: "/fasilitas-jurusan", element: <FasilitasJurusan /> },
+      { path: "/panorama/:slug", element: <Panorama /> },
       { path: "/ppdb", element: <Ppdb /> },
       { path: "/ekstrakurikuler", element: <Ekstrakurikuler /> },
       { path: "/my-jurusan", element: <MyJurusan /> },

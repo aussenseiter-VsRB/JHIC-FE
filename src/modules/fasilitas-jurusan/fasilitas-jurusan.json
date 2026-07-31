@@ -5,8 +5,10 @@
     "description": "Laboratorium komputer dengan spesifikasi tinggi untuk pengembangan perangkat lunak dan gim.",
     "jurusan": "PPLG",
     "icon": "Cpu",
-    "color": "#0EA5E9",
-    "photo": "/images/fasilitas-jurusan/lab-pplg.jpg"
+    "color": "#1E3A5F",
+    "photo": "/images/fasilitas-jurusan/lab-pplg.jpg",
+    "slug": "lab-komputer-pplg",
+    "panorama": "/images/panorama/lab-komputer-pplg.jpg"
   },
   {
     "id": 2,
@@ -15,7 +17,9 @@
     "jurusan": "PPLG",
     "icon": "Network",
     "color": "#2563EB",
-    "photo": "/images/fasilitas-jurusan/lab-jaringan.jpg"
+    "photo": "/images/fasilitas-jurusan/lab-jaringan.jpg",
+    "slug": "lab-jaringan-komputer",
+    "panorama": "/images/panorama/lab-jaringan-komputer.jpg"
   },
   {
     "id": 3,
@@ -24,7 +28,9 @@
     "jurusan": "HOTEL",
     "icon": "ConciergeBell",
     "color": "#8B5CF6",
-    "photo": "/images/fasilitas-jurusan/lab-front-office.jpg"
+    "photo": "/images/fasilitas-jurusan/lab-front-office.jpg",
+    "slug": "lab-front-office",
+    "panorama": "/images/panorama/lab-front-office.jpg"
   },
   {
     "id": 4,
@@ -33,7 +39,9 @@
     "jurusan": "HOTEL",
     "icon": "ChefHat",
     "color": "#F59E0B",
-    "photo": "/images/fasilitas-jurusan/dapur-produksi.jpg"
+    "photo": "/images/fasilitas-jurusan/dapur-produksi.jpg",
+    "slug": "dapur-produksi",
+    "panorama": "/images/panorama/dapur-produksi.jpg"
   },
   {
     "id": 5,
@@ -42,7 +50,9 @@
     "jurusan": "HOTEL",
     "icon": "BedDouble",
     "color": "#EC4899",
-    "photo": "/images/fasilitas-jurusan/ruang-housekeeping.jpg"
+    "photo": "/images/fasilitas-jurusan/ruang-housekeeping.jpg",
+    "slug": "ruang-housekeeping",
+    "panorama": "/images/panorama/ruang-housekeeping.jpg"
   },
   {
     "id": 6,
@@ -51,6 +61,8 @@
     "jurusan": "AKL",
     "icon": "Calculator",
     "color": "#EF4444",
-    "photo": "/images/fasilitas-jurusan/lab-akuntansi.jpg"
+    "photo": "/images/fasilitas-jurusan/lab-akuntansi.jpg",
+    "slug": "lab-akuntansi",
+    "panorama": "/images/panorama/lab-akuntansi.jpg"
   }
 ]
