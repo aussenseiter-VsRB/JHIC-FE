@@ -176,6 +176,12 @@
   transition: border-color 0.25s;
 }
 
+.footer-map-wrapper-inner,
+.footer-map-container {
+  width: 100%;
+  height: 100%;
+}
+
 .footer-map-frame:hover {
   border-color: color-mix(in srgb, var(--footer-accent, #2563EB) 30%, transparent);
 }

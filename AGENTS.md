@@ -102,3 +102,45 @@ Review checklist after every change:
 - **Scaffold writes to `routes.tsx` via string manipulation** — always review the diff after running `npm run scaffold`.
 - **No `.env` or env loading** is configured yet. Vite's `import.meta.env` is available but unused.
 - **No CI config** currently exists in the repo.
+
+## AI-Assisted Development Workflow (Greenlight Method)
+
+**Step 1: Build a Proper Design System**
+A complete design system for AI-assisted development must include:
+- Background styles
+- Font families (headings, subheadings, body)
+- Button styles (primary and secondary)
+- Header/toolbar panels
+- Secondary sections and labels
+- Card components
+- Icon styles
+Provide these visual guidelines as a persistent reference in prompts to avoid generic "AI slop".
+
+**Step 2: Test Before You Build**
+Run test prompts for simple sections (e.g., testimonials, pricing table) with and without the design system reference to validate brand consistency before building complex pages.
+
+**Step 3: Gather Inspiration**
+Collect specific inspiration types:
+- Designs matching your intended style
+- Niche-specific sites
+- Interesting animations
+- Illustrations and icons
+Save these assets in the project folder so the AI agent can read them.
+
+**Step 4: Generate Sections, Informational First**
+Start by building informational sections (pricing, FAQs, testimonials) using this prompt pattern:
+1. Name the section type
+2. Reference the design system file
+3. Specify the output file
+
+**Step 5: Sections With Images (Separation of Concerns)**
+Do not ask code models to generate layout and images simultaneously.
+- Generate visuals separately.
+- Extract individual elements with transparent backgrounds.
+- Feed discrete image files into the code agent to combine them into HTML.
+
+**Step 6: Go Beyond Static, Add Animations**
+Add motion by:
+- Converting GitHub animation demos into HTML
+- Using screen recordings of animations as visual reference for the model
+Combine these isolated animations into the final page.
