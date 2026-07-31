@@ -9,17 +9,25 @@ type: editable
 
 ## Overview
 
-The `fasilitas` module is a **stub** page for `/fasilitas` (facilities). It currently renders a placeholder heading and has no real content yet.
+The `fasilitas` module is the facilities page at `/fasilitas`. Displays school facilities with category filtering and statistics.
 
 ## Structure
 
 ```
 src/modules/fasilitas/
-├── fasilitas.tsx          — Page component (placeholder)
-├── fasilitas.json         — Module metadata (empty `{}`)
-└── css/fasilitas.css      — Page styles (empty)
+├── fasilitas.tsx          — Page component (header + stats + filterable card grid)
+├── fasilitas.json         — Facility items (name, description, category, icon, color)
+└── css/fasilitas.css      — Page styles
 ```
 
-## Status
+## Features
 
-Placeholder only. Once content is added, move display data into `fasilitas.json` (or `components/data/`) per the static-data rule, and extract any reusable UI into `components/`.
+- **Hero header** — dark section with title/subtitle and wave divider
+- **Stats section** — 5 stat cards (facilities count, labs, classrooms, students, accreditation)
+- **Category filter** — tabs to toggle between "Semua", "Laboratorium", "Fasilitas Umum"
+- **Facility cards** — icon, category badge, name, and description per item
+
+## Data
+
+Facility data lives in `fasilitas.json`. Each entry has:
+- `id`, `name`, `description`, `category` (for filtering), `icon` (Lucide icon name), `color` (accent hex)

@@ -69,6 +69,60 @@
   line-height: 1.6;
 }
 
+.fasilitas-stats-section {
+  background: #F8FAFC;
+  padding: 60px 24px;
+}
+
+.fasilitas-stats-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.fasilitas-stat-card {
+  background: white;
+  border-radius: 16px;
+  padding: 28px 20px;
+  text-align: center;
+  border: 1px solid #E2E8F0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fasilitas-stat-card:hover {
+  border-color: transparent;
+  box-shadow: 0 8px 32px rgba(30, 58, 95, 0.1);
+  transform: translateY(-4px);
+}
+
+.fasilitas-stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+
+.fasilitas-stat-value {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.fasilitas-stat-label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: #64748B;
+  line-height: 1.4;
+}
+
 .fasilitas-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -89,6 +143,20 @@
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.fasilitas-card-category {
+  align-self: flex-start;
+  font-family: var(--font-poppins);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  margin-bottom: 16px;
 }
 
 .fasilitas-card::before {
@@ -148,6 +216,10 @@
   .fasilitas-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .fasilitas-stats-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -157,6 +229,23 @@
 
   .fasilitas-title {
     font-size: 1.75rem;
+  }
+
+  .fasilitas-stats-section {
+    padding: 40px 20px;
+  }
+
+  .fasilitas-stats-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .fasilitas-stat-card {
+    padding: 20px 16px;
+  }
+
+  .fasilitas-stat-value {
+    font-size: 1.35rem;
   }
 
   .fasilitas-container {

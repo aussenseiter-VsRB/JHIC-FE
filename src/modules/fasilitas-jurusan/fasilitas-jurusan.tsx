@@ -1,11 +1,117 @@
-import { Wrench, Cpu, Syringe, Stethoscope, ChefHat, Building, Hammer } from "lucide-react";
+import { useState } from "react";
+import {
+  Wrench, Cpu, Syringe, Stethoscope, ChefHat, Building, Hammer,
+  Network, ConciergeBell, BedDouble, Calculator,
+} from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import "./css/fasilitas-jurusan.css";
 import fasilitasJurusanData from "./fasilitas-jurusan.json";
+import jurusanPplg from "../../assets/jurusan-pplg.svg";
+import jurusanHtl from "../../assets/jurusan-htl.svg";
+import jurusanAkl from "../../assets/jurusan-ak.svg";
+
+interface FasilitasJurusanItem {
+  id: number;
+  name: string;
+  description: string;
+  jurusan: string;
+  icon: string;
+  color: string;
+  photo: string;
+}
+
+interface JurusanMeta {
+  code: string;
+  name: string;
+  description: string;
+  color: string;
+  image: string;
+}
 
 const iconMap: Record<string, LucideIcon> = {
   Wrench, Cpu, Syringe, Stethoscope, ChefHat, Building, Hammer,
+  Network, ConciergeBell, BedDouble, Calculator,
 };
+
+const jurusanMeta: JurusanMeta[] = [
+  {
+    code: "PPLG",
+    name: "Pengembangan Perangkat Lunak dan Gim",
+    description: "Fasilitas untuk mendukung pengembangan aplikasi, website, dan gim.",
+    color: "#0EA5E9",
+    image: jurusanPplg,
+  },
+  {
+    code: "HOTEL",
+    name: "Perhotelan dan Jasa Pariwisata",
+    description: "Fasilitas praktik standar industri untuk layanan perhotelan dan pariwisata.",
+    color: "#8B5CF6",
+    image: jurusanHtl,
+  },
+  {
+    code: "AKL",
+    name: "Akuntansi dan Keuangan",
+    description: "Fasilitas untuk praktik pembukuan, keuangan, dan perpajakan.",
+    color: "#EF4444",
+    image: jurusanAkl,
+  },
+];
+
+function FasilitasCard({ item, delay }: { item: FasilitasJurusanItem; delay: number }) {
+  const [photoError, setPhotoError] = useState(false);
+  const Icon = iconMap[item.icon];
+  const jurusanColor = jurusanMeta.find((j) => j.code === item.jurusan)?.color ?? item.color;
+  const jurusanImage = jurusanMeta.find((j) => j.code === item.jurusan)?.image ?? jurusanMeta[0].image;
+
+  return (
+    <div className={`fasilitas-jurusan-card reveal reveal-delay-${delay}`}>
+      <div className="fasilitas-jurusan-card-photo">
+        <img
+          src={photoError ? jurusanImage : item.photo}
+          alt={`Foto ${item.name}`}
+          loading="lazy"
+          onError={() => setPhotoError(true)}
+        />
+      </div>
+      <div className="fasilitas-jurusan-card-body">
+        <span className="fasilitas-jurusan-card-badge" style={{ background: `${jurusanColor}15`, color: jurusanColor }}>
+          {item.jurusan}
+        </span>
+        <div className="fasilitas-jurusan-card-icon" style={{ background: `${item.color}15`, color: item.color }}>
+          <Icon className="h-6 w-6" />
+        </div>
+        <h3 className="fasilitas-jurusan-card-name">{item.name}</h3>
+        <p className="fasilitas-jurusan-card-desc">{item.description}</p>
+      </div>
+    </div>
+  );
+}
+
+function JurusanSection({ meta }: { meta: JurusanMeta }) {
+  const items = fasilitasJurusanData.filter((f) => f.jurusan === meta.code);
+
+  if (items.length === 0) return null;
+
+  return (
+    <section className="fasilitas-jurusan-section">
+      <div className="fasilitas-jurusan-section-header reveal">
+        <div className="fasilitas-jurusan-section-heading">
+          <span className="fasilitas-jurusan-section-code" style={{ color: meta.color }}>
+            {meta.code}
+          </span>
+          <h2 className="fasilitas-jurusan-section-name">{meta.name}</h2>
+          <p className="fasilitas-jurusan-section-desc">{meta.description}</p>
+        </div>
+      </div>
+
+      <div className="fasilitas-jurusan-grid">
+        {items.map((item, i) => (
+          <FasilitasCard key={item.id} item={item} delay={(i % 3) + 1} />
+        ))}
+      </div>
+    </section>
+  );
+}
 
 function FasilitasJurusan() {
   return (
@@ -27,20 +133,9 @@ function FasilitasJurusan() {
       </div>
 
       <div className="fasilitas-jurusan-container">
-        <div className="fasilitas-jurusan-grid">
-          {fasilitasJurusanData.map((item: { id: number; name: string; description: string; icon: string; color: string }, i) => {
-            const Icon = iconMap[item.icon];
-            return (
-              <div key={item.id} className={`fasilitas-jurusan-card reveal reveal-delay-${(i % 3) + 1}`}>
-                <div className="fasilitas-jurusan-card-icon" style={{ background: `${item.color}15`, color: item.color }}>
-                  <Icon className="h-6 w-6" />
-                </div>
-                <h3 className="fasilitas-jurusan-card-name">{item.name}</h3>
-                <p className="fasilitas-jurusan-card-desc">{item.description}</p>
-              </div>
-            );
-          })}
-        </div>
+        {jurusanMeta.map((meta) => (
+          <JurusanSection key={meta.code} meta={meta} />
+        ))}
       </div>
     </div>
   );
