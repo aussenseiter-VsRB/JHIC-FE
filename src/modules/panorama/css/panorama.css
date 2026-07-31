@@ -1,0 +1,167 @@
+.panorama {
+  width: 100%;
+}
+
+.panorama-hero {
+  background: #1E3A5F;
+  padding: 120px 24px 120px;
+  position: relative;
+  overflow: hidden;
+}
+
+.panorama-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 40px, currentColor 40px, currentColor 41px);
+}
+
+.panorama-hero::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  width: 350px;
+  height: 350px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.panorama-hero--empty {
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+}
+
+.panorama-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.panorama-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.55);
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  transition: all 0.25s ease;
+  margin-bottom: 28px;
+}
+
+.panorama-back:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.panorama-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+}
+
+.panorama-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.panorama-body {
+  background: #F5F5F5;
+  padding: 48px 24px 72px;
+}
+
+.panorama-viewer {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(30, 58, 95, 0.18);
+}
+
+.panorama-viewer-canvas {
+  width: 100%;
+  height: 62vh;
+  min-height: 420px;
+}
+
+.panorama-viewer-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: #1E3A5F;
+  z-index: 10;
+}
+
+.panorama-viewer-overlay-icon {
+  color: var(--panorama-accent, #10B981);
+}
+
+.panorama-viewer-overlay-text {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.panorama-spin {
+  animation: panorama-spin 1s linear infinite;
+}
+
+@keyframes panorama-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.panorama-description {
+  max-width: 1200px;
+  margin: 28px auto 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: #334155;
+  line-height: 1.7;
+  background: white;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 22px 26px;
+}
+
+@media (max-width: 768px) {
+  .panorama-hero {
+    padding: 100px 20px 100px;
+  }
+
+  .panorama-title {
+    font-size: 1.75rem;
+  }
+
+  .panorama-body {
+    padding: 32px 16px 56px;
+  }
+
+  .panorama-viewer-canvas {
+    height: 50vh;
+    min-height: 320px;
+  }
+}

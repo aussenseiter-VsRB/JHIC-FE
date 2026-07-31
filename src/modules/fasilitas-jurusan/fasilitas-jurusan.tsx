@@ -1,9 +1,6 @@
 import { useState } from "react";
-import {
-  Wrench, Cpu, Syringe, Stethoscope, ChefHat, Building, Hammer,
-  Network, ConciergeBell, BedDouble, Calculator,
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Orbit } from "lucide-react";
 import "./css/fasilitas-jurusan.css";
 import fasilitasJurusanData from "./fasilitas-jurusan.json";
 import jurusanPplg from "../../assets/jurusan-pplg.svg";
@@ -18,6 +15,8 @@ interface FasilitasJurusanItem {
   icon: string;
   color: string;
   photo: string;
+  slug: string;
+  panorama: string;
 }
 
 interface JurusanMeta {
@@ -28,17 +27,12 @@ interface JurusanMeta {
   image: string;
 }
 
-const iconMap: Record<string, LucideIcon> = {
-  Wrench, Cpu, Syringe, Stethoscope, ChefHat, Building, Hammer,
-  Network, ConciergeBell, BedDouble, Calculator,
-};
-
 const jurusanMeta: JurusanMeta[] = [
   {
     code: "PPLG",
     name: "Pengembangan Perangkat Lunak dan Gim",
     description: "Fasilitas untuk mendukung pengembangan aplikasi, website, dan gim.",
-    color: "#0EA5E9",
+    color: "#1E3A5F",
     image: jurusanPplg,
   },
   {
@@ -59,7 +53,6 @@ const jurusanMeta: JurusanMeta[] = [
 
 function FasilitasCard({ item, delay }: { item: FasilitasJurusanItem; delay: number }) {
   const [photoError, setPhotoError] = useState(false);
-  const Icon = iconMap[item.icon];
   const jurusanColor = jurusanMeta.find((j) => j.code === item.jurusan)?.color ?? item.color;
   const jurusanImage = jurusanMeta.find((j) => j.code === item.jurusan)?.image ?? jurusanMeta[0].image;
 
@@ -74,14 +67,16 @@ function FasilitasCard({ item, delay }: { item: FasilitasJurusanItem; delay: num
         />
       </div>
       <div className="fasilitas-jurusan-card-body">
-        <span className="fasilitas-jurusan-card-badge" style={{ background: `${jurusanColor}15`, color: jurusanColor }}>
-          {item.jurusan}
-        </span>
-        <div className="fasilitas-jurusan-card-icon" style={{ background: `${item.color}15`, color: item.color }}>
-          <Icon className="h-6 w-6" />
-        </div>
         <h3 className="fasilitas-jurusan-card-name">{item.name}</h3>
         <p className="fasilitas-jurusan-card-desc">{item.description}</p>
+        <Link
+          to={`/panorama/${item.slug}`}
+          className="fasilitas-jurusan-card-tour"
+          style={{ "--tour-accent": jurusanColor } as React.CSSProperties}
+        >
+          <Orbit className="h-4 w-4" />
+          Room Tour
+        </Link>
       </div>
     </div>
   );
@@ -96,9 +91,6 @@ function JurusanSection({ meta }: { meta: JurusanMeta }) {
     <section className="fasilitas-jurusan-section">
       <div className="fasilitas-jurusan-section-header reveal">
         <div className="fasilitas-jurusan-section-heading">
-          <span className="fasilitas-jurusan-section-code" style={{ color: meta.color }}>
-            {meta.code}
-          </span>
           <h2 className="fasilitas-jurusan-section-name">{meta.name}</h2>
           <p className="fasilitas-jurusan-section-desc">{meta.description}</p>
         </div>

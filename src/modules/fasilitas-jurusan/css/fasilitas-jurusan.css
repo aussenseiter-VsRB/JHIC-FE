@@ -3,7 +3,7 @@
 }
 
 .fasilitas-jurusan-header-section {
-  background: #0F3D2E;
+  background: #1E3A5F;
   padding: 120px 24px 120px;
   text-align: center;
   position: relative;
@@ -81,21 +81,11 @@
   flex: 1;
 }
 
-.fasilitas-jurusan-section-code {
-  display: inline-block;
-  font-family: var(--font-poppins);
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-bottom: 4px;
-}
-
 .fasilitas-jurusan-section-name {
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 800;
-  color: #0F3D2E;
+  color: #1E3A5F;
   margin: 0 0 6px;
   letter-spacing: -0.01em;
 }
@@ -125,7 +115,7 @@
 
 .fasilitas-jurusan-card:hover {
   border-color: transparent;
-  box-shadow: 0 16px 48px rgba(15, 61, 46, 0.12);
+  box-shadow: 0 16px 48px rgba(30, 58, 95, 0.12);
   transform: translateY(-6px);
 }
 
@@ -150,38 +140,11 @@
   padding: 24px 28px 28px;
 }
 
-.fasilitas-jurusan-card-badge {
-  display: inline-block;
-  font-family: var(--font-poppins);
-  font-size: 0.7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 4px 12px;
-  border-radius: 9999px;
-  margin-bottom: 16px;
-}
-
-.fasilitas-jurusan-card-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.fasilitas-jurusan-card:hover .fasilitas-jurusan-card-icon {
-  transform: scale(1.08);
-}
-
 .fasilitas-jurusan-card-name {
   font-family: var(--font-heading);
   font-size: 1.1rem;
   font-weight: 700;
-  color: #0F3D2E;
+  color: #1E3A5F;
   margin: 0 0 8px;
 }
 
@@ -190,7 +153,30 @@
   font-size: 0.9rem;
   color: #64748B;
   line-height: 1.6;
-  margin: 0;
+  margin: 0 0 20px;
+}
+
+.fasilitas-jurusan-card-tour {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-poppins);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--tour-accent);
+  border: 1px solid color-mix(in srgb, var(--tour-accent) 30%, transparent);
+  background: color-mix(in srgb, var(--tour-accent) 6%, transparent);
+  padding: 10px 18px;
+  border-radius: 10px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fasilitas-jurusan-card-tour:hover {
+  background: var(--tour-accent);
+  border-color: var(--tour-accent);
+  color: #ffffff;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 1024px) {
