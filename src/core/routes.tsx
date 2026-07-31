@@ -13,7 +13,7 @@ import Ppdb from "../modules/ppdb/ppdb";
 import Ekstrakurikuler from "../modules/ekstrakurikuler/ekstrakurikuler";
 import Profilguru from "../modules/profilguru/profilguru";
 import Hubin from "../modules/hubin/hubin";
-import Panorama from "../modules/panorama/panorama";
+import Prestasi from "../modules/prestasi/prestasi";
 
 const routes: RouteObject[] = [
   {
@@ -37,6 +37,7 @@ const routes: RouteObject[] = [
       { path: "/ekstrakurikuler", element: <Ekstrakurikuler /> },
       { path: "/profilguru", element: <Profilguru /> },
       { path: "/hubin", element: <Hubin /> },
+      { path: "/prestasi", element: <Prestasi /> },
     ],
   },
 ];
