@@ -1,0 +1,155 @@
+{
+  "name": "myJurusan Rekomendasi",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "myjurusan",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "3a4f2f9c-1d44-4d7b-a1c0-2a2b5f2b1d2f",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        220,
+        300
+      ],
+      "webhookId": "f9a7f7e0-6c5a-4b6f-9d2c-1d2e3f4a5b6c",
+      "disabled": false
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $json.body ?? {};\n\nconst questions = [\n  \"Kalau lagi punya waktu luang, kamu lebih suka ngapain?\",\n  \"Pelajaran atau kegiatan apa di sekolah yang menurutmu paling gampang atau paling kamu suka, dan kenapa?\",\n  \"Kalau kamu kerja kelompok, biasanya kamu paling sering kebagian tugas apa?\",\n  \"Kamu lebih suka kerja sendirian fokus di depan komputer/data, kerja tim bikin sesuatu baru, atau ketemu banyak orang tiap hari?\",\n  \"Kalau ada tugas yang harus teliti banget, gimana perasaanmu — semangat, biasa aja, atau bosen?\"\n];\n\nconst jurusanInfo = [\n  { kode: \"PPLG\", nama: \"Pengembangan Perangkat Lunak dan Gim\", deskripsi: \"suka logika, komputer, coding, analisis sistem, dan bikin aplikasi/gim.\" },\n  { kode: \"Akuntansi\", nama: \"Akuntansi dan Keuangan Lembaga\", deskripsi: \"teliti, suka angka, pembukuan, pengelolaan keuangan, dan data terstruktur.\" },\n  { kode: \"Perhotelan\", nama: \"Perhotelan\", deskripsi: \"ramah, suka bertemu orang, pelayanan tamu, front office, dan kerja tim.\" }\n];\n\nconst answers = [body.jawaban_1, body.jawaban_2, body.jawaban_3, body.jawaban_4, body.jawaban_5];\n\nconst questionBlock = questions.map((q, i) => `Pertanyaan ${i + 1}: ${q}\\nJawaban ${i + 1}: ${answers[i] ?? \"(kosong)\"}`).join(\"\\n\\n\");\n\nconst jurusanBlock = jurusanInfo.map((j) => `- ${j.kode} (${j.nama}): ${j.deskripsi}`).join(\"\\n\");\n\nconst prompt = [\n  \"Kamu adalah asisten rekomendasi jurusan SMK. Analisis jawaban siswa berikut lalu tentukan jurusan paling cocok di antara PPLG, Akuntansi, dan Perhotelan.\",\n  \"\",\n  \"JURUSAN YANG TERSEDIA:\",\n  jurusanBlock,\n  \"\",\n  \"JAWABAN SISWA:\",\n  questionBlock,\n  \"\",\n  \"TUGAS:\",\n  \"1. Analisis minat, kepribadian, dan gaya kerja siswa dari jawabannya.\",\n  \"2. Pilih SATU jurusan paling cocok.\",\n  \"3. Beri persentase kecocokan untuk KETIGA jurusan (bilangan bulat 0-100, total = 100).\",\n  \"4. Tulis alasan 2-3 kalimat dalam Bahasa Indonesia yang natural.\",\n  \"\",\n  \"OUTPUT: Balas HANYA dengan JSON valid tanpa markdown, persis format ini:\",\n  '{ \"nama_jurusan\": \"PPLG\" | \"Akuntansi\" | \"Perhotelan\", \"alasan\": \"string\", \"persentase_akuntansi\": number, \"persentase_pplg\": number, \"persentase_hotel\": number }'\n].join(\"\\n\");\n\nconst requestBody = {\n  model: \"nvidia/GANTI_DENGAN_NAMA_MODEL_NEMOTRON\",\n  messages: [\n    { role: \"system\", content: \"Kamu adalah asisten rekomendasi jurusan SMK. Hanya keluarkan JSON valid, tanpa teks lain.\" },\n    { role: \"user\", content: prompt }\n  ],\n  temperature: 0.3\n};\n\nreturn [{ prompt, requestBody: JSON.stringify(requestBody) }];"
+      },
+      "id": "b7e1c3d4-2f8a-4c2e-9a5b-3e4f5a6b7c8d",
+      "name": "Siapkan Prompt",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        540,
+        300
+      ],
+      "disabled": false
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://integrate.api.nvidia.com/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.requestBody }}",
+        "options": {}
+      },
+      "id": "c8f2d4e5-3a9b-4d3f-8b6c-4f5a6b7c8d9e",
+      "name": "Nemotron AI",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        860,
+        300
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "",
+          "name": "NVIDIA Nemotron API"
+        }
+      },
+      "disabled": false
+    },
+    {
+      "parameters": {
+        "jsCode": "const aiText = $json?.choices?.[0]?.message?.content ?? \"\";\n\nconst clamp = (value) => Math.max(0, Math.min(100, Math.round(Number(value) || 0)));\n\nlet parsed = null;\nif (aiText) {\n  try {\n    parsed = JSON.parse(aiText);\n  } catch {\n    const match = aiText.match(/\\{[\\s\\S]*\\}/);\n    if (match) {\n      try { parsed = JSON.parse(match[0]); } catch { parsed = null; }\n    }\n  }\n}\n\nconst validJurusan = [\"PPLG\", \"Akuntansi\", \"Perhotelan\"];\nconst namaJurusan = parsed?.nama_jurusan && validJurusan.includes(parsed.nama_jurusan) ? parsed.nama_jurusan : \"PPLG\";\n\nreturn [{\n  nama_jurusan: namaJurusan,\n  alasan: parsed?.alasan || \"Berdasarkan jawabanmu, PPLG dinilai paling sesuai dengan minat dan gaya belajarmu.\",\n  persentase_akuntansi: parsed ? clamp(parsed.persentase_akuntansi) : 33,\n  persentase_pplg: parsed ? clamp(parsed.persentase_pplg) : 34,\n  persentase_hotel: parsed ? clamp(parsed.persentase_hotel) : 33\n}];"
+      },
+      "id": "d9a3e5f6-4bac-4e40-9c7d-5a6b7c8d9e0f",
+      "name": "Normalisasi Hasil",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1180,
+        300
+      ],
+      "disabled": false
+    },
+    {
+      "parameters": {
+        "respondWith": "firstIncomingItem",
+        "options": {}
+      },
+      "id": "e0b4f6a7-5cbd-4f51-ad8e-6b7c8d9e0f1a",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1500,
+        300
+      ],
+      "disabled": false
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Siapkan Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Siapkan Prompt": {
+      "main": [
+        [
+          {
+            "node": "Nemotron AI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nemotron AI": {
+      "main": [
+        [
+          {
+            "node": "Normalisasi Hasil",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalisasi Hasil": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "meta": {
+    "templateId": ""
+  }
+}

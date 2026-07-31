@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { ArrowLeft, ArrowRight, RotateCcw, Bot } from "lucide-react";
+import { ArrowLeft, ArrowRight, RotateCcw, Bot, AlertCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import "./css/myJurusan.css";
 import myJurusanData from "./myJurusan.json";
@@ -12,13 +12,72 @@ interface JurusanResult {
   persentase_hotel: number;
 }
 
-const dummyResult: JurusanResult = myJurusanData.dummyResult;
-
 const questions = myJurusanData.questions;
-
 const jurusanColors: Record<string, string> = myJurusanData.jurusanColors;
-
 const jurusanLongName: Record<string, string> = myJurusanData.jurusanLongName;
+
+const WEBHOOK_URL = import.meta.env.VITE_N8N_WEBHOOK_URL as string | undefined;
+const WEBHOOK_SECRET = import.meta.env.VITE_N8N_WEBHOOK_SECRET as string | undefined;
+
+function isJurusanResult(value: unknown): value is JurusanResult {
+  if (typeof value !== "object" || value === null) return false;
+  const r = value as Record<string, unknown>;
+  return (
+    typeof r.nama_jurusan === "string" &&
+    typeof r.alasan === "string" &&
+    typeof r.persentase_akuntansi === "number" &&
+    typeof r.persentase_pplg === "number" &&
+    typeof r.persentase_hotel === "number"
+  );
+}
+
+async function fetchRekomendasi(answers: string[]): Promise<JurusanResult> {
+  if (!WEBHOOK_URL) {
+    throw new Error("VITE_N8N_WEBHOOK_URL belum diatur di .env.local");
+  }
+
+  const payload = {
+    jawaban_1: answers[0],
+    jawaban_2: answers[1],
+    jawaban_3: answers[2],
+    jawaban_4: answers[3],
+    jawaban_5: answers[4],
+    jawaban_6: answers[5],
+    jawaban_7: answers[6],
+    jawaban_8: answers[7],
+  };
+
+  let res: Response;
+  try {
+    res = await fetch(WEBHOOK_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        ...(WEBHOOK_SECRET ? { "x-secret-key": WEBHOOK_SECRET } : {}),
+      },
+      body: JSON.stringify(payload),
+    });
+  } catch {
+    throw new Error("Tidak dapat terhubung ke server AI. Periksa koneksi internetmu.");
+  }
+
+  if (!res.ok) {
+    throw new Error(`Server AI merespons dengan status ${res.status}. Pastikan workflow n8n aktif.`);
+  }
+
+  let json: unknown;
+  try {
+    json = await res.json();
+  } catch {
+    throw new Error("Server AI mengembalikan respons kosong atau bukan JSON. Pastikan workflow n8n aktif dan memiliki node 'Respond to Webhook'.");
+  }
+
+  if (!isJurusanResult(json)) {
+    throw new Error("Format respons server AI tidak sesuai dengan yang diharapkan.");
+  }
+
+  return json;
+}
 
 function WavingHand() {
   return (
@@ -42,10 +101,12 @@ function WavingHand() {
 
 function MyJurusan() {
   const navigate = useNavigate();
-  const [step, setStep] = useState<"intro" | "quiz" | "loading" | "result">("intro");
+  const [step, setStep] = useState<"intro" | "quiz" | "loading" | "result" | "error">("intro");
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState<string[]>(Array(5).fill(""));
+  const [answers, setAnswers] = useState<string[]>(Array(8).fill(""));
   const [inputValue, setInputValue] = useState("");
+  const [result, setResult] = useState<JurusanResult | null>(null);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const [isAnimating, setIsAnimating] = useState(false);
   const [animDir, setAnimDir] = useState<"left" | "right">("left");
@@ -89,9 +150,18 @@ function MyJurusan() {
     const nextIdx = currentQuestion + 1;
     const newAnswers = saveCurrentAnswer(inputValue);
 
-    if (nextIdx >= 5) {
+    if (nextIdx >= 8) {
       setStep("loading");
-      setTimeout(() => setStep("result"), 2500);
+      fetchRekomendasi(newAnswers)
+        .then((data) => {
+          setResult(data);
+          setStep("result");
+        })
+        .catch((err: unknown) => {
+          const message = err instanceof Error ? err.message : "Terjadi kesalahan";
+          setErrorMsg(message);
+          setStep("error");
+        });
       return;
     }
 
@@ -128,9 +198,11 @@ function MyJurusan() {
   const resetQuiz = useCallback(() => {
     setStep("intro");
     setCurrentQuestion(0);
-    setAnswers(Array(5).fill(""));
+    setAnswers(Array(8).fill(""));
     setInputValue("");
     setIsAnimating(false);
+    setResult(null);
+    setErrorMsg("");
   }, []);
 
   if (step === "intro") {
@@ -141,12 +213,17 @@ function MyJurusan() {
     return <LoadingSection />;
   }
 
-  if (step === "result") {
-    return <ResultSection result={dummyResult} onRetry={resetQuiz} onDaftar={() => navigate("/ppdb")} />;
+  if (step === "error") {
+    return <ErrorSection message={errorMsg} onRetry={resetQuiz} />;
   }
 
+  if (step === "result" && result) {
+    return <ResultSection result={result} onRetry={resetQuiz} onDaftar={() => navigate("/ppdb")} />;
+  }
+
+
   const isFirst = currentQuestion === 0;
-  const isLast = currentQuestion === 4;
+  const isLast = currentQuestion === 7;
   const inputEmpty = inputValue.trim() === "";
 
   return (
@@ -154,13 +231,13 @@ function MyJurusan() {
       <div className="mx-auto max-w-2xl px-4">
         <div className="mb-8">
           <div className="mb-2 flex items-center justify-between text-sm font-medium text-slate">
-            <span>Pertanyaan {currentQuestion + 1} dari 5</span>
-            <span>{Math.round(((currentQuestion + 1) / 5) * 100)}%</span>
+             <span>Pertanyaan {currentQuestion + 1} dari 8</span>
+             <span>{Math.round(((currentQuestion + 1) / 8) * 100)}%</span>
           </div>
           <div className="h-2 w-full overflow-hidden rounded-full bg-gray-200">
             <div
               className="h-full rounded-full bg-blue transition-all duration-500 ease-out"
-              style={{ width: `${((currentQuestion + 1) / 5) * 100}%` }}
+                  style={{ width: `${((currentQuestion + 1) / 8) * 100}%` }}
             />
           </div>
         </div>
@@ -287,7 +364,7 @@ function IntroSection({ onStart }: { onStart: () => void }) {
             Jurusan Apa?
           </h1>
           <p className="myJurusan-subtitle">
-            Jawab 5 pertanyaan singkat, dan kami akan bantu carikan jurusan
+             Jawab 8 pertanyaan singkat, dan kami akan bantu carikan jurusan
             yang paling cocok buat kamu.
           </p>
           <button
@@ -451,6 +528,37 @@ function ResultSection({
             </button>
           </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function ErrorSection({ message, onRetry }: { message: string; onRetry: () => void }) {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-pearl">
+      <div className="mx-auto max-w-md px-4 text-center">
+        <div className="mb-6 flex justify-center">
+          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-red-100">
+            <AlertCircle className="h-8 w-8 text-red-500" />
+          </div>
+        </div>
+        <h3 className="mb-3 font-heading text-xl text-navy">
+          Gagal Menganalisis Jawaban
+        </h3>
+        <p className="mb-2 text-sm text-slate">
+          Terjadi kendala saat menghubungi server AI.
+        </p>
+        <p className="mb-8 rounded-lg bg-red-50 px-4 py-2 font-mono text-xs text-red-600">
+          {message}
+        </p>
+        <button
+          type="button"
+          onClick={onRetry}
+          className="inline-flex items-center gap-2 rounded-xl bg-blue px-8 py-3 font-body text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-dark active:scale-95"
+        >
+          <RotateCcw className="h-4 w-4" />
+          Coba Lagi dari Awal
+        </button>
       </div>
     </div>
   );

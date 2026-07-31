@@ -16,6 +16,10 @@ import {
   Handshake,
   BookOpen,
   Sparkles,
+  Building2,
+  Cog,
+  Newspaper,
+  Trophy,
 } from "lucide-react";
 import "./bottom-nav.css";
 
@@ -51,8 +55,20 @@ const drawerLinks: NavItem[] = [
       { label: "Ekstrakurikuler", to: "/ekstrakurikuler", icon: Sparkles },
     ],
   },
-  { label: "Fasilitas", to: "/fasilitas" },
-  { label: "Berita", to: "/berita" },
+  {
+    label: "Fasilitas",
+    children: [
+      { label: "Fasilitas Umum", to: "/fasilitas", icon: Building2 },
+      { label: "Fasilitas Jurusan", to: "/fasilitas-jurusan", icon: Cog },
+    ],
+  },
+  {
+    label: "Berita",
+    children: [
+      { label: "Berita Terkini", to: "/berita", icon: Newspaper },
+      { label: "Prestasi Siswa", to: "/prestasi", icon: Trophy },
+    ],
+  },
 ];
 
 export default function BottomNav({ onChatbotToggle }: BottomNavProps) {
@@ -73,7 +89,7 @@ export default function BottomNav({ onChatbotToggle }: BottomNavProps) {
 
   const isActive = (to: string) => {
     if (to === "/") return pathname === "/";
-    return pathname.startsWith(to);
+    return pathname === to || pathname.startsWith(to + "/");
   };
 
   const isChildActive = (children: SubMenuItem[]) =>
