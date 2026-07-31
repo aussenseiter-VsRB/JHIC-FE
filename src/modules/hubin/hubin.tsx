@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Building2, Briefcase, Handshake, BookOpen, UserCheck, Award, Factory, Building, Cog, ShieldCheck, Code, Headphones, ArrowRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import Breadcrumb from "../../components/breadcrumb/breadcrumb";
+import AnimatedNumber from "../../components/animated-number/AnimatedNumber";
 import "./css/hubin.css";
 import data from "./hubin.json";
 
@@ -121,7 +122,7 @@ function Hubin() {
             <div className="hubin-stats">
               {stats.map((stat, i) => (
                 <div key={i} className="hubin-stat reveal">
-                  <span className="hubin-stat-number font-heading">{stat.number}</span>
+                  <span className="hubin-stat-number font-heading"><AnimatedNumber value={stat.number} /></span>
                   <span className="hubin-stat-label font-body">{stat.label}</span>
                 </div>
               ))}
