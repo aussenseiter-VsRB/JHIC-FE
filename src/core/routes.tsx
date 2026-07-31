@@ -13,6 +13,7 @@ import Ekstrakurikuler from "../modules/ekstrakurikuler/ekstrakurikuler";
 import MyJurusan from "../modules/myJurusan/myJurusan";
 import Profilguru from "../modules/profilguru/profilguru";
 import Hubin from "../modules/hubin/hubin";
+import Prestasi from "../modules/prestasi/prestasi";
 
 const routes: RouteObject[] = [
   {
@@ -35,6 +36,7 @@ const routes: RouteObject[] = [
       { path: "/my-jurusan", element: <MyJurusan /> },
       { path: "/profilguru", element: <Profilguru /> },
       { path: "/hubin", element: <Hubin /> },
+      { path: "/prestasi", element: <Prestasi /> },
     ],
   },
 ];
