@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Calendar, ArrowRight, User, Newspaper } from "lucide-react";
 import SkeletonLoad from "./components/skeleton/skeletonLoad";
+import AnimatedNumber from "../../components/animated-number/AnimatedNumber";
 import beritaData from "./berita.json";
 import "./css/berita.css";
 
@@ -155,7 +156,7 @@ function Berita() {
                 {beritaData.header.stats.map((stat: StatItem, idx: number) => (
                   <React.Fragment key={idx}>
                     <div className="stat-item">
-                      <span className="stat-number">{stat.number}</span>
+                      <span className="stat-number"><AnimatedNumber value={stat.number} /></span>
                       <span className="stat-label">{stat.label}</span>
                     </div>
                     {idx < beritaData.header.stats.length - 1 && <div className="stat-divider"></div>}

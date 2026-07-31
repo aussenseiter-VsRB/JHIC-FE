@@ -5,6 +5,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import Breadcrumb from "../../../components/breadcrumb/breadcrumb";
+import AnimatedNumber from "../../../components/animated-number/AnimatedNumber";
 import { getJurusanBySlug } from "../data";
 import "../css/jurusan.css";
 
@@ -70,7 +71,7 @@ function PageJurusanDetail() {
             <div className="jurusan-specific-hero-stats">
               {jurusan.stats.map((stat, i) => (
                 <div key={i} className="jurusan-specific-hero-stat">
-                  <span className="jurusan-specific-hero-stat-number">{stat.number}</span>
+                  <span className="jurusan-specific-hero-stat-number"><AnimatedNumber value={stat.number} /></span>
                   <span className="jurusan-specific-hero-stat-label">{stat.label}</span>
                 </div>
               ))}

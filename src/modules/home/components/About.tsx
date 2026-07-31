@@ -1,3 +1,4 @@
+import AnimatedNumber from "../../../components/animated-number/AnimatedNumber";
 import data from "../data/about.json";
 
 function About() {
@@ -20,7 +21,7 @@ function About() {
               key={stat.label}
             >
               <span className="font-heading home-about-stat-number">
-                {stat.number}
+                <AnimatedNumber value={stat.number} />
               </span>
               <span className="home-about-stat-label">
                 {stat.label}

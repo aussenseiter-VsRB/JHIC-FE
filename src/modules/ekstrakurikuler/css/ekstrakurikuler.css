@@ -2,6 +2,7 @@
   width: 100%;
 }
 
+/* ── Header ── */
 .ekstrakurikuler-header-section {
   background: #1E3A5F;
   padding: 120px 24px 120px;
@@ -54,22 +55,112 @@
   line-height: 1.6;
 }
 
+/* ── Stats ── */
+.ekstrakurikuler-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: -48px auto 0;
+  padding: 48px 24px 0;
+  position: relative;
+  z-index: 2;
+  background: #F5F5F5;
+}
+
+.ekstrakurikuler-stat-card {
+  background: white;
+  border-radius: 16px;
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(30, 58, 95, 0.1);
+  border: 1px solid #E2E8F0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ekstrakurikuler-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(30, 58, 95, 0.15);
+}
+
+.ekstrakurikuler-stat-number {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1E3A5F;
+  display: block;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.ekstrakurikuler-stat-label {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: #64748B;
+  font-weight: 500;
+}
+
+/* ── Container ── */
 .ekstrakurikuler-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 60px 24px;
 }
 
-.ekstrakurikuler-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+/* ── Filter ── */
+.ekstrakurikuler-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 32px;
 }
 
+.ekstrakurikuler-filter-btn {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: 1.5px solid #E2E8F0;
+  background: white;
+  color: #64748B;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.ekstrakurikuler-filter-btn:hover {
+  border-color: #1E3A5F;
+  color: #1E3A5F;
+}
+
+.ekstrakurikuler-filter-btn.active {
+  background: #1E3A5F;
+  border-color: #1E3A5F;
+  color: white;
+}
+
+/* ── Count ── */
+.ekstrakurikuler-count {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: #94A3B8;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* ── Grid ── */
+.ekstrakurikuler-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* ── Card ── */
 .ekstrakurikuler-card {
   background: white;
   border-radius: 16px;
-  padding: 32px;
+  padding: 28px;
   border: 1px solid #E2E8F0;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
@@ -105,7 +196,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -118,7 +209,7 @@
   font-size: 1.1rem;
   font-weight: 700;
   color: #1E3A5F;
-  margin: 0 0 8px;
+  margin: 0 0 6px;
 }
 
 .ekstrakurikuler-card-desc {
@@ -126,11 +217,76 @@
   font-size: 0.9rem;
   color: #64748B;
   line-height: 1.6;
-  margin: 0;
+  margin: 0 0 16px;
 }
 
-@media (max-width: 1024px) {
+.ekstrakurikuler-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 14px;
+  border-top: 1px solid #F1F5F9;
+}
+
+.ekstrakurikuler-card-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: #94A3B8;
+}
+
+.ekstrakurikuler-card-meta-item svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: #CBD5E1;
+}
+
+/* ── Reveal animation ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0s; }
+.reveal-delay-2 { transition-delay: 0.1s; }
+.reveal-delay-3 { transition-delay: 0.2s; }
+
+/* ── Wave ── */
+.wave-scroll-container {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  overflow: hidden;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
   .ekstrakurikuler-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ekstrakurikuler-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .ekstrakurikuler-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ekstrakurikuler-stats {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -151,5 +307,29 @@
   .ekstrakurikuler-grid {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  .ekstrakurikuler-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: -36px;
+    padding: 0 16px;
+  }
+
+  .ekstrakurikuler-stat-card {
+    padding: 20px 12px;
+  }
+
+  .ekstrakurikuler-stat-number {
+    font-size: 1.5rem;
+  }
+
+  .ekstrakurikuler-filter {
+    gap: 8px;
+  }
+
+  .ekstrakurikuler-filter-btn {
+    font-size: 0.8rem;
+    padding: 6px 14px;
   }
 }

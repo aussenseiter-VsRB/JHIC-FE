@@ -3,69 +3,308 @@
     "title": "Ekstrakurikuler",
     "subtitle": "Berbagai kegiatan ekstrakurikuler untuk mengembangkan bakat, minat, dan potensi siswa"
   },
+  "stats": [
+    { "key": "total", "label": "Total Kegiatan", "value": 26 },
+    { "key": "bidang", "label": "Bidang Kegiatan", "value": 7 },
+    { "key": "olahraga", "label": "Cabang Olahraga", "value": 6 },
+    { "key": "seni", "label": "Seni & Budaya", "value": 4 }
+  ],
+  "categories": [
+    { "key": "all", "label": "Semua" },
+    { "key": "bela-negara", "label": "Bela Negara" },
+    { "key": "olahraga", "label": "Olahraga" },
+    { "key": "seni-budaya", "label": "Seni & Budaya" },
+    { "key": "sains-teknologi", "label": "Sains & Teknologi" },
+    { "key": "bahasa", "label": "Bahasa & Sastra" },
+    { "key": "keterampilan", "label": "Keterampilan" },
+    { "key": "kerohanian", "label": "Kerohanian & Sosial" }
+  ],
   "list": [
     {
       "id": 1,
       "name": "Paskibra",
       "description": "Latihan baris-berbaris dan pengibaran bendera untuk membentuk karakter disiplin dan kepemimpinan.",
       "icon": "Trophy",
-      "color": "#EF4444"
+      "color": "#EF4444",
+      "category": "bela-negara",
+      "day": "Rabu & Sabtu",
+      "time": "15.30 - 17.00",
+      "coach": "Kak Agus"
     },
     {
       "id": 2,
       "name": "Pramuka",
       "description": "Kegiatan kepramukaan yang mengembangkan kemandirian, kerjasama, dan cinta alam.",
       "icon": "Globe",
-      "color": "#10B981"
+      "color": "#10B981",
+      "category": "bela-negara",
+      "day": "Sabtu",
+      "time": "08.00 - 12.00",
+      "coach": "Kak Bambang"
     },
     {
       "id": 3,
       "name": "Rohis",
       "description": "Forum kerohanian Islam untuk memperdalam pemahaman agama dan membangun akhlak mulia.",
       "icon": "BookOpen",
-      "color": "#2563EB"
+      "color": "#2563EB",
+      "category": "kerohanian",
+      "day": "Jumat",
+      "time": "15.30 - 17.00",
+      "coach": "Ust. Firmansyah"
     },
     {
       "id": 4,
       "name": "Seni Tari",
       "description": "Mempelajari dan melestarikan tarian tradisional maupun kreasi baru.",
       "icon": "Music",
-      "color": "#EC4899"
+      "color": "#EC4899",
+      "category": "seni-budaya",
+      "day": "Selasa & Kamis",
+      "time": "15.30 - 17.00",
+      "coach": "Bu Dewi"
     },
     {
       "id": 5,
       "name": "Seni Lukis",
       "description": "Mengembangkan bakat seni rupa melalui berbagai teknik melukis dan menggambar.",
       "icon": "Palette",
-      "color": "#8B5CF6"
+      "color": "#8B5CF6",
+      "category": "seni-budaya",
+      "day": "Rabu",
+      "time": "15.30 - 17.00",
+      "coach": "Pak Eko"
     },
     {
       "id": 6,
       "name": "Fotografi",
       "description": "Belajar teknik fotografi dan videografi untuk mengabadikan momen kreatif.",
       "icon": "Camera",
-      "color": "#F59E0B"
+      "color": "#F59E0B",
+      "category": "keterampilan",
+      "day": "Kamis",
+      "time": "15.30 - 17.00",
+      "coach": "Pak Fajar"
     },
     {
       "id": 7,
       "name": "English Club",
       "description": "Meningkatkan kemampuan berbahasa Inggris melalui diskusi, debat, dan presentasi.",
       "icon": "Globe",
-      "color": "#06B6D4"
+      "color": "#06B6D4",
+      "category": "bahasa",
+      "day": "Senin & Rabu",
+      "time": "15.30 - 17.00",
+      "coach": "Bu Gina"
     },
     {
       "id": 8,
       "name": "Teater",
       "description": "Mengembangkan bakat akting dan seni peran melalui pementasan drama.",
       "icon": "Theater",
-      "color": "#6366F1"
+      "color": "#6366F1",
+      "category": "seni-budaya",
+      "day": "Selasa",
+      "time": "15.30 - 17.30",
+      "coach": "Pak Hendra"
     },
     {
       "id": 9,
       "name": "KIR",
       "description": "Kelompok Ilmiah Remaja untuk penelitian dan eksperimen sains.",
       "icon": "Microscope",
-      "color": "#14B8A6"
+      "color": "#14B8A6",
+      "category": "sains-teknologi",
+      "day": "Rabu",
+      "time": "15.30 - 17.00",
+      "coach": "Bu Indah"
+    },
+    {
+      "id": 10,
+      "name": "PMR",
+      "description": "Palang Merah Remaja yang melatih kepedulian sosial dan pertolongan pertama pada kecelakaan.",
+      "icon": "Cross",
+      "color": "#DC2626",
+      "category": "bela-negara",
+      "day": "Sabtu",
+      "time": "08.00 - 10.00",
+      "coach": "Kak Joko"
+    },
+    {
+      "id": 11,
+      "name": "Basket",
+      "description": "Olahraga basket untuk mengembangkan kerjasama tim, ketangkasan, dan sportivitas.",
+      "icon": "Dumbbell",
+      "color": "#F97316",
+      "category": "olahraga",
+      "day": "Senin & Kamis",
+      "time": "15.30 - 17.00",
+      "coach": "Pak Kurniawan"
+    },
+    {
+      "id": 12,
+      "name": "Futsal",
+      "description": "Olahraga futsal yang melatih kecepatan, strategi, dan kekompakan tim.",
+      "icon": "Footprints",
+      "color": "#22C55E",
+      "category": "olahraga",
+      "day": "Selasa & Jumat",
+      "time": "15.30 - 17.00",
+      "coach": "Pak Lukman"
+    },
+    {
+      "id": 13,
+      "name": "Taekwondo",
+      "description": "Seni bela diri Taekwondo untuk membentuk disiplin, percaya diri, dan kebugaran fisik.",
+      "icon": "Swords",
+      "color": "#7C3AED",
+      "category": "olahraga",
+      "day": "Rabu & Sabtu",
+      "time": "15.30 - 17.00",
+      "coach": "Sabuk Hitam Rudi"
+    },
+    {
+      "id": 14,
+      "name": "Karate",
+      "description": "Seni bela diri Karate yang mengembangkan kekuatan mental dan fisik.",
+      "icon": "Shield",
+      "color": "#EAB308",
+      "category": "olahraga",
+      "day": "Kamis & Sabtu",
+      "time": "15.30 - 17.00",
+      "coach": "Sensei Agus"
+    },
+    {
+      "id": 15,
+      "name": "Kasual",
+      "description": "Wadah kreativitas musik modern dan kasual bagi siswa yang gemar bermusik.",
+      "icon": "Music2",
+      "color": "#EC4899",
+      "category": "seni-budaya",
+      "day": "Senin & Kamis",
+      "time": "15.30 - 17.30",
+      "coach": "Pak Adi"
+    },
+    {
+      "id": 16,
+      "name": "Culinary Art",
+      "description": "Mempelajari seni memasak dan tata boga dari dasar hingga tingkat mahir.",
+      "icon": "CookingPot",
+      "color": "#E11D48",
+      "category": "keterampilan",
+      "day": "Selasa",
+      "time": "15.30 - 17.00",
+      "coach": "Bu Sari"
+    },
+    {
+      "id": 17,
+      "name": "Koseka",
+      "description": "Korps Sekolah Kakak yang membimbing dan membantu adik kelas dalam berbagai aspek.",
+      "icon": "HeartHandshake",
+      "color": "#0EA5E9",
+      "category": "kerohanian",
+      "day": "Sabtu",
+      "time": "08.00 - 10.00",
+      "coach": "Bu Tuti"
+    },
+    {
+      "id": 18,
+      "name": "Jurnalistik",
+      "description": "Belajar menulis berita, reportase, dan mengelola media sekolah.",
+      "icon": "Pen",
+      "color": "#0891B2",
+      "category": "bahasa",
+      "day": "Rabu",
+      "time": "15.30 - 17.00",
+      "coach": "Bu Umi"
+    },
+    {
+      "id": 19,
+      "name": "Japanese Club",
+      "description": "Mempelajari bahasa dan budaya Jepang secara menyenangkan.",
+      "icon": "Globe2",
+      "color": "#D946EF",
+      "category": "bahasa",
+      "day": "Kamis",
+      "time": "15.30 - 17.00",
+      "coach": "Pak Wahyu"
+    },
+    {
+      "id": 20,
+      "name": "Soulmath",
+      "description": "Mengembangkan kemampuan matematika melalui metode kreatif dan menyenangkan.",
+      "icon": "Calculator",
+      "color": "#0D9488",
+      "category": "sains-teknologi",
+      "day": "Selasa",
+      "time": "15.30 - 17.00",
+      "coach": "Bu Winda"
+    },
+    {
+      "id": 21,
+      "name": "PC Networking",
+      "description": "Belajar perakitan komputer, instalasi jaringan, dan troubleshooting hardware.",
+      "icon": "Monitor",
+      "color": "#4338CA",
+      "category": "sains-teknologi",
+      "day": "Senin & Rabu",
+      "time": "15.30 - 17.00",
+      "coach": "Pak Yuda"
+    },
+    {
+      "id": 22,
+      "name": "Robotik",
+      "description": "Merakit dan memprogram robot untuk mengembangkan kreativitas dan logika.",
+      "icon": "Cpu",
+      "color": "#059669",
+      "category": "sains-teknologi",
+      "day": "Jumat",
+      "time": "15.30 - 17.30",
+      "coach": "Pak Zainal"
+    },
+    {
+      "id": 23,
+      "name": "Volly",
+      "description": "Olahraga bola voli yang melatih kerjasama, refleks, dan kekuatan fisik.",
+      "icon": "Volleyball",
+      "color": "#CA8A04",
+      "category": "olahraga",
+      "day": "Selasa & Kamis",
+      "time": "15.30 - 17.00",
+      "coach": "Bu Fitri"
+    },
+    {
+      "id": 24,
+      "name": "Irma",
+      "description": "Ikatan Remaja Masjid untuk memperdalam nilai keislaman dan kegiatan keagamaan.",
+      "icon": "HeartPulse",
+      "color": "#BE123C",
+      "category": "kerohanian",
+      "day": "Jumat",
+      "time": "15.30 - 17.00",
+      "coach": "Ust. Hamzah"
+    },
+    {
+      "id": 25,
+      "name": "Perisai Diri",
+      "description": "Seni bela diri tradisional yang mengembangkan mental, fisik, dan spiritual.",
+      "icon": "ShieldCheck",
+      "color": "#1D4ED8",
+      "category": "olahraga",
+      "day": "Rabu & Jumat",
+      "time": "15.30 - 17.00",
+      "coach": "Mas Danang"
+    },
+    {
+      "id": 26,
+      "name": "Ekbis",
+      "description": "Ekonomi Bisnis untuk mengembangkan jiwa wirausaha dan literasi keuangan.",
+      "icon": "TrendingUp",
+      "color": "#16A34A",
+      "category": "keterampilan",
+      "day": "Kamis",
+      "time": "15.30 - 17.00",
+      "coach": "Pak Rizky"
     }
   ]
 }
