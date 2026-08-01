@@ -302,8 +302,8 @@ export default function Navbar({ accentColor, lightActive = false, activeColor }
         </ul>
 
         <div className="navbar-ctas">
-          <NavLink to="/my-jurusan" className="navbar-btn-brosur">
-            myJurusan
+          <NavLink to="/nexxa-match" className="navbar-btn-brosur">
+            Nexxa Match
           </NavLink>
           <a href="#daftar" className="navbar-btn-daftar">
             Daftar Sekarang
@@ -391,12 +391,12 @@ export default function Navbar({ accentColor, lightActive = false, activeColor }
 
           <div className="navbar-mobile-ctas">
             <NavLink
-              to="/my-jurusan"
+              to="/nexxa-match"
               role="menuitem"
               onClick={closeMobile}
               className="navbar-btn-brosur"
             >
-              myJurusan
+              Nexxa Match
             </NavLink>
             <a
               href="#daftar"

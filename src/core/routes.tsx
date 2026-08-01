@@ -13,6 +13,7 @@ import Ppdb from "../modules/ppdb/ppdb";
 import Ekstrakurikuler from "../modules/ekstrakurikuler/ekstrakurikuler";
 import EkstrakurikulerDetail from "../modules/ekstrakurikuler/ekstrakurikuler-detail/page";
 import MyJurusan from "../modules/myJurusan/myJurusan";
+import NexxaMatch from "../modules/nexxa-match/nexxa-match";
 import Profilguru from "../modules/profilguru/profilguru";
 import Hubin from "../modules/hubin/hubin";
 import Panorama from "../modules/panorama/panorama";
@@ -41,6 +42,7 @@ const routes: RouteObject[] = [
       { path: "/ekstrakurikuler", element: <Ekstrakurikuler /> },
       { path: "/ekstrakurikuler/:slug", element: <EkstrakurikulerDetail /> },
       { path: "/my-jurusan", element: <MyJurusan /> },
+      { path: "/nexxa-match", element: <NexxaMatch /> },
       { path: "/profilguru", element: <Profilguru /> },
       { path: "/hubin", element: <Hubin /> },
       { path: "/prestasi", element: <Prestasi /> },
