@@ -11,7 +11,7 @@ import Fasilitas from "../modules/fasilitas/fasilitas";
 import FasilitasJurusan from "../modules/fasilitas-jurusan/fasilitas-jurusan";
 import Ppdb from "../modules/ppdb/ppdb";
 import Ekstrakurikuler from "../modules/ekstrakurikuler/ekstrakurikuler";
-import MyJurusan from "../modules/myJurusan/myJurusan";
+import NexxaMatch from "../modules/nexxa-match/nexxa-match";
 import Profilguru from "../modules/profilguru/profilguru";
 import Hubin from "../modules/hubin/hubin";
 import Panorama from "../modules/panorama/panorama";
@@ -37,7 +37,7 @@ const routes: RouteObject[] = [
       { path: "/panorama/:slug", element: <Panorama /> },
       { path: "/ppdb", element: <Ppdb /> },
       { path: "/ekstrakurikuler", element: <Ekstrakurikuler /> },
-      { path: "/my-jurusan", element: <MyJurusan /> },
+      { path: "/nexxa-match", element: <NexxaMatch /> },
       { path: "/profilguru", element: <Profilguru /> },
       { path: "/hubin", element: <Hubin /> },
       { path: "/prestasi", element: <Prestasi /> },

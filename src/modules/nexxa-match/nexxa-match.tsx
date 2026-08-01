@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { ArrowLeft, ArrowRight, RotateCcw, Bot, AlertCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import "./css/myJurusan.css";
-import myJurusanData from "./myJurusan.json";
+import "./css/nexxa-match.css";
+import nexxaMatchData from "./nexxa-match.json";
 
 interface JurusanResult {
   nama_jurusan: string;
@@ -82,7 +82,7 @@ async function fetchRekomendasi(answers: string[]): Promise<JurusanResult> {
 function WavingHand() {
   return (
     <svg
-      className="myJurusan-mascot-arm"
+      className="nexxa-match-mascot-arm"
       width="28"
       height="28"
       viewBox="0 0 28 28"
@@ -99,7 +99,7 @@ function WavingHand() {
   );
 }
 
-function MyJurusan() {
+function NexxaMatch() {
   const navigate = useNavigate();
   const [step, setStep] = useState<"intro" | "quiz" | "loading" | "result" | "error">("intro");
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -231,13 +231,13 @@ function MyJurusan() {
       <div className="mx-auto max-w-2xl px-4">
         <div className="mb-8">
           <div className="mb-2 flex items-center justify-between text-sm font-medium text-slate">
-             <span>Pertanyaan {currentQuestion + 1} dari 8</span>
-             <span>{Math.round(((currentQuestion + 1) / 8) * 100)}%</span>
+            <span>Pertanyaan {currentQuestion + 1} dari 8</span>
+            <span>{Math.round(((currentQuestion + 1) / 8) * 100)}%</span>
           </div>
           <div className="h-2 w-full overflow-hidden rounded-full bg-gray-200">
             <div
               className="h-full rounded-full bg-blue transition-all duration-500 ease-out"
-                  style={{ width: `${((currentQuestion + 1) / 8) * 100}%` }}
+              style={{ width: `${((currentQuestion + 1) / 8) * 100}%` }}
             />
           </div>
         </div>
@@ -304,11 +304,10 @@ function MyJurusan() {
                     type="button"
                     onClick={goBack}
                     disabled={isFirst}
-                    className={`flex items-center gap-1.5 rounded-lg px-4 py-2 font-body text-sm font-semibold transition-all duration-200 ${
-                      isFirst
+                    className={`flex items-center gap-1.5 rounded-lg px-4 py-2 font-body text-sm font-semibold transition-all duration-200 ${isFirst
                         ? "cursor-not-allowed text-gray-300"
                         : "text-navy hover:bg-navy/5 active:scale-95"
-                    }`}
+                      }`}
                   >
                     <ArrowLeft className="h-4 w-4" />
                     Kembali
@@ -318,11 +317,10 @@ function MyJurusan() {
                     type="button"
                     onClick={goNext}
                     disabled={inputEmpty}
-                    className={`flex items-center gap-1.5 rounded-xl px-6 py-2.5 font-body text-sm font-semibold text-white shadow-md transition-all duration-200 active:scale-95 ${
-                      inputEmpty
+                    className={`flex items-center gap-1.5 rounded-xl px-6 py-2.5 font-body text-sm font-semibold text-white shadow-md transition-all duration-200 active:scale-95 ${inputEmpty
                         ? "cursor-not-allowed bg-gray-300 shadow-none"
                         : "bg-blue hover:bg-blue-dark hover:shadow-lg"
-                    }`}
+                      }`}
                   >
                     {isLast ? "Lihat Hasil" : "Lanjut"}
                     <ArrowRight className="h-4 w-4" />
@@ -339,38 +337,38 @@ function MyJurusan() {
 
 function IntroSection({ onStart }: { onStart: () => void }) {
   return (
-    <section className="myJurusan-header-section">
-      <div className="myJurusan-header-orb myJurusan-header-orb--1" />
-      <div className="myJurusan-header-orb myJurusan-header-orb--2" />
-      <div className="myJurusan-header-dots" />
+    <section className="nexxa-match-header-section">
+      <div className="nexxa-match-header-orb nexxa-match-header-orb--1" />
+      <div className="nexxa-match-header-orb nexxa-match-header-orb--2" />
+      <div className="nexxa-match-header-dots" />
 
-      <div className="myJurusan-header-inner">
+      <div className="nexxa-match-header-inner">
         <div className="flex justify-center md:justify-end">
-          <div className="myJurusan-mascot-box">
-            <div className="myJurusan-mascot-robot">
+          <div className="nexxa-match-mascot-box">
+            <div className="nexxa-match-mascot-robot">
               <Bot className="h-32 w-32 text-white/80 md:h-36 md:w-36" />
               <WavingHand />
             </div>
-            <div className="myJurusan-speech-bubble">
+            <div className="nexxa-match-speech-bubble">
               Hi! 👋
             </div>
           </div>
         </div>
 
         <div>
-          <h1 className="myJurusan-title">
+          <h1 className="nexxa-match-title">
             Bingung Mau Masuk
             <br />
             Jurusan Apa?
           </h1>
           <p className="myJurusan-subtitle">
-             Jawab 8 pertanyaan singkat, dan kami akan bantu carikan jurusan
+            Jawab 8 pertanyaan singkat, dan kami akan bantu carikan jurusan
             yang paling cocok buat kamu.
           </p>
           <button
             type="button"
             onClick={onStart}
-            className="myJurusan-cta-button"
+            className="nexxa-match-cta-button"
           >
             Mulai Kuis
             <ArrowRight className="h-5 w-5" />
@@ -521,7 +519,7 @@ function ResultSection({
             <button
               type="button"
               onClick={onDaftar}
-              className="myJurusan-daftar-btn flex w-full items-center justify-center gap-2 rounded-xl bg-blue px-8 py-3 font-body text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-dark hover:shadow-lg active:scale-95 sm:w-auto"
+              className="nexxa-match-daftar-btn flex w-full items-center justify-center gap-2 rounded-xl bg-blue px-8 py-3 font-body text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-dark hover:shadow-lg active:scale-95 sm:w-auto"
             >
               Daftar ke Jurusan Ini
               <ArrowRight className="h-4 w-4" />

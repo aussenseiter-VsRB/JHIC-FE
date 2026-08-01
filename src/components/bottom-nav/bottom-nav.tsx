@@ -234,11 +234,11 @@ export default function BottomNav({ onChatbotToggle }: BottomNavProps) {
                   <li className="bottom-nav-drawer-divider" role="separator" />
                   <li>
                     <NavLink
-                      to="/my-jurusan"
+                      to="/nexxa-match"
                       onClick={closeDrawer}
                       className="bottom-nav-drawer-btn-outline"
                     >
-                      myJurusan
+                      Nexxa Match
                     </NavLink>
                   </li>
                   <li>

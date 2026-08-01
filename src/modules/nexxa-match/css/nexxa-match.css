@@ -1,11 +1,11 @@
-.myJurusan-header-section {
+.nexxa-match-header-section {
   background: linear-gradient(135deg, #0A192F 0%, #112240 50%, #1A365D 100%);
   padding: 140px 0 160px;
   position: relative;
   overflow: hidden;
 }
 
-.myJurusan-header-dots {
+.nexxa-match-header-dots {
   position: absolute;
   inset: 0;
   opacity: 0.035;
@@ -16,13 +16,13 @@
   -webkit-mask-image: radial-gradient(ellipse 60% 55% at 50% 45%, black 20%, transparent 100%);
 }
 
-.myJurusan-header-orb {
+.nexxa-match-header-orb {
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
 }
 
-.myJurusan-header-orb--1 {
+.nexxa-match-header-orb--1 {
   width: 480px;
   height: 480px;
   top: -10%;
@@ -30,7 +30,7 @@
   background: radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, transparent 70%);
 }
 
-.myJurusan-header-orb--2 {
+.nexxa-match-header-orb--2 {
   width: 300px;
   height: 300px;
   bottom: 5%;
@@ -38,7 +38,7 @@
   background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 70%);
 }
 
-.myJurusan-header-inner {
+.nexxa-match-header-inner {
   position: relative;
   z-index: 2;
   max-width: 1120px;
@@ -50,7 +50,7 @@
   align-items: center;
 }
 
-.myJurusan-mascot-box {
+.nexxa-match-mascot-box {
   width: 300px;
   height: 300px;
   border-radius: 24px;
@@ -63,29 +63,29 @@
   backdrop-filter: blur(4px);
 }
 
-.myJurusan-mascot-robot {
+.nexxa-match-mascot-robot {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.myJurusan-mascot-arm {
+.nexxa-match-mascot-arm {
   position: absolute;
   bottom: 30%;
   right: -8px;
   transform-origin: bottom left;
-  animation: myJurusan-wave 1.5s ease-in-out infinite;
+  animation: nexxa-match-wave 1.5s ease-in-out infinite;
 }
 
-@keyframes myJurusan-wave {
+@keyframes nexxa-match-wave {
   0%, 100% { transform: rotate(0deg); }
   25% { transform: rotate(20deg); }
   50% { transform: rotate(-5deg); }
   75% { transform: rotate(15deg); }
 }
 
-.myJurusan-speech-bubble {
+.nexxa-match-speech-bubble {
   position: absolute;
   top: -16px;
   right: -16px;
@@ -99,7 +99,7 @@
   white-space: nowrap;
 }
 
-.myJurusan-title {
+.nexxa-match-title {
   font-family: var(--font-heading);
   font-size: 2.75rem;
   font-weight: 800;
@@ -109,7 +109,7 @@
   margin: 0 0 20px;
 }
 
-.myJurusan-subtitle {
+.nexxa-match-subtitle {
   font-family: var(--font-body);
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.6);
@@ -118,7 +118,7 @@
   max-width: 480px;
 }
 
-.myJurusan-cta-button {
+.nexxa-match-cta-button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -135,13 +135,13 @@
   box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
 }
 
-.myJurusan-cta-button:hover {
+.nexxa-match-cta-button:hover {
   background: #1D4ED8;
   box-shadow: 0 12px 32px rgba(37, 99, 235, 0.4);
   transform: translateY(-1px);
 }
 
-.myJurusan-cta-button:active {
+.nexxa-match-cta-button:active {
   transform: scale(0.97);
 }
 
@@ -203,48 +203,48 @@
 .loading-dot:nth-child(2) { animation-delay: -0.16s; }
 .loading-dot:nth-child(3) { animation-delay: 0s; }
 
-.myJurusan-daftar-btn {
+.nexxa-match-daftar-btn {
   min-height: 44px;
 }
 
 @media (max-width: 768px) {
-  .myJurusan-header-section {
+  .nexxa-match-header-section {
     padding: 100px 0 120px;
   }
 
-  .myJurusan-header-inner {
+  .nexxa-match-header-inner {
     grid-template-columns: 1fr;
     gap: 32px;
     text-align: center;
     padding: 0 20px;
   }
 
-  .myJurusan-mascot-box {
+  .nexxa-match-mascot-box {
     width: 200px;
     height: 200px;
     margin: 0 auto;
   }
 
-  .myJurusan-speech-bubble {
+  .nexxa-match-speech-bubble {
     top: -12px;
     right: -12px;
     padding: 8px 14px;
     font-size: 0.8rem;
   }
 
-  .myJurusan-title {
+  .nexxa-match-title {
     font-size: 1.75rem;
     text-align: center;
   }
 
-  .myJurusan-subtitle {
+  .nexxa-match-subtitle {
     font-size: 1rem;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
   }
 
-  .myJurusan-cta-button {
+  .nexxa-match-cta-button {
     width: 100%;
     justify-content: center;
     min-height: 44px;
