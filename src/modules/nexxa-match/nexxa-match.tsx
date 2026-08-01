@@ -211,7 +211,7 @@ function NexxaMatch() {
   }
 
   if (step === "result" && result) {
-    return <ResultSection result={result} onRetry={resetQuiz} onDaftar={() => navigate("/ppdb")} />;
+    return <ResultSection result={result} onRetry={resetQuiz} onDaftar={() => navigate("/daftar")} />;
   }
 
 

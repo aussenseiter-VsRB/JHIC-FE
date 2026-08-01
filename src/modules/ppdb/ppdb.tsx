@@ -1,4 +1,5 @@
 import { FileText, CheckCircle, ArrowRight, Phone, Mail, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 import "./css/ppdb.css";
 import PpdbHero from "./components/PpdbHero";
 import RegistrationSteps from "./components/RegistrationSteps";
@@ -34,9 +35,9 @@ function Ppdb() {
             <p className="ppdb-cta-desc">
               Jangan lewatkan kesempatan untuk menjadi bagian dari SMK Yadika Soreang.
             </p>
-            <a href="#" className="ppdb-cta-button">
+            <Link to="/daftar" className="ppdb-cta-button">
               Daftar Sekarang <ArrowRight className="h-4 w-4" />
-            </a>
+            </Link>
           </div>
         </div>
 

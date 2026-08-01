@@ -1,0 +1,21 @@
+{
+  "badge": "PPDB",
+  "title": "Daftar Sekarang",
+  "subtitle": "Isi formulir pendaftaran di bawah ini dengan data yang benar. Admin kami akan menghubungimu setelah pendaftaran terkirim.",
+  "jurusanLabel": "Jurusan Pilihan",
+  "jurusanOptions": ["Akuntansi", "PPLG", "Perhotelan"],
+  "fields": [
+    { "name": "nama", "label": "Nama Lengkap", "type": "text", "placeholder": "Masukkan nama lengkap", "required": true },
+    { "name": "nisn", "label": "NISN", "type": "text", "placeholder": "Masukkan NISN", "required": true },
+    { "name": "gender", "label": "Jenis Kelamin", "type": "select", "options": ["Laki-laki", "Perempuan"], "required": true },
+    { "name": "agama", "label": "Agama", "type": "select", "options": ["Islam", "Kristen", "Katolik", "Hindu", "Buddha", "Konghucu", "Lainnya"], "required": true },
+    { "name": "asal_sekolah", "label": "Asal Sekolah", "type": "text", "placeholder": "Nama sekolah asal", "required": true },
+    { "name": "no_hp", "label": "No. HP / WhatsApp", "type": "tel", "placeholder": "08xxxxxxxxxx", "required": true },
+    { "name": "alamat", "label": "Alamat", "type": "textarea", "placeholder": "Alamat lengkap", "required": true, "fullWidth": true }
+  ],
+  "submitLabel": "Kirim Pendaftaran",
+  "successTitle": "Pendaftaran Terkirim!",
+  "successMessage": "Terima kasih sudah mendaftar di SMK Yadika Soreang. Kami akan menghubungimu melalui WhatsApp untuk informasi selanjutnya.",
+  "daftarLagiLabel": "Daftar Lagi",
+  "kembaliLabel": "Kembali ke Beranda"
+}

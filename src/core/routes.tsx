@@ -16,6 +16,7 @@ import Profilguru from "../modules/profilguru/profilguru";
 import Hubin from "../modules/hubin/hubin";
 import Panorama from "../modules/panorama/panorama";
 import Prestasi from "../modules/prestasi/prestasi";
+import Daftar from "../modules/daftar/daftar";
 
 const routes: RouteObject[] = [
   {
@@ -41,6 +42,7 @@ const routes: RouteObject[] = [
       { path: "/profilguru", element: <Profilguru /> },
       { path: "/hubin", element: <Hubin /> },
       { path: "/prestasi", element: <Prestasi /> },
+      { path: "/daftar", element: <Daftar /> },
     ],
   },
 ];

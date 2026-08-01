@@ -243,10 +243,10 @@ export default function Navbar({ accentColor, lightActive = false, activeColor }
           <NavLink to="/nexxa-match" className="navbar-btn-brosur">
             Nexxa Match
           </NavLink>
-          <a href="#daftar" className="navbar-btn-daftar">
+          <NavLink to="/daftar" className="navbar-btn-daftar">
             Daftar Sekarang
             <ArrowUpRight />
-          </a>
+          </NavLink>
         </div>
 
         <button
@@ -336,15 +336,15 @@ export default function Navbar({ accentColor, lightActive = false, activeColor }
             >
               Nexxa Match
             </NavLink>
-            <a
-              href="#daftar"
+            <NavLink
+              to="/daftar"
               role="menuitem"
               onClick={closeMobile}
               className="navbar-btn-daftar"
             >
               Daftar Sekarang
               <ArrowUpRight />
-            </a>
+            </NavLink>
           </div>
         </div>
       </div>
