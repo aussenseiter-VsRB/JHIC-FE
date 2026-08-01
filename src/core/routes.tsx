@@ -34,6 +34,7 @@ const routes: RouteObject[] = [
       { path: "/berita", element: <Berita /> },
       { path: "/fasilitas", element: <Fasilitas /> },
       { path: "/fasilitas-jurusan", element: <FasilitasJurusan /> },
+      { path: "/fasilitas-jurusan/:jurusan", element: <FasilitasJurusan /> },
       { path: "/panorama/:slug", element: <Panorama /> },
       { path: "/ppdb", element: <Ppdb /> },
       { path: "/ekstrakurikuler", element: <Ekstrakurikuler /> },
