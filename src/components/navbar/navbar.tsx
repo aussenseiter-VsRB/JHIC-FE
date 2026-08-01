@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import type { CSSProperties, ElementType } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
-import { Menu, X, ArrowUpRight, ChevronDown, GraduationCap, Users, Handshake, BookOpen, Sparkles, Building2, Cog, Newspaper, Trophy, Code, Hotel, BarChart3 } from 'lucide-react'
+import { Menu, X, ArrowUpRight, ChevronDown, GraduationCap, Users, Handshake, BookOpen, Sparkles, Building2, Newspaper, Trophy, Code, Hotel, BarChart3 } from 'lucide-react'
 import logoSrc from '../../assets/Logo-yadika.webp'
 import './navbar.css'
 
@@ -40,17 +40,9 @@ const navLinks: NavItem[] = [
     label: 'Fasilitas',
     children: [
       { label: 'Fasilitas Umum', to: '/fasilitas', icon: Building2, description: 'Sarana dan prasarana sekolah' },
-      {
-        label: 'Fasilitas Jurusan',
-        to: '/fasilitas-jurusan',
-        icon: Cog,
-        description: 'Peralatan dan fasilitas jurusan',
-        children: [
-          { label: 'PPLG', to: '/fasilitas-jurusan/pplg', icon: Code, description: 'Perangkat lunak dan gim' },
-          { label: 'HOTEL', to: '/fasilitas-jurusan/hotel', icon: Hotel, description: 'Perhotelan dan pariwisata' },
-          { label: 'AKL', to: '/fasilitas-jurusan/akl', icon: BarChart3, description: 'Akuntansi dan keuangan' },
-        ],
-      },
+      { label: 'Fasilitas PPLG', to: '/fasilitas-jurusan/pplg', icon: Code, description: 'Perangkat lunak dan gim' },
+      { label: 'Fasilitas HOTEL', to: '/fasilitas-jurusan/hotel', icon: Hotel, description: 'Perhotelan dan pariwisata' },
+      { label: 'Fasilitas AKL', to: '/fasilitas-jurusan/akl', icon: BarChart3, description: 'Akuntansi dan keuangan' },
     ],
   },
   {

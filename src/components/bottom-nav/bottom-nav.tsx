@@ -18,7 +18,6 @@ import {
   BookOpen,
   Sparkles,
   Building2,
-  Cog,
   Code,
   Hotel,
   BarChart3,
@@ -62,16 +61,9 @@ const drawerLinks: NavItem[] = [
     label: "Fasilitas",
     children: [
       { label: "Fasilitas Umum", to: "/fasilitas", icon: Building2 },
-      {
-        label: "Fasilitas Jurusan",
-        to: "/fasilitas-jurusan",
-        icon: Cog,
-        children: [
-          { label: "PPLG", to: "/fasilitas-jurusan/pplg", icon: Code },
-          { label: "HOTEL", to: "/fasilitas-jurusan/hotel", icon: Hotel },
-          { label: "AKL", to: "/fasilitas-jurusan/akl", icon: BarChart3 },
-        ],
-      },
+      { label: "Fasilitas PPLG", to: "/fasilitas-jurusan/pplg", icon: Code },
+      { label: "Fasilitas HOTEL", to: "/fasilitas-jurusan/hotel", icon: Hotel },
+      { label: "Fasilitas AKL", to: "/fasilitas-jurusan/akl", icon: BarChart3 },
     ],
   },
   { label: "Berita", to: "/berita" },
