@@ -12,9 +12,9 @@ interface JurusanResult {
   persentase_hotel: number;
 }
 
-const questions = myJurusanData.questions;
-const jurusanColors: Record<string, string> = myJurusanData.jurusanColors;
-const jurusanLongName: Record<string, string> = myJurusanData.jurusanLongName;
+const questions = nexxaMatchData.questions;
+const jurusanColors: Record<string, string> = nexxaMatchData.jurusanColors;
+const jurusanLongName: Record<string, string> = nexxaMatchData.jurusanLongName;
 
 const WEBHOOK_URL = import.meta.env.VITE_N8N_WEBHOOK_URL as string | undefined;
 const WEBHOOK_SECRET = import.meta.env.VITE_N8N_WEBHOOK_SECRET as string | undefined;
@@ -36,16 +36,9 @@ async function fetchRekomendasi(answers: string[]): Promise<JurusanResult> {
     throw new Error("VITE_N8N_WEBHOOK_URL belum diatur di .env.local");
   }
 
-  const payload = {
-    jawaban_1: answers[0],
-    jawaban_2: answers[1],
-    jawaban_3: answers[2],
-    jawaban_4: answers[3],
-    jawaban_5: answers[4],
-    jawaban_6: answers[5],
-    jawaban_7: answers[6],
-    jawaban_8: answers[7],
-  };
+  const payload = Object.fromEntries(
+    answers.map((answer, index) => [`jawaban_${index + 1}`, answer]),
+  );
 
   let res: Response;
   try {
@@ -103,7 +96,7 @@ function NexxaMatch() {
   const navigate = useNavigate();
   const [step, setStep] = useState<"intro" | "quiz" | "loading" | "result" | "error">("intro");
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState<string[]>(Array(8).fill(""));
+  const [answers, setAnswers] = useState<string[]>(Array(questions.length).fill(""));
   const [inputValue, setInputValue] = useState("");
   const [result, setResult] = useState<JurusanResult | null>(null);
   const [errorMsg, setErrorMsg] = useState("");
@@ -150,7 +143,7 @@ function NexxaMatch() {
     const nextIdx = currentQuestion + 1;
     const newAnswers = saveCurrentAnswer(inputValue);
 
-    if (nextIdx >= 8) {
+    if (nextIdx >= questions.length) {
       setStep("loading");
       fetchRekomendasi(newAnswers)
         .then((data) => {
@@ -198,7 +191,7 @@ function NexxaMatch() {
   const resetQuiz = useCallback(() => {
     setStep("intro");
     setCurrentQuestion(0);
-    setAnswers(Array(8).fill(""));
+    setAnswers(Array(questions.length).fill(""));
     setInputValue("");
     setIsAnimating(false);
     setResult(null);
@@ -223,7 +216,7 @@ function NexxaMatch() {
 
 
   const isFirst = currentQuestion === 0;
-  const isLast = currentQuestion === 7;
+  const isLast = currentQuestion === questions.length - 1;
   const inputEmpty = inputValue.trim() === "";
 
   return (
@@ -231,13 +224,13 @@ function NexxaMatch() {
       <div className="mx-auto max-w-2xl px-4">
         <div className="mb-8">
           <div className="mb-2 flex items-center justify-between text-sm font-medium text-slate">
-            <span>Pertanyaan {currentQuestion + 1} dari 8</span>
-            <span>{Math.round(((currentQuestion + 1) / 8) * 100)}%</span>
+            <span>Pertanyaan {currentQuestion + 1} dari {questions.length}</span>
+            <span>{Math.round(((currentQuestion + 1) / questions.length) * 100)}%</span>
           </div>
           <div className="h-2 w-full overflow-hidden rounded-full bg-gray-200">
             <div
               className="h-full rounded-full bg-blue transition-all duration-500 ease-out"
-              style={{ width: `${((currentQuestion + 1) / 8) * 100}%` }}
+              style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
             />
           </div>
         </div>
@@ -361,7 +354,7 @@ function IntroSection({ onStart }: { onStart: () => void }) {
             <br />
             Jurusan Apa?
           </h1>
-          <p className="myJurusan-subtitle">
+          <p className="nexxa-match-subtitle">
             Jawab 8 pertanyaan singkat, dan kami akan bantu carikan jurusan
             yang paling cocok buat kamu.
           </p>
@@ -562,4 +555,4 @@ function ErrorSection({ message, onRetry }: { message: string; onRetry: () => vo
   );
 }
 
-export default MyJurusan;
+export default NexxaMatch;
