@@ -80,7 +80,7 @@ function Layout() {
         hideFab={isMobile}
         onSendMessage={sendToChatbot}
         onClear={resetSession}
-        whatsappNumber="6281234567890"
+        whatsappNumber={import.meta.env.VITE_WHATSAPP_NUMBER ?? ""}
       />
       <BottomNav
         onChatbotToggle={() => chatbotRef.current?.toggle()}
