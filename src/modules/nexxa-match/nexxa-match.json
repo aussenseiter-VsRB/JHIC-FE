@@ -1,10 +1,13 @@
 {
   "questions": [
-    "Kalau lagi punya waktu luang, kamu lebih suka ngapain?",
-    "Pelajaran atau kegiatan apa di sekolah yang menurutmu paling gampang atau paling kamu suka, dan kenapa?",
-    "Kalau kamu kerja kelompok, biasanya kamu paling sering kebagian tugas apa?",
-    "Kamu lebih suka kerja sendirian fokus di depan komputer/data, kerja tim bikin sesuatu baru, atau ketemu banyak orang tiap hari?",
-    "Kalau ada tugas yang harus teliti banget, gimana perasaanmu — semangat, biasa aja, atau bosen?"
+    "Kalau punya waktu bebas seharian penuh, kamu mau belajar atau mencoba hal apa? Kenapa?",
+    "Saat menghadapi masalah yang rumit, apa hal pertama yang biasanya kamu lakukan?",
+    "Tempat belajar atau bekerja seperti apa yang paling bikin kamu nyaman dan fokus?",
+    "Pencapaian atau hasil kerja apa yang pernah bikin kamu paling puas dan bangga sama diri sendiri?",
+    "Kalau lagi kerja kelompok, kamu biasanya paling suka memegang peran atau tugas apa?",
+    "Apa yang kamu rasakan kalau harus berhadapan dengan angka, tabel, atau data yang detail?",
+    "Kamu lebih nyaman banyak ketemu & melayani orang baru, atau fokus kerja sendirian di depan layar/dokumen?",
+    "Kalau hasil pekerjaanmu mendadak ada yang salah, bermasalah, atau selisih, apa reaksi pertamamu?"
   ],
   "jurusanColors": {
     "Akuntansi": "#B91C1C",

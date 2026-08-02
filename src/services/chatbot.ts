@@ -1,4 +1,4 @@
-const WEBHOOK_URL = "https://n8n-b0wow8osw0okkcwc0g0gog4o.dev.usbypkp.ac.id/webhook/d1b0712b-8783-46ee-8add-5a386132f460/chat";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "";
 
 const SESSION_KEY = "chatbot-session-id";
 
@@ -15,11 +15,11 @@ export function resetSession() {
   localStorage.removeItem(SESSION_KEY);
 }
 
-export async function sendToN8n(message: string): Promise<string> {
+export async function sendToChatbot(message: string): Promise<string> {
   let response: Response;
 
   try {
-    response = await fetch(WEBHOOK_URL, {
+    response = await fetch(`${API_BASE_URL}/api/v1/ai/chat`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ chatInput: message, sessionId: getSessionId() }),
@@ -29,7 +29,7 @@ export async function sendToN8n(message: string): Promise<string> {
   }
 
   if (!response.ok) {
-    throw new Error(`n8n webhook error: ${response.status}`);
+    throw new Error(`AI request error: ${response.status}`);
   }
 
   let data: Record<string, unknown>;
