@@ -1,5 +1,4 @@
-const WEBHOOK_URL = import.meta.env.VITE_CHATBOT_WEBHOOK_URL ?? "";
-const WEBHOOK_SECRET = import.meta.env.VITE_N8N_WEBHOOK_SECRET ?? "";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "";
 
 const SESSION_KEY = "chatbot-session-id";
 
@@ -17,19 +16,12 @@ export function resetSession() {
 }
 
 export async function sendToChatbot(message: string): Promise<string> {
-  if (!WEBHOOK_URL) {
-    throw new Error("VITE_CHATBOT_WEBHOOK_URL belum diatur di .env.local");
-  }
-
   let response: Response;
 
   try {
-    response = await fetch(WEBHOOK_URL, {
+    response = await fetch(`${API_BASE_URL}/api/v1/ai/chat`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        ...(WEBHOOK_SECRET ? { "x-secret-key": WEBHOOK_SECRET } : {}),
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ chatInput: message, sessionId: getSessionId() }),
     });
   } catch {
