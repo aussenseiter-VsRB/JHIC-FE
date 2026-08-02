@@ -7,6 +7,7 @@ import PageJurusan from "../modules/jurusan/services/PageJurusan";
 import PageJurusanDetail from "../modules/jurusan/services/PageJurusanDetail";
 
 import Berita from "../modules/berita/berita";
+import BeritaDetail from "../modules/berita/berita-detail/page";
 import Fasilitas from "../modules/fasilitas/fasilitas";
 import FasilitasJurusan from "../modules/fasilitas-jurusan/fasilitas-jurusan";
 import Ppdb from "../modules/ppdb/ppdb";
@@ -35,6 +36,7 @@ const routes: RouteObject[] = [
         element: <PageJurusanDetail />,
       },
       { path: "/berita", element: <Berita /> },
+      { path: "/berita/:id", element: <BeritaDetail /> },
       { path: "/fasilitas", element: <Fasilitas /> },
       { path: "/fasilitas-jurusan", element: <FasilitasJurusan /> },
       { path: "/fasilitas-jurusan/:jurusan", element: <FasilitasJurusan /> },

@@ -1,0 +1,428 @@
+.berita-detail {
+  width: 100%;
+}
+
+/* ── Hero ── */
+.berita-detail-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 128px 24px 150px;
+  background: linear-gradient(135deg, #16294A 0%, #2563EB 130%);
+}
+
+.berita-detail-hero--achievement {
+  background: linear-gradient(135deg, #1E3A5F 0%, #7C3AED 130%);
+}
+
+.berita-detail-hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.berita-detail-hero-orb--1 {
+  width: 480px;
+  height: 480px;
+  top: -15%;
+  right: -5%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.07) 0%, transparent 70%);
+  animation: berita-orb-drift 9s ease-in-out infinite;
+}
+
+.berita-detail-hero-orb--2 {
+  width: 300px;
+  height: 300px;
+  bottom: 5%;
+  left: 5%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  animation: berita-orb-drift 11s ease-in-out infinite reverse;
+}
+
+@keyframes berita-orb-drift {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-24px, 20px);
+  }
+}
+
+.berita-detail-hero-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.8) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse 60% 55% at 50% 45%, black 20%, transparent 100%);
+}
+
+.berita-detail-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.berita-detail-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+  margin-bottom: 24px;
+}
+
+.berita-detail-back:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.berita-detail-hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.berita-detail-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-poppins);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #FDE68A;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+.berita-detail-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: white;
+  margin: 0 0 24px;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.berita-detail-byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.berita-detail-byline-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.berita-detail-byline-item svg {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.berita-detail-byline-sep {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* ── Body ── */
+.berita-detail-body {
+  max-width: 1240px;
+  margin: -120px auto 0;
+  padding: 0 24px 80px;
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 40px;
+  align-items: start;
+}
+
+.berita-detail-article {
+  background: white;
+  border: 1px solid #E2E8F0;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(30, 58, 95, 0.14);
+  min-width: 0;
+}
+
+.berita-detail-article-image {
+  height: 380px;
+  background: #1E3A5F;
+  overflow: hidden;
+}
+
+.berita-detail-article-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.berita-detail-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2D4A6F 0%, #1E3A5F 100%);
+}
+
+.berita-detail-image-placeholder span {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.berita-detail-content {
+  padding: 40px 56px 56px;
+}
+
+.berita-detail-content p {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: #334155;
+  margin: 0 0 24px;
+}
+
+.berita-detail-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Related sidebar ── */
+.berita-detail-related {
+  margin-top: 0;
+  min-width: 0;
+}
+
+.berita-detail-related-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.berita-detail-related-header h2 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #1E3A5F;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.berita-detail-related-accent {
+  display: block;
+  width: 48px;
+  height: 4px;
+  border-radius: 2px;
+  background: #2563EB;
+}
+
+.berita-detail-related-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.berita-detail-related-card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.berita-detail-related-card:hover {
+  transform: translateY(-6px);
+  border-color: transparent;
+  box-shadow: 0 16px 48px rgba(30, 58, 95, 0.12);
+}
+
+.berita-detail-related-image {
+  height: 180px;
+  background: #1E3A5F;
+  overflow: hidden;
+}
+
+.berita-detail-related-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.berita-detail-related-card:hover .berita-detail-related-image img {
+  transform: scale(1.05);
+}
+
+.berita-detail-related-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2D4A6F 0%, #1E3A5F 100%);
+}
+
+.berita-detail-related-placeholder span {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.berita-detail-related-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.berita-detail-related-date {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: #94A3B8;
+  margin-bottom: 10px;
+}
+
+.berita-detail-related-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1E3A5F;
+  margin: 0 0 12px;
+  line-height: 1.45;
+}
+
+.berita-detail-related-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2563EB;
+  margin-top: auto;
+  transition: gap 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.berita-detail-related-card:hover .berita-detail-related-link {
+  gap: 10px;
+}
+
+/* ── Not found ── */
+.berita-detail-notfound {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 120px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.berita-detail-notfound h1 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1E3A5F;
+  margin: 12px 0 0;
+}
+
+.berita-detail-notfound p {
+  font-family: var(--font-body);
+  color: #64748B;
+  margin: 0;
+}
+
+.berita-detail-notfound .berita-detail-back {
+  margin: 0 auto;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .berita-detail-body {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .berita-detail-related-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .berita-detail-hero {
+    padding: 104px 20px 120px;
+  }
+
+  .berita-detail-body {
+    margin-top: -96px;
+    padding: 0 16px 56px;
+  }
+
+  .berita-detail-article-image {
+    height: 220px;
+  }
+
+  .berita-detail-content {
+    padding: 28px 24px 40px;
+  }
+
+  .berita-detail-content p {
+    font-size: 1rem;
+  }
+
+  .berita-detail-byline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .berita-detail-byline-sep {
+    display: none;
+  }
+
+  .berita-detail-related-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

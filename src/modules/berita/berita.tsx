@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Calendar, ArrowRight, User } from "lucide-react";
 import SkeletonLoad from "./components/skeleton/skeletonLoad";
 import AnimatedNumber from "../../components/animated-number/AnimatedNumber";
@@ -190,10 +191,10 @@ function Berita() {
                     <h3 className="berita-item-title">{berita.title}</h3>
                     <p className="berita-item-excerpt">{berita.excerpt}</p>
 
-                    <button className="berita-btn-selengkapnya">
+                    <Link to={`/berita/${berita.id}`} className="berita-btn-selengkapnya">
                       <span>{beritaData.beritaTerkini?.readMoreText || "BACA SELENGKAPNYA"}</span>
                       <ArrowRight className="h-4 w-4" />
-                    </button>
+                    </Link>
                   </div>
 
                   
@@ -268,9 +269,9 @@ function Berita() {
                     </div>
                     <h3 className="berita-card-title">{berita.title}</h3>
                     <p className="berita-card-excerpt">{berita.excerpt}</p>
-                    <span className="berita-card-link">
+                    <Link to={`/berita/${berita.id}`} className="berita-card-link">
                       {beritaData.readMoreText || "Baca Selengkapnya"} <ArrowRight className="h-4 w-4" />
-                    </span>
+                    </Link>
                   </div>
                 </article>
               ))}

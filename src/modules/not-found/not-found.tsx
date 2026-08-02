@@ -17,7 +17,7 @@ function NotFound() {
         <div className="not-found-dots" />
 
         <div className="not-found-inner">
-         
+          <p className="not-found-badge">Error 404</p>
           <h1 className="font-heading not-found-code">404</h1>
           <h2 className="font-heading not-found-title">Halaman Tidak Ditemukan</h2>
           <p className="font-body not-found-desc">
