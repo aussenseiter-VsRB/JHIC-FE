@@ -18,6 +18,7 @@ import Hubin from "../modules/hubin/hubin";
 import Panorama from "../modules/panorama/panorama";
 import Prestasi from "../modules/prestasi/prestasi";
 import Daftar from "../modules/daftar/daftar";
+import NotFound from "../modules/not-found/not-found";
 
 const routes: RouteObject[] = [
   {
@@ -46,6 +47,7 @@ const routes: RouteObject[] = [
       { path: "/hubin", element: <Hubin /> },
       { path: "/prestasi", element: <Prestasi /> },
       { path: "/daftar", element: <Daftar /> },
+      { path: "*", element: <NotFound /> },
     ],
   },
 ];
