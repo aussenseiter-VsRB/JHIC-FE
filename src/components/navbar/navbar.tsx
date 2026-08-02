@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import type { CSSProperties, ElementType } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
-import { Menu, X, ArrowUpRight, ChevronDown, GraduationCap, Users, Handshake, BookOpen, Sparkles, Building2, Newspaper, Trophy, Code, Hotel, BarChart3 } from 'lucide-react'
+import { Menu, X, ArrowUpRight, ChevronDown, GraduationCap, Users, Handshake, BookOpen, Sparkles, Building2, Newspaper, Trophy, Code, Hotel, BarChart3, Award } from 'lucide-react'
 import logoSrc from '../../assets/Logo-yadika.webp'
 import './navbar.css'
 
@@ -27,6 +27,7 @@ const navLinks: NavItem[] = [
       { label: 'Profil Sekolah', to: '/profile', icon: GraduationCap, description: 'Informasi dan profil sekolah' },
       { label: 'Profil Guru', to: '/profilguru', icon: Users, description: 'Data tenaga pendidik' },
       { label: 'Hubungan Industri', to: '/hubin', icon: Handshake, description: 'Kerja sama dengan industri' },
+      { label: 'Alumni', to: '/alumni', icon: Award, description: 'Tracer study dan ikatan alumni' },
     ],
   },
   {

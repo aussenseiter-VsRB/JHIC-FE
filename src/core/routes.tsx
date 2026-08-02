@@ -20,6 +20,7 @@ import Panorama from "../modules/panorama/panorama";
 import Prestasi from "../modules/prestasi/prestasi";
 import Daftar from "../modules/daftar/daftar";
 import NotFound from "../modules/not-found/not-found";
+import Alumni from "../modules/alumni/alumni";
 
 const routes: RouteObject[] = [
   {
@@ -47,6 +48,7 @@ const routes: RouteObject[] = [
       { path: "/nexxa-match", element: <NexxaMatch /> },
       { path: "/profilguru", element: <Profilguru /> },
       { path: "/hubin", element: <Hubin /> },
+      { path: "/alumni", element: <Alumni /> },
       { path: "/prestasi", element: <Prestasi /> },
       { path: "/daftar", element: <Daftar /> },
       { path: "*", element: <NotFound /> },
