@@ -10,6 +10,7 @@ import {
   Menu,
   X,
   ChevronDown,
+  ChevronRight,
   ArrowUpRight,
   GraduationCap,
   Users,
@@ -17,7 +18,9 @@ import {
   BookOpen,
   Sparkles,
   Building2,
-  Cog,
+  Code,
+  Hotel,
+  BarChart3,
   Newspaper,
   Trophy,
 } from "lucide-react";
@@ -31,6 +34,7 @@ interface SubMenuItem {
   label: string;
   to: string;
   icon: ElementType;
+  children?: SubMenuItem[];
 }
 
 interface NavItem {
@@ -59,7 +63,9 @@ const drawerLinks: NavItem[] = [
     label: "Fasilitas",
     children: [
       { label: "Fasilitas Umum", to: "/fasilitas", icon: Building2 },
-      { label: "Fasilitas Jurusan", to: "/fasilitas-jurusan", icon: Cog },
+      { label: "Fasilitas PPLG", to: "/fasilitas-jurusan/pplg", icon: Code },
+      { label: "Fasilitas HOTEL", to: "/fasilitas-jurusan/hotel", icon: Hotel },
+      { label: "Fasilitas AKL", to: "/fasilitas-jurusan/akl", icon: BarChart3 },
     ],
   },
   {
@@ -74,11 +80,13 @@ const drawerLinks: NavItem[] = [
 export default function BottomNav({ onChatbotToggle }: BottomNavProps) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
+  const [openNested, setOpenNested] = useState<string | null>(null);
   const { pathname } = useLocation();
 
   const closeDrawer = useCallback(() => {
     setDrawerOpen(false);
     setOpenAccordion(null);
+    setOpenNested(null);
   }, []);
 
   const openDrawer = useCallback(() => setDrawerOpen(true), []);
@@ -197,22 +205,56 @@ export default function BottomNav({ onChatbotToggle }: BottomNavProps) {
                           className={`bottom-nav-drawer-submenu ${openAccordion === link.label ? "open" : ""}`}
                         >
                           <div className="bottom-nav-drawer-submenu-inner">
-                            {link.children.map((child) => {
-                              const Icon = child.icon;
-                              const active = isActive(child.to);
-                              return (
+                            {link.children.map((child) =>
+                              child.children ? (
+                                <div key={child.to}>
+                                  <button
+                                    type="button"
+                                    className={`bottom-nav-drawer-submenu-item bottom-nav-drawer-submenu-btn ${openNested === child.to ? "active" : ""}`}
+                                    onClick={() => setOpenNested((prev) => (prev === child.to ? null : child.to))}
+                                  >
+                                    <child.icon className="bottom-nav-drawer-submenu-icon" />
+                                    <span>{child.label}</span>
+                                    <ChevronRight
+                                      className={`bottom-nav-drawer-nested-chevron ${openNested === child.to ? "open" : ""}`}
+                                      size={14}
+                                    />
+                                  </button>
+                                  <div
+                                    className={`bottom-nav-drawer-nested ${openNested === child.to ? "open" : ""}`}
+                                  >
+                                    <div className="bottom-nav-drawer-nested-inner">
+                                      {child.children.map((sub) => {
+                                        const subActive = isActive(sub.to);
+                                        return (
+                                          <NavLink
+                                            key={sub.to}
+                                            to={sub.to}
+                                            end
+                                            className={`bottom-nav-drawer-nested-item ${subActive ? "active" : ""}`}
+                                            onClick={closeDrawer}
+                                          >
+                                            <sub.icon className="bottom-nav-drawer-nested-icon" />
+                                            <span>{sub.label}</span>
+                                          </NavLink>
+                                        );
+                                      })}
+                                    </div>
+                                  </div>
+                                </div>
+                              ) : (
                                 <NavLink
                                   key={child.to}
                                   to={child.to}
                                   end
-                                  className={`bottom-nav-drawer-submenu-item ${active ? "active" : ""}`}
+                                  className={`bottom-nav-drawer-submenu-item ${isActive(child.to) ? "active" : ""}`}
                                   onClick={closeDrawer}
                                 >
-                                  <Icon className="bottom-nav-drawer-submenu-icon" />
+                                  <child.icon className="bottom-nav-drawer-submenu-icon" />
                                   <span>{child.label}</span>
                                 </NavLink>
-                              );
-                            })}
+                              ),
+                            )}
                           </div>
                         </div>
                       </li>

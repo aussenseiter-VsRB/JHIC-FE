@@ -15,16 +15,16 @@ function Breadcrumb({ items, className = "" }: BreadcrumbProps) {
   return (
     <nav className={`breadcrumb-nav ${className}`}>
       {items.map((item, i) => (
-        <span key={i} className="breadcrumb-item">
-          {i > 0 && <span className="breadcrumb-separator">›</span>}
+        <div key={i} className="breadcrumb-item">
+          {i > 0 && <div className="breadcrumb-separator">›</div>}
           {item.to ? (
             <Link to={item.to} className="breadcrumb-link">
               {item.label}
             </Link>
           ) : (
-            <span className="breadcrumb-current">{item.label}</span>
+            <div className="breadcrumb-current">{item.label}</div>
           )}
-        </span>
+        </div>
       ))}
     </nav>
   );

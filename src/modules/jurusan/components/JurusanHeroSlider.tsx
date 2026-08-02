@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { BadgeCheck, Briefcase } from "lucide-react";
+
 import Breadcrumb from "../../../components/breadcrumb/breadcrumb";
 import { jurusanData } from "../data";
 import jurusanPplg from "../../../assets/jurusan-pplg.svg";
@@ -148,44 +148,6 @@ function JurusanHeroSlider({ onAccentChange }: JurusanHeroSliderProps) {
                 alt={slide.name}
                 className="jurusan-hero-image"
               />
-            </motion.div>
-          </AnimatePresence>
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`info-subjects-${slide.code}`}
-              className="jurusan-hero-info-card jurusan-hero-info-card--subjects"
-              initial={{ opacity: 0, scale: 0.9, y: 10 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 10 }}
-              transition={{ duration: 0.5, delay: 0.3, ease: EASE }}
-            >
-              <div className="jurusan-hero-info-card-icon">
-                <BadgeCheck className="h-4 w-4" />
-              </div>
-              <div className="jurusan-hero-info-card-text">
-                <span className="jurusan-hero-info-card-value">{slide.certCount}</span>
-                <span className="jurusan-hero-info-card-label">Sertifikasi</span>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`info-career-${slide.code}`}
-              className="jurusan-hero-info-card jurusan-hero-info-card--career"
-              initial={{ opacity: 0, scale: 0.9, y: 10 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 10 }}
-              transition={{ duration: 0.5, delay: 0.45, ease: EASE }}
-            >
-              <div className="jurusan-hero-info-card-icon jurusan-hero-info-card-icon--gold">
-                <Briefcase className="h-4 w-4" />
-              </div>
-              <div className="jurusan-hero-info-card-text">
-                <span className="jurusan-hero-info-card-value">Lulusan</span>
-                <span className="jurusan-hero-info-card-label">{slide.code}</span>
-              </div>
             </motion.div>
           </AnimatePresence>
         </div>

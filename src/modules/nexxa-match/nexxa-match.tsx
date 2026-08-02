@@ -16,8 +16,7 @@ const questions = nexxaMatchData.questions;
 const jurusanColors: Record<string, string> = nexxaMatchData.jurusanColors;
 const jurusanLongName: Record<string, string> = nexxaMatchData.jurusanLongName;
 
-const WEBHOOK_URL = import.meta.env.VITE_N8N_WEBHOOK_URL as string | undefined;
-const WEBHOOK_SECRET = import.meta.env.VITE_N8N_WEBHOOK_SECRET as string | undefined;
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? "") as string;
 
 function isJurusanResult(value: unknown): value is JurusanResult {
   if (typeof value !== "object" || value === null) return false;
@@ -32,22 +31,15 @@ function isJurusanResult(value: unknown): value is JurusanResult {
 }
 
 async function fetchRekomendasi(answers: string[]): Promise<JurusanResult> {
-  if (!WEBHOOK_URL) {
-    throw new Error("VITE_N8N_WEBHOOK_URL belum diatur di .env.local");
-  }
-
   const payload = Object.fromEntries(
     answers.map((answer, index) => [`jawaban_${index + 1}`, answer]),
   );
 
   let res: Response;
   try {
-    res = await fetch(WEBHOOK_URL, {
+    res = await fetch(`${API_BASE_URL}/api/v1/ai/nexxa-match`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        ...(WEBHOOK_SECRET ? { "x-secret-key": WEBHOOK_SECRET } : {}),
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
   } catch {
@@ -55,14 +47,14 @@ async function fetchRekomendasi(answers: string[]): Promise<JurusanResult> {
   }
 
   if (!res.ok) {
-    throw new Error(`Server AI merespons dengan status ${res.status}. Pastikan workflow n8n aktif.`);
+    throw new Error(`Server AI merespons dengan status ${res.status}. Pastikan server AI aktif.`);
   }
 
   let json: unknown;
   try {
     json = await res.json();
   } catch {
-    throw new Error("Server AI mengembalikan respons kosong atau bukan JSON. Pastikan workflow n8n aktif dan memiliki node 'Respond to Webhook'.");
+    throw new Error("Server AI mengembalikan respons kosong atau bukan JSON.");
   }
 
   if (!isJurusanResult(json)) {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Orbit, Cog, ArrowRight } from "lucide-react";
 import Breadcrumb from "../../components/breadcrumb/breadcrumb";
 import "./css/fasilitas-jurusan.css";
@@ -22,6 +22,7 @@ interface FasilitasJurusanItem {
 
 interface JurusanMeta {
   code: string;
+  slug: string;
   name: string;
   description: string;
   color: string;
@@ -31,6 +32,7 @@ interface JurusanMeta {
 const jurusanMeta: JurusanMeta[] = [
   {
     code: "PPLG",
+    slug: "pplg",
     name: "Pengembangan Perangkat Lunak dan Gim",
     description: "Fasilitas untuk mendukung pengembangan aplikasi, website, dan gim.",
     color: "#1E3A5F",
@@ -38,6 +40,7 @@ const jurusanMeta: JurusanMeta[] = [
   },
   {
     code: "HOTEL",
+    slug: "hotel",
     name: "Perhotelan dan Jasa Pariwisata",
     description: "Fasilitas praktik standar industri untuk layanan perhotelan dan pariwisata.",
     color: "#8B5CF6",
@@ -45,6 +48,7 @@ const jurusanMeta: JurusanMeta[] = [
   },
   {
     code: "AKL",
+    slug: "akl",
     name: "Akuntansi dan Keuangan",
     description: "Fasilitas untuk praktik pembukuan, keuangan, dan perpajakan.",
     color: "#EF4444",
@@ -107,16 +111,28 @@ function JurusanSection({ meta }: { meta: JurusanMeta }) {
 }
 
 function FasilitasJurusan() {
+  const { jurusan } = useParams<{ jurusan?: string }>();
+  const specificMeta = jurusan ? jurusanMeta.find((meta) => meta.slug === jurusan) : undefined;
+  const metas = specificMeta ? [specificMeta] : jurusanMeta;
+
   return (
     <div className="fasilitas-jurusan">
       <div className="fasilitas-jurusan-header-section">
         <div className="fasilitas-jurusan-header-inner">
           <div className="fasilitas-jurusan-header-text">
             <Breadcrumb
-              items={[
-                { label: "Fasilitas" },
-                { label: "Fasilitas Jurusan" },
-              ]}
+              items={
+                specificMeta
+                  ? [
+                      { label: "Fasilitas" },
+                      { label: "Fasilitas Jurusan", to: "/fasilitas-jurusan" },
+                      { label: specificMeta.code },
+                    ]
+                  : [
+                      { label: "Fasilitas" },
+                      { label: "Fasilitas Jurusan" },
+                    ]
+              }
             />
             <h1 className="fasilitas-jurusan-title">Fasilitas Jurusan</h1>
             <p className="fasilitas-jurusan-subtitle">
@@ -152,9 +168,13 @@ function FasilitasJurusan() {
       </div>
 
       <div id="fasilitas-jurusan-konten" className="fasilitas-jurusan-container">
-        {jurusanMeta.map((meta) => (
-          <JurusanSection key={meta.code} meta={meta} />
-        ))}
+        {metas.length === 0 ? (
+          <p className="fasilitas-jurusan-section-desc">Fasilitas untuk jurusan ini belum tersedia.</p>
+        ) : (
+          metas.map((meta) => (
+            <JurusanSection key={meta.code} meta={meta} />
+          ))
+        )}
       </div>
     </div>
   );

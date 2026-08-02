@@ -1,4 +1,4 @@
-import { Play, ArrowRight, Users, Award } from "lucide-react";
+import { Play, ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import data from "../data/hero.json";
@@ -65,21 +65,6 @@ function Hero() {
 
         <div className="home-hero-visual">
           <motion.div
-            className="home-hero-badge-card home-hero-badge-card--students"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.7, ease: EASE }}
-          >
-            <div className="home-hero-badge-card-icon">
-              <Users className="h-5 w-5" />
-            </div>
-            <div className="home-hero-badge-card-text">
-              <span className="home-hero-badge-card-value">1.200+</span>
-              <span className="home-hero-badge-card-label">Siswa Aktif</span>
-            </div>
-          </motion.div>
-
-          <motion.div
             className="home-hero-photo-frame"
             initial={{ opacity: 0, y: 24, scale: 0.92 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -90,21 +75,6 @@ function Hero() {
               alt="SMK Yadika Soreang"
               className="home-hero-photo"
             />
-          </motion.div>
-
-          <motion.div
-            className="home-hero-badge-card home-hero-badge-card--achievement"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.9, ease: EASE }}
-          >
-            <div className="home-hero-badge-card-icon home-hero-badge-card-icon--gold">
-              <Award className="h-5 w-5" />
-            </div>
-            <div className="home-hero-badge-card-text">
-              <span className="home-hero-badge-card-value">50+</span>
-              <span className="home-hero-badge-card-label">Prestasi Nasional</span>
-            </div>
           </motion.div>
         </div>
       </div>

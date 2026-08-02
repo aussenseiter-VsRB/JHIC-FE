@@ -1,7 +1,7 @@
 .home-hero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #0A192F, #112240, #1A365D);
+  background: #1E3A5F;
   padding: 140px 24px 160px;
 }
 @media (max-width: 1024px) {
@@ -900,81 +900,6 @@
   50%      { transform: translateY(-8px); }
 }
 
-.home-hero-badge-card {
-  position: absolute;
-  z-index: 4;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: rgba(30, 58, 95, 0.92);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 14px;
-  padding: 12px 16px;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
-}
-
-.home-hero-badge-card--students {
-  top: 12%;
-  right: -8px;
-  animation: home-badge-bob-students 5s ease-in-out infinite;
-}
-
-.home-hero-badge-card--achievement {
-  bottom: 12%;
-  left: -8px;
-  animation: home-badge-bob-achievement 5s ease-in-out infinite 1s;
-}
-
-@keyframes home-badge-bob-students {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50%      { transform: translateY(-6px) rotate(0.5deg); }
-}
-
-@keyframes home-badge-bob-achievement {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50%      { transform: translateY(-6px) rotate(-0.5deg); }
-}
-
-.home-hero-badge-card-icon {
-  flex-shrink: 0;
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #2563EB, #0EA5E9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-}
-
-.home-hero-badge-card-icon--gold {
-  background: linear-gradient(135deg, #C9A84C, #A8893A);
-}
-
-.home-hero-badge-card-text {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-
-.home-hero-badge-card-value {
-  font-family: var(--font-heading);
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: #fff;
-  white-space: nowrap;
-}
-
-.home-hero-badge-card-label {
-  font-family: var(--font-poppins);
-  font-size: 0.6rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.6);
-}
-
 .wave-scroll-container {
   position: absolute;
   bottom: -1px;
@@ -983,20 +908,6 @@
   overflow: hidden;
   line-height: 0;
   pointer-events: none;
-}
-
-@media (max-width: 900px) {
-  .home-hero-badge-card--students {
-    top: auto;
-    bottom: 12px;
-    right: auto;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .home-hero-badge-card--achievement {
-    display: none;
-  }
 }
 
 @media (max-width: 480px) {

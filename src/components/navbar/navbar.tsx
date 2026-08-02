@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import type { CSSProperties, ElementType } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
-import { Menu, X, ArrowUpRight, ChevronDown, GraduationCap, Users, Handshake, BookOpen, Sparkles, Building2, Cog, Newspaper, Trophy } from 'lucide-react'
+import { Menu, X, ArrowUpRight, ChevronDown, GraduationCap, Users, Handshake, BookOpen, Sparkles, Building2, Newspaper, Trophy, Code, Hotel, BarChart3 } from 'lucide-react'
 import logoSrc from '../../assets/Logo-yadika.webp'
 import './navbar.css'
 
@@ -10,6 +10,7 @@ interface SubMenuItem {
   to: string
   icon?: ElementType
   description?: string
+  children?: SubMenuItem[]
 }
 
 interface NavItem {
@@ -39,7 +40,9 @@ const navLinks: NavItem[] = [
     label: 'Fasilitas',
     children: [
       { label: 'Fasilitas Umum', to: '/fasilitas', icon: Building2, description: 'Sarana dan prasarana sekolah' },
-      { label: 'Fasilitas Jurusan', to: '/fasilitas-jurusan', icon: Cog, description: 'Peralatan dan fasilitas jurusan' },
+      { label: 'Fasilitas PPLG', to: '/fasilitas-jurusan/pplg', icon: Code, description: 'Perangkat lunak dan gim' },
+      { label: 'Fasilitas HOTEL', to: '/fasilitas-jurusan/hotel', icon: Hotel, description: 'Perhotelan dan pariwisata' },
+      { label: 'Fasilitas AKL', to: '/fasilitas-jurusan/akl', icon: BarChart3, description: 'Akuntansi dan keuangan' },
     ],
   },
   {
@@ -134,8 +137,12 @@ export default function Navbar({ accentColor, lightActive = false, activeColor }
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  const isChildActive = (children: SubMenuItem[]) =>
-    children.some(child => location.pathname === child.to)
+  const isChildActive = (children: SubMenuItem[]): boolean =>
+    children.some(child =>
+      child.children
+        ? isChildActive(child.children) || location.pathname === child.to
+        : location.pathname === child.to,
+    )
 
   const toggleMobile = () => setMobileOpen((prev) => !prev)
   const closeMobile = () => setMobileOpen(false)
@@ -181,34 +188,89 @@ export default function Navbar({ accentColor, lightActive = false, activeColor }
                   <div className="navbar-dropdown">
                     <div className="navbar-dropdown-inner">
                       <div className="navbar-dropdown-list">
-                        {link.children!.map((child) => (
-                          <NavLink
-                            key={child.to}
-                            to={child.to}
-                            end
-                            className={({ isActive }) =>
-                              `navbar-dropdown-item ${isActive ? 'navbar-dropdown-item--active' : 'navbar-dropdown-item--inactive'}`
-                            }
-                          >
-                            {({ isActive }) => (
-                              <div className="navbar-dropdown-row">
-                                {child.icon && (
-                                  <child.icon className="navbar-dropdown-icon" />
-                                )}
-                                <div className="navbar-dropdown-text">
-                                  <div className={`navbar-dropdown-label ${isActive ? 'navbar-dropdown-label--active' : 'navbar-dropdown-label--inactive'}`}>
-                                    {child.label}
-                                  </div>
-                                  {child.description && (
-                                    <div className="navbar-dropdown-desc">
-                                      {child.description}
-                                    </div>
+                        {link.children!.map((child) =>
+                          child.children ? (
+                            <div key={child.to} className="navbar-dropdown-nested-group">
+                              <div className="navbar-dropdown-item navbar-dropdown-item--inactive">
+                                <div className="navbar-dropdown-row">
+                                  {child.icon && (
+                                    <child.icon className="navbar-dropdown-icon" />
                                   )}
+                                  <div className="navbar-dropdown-text">
+                                    <div className="navbar-dropdown-label navbar-dropdown-label--inactive">
+                                      {child.label}
+                                    </div>
+                                    {child.description && (
+                                      <div className="navbar-dropdown-desc">
+                                        {child.description}
+                                      </div>
+                                    )}
+                                  </div>
+                                  <ChevronDown className="navbar-dropdown-arrow" />
                                 </div>
                               </div>
-                            )}
-                          </NavLink>
-                        ))}
+                              <div className="navbar-dropdown-nested">
+                                <div className="navbar-dropdown-nested-inner">
+                                  {child.children.map((sub) => (
+                                    <NavLink
+                                      key={sub.to}
+                                      to={sub.to}
+                                      end
+                                      className={({ isActive }) =>
+                                        `navbar-dropdown-item ${isActive ? 'navbar-dropdown-item--active' : 'navbar-dropdown-item--inactive'}`
+                                      }
+                                    >
+                                      {({ isActive }) => (
+                                        <div className="navbar-dropdown-row">
+                                          {sub.icon && (
+                                            <sub.icon className="navbar-dropdown-icon" />
+                                          )}
+                                          <div className="navbar-dropdown-text">
+                                            <div className={`navbar-dropdown-label ${isActive ? 'navbar-dropdown-label--active' : 'navbar-dropdown-label--inactive'}`}>
+                                              {sub.label}
+                                            </div>
+                                            {sub.description && (
+                                              <div className="navbar-dropdown-desc">
+                                                {sub.description}
+                                              </div>
+                                            )}
+                                          </div>
+                                        </div>
+                                      )}
+                                    </NavLink>
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
+                          ) : (
+                            <NavLink
+                              key={child.to}
+                              to={child.to}
+                              end
+                              className={({ isActive }) =>
+                                `navbar-dropdown-item ${isActive ? 'navbar-dropdown-item--active' : 'navbar-dropdown-item--inactive'}`
+                              }
+                            >
+                              {({ isActive }) => (
+                                <div className="navbar-dropdown-row">
+                                  {child.icon && (
+                                    <child.icon className="navbar-dropdown-icon" />
+                                  )}
+                                  <div className="navbar-dropdown-text">
+                                    <div className={`navbar-dropdown-label ${isActive ? 'navbar-dropdown-label--active' : 'navbar-dropdown-label--inactive'}`}>
+                                      {child.label}
+                                    </div>
+                                    {child.description && (
+                                      <div className="navbar-dropdown-desc">
+                                        {child.description}
+                                      </div>
+                                    )}
+                                  </div>
+                                </div>
+                              )}
+                            </NavLink>
+                          ),
+                        )}
                       </div>
                     </div>
                   </div>

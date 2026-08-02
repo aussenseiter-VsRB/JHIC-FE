@@ -8,6 +8,7 @@ export interface ChatbotHandle {
 
 const STORAGE_KEY = "chatbot-history";
 const BADGE_DISMISSED_KEY = "chatbot-badge-dismissed";
+const CHIPS_HIDE_MS = 3 * 60 * 1000;
 const INPUT_MAX = 300;
 const INPUT_WARN_THRESHOLD = 250;
 
@@ -97,11 +98,13 @@ const ChatbotWidget = forwardRef<ChatbotHandle, ChatbotWidgetProps>(function Cha
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [showBadge, setShowBadge] = useState(false);
+  const [chipsHidden, setChipsHidden] = useState(false);
 
   const overlayRef = useRef<HTMLDivElement>(null);
   const fabRef = useRef<HTMLButtonElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const hideTimerRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (wasBadgeDismissed()) return;
@@ -161,6 +164,29 @@ const ChatbotWidget = forwardRef<ChatbotHandle, ChatbotWidgetProps>(function Cha
       return !prev;
     });
   }, []);
+
+  const hideFabChips = useCallback(() => {
+    setChipsHidden(true);
+    if (hideTimerRef.current !== null) {
+      window.clearTimeout(hideTimerRef.current);
+    }
+    hideTimerRef.current = window.setTimeout(() => {
+      setChipsHidden(false);
+      hideTimerRef.current = null;
+    }, CHIPS_HIDE_MS);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (hideTimerRef.current !== null) {
+        window.clearTimeout(hideTimerRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isOpen) hideFabChips();
+  }, [isOpen, hideFabChips]);
 
   useImperativeHandle(ref, () => ({ toggle }), [toggle]);
 
@@ -240,23 +266,20 @@ const ChatbotWidget = forwardRef<ChatbotHandle, ChatbotWidgetProps>(function Cha
         </button>
       )}
 
-      {!isOpen && showSuggestions && (
+      {!isOpen && showSuggestions && !chipsHidden && (
         <div className="chatbot-suggestions-fab">
-          {defaultSuggestions.map((s) => (
-            <button
-              key={s}
-              type="button"
-              className="chatbot-suggestion-chip-fab"
-              onClick={() => {
-                handleSuggestionClick(s);
-                setIsOpen(true);
-                dismissBadge();
-                setShowBadge(false);
-              }}
-            >
-              {s}
-            </button>
-          ))}
+          <button
+            type="button"
+            className="chatbot-suggestion-chip-fab"
+            onClick={() => {
+              handleSuggestionClick("Ada yang bisa saya bantu?");
+              setIsOpen(true);
+              dismissBadge();
+              setShowBadge(false);
+            }}
+          >
+            Ada yang bisa saya bantu?
+          </button>
         </div>
       )}
 

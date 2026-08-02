@@ -4,16 +4,6 @@
     "subtitle": "Ikuti perkembangan terbaru, pengumuman resmi, berita prestasi siswa, serta berbagai agenda kegiatan sekolah terkini dari SMK Yadika Soreang.",
     "image": "",
     "tag": "Pusat Informasi & Kegiatan",
-    "floatingBadges": {
-      "topRight": {
-        "title": "Berita & Agenda",
-        "value": "100+ Publikasi"
-      },
-      "bottomLeft": {
-        "status": "Update Terkini",
-        "detail": "Informasi Resmi Sekolah"
-      }
-    },
     "stats": [
       {
         "number": "50+",
