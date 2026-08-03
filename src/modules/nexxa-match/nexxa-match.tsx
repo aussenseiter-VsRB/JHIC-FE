@@ -37,7 +37,7 @@ async function fetchRekomendasi(answers: string[]): Promise<JurusanResult> {
 
   let res: Response;
   try {
-    res = await fetch(`${API_BASE_URL}/api/v1/ai/nexxa-match`, {
+    res = await fetch(`${API_BASE_URL}/api/v1/nexxa/match`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
