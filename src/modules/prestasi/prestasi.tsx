@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Trophy, Medal, ArrowRight, CalendarDays } from "lucide-react";
 import Breadcrumb from "../../components/breadcrumb/breadcrumb";
 import AnimatedNumber from "../../components/animated-number/AnimatedNumber";
+import PixelTransition from "../../components/pixel-transition/PixelTransition";
+import SafeImage from "../../components/image/safe-image";
 import "./css/prestasi.css";
 import { getBerita, type Berita } from "../berita/service/beritaApi";
 import SkeletonPrestasi from "./components/skeleton/skeletonPrestasi";
@@ -66,6 +68,10 @@ function Prestasi() {
     { number: `${totalBerita}+`, label: "Total Berita" },
   ];
 
+  const latestPhoto = [...achievements]
+    .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
+    .find((berita) => berita.image_url)?.image_url;
+
   return (
     <div className="prestasi">
       <header className="prestasi-header-section">
@@ -74,10 +80,33 @@ function Prestasi() {
         <div className="prestasi-header-inner">
           <div className="prestasi-header-left reveal">
             <div className="prestasi-header-medal-wrap">
-              <div className="prestasi-header-medal-card">
-                <Medal size={72} />
-                <span>PRESTASI</span>
-              </div>
+              <PixelTransition
+                className="prestasi-header-pixel"
+                firstContent={
+                  <div className="prestasi-header-medal-card">
+                    <Medal size={72} />
+                    <span>PRESTASI</span>
+                  </div>
+                }
+                secondContent={
+                  latestPhoto ? (
+                    <SafeImage
+                      src={latestPhoto}
+                      alt="Pencapaian siswa SMK Yadika Soreang"
+                      className="prestasi-header-pixel-photo"
+                    />
+                  ) : (
+                    <div className="prestasi-header-pixel-fallback">
+                      <Medal size={64} />
+                      <span>PENCAPAIAN</span>
+                    </div>
+                  )
+                }
+                gridSize={14}
+                pixelColor="#2563EB"
+                animationStepDuration={0.3}
+                aspectRatio="100%"
+              />
             </div>
           </div>
 
