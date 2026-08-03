@@ -13,7 +13,7 @@
 .prestasi-header-section {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #0F172A 0%, #4C1D95 130%);
+  background: linear-gradient(135deg, #16294A 0%, #2563EB 130%);
   padding: 140px 24px 150px;
 }
 
@@ -34,7 +34,7 @@
   right: -10%;
   width: 520px;
   height: 520px;
-  background: radial-gradient(circle, rgba(124, 58, 237, 0.35) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.35) 0%, transparent 70%);
   filter: blur(50px);
   pointer-events: none;
 }
@@ -90,7 +90,7 @@
   align-items: center;
   justify-content: center;
   gap: 18px;
-  color: #FDE68A;
+  color: #60A5FA;
   box-shadow:
     0 30px 60px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -104,7 +104,7 @@
   position: absolute;
   width: 180px;
   height: 180px;
-  background: radial-gradient(circle, rgba(124, 58, 237, 0.4) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.4) 0%, transparent 70%);
   border-radius: 50%;
   filter: blur(30px);
 }
@@ -119,10 +119,10 @@
 }
 
 .prestasi-header-medal-card:hover {
-  border-color: rgba(124, 58, 237, 0.3);
+  border-color: rgba(37, 99, 235, 0.3);
   box-shadow:
     0 40px 80px rgba(0, 0, 0, 0.5),
-    0 0 30px rgba(124, 58, 237, 0.15),
+    0 0 30px rgba(37, 99, 235, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
@@ -183,7 +183,7 @@
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #FFFFFF 0%, #FDE68A 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #60A5FA 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -271,14 +271,14 @@
 
 .prestasi-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 24px 50px rgba(76, 29, 149, 0.16);
-  border-color: rgba(124, 58, 237, 0.3);
+  box-shadow: 0 24px 50px rgba(30, 58, 95, 0.16);
+  border-color: rgba(37, 99, 235, 0.3);
 }
 
 .prestasi-card-banner {
   position: relative;
   height: 130px;
-  background: linear-gradient(135deg, #4C1D95 0%, #7C3AED 55%, #9333EA 100%);
+  background: linear-gradient(135deg, #1E3A5F 0%, #2563EB 55%, #3B82F6 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -297,7 +297,7 @@
 .prestasi-card-trophy {
   position: relative;
   z-index: 2;
-  color: #FDE68A;
+  color: #60A5FA;
   filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.25));
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -316,7 +316,7 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #FDE68A;
+  color: #60A5FA;
   background: rgba(255, 255, 255, 0.14);
   border: 1px solid rgba(255, 255, 255, 0.25);
   padding: 4px 10px;
@@ -362,7 +362,7 @@
   font-family: var(--font-body);
   font-size: 0.85rem;
   font-weight: 700;
-  color: #7C3AED;
+  color: #2563EB;
   margin-top: auto;
   transition: gap 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -382,7 +382,7 @@
 }
 
 .prestasi-empty > svg {
-  color: #7C3AED;
+  color: #2563EB;
   margin-bottom: 16px;
 }
 
