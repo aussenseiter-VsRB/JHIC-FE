@@ -19,7 +19,7 @@ export async function sendToChatbot(message: string): Promise<string> {
   let response: Response;
 
   try {
-    response = await fetch(`${API_BASE_URL}/api/v1/ai/chat`, {
+    response = await fetch(`${API_BASE_URL}/api/v1/nexxa/chat`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ chatInput: message, sessionId: getSessionId() }),
