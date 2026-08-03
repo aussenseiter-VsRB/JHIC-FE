@@ -1,0 +1,109 @@
+{
+  "header": {
+    "title": "Ikatan Alumni SMK Yadika Soreang",
+    "subtitle": "Jaringan abadi yang menghubungkan setiap generasi lulusan — saling mendukung, menginspirasi, dan mewujudkan karier gemilang di dunia industri, kewirausahaan, dan pendidikan tinggi.",
+    "exploreText": "Jelajahi Program Alumni"
+  },
+  "stats": [
+    { "number": "1500+", "label": "Alumni Terdata" },
+    { "number": "850+", "label": "Alumni Bekerja" },
+    { "number": "200+", "label": "Lanjut Studi" },
+    { "number": "45+", "label": "Perusahaan Mitra" }
+  ],
+  "benefits": {
+    "title": "Kenapa Bergabung dengan Ikatan Alumni?",
+    "accent": "Keuntungan menjadi bagian dari keluarga besar alumni SMK Yadika Soreang.",
+    "items": [
+      {
+        "icon": "Network",
+        "title": "Jaringan Karier Luas",
+        "description": "Terhubung langsung dengan ribuan alumni yang tersebar di berbagai industri, perusahaan, dan perguruan tinggi."
+      },
+      {
+        "icon": "Briefcase",
+        "title": "Bursa Kerja Eksklusif",
+        "description": "Akses prioritas ke lowongan kerja dari perusahaan mitra yang hanya dibagikan khusus kepada anggota ikatan alumni."
+      },
+      {
+        "icon": "MessagesSquare",
+        "title": "Mentoring & Coaching",
+        "description": "Sesi mentoring bersama alumni senior yang telah berkarier untuk memandu langkah dan pengembangan kompetensimu."
+      },
+      {
+        "icon": "CalendarDays",
+        "title": "Event & Reuni",
+        "description": "Reuni tahunan, seminar karier, workshop keahlian, serta ajang silaturahmi antar angkatan yang tak terlupakan."
+      }
+    ]
+  },
+  "career": {
+    "title": "Peta Karier Alumni",
+    "accent": "Distribusi bidang alumni berdasarkan hasil tracer study terbaru.",
+    "items": [
+      { "label": "Bekerja di Industri", "percent": 62, "color": "#0EA5E9" },
+      { "label": "Melanjutkan Studi", "percent": 23, "color": "#2563EB" },
+      { "label": "Berwirausaha", "percent": 10, "color": "#7C3AED" },
+      { "label": "Mencari Kerja", "percent": 5, "color": "#94A3B8" }
+    ]
+  },
+  "alumniStories": {
+    "title": "Kisah Sukses Alumni",
+    "accent": "Mereka membuktikan bahwa lulusan SMK Yadika Soreang siap bersaing di dunia nyata.",
+    "items": [
+      {
+        "id": 1,
+        "name": "Ahmad Fauzi",
+        "graduationYear": "Lulusan PPLG 2022",
+        "job": "Software Engineer di TechCorp Indonesia",
+        "quote": "Pondasi pemrograman yang diajarkan sangat kuat dan relevan dengan industri saat ini. Proyek praktik di sekolah benar-benar merefleksikan kerja di tim sungguhan.",
+        "initials": "AF"
+      },
+      {
+        "id": 2,
+        "name": "Siti Rahmawati",
+        "graduationYear": "Lulusan Perhotelan 2021",
+        "job": "Front Office Supervisor di Grand Hilton",
+        "quote": "Pelatihan hospitality dan kedisiplinan di SMK Yadika Soreang sangat profesional. Saya bisa langsung beradaptasi dengan lingkungan hotel bintang lima tanpa canggung.",
+        "initials": "SR"
+      },
+      {
+        "id": 3,
+        "name": "Rian Hidayat",
+        "graduationYear": "Lulusan Akuntansi 2023",
+        "job": "Junior Accountant di KAP Nelson & Partner",
+        "quote": "Sertifikasi kompetensi MYOB dan akuntansi yang disediakan sekolah menjadi modal utama saya diterima kerja sebelum masa wisuda kelulusan.",
+        "initials": "RH"
+      },
+      {
+        "id": 4,
+        "name": "Dewi Anggraini",
+        "graduationYear": "Lulusan PPLG 2020",
+        "job": "UI/UX Designer di Kreasi Digital",
+        "quote": "Kombinasi materi desain dan pemrograman dari jurusan PPLG membuka jalan saya berkarier di dunia desain digital. Banyak mentor menilai portofolio saya sudah setara standar industri.",
+        "initials": "DA"
+      },
+      {
+        "id": 5,
+        "name": "Budi Santoso",
+        "graduationYear": "Lulusan Perhotelan 2019",
+        "job": "Executive Chef di Hotel Horizon",
+        "quote": "Pengalaman praktik di dapur hotel selama PKL menjadi bekal berharga. Saya belajar disiplin, kerja tim, dan standar higienitas yang sampai sekarang terus saya terapkan.",
+        "initials": "BS"
+      },
+      {
+        "id": 6,
+        "name": "Mega Lestari",
+        "graduationYear": "Lulusan Akuntansi 2021",
+        "job": "Financial Analyst di Jaya Group",
+        "quote": "Penguasaan laporan keuangan sejak sekolah membuat saya cepat memahami alur kerja divisi finance. Saya sangat bersyukur pernah dididik dengan kurikulum yang selaras dengan industri.",
+        "initials": "ML"
+      }
+    ]
+  },
+  "tracerCta": {
+    "title": "Bantu Kami Meningkatkan Kualitas Pendidikan",
+    "description": "Bagi alumni SMK Yadika Soreang yang baru lulus maupun sudah berkarier, mohon meluangkan waktu sejenak untuk mengisi data Tracer Study guna pemetaan karier dan pengembangan mutu kurikulum sekolah.",
+    "button": "Isi Tracer Study Sekarang",
+    "link": "https://bit.ly/tracerstudy-yadika"
+  }
+}

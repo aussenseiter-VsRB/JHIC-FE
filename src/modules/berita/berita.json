@@ -174,6 +174,188 @@
       }
     ]
   },
+  "beritaDetail": [
+    {
+      "id": 1,
+      "author_id": 2,
+      "title": "SMK Yadika Soreang Raih Juara Lomba Kompetensi Siswa",
+      "content": "SMK Yadika Soreang kembali mencatatkan prestasi membanggakan. Tim siswa jurusan Pengembangan Perangkat Lunak dan Gim (PPLG) berhasil meraih juara dalam Lomba Kompetensi Siswa (LKS) tingkat provinsi Jawa Barat yang diselenggarakan di Bandung.\n\nPada bidang lomba IT Software Solutions for Business, tim sekolah berhasil menyabet medali emas setelah melewati serangkaian babak penyisihan yang ketat. Mereka bersaing dengan lebih dari tiga puluh sekolah menengah kejuruan lainnya dari berbagai daerah di Jawa Barat.\n\nKepala sekolah mengapresiasi kerja keras para siswa dan guru pembimbing yang telah mendampingi selama proses persiapan. Prestasi ini diharapkan menjadi motivasi bagi siswa lainnya untuk terus mengembangkan kompetensi di bidang masing-masing.",
+      "image_url": "/images/berita-1.jpg",
+      "is_achievement": true,
+      "created_at": "2026-07-15T08:00:00+07:00",
+      "updated_at": "2026-07-16T09:30:00+07:00"
+    },
+    {
+      "id": 2,
+      "author_id": 2,
+      "title": "Kerja Sama Industri dengan Perusahaan Teknologi Terkemuka",
+      "content": "SMK Yadika Soreang resmi menjalin kerja sama strategis dengan sebuah perusahaan teknologi terkemuka. Perjanjian ini mencakup penyelarasan kurikulum, program magang siswa, serta pendampingan pengembangan kompetensi digital.\n\nMelalui kerja sama ini, siswa akan mendapatkan kesempatan praktik kerja langsung di industri serta mengikuti pelatihan yang disesuaikan dengan kebutuhan dunia usaha dan dunia industri saat ini.\n\nKerja sama ini merupakan bagian dari komitmen sekolah untuk menghadirkan pembelajaran yang relevan dengan perkembangan teknologi, sehingga lulusan siap bersaing di pasar kerja.",
+      "image_url": "/images/berita-2.jpg",
+      "is_achievement": false,
+      "created_at": "2026-07-10T08:00:00+07:00",
+      "updated_at": "2026-07-11T10:00:00+07:00"
+    },
+    {
+      "id": 3,
+      "author_id": 2,
+      "title": "Kunjungan Industri ke Bandung Techno Park",
+      "content": "Siswa jurusan PPLG SMK Yadika Soreang mengikuti kunjungan industri ke Bandung Techno Park. Kegiatan ini bertujuan untuk memberikan wawasan langsung mengenai ekosistem startup dan perkembangan teknologi terkini.\n\nSelama kunjungan, siswa berkesempatan berdiskusi dengan praktisi industri dan melihat langsung bagaimana proses pengembangan produk digital dilakukan mulai dari ide hingga peluncuran.\n\nPihak sekolah berharap kunjungan ini mampu membuka wawasan siswa tentang peluang karier di bidang teknologi serta memotivasi mereka untuk terus mengasah keterampilan.",
+      "image_url": "/images/berita-3.jpg",
+      "is_achievement": false,
+      "created_at": "2026-07-05T08:00:00+07:00",
+      "updated_at": "2026-07-06T09:00:00+07:00"
+    },
+    {
+      "id": 4,
+      "author_id": 2,
+      "title": "Penerimaan Peserta Didik Baru 2026/2027 Dibuka",
+      "content": "SMK Yadika Soreang resmi membuka Penerimaan Peserta Didik Baru (PPDB) untuk tahun ajaran 2026/2027. Pendaftaran dapat dilakukan secara online melalui situs resmi sekolah.\n\nTersedia berbagai program keahlian unggulan seperti Pengembangan Perangkat Lunak dan Gim, Akuntansi dan Keuangan Lembaga, serta Perhotelan, yang didukung fasilitas belajar modern.\n\nCalon peserta didik diimbau untuk menyiapkan dokumen yang dibutuhkan dan memantau jadwal pendaftaran secara berkala melalui pengumuman resmi sekolah.",
+      "image_url": "/images/berita-4.jpg",
+      "is_achievement": false,
+      "created_at": "2026-07-01T08:00:00+07:00",
+      "updated_at": "2026-07-01T14:00:00+07:00"
+    },
+    {
+      "id": 5,
+      "author_id": 2,
+      "title": "Workshop Digital Marketing untuk Siswa AKL",
+      "content": "Siswa jurusan Akuntansi dan Keuangan Lembaga (AKL) SMK Yadika Soreang mengikuti workshop digital marketing yang menghadirkan praktisi industri sebagai pemateri.\n\nDalam workshop ini, siswa mempelajari strategi pemasaran digital, pengelolaan konten media sosial, hingga teknik analisis data sederhana untuk mendukung pengambilan keputusan bisnis.\n\nKegiatan ini merupakan bagian dari program penguatan kompetensi kewirausahaan siswa agar mampu bersaing di era ekonomi digital.",
+      "image_url": "/images/berita-5.jpg",
+      "is_achievement": false,
+      "created_at": "2026-06-28T08:00:00+07:00",
+      "updated_at": "2026-06-29T08:00:00+07:00"
+    },
+    {
+      "id": 6,
+      "author_id": 2,
+      "title": "Prestasi Siswa Perhotelan di Kompetisi Nasional",
+      "content": "Siswa program keahlian Perhotelan SMK Yadika Soreang berhasil meraih medali emas dalam kompetisi tata boga tingkat nasional. Prestasi ini menjadi kebanggaan tersendiri bagi sekolah.\n\nKompetisi yang diikuti oleh puluhan sekolah dari seluruh Indonesia ini menguji keterampilan memasak, penyajian, serta manajemen dapur dalam waktu terbatas.\n\nKeberhasilan ini tidak lepas dari pembinaan intensif para guru dan dukungan fasilitas praktik yang memadai di sekolah.",
+      "image_url": "/images/berita-6.jpg",
+      "is_achievement": true,
+      "created_at": "2026-06-20T08:00:00+07:00",
+      "updated_at": "2026-06-21T08:00:00+07:00"
+    },
+    {
+      "id": 7,
+      "author_id": 2,
+      "title": "Ujian Kenaikan Tingkat Bahasa Jepang JLPT N3",
+      "content": "Sejumlah siswa SMK Yadika Soreang mengikuti ujian kenaikan tingkat kemampuan bahasa Jepang JLPT N3 yang diselenggarakan di Bandung.\n\nPendampingan intensif dilakukan oleh guru bahasa Jepang sekolah melalui kelas tambahan rutin yang membahas materi tata bahasa, kanji, dan pemahaman membaca.\n\nDiharapkan sertifikat JLPT yang diperoleh dapat menunjang siswa dalam melanjutkan studi maupun bekerja di perusahaan Jepang.",
+      "image_url": "/images/berita-7.jpg",
+      "is_achievement": false,
+      "created_at": "2026-06-15T08:00:00+07:00",
+      "updated_at": "2026-06-16T08:00:00+07:00"
+    },
+    {
+      "id": 8,
+      "author_id": 2,
+      "title": "Pelatihan Keamanan Siber untuk Siswa PPLG",
+      "content": "SMK Yadika Soreang mengadakan pelatihan keamanan siber bagi siswa jurusan PPLG. Pelatihan ini membahas dasar-dasar proteksi data dan praktik aman dalam menggunakan internet.\n\nPara siswa diajak praktik langsung mengidentifikasi berbagai bentuk ancaman digital, mulai dari phishing hingga serangan terhadap sistem sederhana.\n\nKompetensi keamanan siber dinilai semakin penting mengingat meningkatnya kebutuhan industri akan tenaga kerja yang memahami aspek perlindungan data.",
+      "image_url": "/images/berita-8.jpg",
+      "is_achievement": false,
+      "created_at": "2026-06-10T08:00:00+07:00",
+      "updated_at": "2026-06-11T08:00:00+07:00"
+    },
+    {
+      "id": 9,
+      "author_id": 2,
+      "title": "SMK Yadika Soreang Juara 2 Lomba Web Design Tingkat Kota",
+      "content": "Tim desain web SMK Yadika Soreang berhasil meraih juara 2 dalam lomba desain website tingkat kota Bandung. Ajang ini diikuti oleh berbagai sekolah menengah se-Kota Bandung.\n\nDalam lomba tersebut, peserta ditantang untuk membuat desain website responsif dengan memperhatikan aspek pengalaman pengguna dan estetika.\n\nPencapaian ini menunjukkan kualitas pembelajaran teknologi informasi di sekolah semakin berkembang dan mampu bersaing di tingkat kota.",
+      "image_url": "/images/berita-9.jpg",
+      "is_achievement": true,
+      "created_at": "2026-06-05T08:00:00+07:00",
+      "updated_at": "2026-06-06T08:00:00+07:00"
+    },
+    {
+      "id": 10,
+      "author_id": 2,
+      "title": "Penandatanganan MoU dengan Bank BJB Cabang Soreang",
+      "content": "SMK Yadika Soreang melakukan penandatanganan nota kesepahaman (MoU) dengan Bank BJB Cabang Soreang. Kerja sama ini ditujukan untuk program praktik kerja lapangan siswa.\n\nMelalui kerja sama ini, siswa jurusan Akuntansi dan Keuangan akan mendapatkan kesempatan magang di berbagai bidang kerja perbankan.\n\nKerja sama dengan dunia industri ini merupakan langkah strategis sekolah dalam menyiapkan lulusan yang kompeten dan siap bekerja.",
+      "image_url": "/images/berita-10.jpg",
+      "is_achievement": false,
+      "created_at": "2026-06-01T08:00:00+07:00",
+      "updated_at": "2026-06-02T08:00:00+07:00"
+    },
+    {
+      "id": 11,
+      "author_id": 2,
+      "title": "Kunjungan Siswa ke Balai Besar Standardisasi BPPPB",
+      "content": "Siswa SMK Yadika Soreang mengunjungi Balai Besar Standardisasi dan Pelayanan Penilaian Produk (BPPPB) untuk melihat langsung proses pengujian dan standardisasi produk.\n\nSelama kunjungan, siswa diajak memahami pentingnya mutu produk serta proses pengujian laboratorium yang sesuai dengan standar nasional.\n\nKegiatan ini menambah wawasan siswa mengenai pentingnya jaminan mutu dalam dunia industri dan layanan publik.",
+      "image_url": "/images/berita-11.jpg",
+      "is_achievement": false,
+      "created_at": "2026-05-25T08:00:00+07:00",
+      "updated_at": "2026-05-26T08:00:00+07:00"
+    },
+    {
+      "id": 12,
+      "author_id": 2,
+      "title": "Sosialisasi Pendidikan Karakter dan Anti-Bullying",
+      "content": "SMK Yadika Soreang menyelenggarakan sosialisasi pendidikan karakter dan anti-bullying sebagai bagian dari program rutin bulanan sekolah.\n\nKegiatan ini bertujuan membangun lingkungan belajar yang aman dan nyaman, sekaligus menanamkan nilai saling menghargai di antara seluruh warga sekolah.\n\nMelalui sosialisasi ini, diharapkan siswa semakin sadar akan pentingnya menjaga kerukunan dan menjauhi segala bentuk perundungan.",
+      "image_url": "/images/berita-12.jpg",
+      "is_achievement": false,
+      "created_at": "2026-05-20T08:00:00+07:00",
+      "updated_at": "2026-05-21T08:00:00+07:00"
+    },
+    {
+      "id": 13,
+      "author_id": 2,
+      "title": "PPDB 2026/2027 Gelombang Kedua Dibuka 1 Juli",
+      "content": "SMK Yadika Soreang membuka gelombang kedua PPDB tahun ajaran 2026/2027 terhitung mulai 1 Juli 2026 dengan kuota terbatas.\n\nGelombang kedua ini diperuntukkan bagi calon siswa yang belum sempat mendaftar pada gelombang pertama dan masih tersedia kursi di program keahlian tertentu.\n\nCalon pendaftar diimbau untuk segera menyelesaikan proses pendaftaran sebelum kuota terpenuhi.",
+      "image_url": "/images/berita-13.jpg",
+      "is_achievement": false,
+      "created_at": "2026-05-15T08:00:00+07:00",
+      "updated_at": "2026-07-01T08:00:00+07:00"
+    },
+    {
+      "id": 14,
+      "author_id": 2,
+      "title": "Lomba Kreativitas Siswa Tingkat Provinsi Jawa Barat",
+      "content": "SMK Yadika Soreang mengirimkan tiga tim untuk berkompetisi dalam lomba kreativitas siswa tingkat provinsi Jawa Barat.\n\nMasing-masing tim menampilkan karya kreatif mulai dari inovasi produk hingga karya seni digital yang dikembangkan selama beberapa bulan persiapan.\n\nPartisipasi dalam ajang ini merupakan wujud nyata dukungan sekolah terhadap pengembangan kreativitas dan inovasi siswa.",
+      "image_url": "/images/berita-14.jpg",
+      "is_achievement": true,
+      "created_at": "2026-05-10T08:00:00+07:00",
+      "updated_at": "2026-05-11T08:00:00+07:00"
+    },
+    {
+      "id": 101,
+      "author_id": 2,
+      "title": "SMK Yadika Soreang Raih Juara Lomba Kompetensi Siswa",
+      "content": "SMK Yadika Soreang kembali mencatatkan prestasi membanggakan. Tim siswa jurusan Pengembangan Perangkat Lunak dan Gim (PPLG) berhasil meraih juara dalam Lomba Kompetensi Siswa (LKS) tingkat provinsi Jawa Barat yang diselenggarakan di Bandung.\n\nPada bidang lomba IT Software Solutions for Business, tim sekolah berhasil menyabet medali emas setelah melewati serangkaian babak penyisihan yang ketat. Mereka bersaing dengan lebih dari tiga puluh sekolah menengah kejuruan lainnya dari berbagai daerah di Jawa Barat.\n\nKepala sekolah mengapresiasi kerja keras para siswa dan guru pembimbing yang telah mendampingi selama proses persiapan. Prestasi ini diharapkan menjadi motivasi bagi siswa lainnya untuk terus mengembangkan kompetensi di bidang masing-masing.",
+      "image_url": "/images/berita-1.jpg",
+      "is_achievement": true,
+      "created_at": "2026-07-15T08:00:00+07:00",
+      "updated_at": "2026-07-16T09:30:00+07:00"
+    },
+    {
+      "id": 102,
+      "author_id": 2,
+      "title": "Kerja Sama Industri dengan Perusahaan Teknologi Terkemuka",
+      "content": "SMK Yadika Soreang resmi menjalin kerja sama strategis dengan sebuah perusahaan teknologi terkemuka. Perjanjian ini mencakup penyelarasan kurikulum, program magang siswa, serta pendampingan pengembangan kompetensi digital.\n\nMelalui kerja sama ini, siswa akan mendapatkan kesempatan praktik kerja langsung di industri serta mengikuti pelatihan yang disesuaikan dengan kebutuhan dunia usaha dan dunia industri saat ini.\n\nKerja sama ini merupakan bagian dari komitmen sekolah untuk menghadirkan pembelajaran yang relevan dengan perkembangan teknologi, sehingga lulusan siap bersaing di pasar kerja.",
+      "image_url": "/images/berita-2.jpg",
+      "is_achievement": false,
+      "created_at": "2026-07-10T08:00:00+07:00",
+      "updated_at": "2026-07-11T10:00:00+07:00"
+    },
+    {
+      "id": 103,
+      "author_id": 2,
+      "title": "Kunjungan Industri ke Bandung Techno Park",
+      "content": "Siswa jurusan PPLG SMK Yadika Soreang mengikuti kunjungan industri ke Bandung Techno Park. Kegiatan ini bertujuan untuk memberikan wawasan langsung mengenai ekosistem startup dan perkembangan teknologi terkini.\n\nSelama kunjungan, siswa berkesempatan berdiskusi dengan praktisi industri dan melihat langsung bagaimana proses pengembangan produk digital dilakukan mulai dari ide hingga peluncuran.\n\nPihak sekolah berharap kunjungan ini mampu membuka wawasan siswa tentang peluang karier di bidang teknologi serta memotivasi mereka untuk terus mengasah keterampilan.",
+      "image_url": "/images/berita-3.jpg",
+      "is_achievement": false,
+      "created_at": "2026-07-05T08:00:00+07:00",
+      "updated_at": "2026-07-06T09:00:00+07:00"
+    },
+    {
+      "id": 104,
+      "author_id": 2,
+      "title": "Penerimaan Peserta Didik Baru 2026/2027 Dibuka",
+      "content": "SMK Yadika Soreang resmi membuka Penerimaan Peserta Didik Baru (PPDB) untuk tahun ajaran 2026/2027. Pendaftaran dapat dilakukan secara online melalui situs resmi sekolah.\n\nTersedia berbagai program keahlian unggulan seperti Pengembangan Perangkat Lunak dan Gim, Akuntansi dan Keuangan Lembaga, serta Perhotelan, yang didukung fasilitas belajar modern.\n\nCalon peserta didik diimbau untuk menyiapkan dokumen yang dibutuhkan dan memantau jadwal pendaftaran secara berkala melalui pengumuman resmi sekolah.",
+      "image_url": "/images/berita-4.jpg",
+      "is_achievement": false,
+      "created_at": "2026-07-01T08:00:00+07:00",
+      "updated_at": "2026-07-01T14:00:00+07:00"
+    }
+  ],
   "readMoreText": "Baca Selengkapnya",
   "categoryColors": {
     "Prestasi": "#2563EB",

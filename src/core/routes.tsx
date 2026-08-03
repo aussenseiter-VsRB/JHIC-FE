@@ -7,6 +7,7 @@ import PageJurusan from "../modules/jurusan/services/PageJurusan";
 import PageJurusanDetail from "../modules/jurusan/services/PageJurusanDetail";
 
 import Berita from "../modules/berita/berita";
+import BeritaDetail from "../modules/berita/berita-detail/page";
 import Fasilitas from "../modules/fasilitas/fasilitas";
 import FasilitasJurusan from "../modules/fasilitas-jurusan/fasilitas-jurusan";
 import Ppdb from "../modules/ppdb/ppdb";
@@ -19,6 +20,7 @@ import Panorama from "../modules/panorama/panorama";
 import Prestasi from "../modules/prestasi/prestasi";
 import Daftar from "../modules/daftar/daftar";
 import NotFound from "../modules/not-found/not-found";
+import Alumni from "../modules/alumni/alumni";
 
 const routes: RouteObject[] = [
   {
@@ -35,6 +37,7 @@ const routes: RouteObject[] = [
         element: <PageJurusanDetail />,
       },
       { path: "/berita", element: <Berita /> },
+      { path: "/berita/:id", element: <BeritaDetail /> },
       { path: "/fasilitas", element: <Fasilitas /> },
       { path: "/fasilitas-jurusan", element: <FasilitasJurusan /> },
       { path: "/fasilitas-jurusan/:jurusan", element: <FasilitasJurusan /> },
@@ -45,6 +48,7 @@ const routes: RouteObject[] = [
       { path: "/nexxa-match", element: <NexxaMatch /> },
       { path: "/profilguru", element: <Profilguru /> },
       { path: "/hubin", element: <Hubin /> },
+      { path: "/alumni", element: <Alumni /> },
       { path: "/prestasi", element: <Prestasi /> },
       { path: "/daftar", element: <Daftar /> },
       { path: "*", element: <NotFound /> },
