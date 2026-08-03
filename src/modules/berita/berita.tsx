@@ -3,32 +3,59 @@ import { Link } from "react-router-dom";
 import { Calendar, ArrowRight, User } from "lucide-react";
 import SkeletonLoad from "./components/skeleton/skeletonLoad";
 import AnimatedNumber from "../../components/animated-number/AnimatedNumber";
+import SafeImage from "../../components/image/safe-image";
+import { getBerita, type Berita as BeritaData, type BeritaItem } from "./service/beritaApi";
 import beritaData from "./berita.json";
 import "./css/berita.css";
 
-interface BeritaItem {
-  id: number;
-  title: string;
-  date: string;
-  category: string;
-  excerpt: string;
-  image: string;
-}
-
-interface StatItem {
-  number: string;
-  label: string;
-}
-
 const categoryColors: Record<string, string> = beritaData.categoryColors;
+
+const dateFormatter = new Intl.DateTimeFormat("id-ID", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+
+const excerptFromContent = (content: string): string => {
+  const plain = content
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
+    .replace(/[#*_`>]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  return plain.length > 150 ? `${plain.slice(0, 150)}…` : plain;
+};
+
+const beritaToItem = (berita: BeritaData): BeritaItem => ({
+  id: berita.id,
+  title: berita.title,
+  date: dateFormatter.format(new Date(berita.created_at)),
+  category: "Berita",
+  excerpt: excerptFromContent(berita.content),
+  image: berita.image_url ?? "",
+});
 
 function Berita() {
   const [loading, setLoading] = useState(true);
-  const [imgErrors, setImgErrors] = useState<Record<number, boolean>>({});
+  const [error, setError] = useState<string | null>(null);
+  const [apiData, setApiData] = useState<BeritaData[] | null>(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1500);
-    return () => clearTimeout(timer);
+    let cancelled = false;
+    getBerita()
+      .then((data) => {
+        if (!cancelled) {
+          setApiData(data);
+          setLoading(false);
+        }
+      })
+      .catch((err) => {
+        if (!cancelled) {
+          console.error("Failed to fetch berita:", err);
+          setError(err instanceof Error ? err.message : "Unknown error");
+          setLoading(false);
+        }
+      });
+    return () => { cancelled = true; };
   }, []);
 
   useEffect(() => {
@@ -54,56 +81,65 @@ function Berita() {
     return () => observer.disconnect();
   }, [loading]);
 
-  const handleImageError = (id: number) => {
-    setImgErrors((prev) => ({ ...prev, [id]: true }));
-  };
-
-  const [showAllTerkini, setShowAllTerkini] = useState(false);
   const [activePage, setActivePage] = useState(0);
   const cardsPerPage = 6;
 
-  const beritaSekolahList = beritaData.beritaSekolah?.list || [];
+  const sortedList = apiData
+    ? [...apiData].sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
+    : [];
+  const beritaTerkiniList = sortedList.slice(0, 3).map(beritaToItem);
+  const beritaSekolahList = sortedList.slice(3).map(beritaToItem);
   const totalPages = Math.ceil(beritaSekolahList.length / cardsPerPage);
   const pagedCards = beritaSekolahList.slice(activePage * cardsPerPage, activePage * cardsPerPage + cardsPerPage);
-
-  const initialTerkiniCount = 3;
-  const displayedTerkiniList = showAllTerkini
-    ? beritaData.beritaTerkini?.list || []
-    : (beritaData.beritaTerkini?.list || []).slice(0, initialTerkiniCount);
 
   if (loading) {
     return <SkeletonLoad />;
   }
 
-  const titleWords = (beritaData.header.title || "").split(" ");
+  if (error) {
+    return (
+      <div className="berita">
+        <div className="berita-container">
+          <div className="berita-error">
+            <p>Gagal memuat berita. Silakan coba lagi nanti.</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const header = beritaData.header;
+  const titleWords = (header.title || "").split(" ");
   const baseTitle = titleWords.slice(0, -1).join(" ");
   const highlightedWord = titleWords[titleWords.length - 1];
+  const readMoreText = beritaData.readMoreText || "Baca Selengkapnya";
+  const totalBerita = apiData?.length ?? 0;
+  const achievementCount = apiData?.filter((berita) => berita.is_achievement === true).length ?? 0;
+  const stats = [
+    { number: `${achievementCount}+`, label: "Prestasi Siswa" },
+    { number: "30+", label: "Mitra Industri" },
+    { number: `${totalBerita}+`, label: "Informasi Terverifikasi" },
+  ];
 
   return (
     <div className="berita">
-      
-      <div className="berita-header-section">
-        
+      <header className="berita-header-section">
         <div className="berita-header-glow-right"></div>
-        
         <div className="berita-header-inner">
-          
           <div className="berita-header-left reveal">
             <div className="berita-header-person-wrapper">
-              {beritaData.header.image ? (
-                <img
-                  src={beritaData.header.image}
+              {header.image ? (
+                <SafeImage
+                  src={header.image}
                   alt="Siswa SMK Yadika Soreang"
                   className="berita-header-person-img"
                 />
               ) : (
                 <div className="berita-header-person-placeholder">
-                  
                   <div className="placeholder-corner placeholder-corner-tl"></div>
                   <div className="placeholder-corner placeholder-corner-tr"></div>
                   <div className="placeholder-corner placeholder-corner-bl"></div>
                   <div className="placeholder-corner placeholder-corner-br"></div>
-                  
                   <User className="h-16 w-16 mb-4 text-sky/60 animate-pulse" />
                   <span className="text-xs font-semibold tracking-widest text-sky/80 uppercase font-poppins mb-1">
                     Ready for Photo
@@ -116,34 +152,27 @@ function Berita() {
             </div>
           </div>
 
-          
           <div className="berita-header-right reveal reveal-delay-2">
-            
             <h1 className="berita-title">
               {baseTitle}{" "}
               <span>{highlightedWord}</span>
             </h1>
-            
-            <p className="berita-subtitle">{beritaData.header.subtitle}</p>
+            <p className="berita-subtitle">{header.subtitle}</p>
 
-            
-            {beritaData.header.stats && beritaData.header.stats.length > 0 && (
-              <div className="berita-header-stats">
-                {beritaData.header.stats.map((stat: StatItem, idx: number) => (
-                  <React.Fragment key={idx}>
-                    <div className="stat-item">
-                      <span className="stat-number"><AnimatedNumber value={stat.number} /></span>
-                      <span className="stat-label">{stat.label}</span>
-                    </div>
-                    {idx < beritaData.header.stats.length - 1 && <div className="stat-divider"></div>}
-                  </React.Fragment>
-                ))}
-              </div>
-            )}
+            <div className="berita-header-stats">
+              {stats.map((stat: { number: string; label: string }, idx: number) => (
+                <React.Fragment key={idx}>
+                  <div className="stat-item">
+                    <span className="stat-number"><AnimatedNumber value={stat.number} /></span>
+                    <span className="stat-label">{stat.label}</span>
+                  </div>
+                  {idx < stats.length - 1 && <div className="stat-divider"></div>}
+                </React.Fragment>
+              ))}
+            </div>
           </div>
         </div>
 
-        
         <div className="wave-scroll-container">
           <svg className="wave-scroll" viewBox="0 0 2880 120" fill="none" preserveAspectRatio="none">
             <path d="M0,60 C360,110 450,20 720,60 C990,100 1080,30 1440,60 C1800,110 1890,20 2160,60 C2430,100 2520,30 2880,60 L2880,120 L0,120 Z" fill="#F5F5F5" opacity="0.3" />
@@ -151,12 +180,9 @@ function Berita() {
             <path d="M0,90 C320,120 420,50 720,90 C1020,130 1120,60 1440,90 C1760,120 1860,50 2160,90 C2460,130 2560,60 2880,90 L2880,120 L0,120 Z" fill="#F5F5F5" />
           </svg>
         </div>
-      </div>
+      </header>
 
-      
       <div className="berita-container">
-        
-        
         <section className="berita-section">
           <div className="berita-section-header reveal">
             <h2 className="berita-section-title">{beritaData.beritaTerkini?.title || "BERITA TERKINI"}</h2>
@@ -164,16 +190,14 @@ function Berita() {
           </div>
 
           <div className="berita-list">
-            {displayedTerkiniList.map((berita: BeritaItem, i: number) => {
+            {beritaTerkiniList.map((berita: BeritaItem, i: number) => {
               const isReverse = i % 2 === 1;
-              const hasImgError = imgErrors[berita.id];
 
               return (
                 <article
                   key={berita.id}
                   className={`berita-row ${isReverse ? "berita-row-reverse" : ""} reveal reveal-delay-${(i % 3) + 1}`}
                 >
-                  
                   <div className="berita-row-content">
                     <div className="berita-meta">
                       <span
@@ -192,42 +216,18 @@ function Berita() {
                     <p className="berita-item-excerpt">{berita.excerpt}</p>
 
                     <Link to={`/berita/${berita.id}`} className="berita-btn-selengkapnya">
-                      <span>{beritaData.beritaTerkini?.readMoreText || "BACA SELENGKAPNYA"}</span>
+                      <span>{beritaData.beritaTerkini?.readMoreText || readMoreText}</span>
                       <ArrowRight className="h-4 w-4" />
                     </Link>
                   </div>
 
-                  
                   <div className="berita-row-image">
-                    {!hasImgError && berita.image ? (
-                      <img
-                        src={berita.image}
-                        alt={berita.title}
-                        onError={() => handleImageError(berita.id)}
-                      />
-                    ) : (
-                      <div className="berita-image-placeholder">
-                        <span className="berita-image-placeholder-text">GAMBAR</span>
-                      </div>
-                    )}
+                    <SafeImage src={berita.image} alt={berita.title} />
                   </div>
                 </article>
               );
             })}
           </div>
-
-          
-          {(beritaData.beritaTerkini?.list.length || 0) > initialTerkiniCount && (
-            <div className="berita-load-more-container reveal">
-              <button
-                className="berita-btn-load-more"
-                onClick={() => setShowAllTerkini(!showAllTerkini)}
-              >
-                <span>{showAllTerkini ? "Tampilkan Lebih Sedikit" : "Lihat Selengkapnya Berita Terkini"}</span>
-                <ArrowRight className={`h-4 w-4 transition-transform duration-300 ${showAllTerkini ? "rotate-[-90deg]" : "rotate-90"}`} />
-              </button>
-            </div>
-          )}
         </section>
 
         <section className="berita-section">
@@ -270,7 +270,7 @@ function Berita() {
                     <h3 className="berita-card-title">{berita.title}</h3>
                     <p className="berita-card-excerpt">{berita.excerpt}</p>
                     <Link to={`/berita/${berita.id}`} className="berita-card-link">
-                      {beritaData.readMoreText || "Baca Selengkapnya"} <ArrowRight className="h-4 w-4" />
+                      {readMoreText} <ArrowRight className="h-4 w-4" />
                     </Link>
                   </div>
                 </article>
@@ -293,7 +293,6 @@ function Berita() {
             </button>
           </div>
 
-          
           <div className="berita-slider-dots">
             {Array.from({ length: totalPages }, (_, i) => (
               <button

@@ -1,8 +1,11 @@
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, CalendarDays, Clock, User } from "lucide-react";
+import { useState, useEffect } from "react";
 import Breadcrumb from "../../../components/breadcrumb/breadcrumb";
+import SafeImage from "../../../components/image/safe-image";
 import "./css/berita-detail.css";
-import data from "../berita.json";
+import { getBerita, getBeritaById, type Berita } from "../service/beritaApi";
+import SkeletonDetail from "./components/skeleton/skeletonDetail";
 
 const dateFormatter = new Intl.DateTimeFormat("id-ID", {
   day: "numeric",
@@ -22,9 +25,65 @@ function formatDateTime(iso: string): string {
 
 function BeritaDetail() {
   const { id } = useParams<{ id: string }>();
-  const item = data.beritaDetail.find((i) => i.id === Number(id));
+  const [item, setItem] = useState<Berita | null>(null);
+  const [relatedList, setRelatedList] = useState<Berita[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  if (!item) {
+  useEffect(() => {
+    let cancelled = false;
+
+    Promise.all([id ? getBeritaById(id) : Promise.resolve(undefined), getBerita().catch(() => [])])
+      .then(([detail, list]) => {
+        if (!cancelled) {
+          if (detail) {
+            setItem(detail);
+            setRelatedList(list.filter((i) => i.id !== detail.id).slice(0, 3));
+          } else {
+            setError("Berita tidak ditemukan");
+          }
+          setLoading(false);
+        }
+      })
+      .catch((err) => {
+        if (!cancelled) {
+          console.error("Failed to fetch berita detail:", err);
+          setError(err instanceof Error ? err.message : "Unknown error");
+          setLoading(false);
+        }
+      });
+
+    return () => { cancelled = true; };
+  }, [id]);
+
+  useEffect(() => {
+    if (loading) return;
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    );
+
+    const elements = document.querySelectorAll(".reveal");
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, [loading]);
+
+  if (loading) {
+    return <SkeletonDetail />;
+  }
+
+  if (error || !item) {
     return (
       <div className="berita-detail">
         <div className="berita-detail-notfound">
@@ -32,19 +91,18 @@ function BeritaDetail() {
             <ArrowLeft className="h-4 w-4" />
             Kembali ke Berita
           </Link>
-          <h1>Berita tidak ditemukan</h1>
-          <p>Artikel yang Anda cari tidak tersedia.</p>
+          <h1>{error === "Invalid berita ID" ? "ID Tidak Valid" : "Berita tidak ditemukan"}</h1>
+          <p>{error === "Invalid berita ID" ? "Parameter ID berita tidak valid." : "Artikel yang Anda cari tidak tersedia."}</p>
         </div>
       </div>
     );
   }
 
   const paragraphs = item.content.split(/\n\s*\n/).filter((p) => p.trim() !== "");
-  const related = data.beritaDetail.filter((i) => i.id !== item.id).slice(0, 3);
 
   return (
     <div className="berita-detail">
-      <header className={`berita-detail-hero ${item.is_achievement ? "berita-detail-hero--achievement" : ""}`}>
+      <header className="berita-detail-hero">
         <div className="berita-detail-hero-orb berita-detail-hero-orb--1" />
         <div className="berita-detail-hero-orb berita-detail-hero-orb--2" />
         <div className="berita-detail-hero-pattern" />
@@ -93,13 +151,7 @@ function BeritaDetail() {
       <div className="berita-detail-body">
         <article className="berita-detail-article">
           <div className="berita-detail-article-image">
-            {item.image_url ? (
-              <img src={item.image_url} alt={item.title} />
-            ) : (
-              <div className="berita-detail-image-placeholder">
-                <span>GAMBAR</span>
-              </div>
-            )}
+            <SafeImage src={item.image_url} alt={item.title} />
           </div>
 
           <div className="berita-detail-content">
@@ -116,20 +168,14 @@ function BeritaDetail() {
           </div>
 
           <div className="berita-detail-related-grid">
-            {related.map((berita, i) => (
+            {relatedList.map((berita, i) => (
               <Link
                 key={berita.id}
                 to={`/berita/${berita.id}`}
                 className={`berita-detail-related-card reveal reveal-delay-${(i % 3) + 1}`}
               >
                 <div className="berita-detail-related-image">
-                  {berita.image_url ? (
-                    <img src={berita.image_url} alt={berita.title} />
-                  ) : (
-                    <div className="berita-detail-related-placeholder">
-                      <span>GAMBAR</span>
-                    </div>
-                  )}
+                  <SafeImage src={berita.image_url} alt={berita.title} />
                 </div>
                 <div className="berita-detail-related-content">
                   <div className="berita-detail-related-date">

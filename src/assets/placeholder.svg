@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="ph-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2D4A6F"/>
+      <stop offset="1" stop-color="#1E3A5F"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#ph-bg)"/>
+  <circle cx="660" cy="90" r="260" fill="#FFFFFF" fill-opacity="0.05"/>
+  <circle cx="90" cy="560" r="320" fill="#2563EB" fill-opacity="0.08"/>
+  <g opacity="0.4">
+    <rect x="330" y="240" width="140" height="100" rx="10" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="4"/>
+    <circle cx="362" cy="268" r="8" fill="#FFFFFF" fill-opacity="0.35"/>
+    <path d="M330 320 L382 288 L410 306 L442 282 L470 298" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="400" y="396" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700" letter-spacing="10" fill="#FFFFFF" fill-opacity="0.3" text-anchor="middle">GAMBAR</text>
+</svg>

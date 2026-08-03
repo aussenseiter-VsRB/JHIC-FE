@@ -103,44 +103,42 @@ Review checklist after every change:
 - **No `.env` or env loading** is configured yet. Vite's `import.meta.env` is available but unused.
 - **No CI config** currently exists in the repo.
 
-## AI-Assisted Development Workflow (Greenlight Method)
+AI-Assisted Development Workflow (Anti-AI-Slop System)
+Step 1: Strict Token & Theme Enforcement
+Do not allow the AI to generate arbitrary Tailwind utility classes. The AI must strictly read and adhere to the @theme tokens declared in src/index.css.
 
-**Step 1: Build a Proper Design System**
-A complete design system for AI-assisted development must include:
-- Background styles
-- Font families (headings, subheadings, body)
-- Button styles (primary and secondary)
-- Header/toolbar panels
-- Secondary sections and labels
-- Card components
-- Icon styles
-Provide these visual guidelines as a persistent reference in prompts to avoid generic "AI slop".
+Typography: Explicitly enforce custom font families (font-heading for <h1>-<h3>, font-body or font-poppins for regular body text). Using browser default fonts is strictly prohibited.
 
-**Step 2: Test Before You Build**
-Run test prompts for simple sections (e.g., testimonials, pricing table) with and without the design system reference to validate brand consistency before building complex pages.
+Color Palette: Restrict the AI to predefined brand tokens (e.g., bg-primary, text-secondary, border-brand). Do not introduce random, one-off color classes like bg-blue-500 or text-purple-600 inside components unless explicitly specified in the brand guidelines.
 
-**Step 3: Gather Inspiration**
-Collect specific inspiration types:
-- Designs matching your intended style
-- Niche-specific sites
-- Interesting animations
-- Illustrations and icons
-Save these assets in the project folder so the AI agent can read them.
+Step 2: Component Separation & Props Contract
+When instructing the AI to build visual components (such as Cards, Navbars, or Hero sections):
 
-**Step 4: Generate Sections, Informational First**
-Start by building informational sections (pricing, FAQs, testimonials) using this prompt pattern:
-1. Name the section type
-2. Reference the design system file
-3. Specify the output file
+Props Definition: Explicitly define the component props contract using clean TypeScript typing via import type.
 
-**Step 5: Sections With Images (Separation of Concerns)**
-Do not ask code models to generate layout and images simultaneously.
-- Generate visuals separately.
-- Extract individual elements with transparent backgrounds.
-- Feed discrete image files into the code agent to combine them into HTML.
+Semantic HTML: The AI must use semantic layout tags (<article>, <aside>, <section>, <header>) instead of deeply nesting generic <div> elements without architectural meaning.
 
-**Step 6: Go Beyond Static, Add Animations**
-Add motion by:
-- Converting GitHub animation demos into HTML
-- Using screen recordings of animations as visual reference for the model
-Combine these isolated animations into the final page.
+State Behavior: Define interactive states (such as hover, focus-visible, active) explicitly in the prompt before the AI begins structuring the layout.
+
+Step 3: Layout Isolation (The Grid & Flex Rules)
+To prevent rigid, predictable layouts typical of generic AI generation:
+
+Responsive System: Layouts must be built mobile-first with highly structured breakpoint scaling (e.g., w-full md:max-w-md lg:max-w-2xl).
+
+Spacing Invariance: Enforce absolute consistency across spacing tokens for paddings and gaps (gap-6, p-6 for cards; gap-12, py-20 for entire sections).
+
+Asymmetry over Generic Layouts: Prompt the AI to prefer dynamic, premium layouts (e.g., asymmetric grids using md:grid-cols-[2fr_1fr] or clean bento grids). Avoid symmetric 3-column structures that feel template-like.
+
+Step 4: Asset & Image Handling (CSS-First Constraints)
+In alignment with the project's CSS-first architectural rule:
+
+Styling Layer: Complex visual declarations (such as glassmorphism, custom box-shadows, multi-layered gradients, and complex clip-paths) must be isolated inside the module's local .css file rather than cluttered inside inline Tailwind utility classes.
+
+Image Fallback: Every <img> tag generated must include loading="lazy", object-cover, and an explicit onError handler that falls back gracefully to a local asset placeholder from src/assets/.
+
+Step 5: Micro-Interactions & Motion Tokens
+Human-grade design is defined by subtle interactive details:
+
+The AI must implement smooth transition layers (transition-all duration-300 ease-out) on every interactive element (buttons, anchor links, card hover behaviors).
+
+Avoid aggressive entrance animations (e.g., full-page chaotic fade-in-up movements). Prioritize clean, micro-interactions triggered by direct user state changes.
