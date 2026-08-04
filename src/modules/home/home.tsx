@@ -69,24 +69,29 @@ function Home() {
         <LogoLoop
           logos={mitraLogos}
           speed={60}
-          logoHeight={80}
-          gap={40}
+          logoHeight={110}
+          gap={48}
           pauseOnHover
+          scaleOnHover
           fadeOut
           fadeOutColor="#ffffff"
           renderItem={(item) => {
             const logo = item as Extract<LogoItem, { src: string }>;
             return (
-              <img
-                className="home-mitra-card-logo"
-                src={logo.src}
-                alt={logo.alt ?? logo.title ?? ""}
-                title={logo.title}
-                loading="lazy"
-                onError={(event) => {
-                  event.currentTarget.src = placeholder;
-                }}
-              />
+              <span className="home-mitra-logo-wrap">
+                <img
+                  className="home-mitra-card-logo"
+                  src={logo.src}
+                  alt={logo.alt ?? logo.title ?? ""}
+                  loading="lazy"
+                  onError={(event) => {
+                    event.currentTarget.src = placeholder;
+                  }}
+                />
+                <span className="home-mitra-logo-name">
+                  {logo.title}
+                </span>
+              </span>
             );
           }}
         />

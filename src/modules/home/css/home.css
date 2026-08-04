@@ -308,13 +308,38 @@
   color: #64748B;
 }
 
-.home-mitra-card-logo {
-  max-width: 200px;
-  object-fit: contain;
-  transition: opacity 0.2s ease;
+.home-mitra-logo-wrap {
+  position: relative;
+  display: inline-flex;
 }
-.home-mitra-card-logo:hover {
-  opacity: 0.85;
+
+.home-mitra-card-logo {
+  max-width: 260px;
+  object-fit: contain;
+}
+
+.home-mitra-logo-name {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  max-width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: rgba(30, 58, 95, 0.85);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.home-mitra-logo-wrap:hover .home-mitra-logo-name {
+  opacity: 1;
+  transform: translate(-50%, 0);
 }
 
 .home-programs {
