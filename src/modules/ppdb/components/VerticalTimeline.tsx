@@ -12,13 +12,13 @@ const steps: TimelineStep[] = [
   {
     icon: UserPlus,
     title: "Daftar Online",
-    description: "Isi formulir pendaftaran secara online melalui website resmi PPDB.",
+    description: "Isi formulir pendaftaran secara online melalui website resmi SPMB.",
     photoLabel: "Siswa mengisi formulir",
   },
   {
     icon: FileText,
     title: "Verifikasi Berkas",
-    description: "Serahkan berkas fisik ke panitia PPDB untuk divalidasi.",
+    description: "Serahkan berkas fisik ke panitia SPMB untuk divalidasi.",
     photoLabel: "Penyerahan berkas",
   },
   {

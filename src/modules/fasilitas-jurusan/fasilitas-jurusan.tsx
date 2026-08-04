@@ -119,7 +119,7 @@ function FasilitasJurusan() {
     <div className="fasilitas-jurusan">
       <div className="fasilitas-jurusan-header-section">
         <div className="fasilitas-jurusan-header-inner">
-          <div className="fasilitas-jurusan-header-text">
+          <div className="fasilitas-jurusan-header-text reveal">
             <Breadcrumb
               items={
                 specificMeta
@@ -151,7 +151,7 @@ function FasilitasJurusan() {
             </button>
           </div>
 
-          <div className="fasilitas-jurusan-header-visual">
+          <div className="fasilitas-jurusan-header-visual reveal reveal-delay-2">
             <div className="fasilitas-jurusan-photo-placeholder">
               <Cog className="fasilitas-jurusan-photo-icon" />
               <span className="fasilitas-jurusan-photo-label">Foto Fasilitas Jurusan</span>

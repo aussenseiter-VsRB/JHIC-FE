@@ -42,7 +42,7 @@ const routes: RouteObject[] = [
       { path: "/fasilitas-jurusan", element: <FasilitasJurusan /> },
       { path: "/fasilitas-jurusan/:jurusan", element: <FasilitasJurusan /> },
       { path: "/panorama/:slug", element: <Panorama /> },
-      { path: "/ppdb", element: <Ppdb /> },
+      { path: "/spmb", element: <Ppdb /> },
       { path: "/ekstrakurikuler", element: <Ekstrakurikuler /> },
       { path: "/ekstrakurikuler/:slug", element: <EkstrakurikulerDetail /> },
       { path: "/nexxa-match", element: <NexxaMatch /> },

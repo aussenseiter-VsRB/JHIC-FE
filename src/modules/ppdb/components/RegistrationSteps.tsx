@@ -11,7 +11,7 @@ const steps: StepItem[] = [
   {
     icon: UserPlus,
     title: "Daftar Akun",
-    description: "Buat akun PPDB menggunakan email dan nomor HP aktif.",
+    description: "Buat akun SPMB menggunakan email dan nomor HP aktif.",
   },
   {
     icon: FileText,

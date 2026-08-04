@@ -50,8 +50,8 @@
         "id": 4,
         "title": "Penerimaan Peserta Didik Baru 2026/2027 Dibuka",
         "date": "1 Juli 2026",
-        "category": "PPDB",
-        "excerpt": "Pendaftaran PPDB SMK Yadika Soreang tahun ajaran 2026/2027 telah resmi dibuka.",
+        "category": "SPMB",
+        "excerpt": "Pendaftaran SPMB SMK Yadika Soreang tahun ajaran 2026/2027 telah resmi dibuka.",
         "image": "/images/berita-4.jpg"
       },
       {
@@ -120,9 +120,9 @@
       },
       {
         "id": 13,
-        "title": "PPDB 2026/2027 Gelombang Kedua Dibuka 1 Juli",
+        "title": "SPMB 2026/2027 Gelombang Kedua Dibuka 1 Juli",
         "date": "15 Mei 2026",
-        "category": "PPDB",
+        "category": "SPMB",
         "excerpt": "Gelombang kedua pendaftaran dibuka dengan kuota terbatas untuk semua program keahlian.",
         "image": "/images/berita-13.jpg"
       },
@@ -168,8 +168,8 @@
         "id": 104,
         "title": "Penerimaan Peserta Didik Baru 2026/2027 Dibuka",
         "date": "1 Juli 2026",
-        "category": "PPDB",
-        "excerpt": "Pendaftaran PPDB SMK Yadika Soreang tahun ajaran 2026/2027 telah resmi dibuka dengan berbagai program keahlian unggulan dan fasilitas modern.",
+        "category": "SPMB",
+        "excerpt": "Pendaftaran SPMB SMK Yadika Soreang tahun ajaran 2026/2027 telah resmi dibuka dengan berbagai program keahlian unggulan dan fasilitas modern.",
         "image": "/images/berita-4.jpg"
       }
     ]
@@ -209,7 +209,7 @@
       "id": 4,
       "author_id": 2,
       "title": "Penerimaan Peserta Didik Baru 2026/2027 Dibuka",
-      "content": "SMK Yadika Soreang resmi membuka Penerimaan Peserta Didik Baru (PPDB) untuk tahun ajaran 2026/2027. Pendaftaran dapat dilakukan secara online melalui situs resmi sekolah.\n\nTersedia berbagai program keahlian unggulan seperti Pengembangan Perangkat Lunak dan Gim, Akuntansi dan Keuangan Lembaga, serta Perhotelan, yang didukung fasilitas belajar modern.\n\nCalon peserta didik diimbau untuk menyiapkan dokumen yang dibutuhkan dan memantau jadwal pendaftaran secara berkala melalui pengumuman resmi sekolah.",
+      "content": "SMK Yadika Soreang resmi membuka Penerimaan Peserta Didik Baru (SPMB) untuk tahun ajaran 2026/2027. Pendaftaran dapat dilakukan secara online melalui situs resmi sekolah.\n\nTersedia berbagai program keahlian unggulan seperti Pengembangan Perangkat Lunak dan Gim, Akuntansi dan Keuangan Lembaga, serta Perhotelan, yang didukung fasilitas belajar modern.\n\nCalon peserta didik diimbau untuk menyiapkan dokumen yang dibutuhkan dan memantau jadwal pendaftaran secara berkala melalui pengumuman resmi sekolah.",
       "image_url": "/images/berita-4.jpg",
       "is_achievement": false,
       "created_at": "2026-07-01T08:00:00+07:00",
@@ -298,8 +298,8 @@
     {
       "id": 13,
       "author_id": 2,
-      "title": "PPDB 2026/2027 Gelombang Kedua Dibuka 1 Juli",
-      "content": "SMK Yadika Soreang membuka gelombang kedua PPDB tahun ajaran 2026/2027 terhitung mulai 1 Juli 2026 dengan kuota terbatas.\n\nGelombang kedua ini diperuntukkan bagi calon siswa yang belum sempat mendaftar pada gelombang pertama dan masih tersedia kursi di program keahlian tertentu.\n\nCalon pendaftar diimbau untuk segera menyelesaikan proses pendaftaran sebelum kuota terpenuhi.",
+      "title": "SPMB 2026/2027 Gelombang Kedua Dibuka 1 Juli",
+      "content": "SMK Yadika Soreang membuka gelombang kedua SPMB tahun ajaran 2026/2027 terhitung mulai 1 Juli 2026 dengan kuota terbatas.\n\nGelombang kedua ini diperuntukkan bagi calon siswa yang belum sempat mendaftar pada gelombang pertama dan masih tersedia kursi di program keahlian tertentu.\n\nCalon pendaftar diimbau untuk segera menyelesaikan proses pendaftaran sebelum kuota terpenuhi.",
       "image_url": "/images/berita-13.jpg",
       "is_achievement": false,
       "created_at": "2026-05-15T08:00:00+07:00",
@@ -349,7 +349,7 @@
       "id": 104,
       "author_id": 2,
       "title": "Penerimaan Peserta Didik Baru 2026/2027 Dibuka",
-      "content": "SMK Yadika Soreang resmi membuka Penerimaan Peserta Didik Baru (PPDB) untuk tahun ajaran 2026/2027. Pendaftaran dapat dilakukan secara online melalui situs resmi sekolah.\n\nTersedia berbagai program keahlian unggulan seperti Pengembangan Perangkat Lunak dan Gim, Akuntansi dan Keuangan Lembaga, serta Perhotelan, yang didukung fasilitas belajar modern.\n\nCalon peserta didik diimbau untuk menyiapkan dokumen yang dibutuhkan dan memantau jadwal pendaftaran secara berkala melalui pengumuman resmi sekolah.",
+      "content": "SMK Yadika Soreang resmi membuka Penerimaan Peserta Didik Baru (SPMB) untuk tahun ajaran 2026/2027. Pendaftaran dapat dilakukan secara online melalui situs resmi sekolah.\n\nTersedia berbagai program keahlian unggulan seperti Pengembangan Perangkat Lunak dan Gim, Akuntansi dan Keuangan Lembaga, serta Perhotelan, yang didukung fasilitas belajar modern.\n\nCalon peserta didik diimbau untuk menyiapkan dokumen yang dibutuhkan dan memantau jadwal pendaftaran secara berkala melalui pengumuman resmi sekolah.",
       "image_url": "/images/berita-4.jpg",
       "is_achievement": false,
       "created_at": "2026-07-01T08:00:00+07:00",
@@ -361,6 +361,6 @@
     "Prestasi": "#2563EB",
     "Kerja Sama": "#0EA5E9",
     "Kegiatan": "#1E3A5F",
-    "PPDB": "#6366F1"
+    "SPMB": "#6366F1"
   }
 }
