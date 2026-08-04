@@ -995,21 +995,33 @@
   }
 
   .berita-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
+  }
+
+  .berita-card-image {
+    height: 150px;
+  }
+
+  .berita-grid-wrapper {
+    gap: 12px;
+  }
+
+  .berita-nav-arrow {
+    display: none;
   }
 
   .berita-row,
   .berita-row-reverse {
     flex-direction: column;
     min-height: auto;
-    height: auto;
+    height: 520px;
   }
 
   .berita-row-image {
     order: -1;
-    min-height: 220px;
-    height: 220px;
+    min-height: 200px;
+    height: 200px;
   }
 
   .berita-row-content {
@@ -1025,15 +1037,17 @@
   }
 
   .berita-card-content {
-    padding: 20px;
+    padding: 14px;
   }
 
   .berita-card-title {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
   }
 
   .berita-card-excerpt {
-    font-size: 0.85rem;
+    font-size: 0.78rem;
+    margin-bottom: 12px;
   }
 
   .berita-header-person-wrapper {
@@ -1043,15 +1057,6 @@
   .berita-header-left {
     max-width: 300px;
     width: 100%;
-  }
-
-  .berita-grid-wrapper {
-    gap: 12px;
-  }
-
-  .berita-nav-arrow {
-    width: 52px;
-    height: 52px;
   }
 
   .berita-section-header-flex {
@@ -1126,15 +1131,6 @@
 
   .berita-container {
     padding: 32px 16px 48px;
-  }
-
-  .berita-grid-wrapper {
-    gap: 8px;
-  }
-
-  .berita-nav-arrow {
-    width: 44px;
-    height: 44px;
   }
 
   .berita-section {

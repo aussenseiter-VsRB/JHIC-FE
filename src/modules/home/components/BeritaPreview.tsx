@@ -8,25 +8,26 @@ import HomeDecor from "./HomeDecor";
 
 const categoryColors: Record<string, string> = beritaData.categoryColors;
 
-const staticLatest: BeritaItem[] = beritaData.beritaTerkini.list
-  .slice(0, 3)
-  .map((item) => ({ ...item, id: String(item.id) }));
+type LoadStatus = "loading" | "ready" | "error";
 
 function BeritaPreview() {
-  const [latestNews, setLatestNews] = useState<BeritaItem[]>(staticLatest);
+  const [status, setStatus] = useState<LoadStatus>("loading");
+  const [latestNews, setLatestNews] = useState<BeritaItem[]>([]);
 
   useEffect(() => {
     let cancelled = false;
     getBerita()
       .then((data) => {
-        if (!cancelled) {
-          const sorted = [...data].sort(
-            (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-          );
-          setLatestNews(sorted.slice(0, 3).map(beritaToItem));
-        }
+        if (cancelled) return;
+        const sorted = [...data].sort(
+          (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        );
+        setLatestNews(sorted.slice(0, 3).map(beritaToItem));
+        setStatus("ready");
       })
-      .catch((err) => console.error("Failed to fetch berita:", err));
+      .catch(() => {
+        if (!cancelled) setStatus("error");
+      });
     return () => { cancelled = true; };
   }, []);
 
@@ -42,36 +43,50 @@ function BeritaPreview() {
             Ikuti perkembangan terbaru dari SMK Yadika Soreang
           </p>
         </div>
-        <div className="home-berita-grid">
-          {latestNews.map((item) => (
-            <article
-              key={item.id}
-              className="home-berita-card"
-            >
-              <div className="home-berita-card-image">
-                <SafeImage src={item.image} alt={item.title} />
-                <span
-                  className="font-poppins home-berita-card-category"
-                  style={{ background: categoryColors[item.category] ?? "#2563EB" }}
-                >
-                  {item.category}
-                </span>
-              </div>
-              <div className="home-berita-card-body">
-                <div className="home-berita-card-date">
-                  <Calendar size={14} />
-                  <span>{item.date}</span>
-                </div>
-                <h3 className="home-berita-card-title">
-                  {item.title}
-                </h3>
-                <p className="home-berita-card-excerpt">
-                  {item.excerpt}
-                </p>
-              </div>
-            </article>
-          ))}
-        </div>
+        {status === "error" ? (
+          <div className="home-berita-error" role="alert">
+            <p>Berita gagal dimuat. Silakan coba lagi nanti.</p>
+          </div>
+        ) : (
+          <div className="home-berita-grid">
+            {status === "loading"
+              ? Array.from({ length: 3 }, (_, i) => (
+                  <div
+                    key={`skeleton-${i}`}
+                    className="home-berita-card home-berita-card--skeleton"
+                    aria-hidden="true"
+                  />
+                ))
+              : latestNews.map((item) => (
+                  <article
+                    key={item.id}
+                    className="home-berita-card"
+                  >
+                    <div className="home-berita-card-image">
+                      <SafeImage src={item.image} alt={item.title} />
+                      <span
+                        className="font-poppins home-berita-card-category"
+                        style={{ background: categoryColors[item.category] ?? "#2563EB" }}
+                      >
+                        {item.category}
+                      </span>
+                    </div>
+                    <div className="home-berita-card-body">
+                      <div className="home-berita-card-date">
+                        <Calendar size={14} />
+                        <span>{item.date}</span>
+                      </div>
+                      <h3 className="home-berita-card-title">
+                        {item.title}
+                      </h3>
+                      <p className="home-berita-card-excerpt">
+                        {item.excerpt}
+                      </p>
+                    </div>
+                  </article>
+                ))}
+          </div>
+        )}
         <div className="home-berita-cta">
           <Link
             to="/berita"
