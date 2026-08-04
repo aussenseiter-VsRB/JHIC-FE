@@ -5,9 +5,47 @@ import Breadcrumb from "../../components/breadcrumb/breadcrumb";
 import AnimatedNumber from "../../components/animated-number/AnimatedNumber";
 import "./css/hubin.css";
 import data from "./hubin.json";
+import placeholder from "../../assets/placeholder.svg";
+import nextitLogo from "../../assets/mitra pplg/nextit.png";
+import bankbjbLogo from "../../assets/mitra akl/bankbjb1.png";
+import pegadaianLogo from "../../assets/mitra akl/pegadaian.png";
+import astonpasteurLogo from "../../assets/mitra hotel/astonpasteur.jpeg";
+import courtyardLogo from "../../assets/mitra hotel/courtyard.png";
+import elroyaleLogo from "../../assets/mitra hotel/elroyale.png";
+import forresthillLogo from "../../assets/mitra hotel/forresthill.jpeg";
+import gaiaLogo from "../../assets/mitra hotel/gaia.webp";
+import grandmercureLogo from "../../assets/mitra hotel/grandmercure.jpg";
+import grandsunshineLogo from "../../assets/mitra hotel/grandsunshine.png";
+import grandtjokroLogo from "../../assets/mitra hotel/grandtjokro.jpeg";
+import horisonLogo from "../../assets/mitra hotel/horison.png";
+import kimayaLogo from "../../assets/mitra hotel/kimaya.png";
+import moxyLogo from "../../assets/mitra hotel/moxy.jpeg";
+import padmaLogo from "../../assets/mitra hotel/padma.png";
+import sutanrajaLogo from "../../assets/mitra hotel/sutanraja.jpg";
+import waringinLogo from "../../assets/mitra hotel/waringinhospitality.jpg";
 
 const iconMap: Record<string, LucideIcon> = {
   Briefcase, Building2, Award, BookOpen, UserCheck, Handshake, Factory, Building, Cog, ShieldCheck, Code, Headphones,
+};
+
+const mitraLogoMap: Record<string, string> = {
+  nextit: nextitLogo,
+  bankbjb: bankbjbLogo,
+  pegadaian: pegadaianLogo,
+  astonpasteur: astonpasteurLogo,
+  courtyard: courtyardLogo,
+  elroyale: elroyaleLogo,
+  forresthill: forresthillLogo,
+  gaia: gaiaLogo,
+  grandmercure: grandmercureLogo,
+  grandsunshine: grandsunshineLogo,
+  grandtjokro: grandtjokroLogo,
+  horison: horisonLogo,
+  kimaya: kimayaLogo,
+  moxy: moxyLogo,
+  padma: padmaLogo,
+  sutanraja: sutanrajaLogo,
+  waringin: waringinLogo,
 };
 
 interface ProgramItem {
@@ -31,6 +69,7 @@ interface MitraItem {
   address: string;
   focus: string;
   icon: string;
+  logo?: string;
 }
 
 interface StatItem {
@@ -219,11 +258,24 @@ function Hubin() {
           <div className="hubin-mitra-grid">
             {filteredMitra.map((item, i) => {
               const MitraIcon = iconMap[item.icon] || Factory;
+              const logo = item.logo ? mitraLogoMap[item.logo] : undefined;
               return (
                 <div key={item.id} className={`hubin-mitra-card reveal reveal-delay-${(i % 4) + 1}`}>
-                  <div className="hubin-mitra-icon">
-                    <MitraIcon className="h-5 w-5" />
-                  </div>
+                  {logo ? (
+                    <img
+                      className="hubin-mitra-logo"
+                      src={logo}
+                      alt={item.name}
+                      loading="lazy"
+                      onError={(event) => {
+                        event.currentTarget.src = placeholder;
+                      }}
+                    />
+                  ) : (
+                    <div className="hubin-mitra-icon">
+                      <MitraIcon className="h-5 w-5" />
+                    </div>
+                  )}
                   <h3 className="hubin-mitra-name font-heading">{item.name}</h3>
                   <p className="hubin-mitra-detail font-body">{item.address}</p>
                   <p className="hubin-mitra-detail hubin-mitra-focus font-body">{item.focus}</p>

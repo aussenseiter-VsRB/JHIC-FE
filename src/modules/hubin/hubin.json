@@ -87,59 +87,139 @@
   "mitra": [
     {
       "id": 1,
-      "name": "PT Teknologi Nusantara",
+      "name": "NextIT",
       "address": "Bandung, Jawa Barat",
       "focus": "Rekayasa Perangkat Lunak",
-      "icon": "Code"
+      "icon": "Cpu",
+      "logo": "nextit"
     },
     {
       "id": 2,
-      "name": "Hotel Grand Panghegar",
-      "address": "Bandung, Jawa Barat",
-      "focus": "Perhotelan & Tata Boga",
-      "icon": "Building"
+      "name": "Bank BJB",
+      "address": "Soreang, Jawa Barat",
+      "focus": "Akuntansi & Perbankan",
+      "icon": "ShieldCheck",
+      "logo": "bankbjb"
     },
     {
       "id": 3,
-      "name": "PT Kereta Api Indonesia",
+      "name": "PT Pegadaian",
       "address": "Bandung, Jawa Barat",
       "focus": "Akuntansi & Keuangan",
-      "icon": "ShieldCheck"
+      "icon": "ShieldCheck",
+      "logo": "pegadaian"
     },
     {
       "id": 4,
-      "name": "Bank BJB Cabang Soreang",
-      "address": "Soreang, Jawa Barat",
-      "focus": "Akuntansi & Perbankan",
-      "icon": "ShieldCheck"
+      "name": "Aston Pasteur",
+      "address": "Bandung, Jawa Barat",
+      "focus": "Perhotelan & Pariwisata",
+      "icon": "Building",
+      "logo": "astonpasteur"
     },
     {
       "id": 5,
-      "name": "PT Pos Indonesia",
+      "name": "Courtyard by Marriott",
       "address": "Bandung, Jawa Barat",
-      "focus": "Manajemen Perkantoran",
-      "icon": "Headphones"
+      "focus": "Perhotelan & Pariwisata",
+      "icon": "Building",
+      "logo": "courtyard"
     },
     {
       "id": 6,
-      "name": "Bandung Techno Park",
+      "name": "The El Royale Hotel",
       "address": "Bandung, Jawa Barat",
-      "focus": "Teknologi & Startup",
-      "icon": "Cog"
+      "focus": "Perhotelan & Pariwisata",
+      "icon": "Building",
+      "logo": "elroyale"
     },
     {
       "id": 7,
-      "name": "PT Bio Farma",
+      "name": "Forrest Hill Hotel",
       "address": "Bandung, Jawa Barat",
-      "focus": "Logistik & Supply Chain",
-      "icon": "Cog"
+      "focus": "Perhotelan & Pariwisata",
+      "icon": "Building",
+      "logo": "forresthill"
     },
     {
       "id": 8,
-      "name": "Hotel Hilton Bandung",
+      "name": "GAIA Hotel",
       "address": "Bandung, Jawa Barat",
       "focus": "Perhotelan & Pariwisata",
-      "icon": "Building"
+      "icon": "Building",
+      "logo": "gaia"
+    },
+    {
+      "id": 9,
+      "name": "Grand Mercure",
+      "address": "Bandung, Jawa Barat",
+      "focus": "Perhotelan & Pariwisata",
+      "icon": "Building",
+      "logo": "grandmercure"
+    },
+    {
+      "id": 10,
+      "name": "Grand Sunshine",
+      "address": "Bandung, Jawa Barat",
+      "focus": "Perhotelan & Pariwisata",
+      "icon": "Building",
+      "logo": "grandsunshine"
+    },
+    {
+      "id": 11,
+      "name": "Grand Tjokro",
+      "address": "Bandung, Jawa Barat",
+      "focus": "Perhotelan & Pariwisata",
+      "icon": "Building",
+      "logo": "grandtjokro"
+    },
+    {
+      "id": 12,
+      "name": "Horison Hotel",
+      "address": "Bandung, Jawa Barat",
+      "focus": "Perhotelan & Pariwisata",
+      "icon": "Building",
+      "logo": "horison"
+    },
+    {
+      "id": 13,
+      "name": "Kimaya Hotel",
+      "address": "Bandung, Jawa Barat",
+      "focus": "Perhotelan & Pariwisata",
+      "icon": "Building",
+      "logo": "kimaya"
+    },
+    {
+      "id": 14,
+      "name": "Moxy Bandung",
+      "address": "Bandung, Jawa Barat",
+      "focus": "Perhotelan & Pariwisata",
+      "icon": "Building",
+      "logo": "moxy"
+    },
+    {
+      "id": 15,
+      "name": "Padma Hotel",
+      "address": "Bandung, Jawa Barat",
+      "focus": "Perhotelan & Pariwisata",
+      "icon": "Building",
+      "logo": "padma"
+    },
+    {
+      "id": 16,
+      "name": "Sutan Raja Hotel",
+      "address": "Bandung, Jawa Barat",
+      "focus": "Perhotelan & Pariwisata",
+      "icon": "Building",
+      "logo": "sutanraja"
+    },
+    {
+      "id": 17,
+      "name": "Waringin Hospitality",
+      "address": "Bandung, Jawa Barat",
+      "focus": "Perhotelan & Pariwisata",
+      "icon": "Building",
+      "logo": "waringin"
     }
   ],
   "cta": {
