@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback, forwardRef, useImperativeHandle } from "react";
 import { MessageCircle, X, Send, Trash2, Phone } from "lucide-react";
+import type { ChatReply, ChatReplyButton } from "../../services/chatbot";
 import "./chatbot.css";
 
 export interface ChatbotHandle {
@@ -17,10 +18,11 @@ export interface ChatMessage {
   content: string;
   sender: "user" | "bot";
   timestamp: number;
+  button?: ChatReplyButton;
 }
 
 export interface ChatbotWidgetProps {
-  onSendMessage: (message: string) => Promise<string>;
+  onSendMessage: (message: string) => Promise<ChatReply>;
   whatsappNumber?: string;
   greeting?: string;
   botName?: string;
@@ -209,9 +211,10 @@ const ChatbotWidget = forwardRef<ChatbotHandle, ChatbotWidgetProps>(function Cha
       const reply = await onSendMessage(text);
       const botMsg: ChatMessage = {
         id: crypto.randomUUID(),
-        content: reply,
+        content: reply.output,
         sender: "bot",
         timestamp: Date.now(),
+        button: reply.button,
       };
       setMessages((prev) => [...prev, botMsg]);
     } catch {
@@ -332,7 +335,19 @@ const ChatbotWidget = forwardRef<ChatbotHandle, ChatbotWidgetProps>(function Cha
                   {msg.sender === "bot" && (
                     <span className="chatbot-bubble-avatar">Y</span>
                   )}
-                  <div className="chatbot-bubble-content">{msg.content}</div>
+                  <div className="chatbot-bubble-content">
+                    <div>{msg.content}</div>
+                    {msg.button && (
+                      <a
+                        href={msg.button.url}
+                        className="chatbot-bubble-button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {msg.button.label}
+                      </a>
+                    )}
+                  </div>
                 </div>
               ))}
 

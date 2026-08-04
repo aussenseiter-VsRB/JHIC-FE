@@ -206,3 +206,97 @@
     justify-content: center;
   }
 }
+
+/* ---------- AI assist (KK auto-fill) ---------- */
+.daftar-ai {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  padding: 20px;
+  border: 1px dashed #93c5fd;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #eff6ff, #f8fafc);
+}
+
+.daftar-ai-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #2563eb;
+  color: #fff;
+}
+
+.daftar-ai-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.daftar-ai-title {
+  font-size: 1.05rem;
+  color: #1e3a5f;
+  margin-bottom: 4px;
+}
+
+.daftar-ai-hint {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #64748b;
+  margin-bottom: 14px;
+}
+
+.daftar-ai-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (min-width: 640px) {
+  .daftar-ai-fields {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.daftar-ai-fields .daftar-input {
+  flex: 1;
+}
+
+.daftar-btn--ai {
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  white-space: nowrap;
+}
+
+.daftar-btn--ai:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+.daftar-ai-notice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: #16a34a;
+}
+
+.daftar-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding: 14px 16px;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  background: #fef2f2;
+  font-size: 0.9rem;
+  color: #b91c1c;
+}
+
