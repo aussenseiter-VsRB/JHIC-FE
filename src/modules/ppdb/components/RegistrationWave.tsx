@@ -32,7 +32,7 @@ function RegistrationWave() {
       <h2 className="ppdb-section-title">Gelombang Pendaftaran</h2>
       <span className="ppdb-section-accent" />
       <p className="ppdb-section-subtitle">
-        Jadwal pelaksanaan PPDB setiap gelombang.
+        Jadwal pelaksanaan SPMB setiap gelombang.
       </p>
 
       <div className="ppdb-wave-container">

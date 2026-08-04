@@ -33,7 +33,7 @@ const defaultGreeting =
 
 const defaultSuggestions = [
   "Apa saja program keahlian yang tersedia?",
-  "Bagaimana cara mendaftar PPDB?",
+  "Bagaimana cara mendaftar SPMB?",
   "Di mana lokasi sekolah?",
 ];
 

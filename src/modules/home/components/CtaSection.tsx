@@ -15,10 +15,10 @@ function CtaSection() {
             Daftarkan dirimu sekarang dan wujudkan masa depan cerah bersama kami
           </p>
           <Link
-            to="/ppdb"
+            to="/spmb"
             className="font-poppins home-cta-button"
           >
-            Daftar PPDB Sekarang <ArrowRight className="home-cta-button-icon" />
+            Daftar SPMB Sekarang <ArrowRight className="home-cta-button-icon" />
           </Link>
         </div>
       </div>

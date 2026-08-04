@@ -31,9 +31,9 @@ function NotFound() {
               <House className="not-found-btn-icon" />
               Kembali ke Beranda
             </Link>
-            <Link to="/ppdb" className="not-found-btn not-found-btn--ghost">
+            <Link to="/spmb" className="not-found-btn not-found-btn--ghost">
               <FileText className="not-found-btn-icon" />
-              Info PPDB
+              Info SPMB
             </Link>
           </div>
         </div>

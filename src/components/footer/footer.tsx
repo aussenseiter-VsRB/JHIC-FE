@@ -11,7 +11,7 @@ const footerLinks = [
   { label: "Beranda", to: "/" },
   { label: "Profil", to: "/profile" },
   { label: "Program Keahlian", to: "/jurusan" },
-  { label: "PPDB", to: "/ppdb" },
+  { label: "SPMB", to: "/spmb" },
 ];
 
 interface FooterProps {

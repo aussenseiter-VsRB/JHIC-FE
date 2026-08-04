@@ -173,8 +173,8 @@ function PageJurusanDetail() {
             <p className="jurusan-specific-cta-text">
               Tertarik bergabung? Daftar sekarang dan menjadi bagian dari program keahlian {jurusan.code} di SMK Yadika Soreang.
             </p>
-            <Link to="/ppdb" className="jurusan-specific-cta-btn">
-              Daftar PPDB
+            <Link to="/spmb" className="jurusan-specific-cta-btn">
+              Daftar SPMB
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

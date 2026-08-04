@@ -53,7 +53,7 @@ const navLinks: NavItem[] = [
       { label: 'Prestasi Siswa', to: '/prestasi', icon: Trophy, description: 'Galeri pencapaian dan prestasi siswa' },
     ],
   },
-  { label: 'PPDB', to: '/ppdb' },
+  { label: 'SPMB', to: '/spmb' },
 ]
 
 interface NavbarProps {

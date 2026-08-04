@@ -53,7 +53,7 @@ function Fasilitas() {
     <div className="fasilitas">
       <div className="fasilitas-header-section">
         <div className="fasilitas-header-inner">
-          <div className="fasilitas-header-text">
+          <div className="fasilitas-header-text reveal">
             <Breadcrumb
               items={[
                 { label: "Fasilitas" },
@@ -74,7 +74,7 @@ function Fasilitas() {
             </button>
           </div>
 
-          <div className="fasilitas-header-visual">
+          <div className="fasilitas-header-visual reveal reveal-delay-2">
             <div className="fasilitas-photo-placeholder">
               <Building2 className="fasilitas-photo-icon" />
               <span className="fasilitas-photo-label">Foto Sarana &amp; Prasarana</span>
@@ -83,8 +83,8 @@ function Fasilitas() {
         </div>
 
         <div className="fasilitas-header-stats">
-          {stats.map((stat) => (
-            <div key={stat.label} className="fasilitas-header-stat">
+          {stats.map((stat, idx) => (
+            <div key={stat.label} className={`fasilitas-header-stat reveal reveal-delay-${idx + 1}`}>
               <span className="fasilitas-header-stat-value" style={{ color: stat.color }}>{stat.value}</span>
               <span className="fasilitas-header-stat-label">{stat.label}</span>
             </div>

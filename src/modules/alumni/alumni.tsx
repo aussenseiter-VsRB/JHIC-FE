@@ -91,7 +91,7 @@ function Alumni() {
               <ArrowRight className="alumni-hero-btn-icon" />
             </button>
           </div>
-
+dee
           <div className="alumni-hero-stats">
             {alumniData.stats.map((stat, i) => (
               <div key={i} className="alumni-stat">

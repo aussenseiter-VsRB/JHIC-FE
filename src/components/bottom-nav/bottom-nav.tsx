@@ -23,6 +23,7 @@ import {
   BarChart3,
   Newspaper,
   Trophy,
+  Award,
 } from "lucide-react";
 import "./bottom-nav.css";
 
@@ -50,6 +51,7 @@ const drawerLinks: NavItem[] = [
       { label: "Profil Sekolah", to: "/profile", icon: GraduationCap },
       { label: "Profil Guru", to: "/profilguru", icon: Users },
       { label: "Hubungan Industri", to: "/hubin", icon: Handshake },
+      { label: "Alumni", to: "/alumni", icon: Award },
     ],
   },
   {
@@ -75,6 +77,7 @@ const drawerLinks: NavItem[] = [
       { label: "Prestasi Siswa", to: "/prestasi", icon: Trophy },
     ],
   },
+  { label: "SPMB", to: "/spmb" },
 ];
 
 export default function BottomNav({ onChatbotToggle }: BottomNavProps) {
@@ -127,11 +130,11 @@ export default function BottomNav({ onChatbotToggle }: BottomNavProps) {
           <div className="bottom-nav-spacer" />
 
           <NavLink
-            to="/ppdb"
-            className={`bottom-nav-item ${isActive("/ppdb") ? "active" : ""}`}
+            to="/spmb"
+            className={`bottom-nav-item ${isActive("/spmb") ? "active" : ""}`}
           >
             <FileText className="bottom-nav-icon" />
-            <span className="bottom-nav-label">PPDB</span>
+            <span className="bottom-nav-label">SPMB</span>
           </NavLink>
 
           <button
