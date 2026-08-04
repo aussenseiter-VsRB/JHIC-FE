@@ -2,5 +2,5 @@
   "title": "SMK YADIKA SOREANG",
   "subtitle": "Sekolah Menengah Kejuruan Unggulan",
   "ctaPrimary": { "label": "Daftar SPMB", "href": "/spmb" },
-  "ctaSecondary": { "label": "Lihat Video Profil", "href": "#" }
+  "ctaSecondary": { "label": "Lihat Profil Sekolah", "href": "/profile" }
 }

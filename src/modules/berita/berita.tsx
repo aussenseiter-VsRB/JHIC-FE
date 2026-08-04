@@ -72,18 +72,6 @@ function Berita() {
     return <SkeletonLoad />;
   }
 
-  if (error) {
-    return (
-      <div className="berita">
-        <div className="berita-container">
-          <div className="berita-error">
-            <p>Gagal memuat berita. Silakan coba lagi nanti.</p>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   const header = beritaData.header;
   const titleWords = (header.title || "").split(" ");
   const baseTitle = titleWords.slice(0, -1).join(" ");
@@ -159,7 +147,13 @@ function Berita() {
       </header>
 
       <div className="berita-container">
-        <section className="berita-section">
+        {error ? (
+          <div className="berita-error">
+            <p>Berita gagal dimuat. Silakan coba lagi nanti.</p>
+          </div>
+        ) : (
+          <>
+            <section className="berita-section">
           <div className="berita-section-header reveal">
             <h2 className="berita-section-title">{beritaData.beritaTerkini?.title || "BERITA TERKINI"}</h2>
             <span className="berita-section-accent" />
@@ -278,6 +272,8 @@ function Berita() {
             ))}
           </div>
         </section>
+      </>
+        )}
       </div>
     </div>
   );

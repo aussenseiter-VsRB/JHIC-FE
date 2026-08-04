@@ -141,7 +141,7 @@ function Daftar() {
     <div className="daftar bg-pearl pt-32 pb-20">
       <div className="daftar-container">
         <div className="daftar-header">
-          <span className="daftar-badge">{daftarData.badge}</span>
+        
           <h1 className="daftar-title font-heading">{daftarData.title}</h1>
           <p className="daftar-subtitle">{daftarData.subtitle}</p>
         </div>
