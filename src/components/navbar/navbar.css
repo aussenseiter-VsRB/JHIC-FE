@@ -8,6 +8,42 @@
   justify-content: center;
 }
 
+.mobile-logo-bar {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+}
+
+.mobile-logo-bar-inner {
+  display: flex;
+  height: 52px;
+  width: 100%;
+  max-width: 70rem;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #1E3A5FCC;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0 1.5rem;
+}
+
+.mobile-logo-bar .navbar-logo {
+  height: 34px;
+  width: 34px;
+}
+
+@media (min-width: 768px) {
+  .mobile-logo-bar {
+    display: none;
+  }
+}
+
 @media (min-width: 768px) {
   .navbar {
     left: 2rem;

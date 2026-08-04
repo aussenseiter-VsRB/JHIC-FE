@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState, useRef } from "react";
 import { Outlet, useLocation } from "react-router";
 import Navbar from "../components/navbar/navbar";
+import MobileLogoBar from "../components/navbar/mobile-logo-bar";
 import Footer from "../components/footer/footer";
 import ChatbotWidget, { type ChatbotHandle } from "../components/chatbot/chatbot";
 import { sendToChatbot, resetSession } from "../services/chatbot";
@@ -71,6 +72,7 @@ function Layout() {
     <div className="min-h-screen bg-pearl">
       <ScrollToTop />
       {!isMobile && <Navbar accentColor={navbarAccentColor} lightActive={useLightNavbarActive} activeColor={navbarActiveColor} />}
+      {isMobile && <MobileLogoBar />}
       <main>
         <Outlet context={{ setJurusanListingAccent } satisfies LayoutOutletContext} />
         <Footer accentColor={detailAccentColor} bgColor={jurusanData?.theme.gradientFrom} />

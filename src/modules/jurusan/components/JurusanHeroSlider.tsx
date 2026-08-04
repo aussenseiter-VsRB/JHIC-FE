@@ -3,16 +3,16 @@ import { motion, AnimatePresence } from "motion/react";
 
 import Breadcrumb from "../../../components/breadcrumb/breadcrumb";
 import { jurusanData } from "../data";
-import jurusanPplg from "../../../assets/jurusan-pplg.svg";
-import jurusanHtl from "../../../assets/jurusan-htl.svg";
-import jurusanAk from "../../../assets/jurusan-ak.svg";
+import pplgImg from "../../../assets/jurusan-assets/pplg/pplg-img-main.png";
+import htlImg from "../../../assets/jurusan-assets/htl/htl-img-main.png";
+import aklImg from "../../../assets/jurusan-assets/akl/akl-img-main.png";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 const jurusanImages: Record<string, string> = {
-  PPLG: jurusanPplg,
-  HOTEL: jurusanHtl,
-  AKL: jurusanAk,
+  PPLG: pplgImg,
+  HOTEL: htlImg,
+  AKL: aklImg,
 };
 
 interface JurusanHeroSliderProps {

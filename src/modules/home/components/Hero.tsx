@@ -1,14 +1,22 @@
-import { Play, ArrowRight } from "lucide-react";
+import { ArrowRight, GraduationCap } from "lucide-react";
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import data from "../data/hero.json";
-import heroImg from "../../../assets/hero.png";
+import heroImg from "../../../assets/homepages-assets/hero-img.png";
+import placeholder from "../../../assets/placeholder.svg";
+import AnimatedNumber from "../../../components/animated-number/AnimatedNumber";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 const titleWords = data.title.split(" ");
 const baseTitle = titleWords.slice(0, -1).join(" ");
 const highlightedWord = titleWords[titleWords.length - 1];
+
+const stats = [
+  { number: "3", label: "Program Keahlian" },
+  { number: "30+", label: "Mitra Industri" },
+  { number: "100%", label: "Lulus Siap Kerja" },
+];
 
 function Hero() {
   return (
@@ -20,15 +28,41 @@ function Hero() {
 
       <div className="home-hero-inner">
         <div className="home-hero-content">
+        
+
           <motion.h1
             className="font-heading home-hero-title"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15, ease: EASE }}
           >
-            {baseTitle}{" "}
+            {baseTitle}
+            <br />
             <span className="home-hero-title-highlight">{highlightedWord}</span>
           </motion.h1>
+
+          <motion.svg
+            className="home-hero-tali"
+            viewBox="0 0 320 36"
+            fill="none"
+            aria-hidden="true"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.35 }}
+          >
+            <path
+              className="home-hero-tali-path"
+              d="M3 28 C 44 30, 52 10, 96 12 C 140 14, 146 30, 190 28 C 234 26, 244 12, 288 14 C 300 14, 306 18, 317 20"
+            />
+            <circle className="home-hero-tali-dot home-hero-tali-dot--s" cx="3" cy="28" r="2.5" />
+            <circle className="home-hero-tali-dot home-hero-tali-dot--e" cx="317" cy="20" r="2.5" />
+            <defs>
+              <linearGradient id="homeTaliGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#60A5FA" />
+                <stop offset="100%" stopColor="#38BDF8" />
+              </linearGradient>
+            </defs>
+          </motion.svg>
 
           <motion.p
             className="font-body home-hero-subtitle"
@@ -53,20 +87,38 @@ function Hero() {
               {data.ctaPrimary.label}
               <ArrowRight className="home-hero-cta-icon" />
             </Link>
-            <a
-              href={data.ctaSecondary.href}
+            <Link
+              to={data.ctaSecondary.href}
               className="font-poppins home-hero-cta home-hero-cta--secondary"
             >
-              <Play className="home-hero-cta-icon" />
+              <GraduationCap className="home-hero-cta-icon home-hero-cta-icon--flat" />
               {data.ctaSecondary.label}
-            </a>
+            </Link>
+          </motion.div>
+
+          <motion.div
+            className="home-hero-stats"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7, ease: EASE }}
+          >
+            {stats.map((stat, i) => (
+              <div className="home-hero-stat-block" key={stat.label}>
+                <span className="home-hero-stat-num">
+                  <AnimatedNumber value={stat.number} />
+                </span>
+                <span className="home-hero-stat-label">{stat.label}</span>
+                {i < stats.length - 1 && <span className="home-hero-stat-divider" />}
+              </div>
+            ))}
           </motion.div>
         </div>
 
         <div className="home-hero-visual">
+          <div className="home-hero-photo-ring" aria-hidden="true" />
           <motion.div
             className="home-hero-photo-frame"
-            initial={{ opacity: 0, y: 24, scale: 0.92 }}
+            initial={{ opacity: 0, y: 24, scale: 0.94 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4, ease: EASE }}
           >
@@ -74,6 +126,10 @@ function Hero() {
               src={heroImg}
               alt="SMK Yadika Soreang"
               className="home-hero-photo"
+              loading="lazy"
+              onError={(event) => {
+                event.currentTarget.src = placeholder;
+              }}
             />
           </motion.div>
         </div>

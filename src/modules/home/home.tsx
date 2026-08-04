@@ -5,6 +5,7 @@ import HomeDecor from "./components/HomeDecor";
 import LogoLoop from "./components/LogoLoop";
 import type { LogoItem } from "./components/LogoLoop";
 import Programs from "./components/Programs";
+import NexxaMatchBanner from "./components/NexxaMatchBanner";
 import BeritaPreview from "./components/BeritaPreview";
 import CtaSection from "./components/CtaSection";
 import Testimonials from "./components/Testimonials";
@@ -99,6 +100,7 @@ function Home() {
         />
       </section>
       <Programs />
+      <NexxaMatchBanner />
       <BeritaPreview />
       <CtaSection />
       <Testimonials />

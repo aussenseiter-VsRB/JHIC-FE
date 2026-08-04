@@ -1190,3 +1190,26 @@
     margin-top: 32px;
   }
 }
+
+.berita-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 720px;
+  padding: 72px 24px;
+}
+
+.berita-error p {
+  margin: 0;
+  width: 100%;
+  border: 1px solid #FECACA;
+  border-radius: 16px;
+  background: #FEF2F2;
+  padding: 20px 24px;
+  text-align: center;
+  font-family: var(--font-poppins);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #B91C1C;
+}
