@@ -38,3 +38,29 @@ export function extractBeritaImage(berita: Pick<Berita, "image_url" | "content">
   if (berita.image_url) return berita.image_url;
   return berita.content.match(MARKDOWN_IMAGE_RE)?.[1];
 }
+
+const dateFormatter = new Intl.DateTimeFormat("id-ID", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+
+const excerptFromContent = (content: string): string => {
+  const plain = content
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
+    .replace(/[#*_`>]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  return plain.length > 150 ? `${plain.slice(0, 150)}…` : plain;
+};
+
+export function beritaToItem(berita: Berita): BeritaItem {
+  return {
+    id: berita.id,
+    title: berita.title,
+    date: dateFormatter.format(new Date(berita.created_at)),
+    category: "Berita",
+    excerpt: excerptFromContent(berita.content),
+    image: extractBeritaImage(berita) ?? "",
+  };
+}

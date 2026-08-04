@@ -4,35 +4,11 @@ import { Calendar, ArrowRight, User } from "lucide-react";
 import SkeletonLoad from "./components/skeleton/skeletonLoad";
 import AnimatedNumber from "../../components/animated-number/AnimatedNumber";
 import SafeImage from "../../components/image/safe-image";
-import { getBerita, extractBeritaImage, type Berita as BeritaData, type BeritaItem } from "./service/beritaApi";
+import { getBerita, beritaToItem, type Berita as BeritaData, type BeritaItem } from "./service/beritaApi";
 import beritaData from "./berita.json";
 import "./css/berita.css";
 
 const categoryColors: Record<string, string> = beritaData.categoryColors;
-
-const dateFormatter = new Intl.DateTimeFormat("id-ID", {
-  day: "numeric",
-  month: "long",
-  year: "numeric",
-});
-
-const excerptFromContent = (content: string): string => {
-  const plain = content
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
-    .replace(/[#*_`>]/g, "")
-    .replace(/\s+/g, " ")
-    .trim();
-  return plain.length > 150 ? `${plain.slice(0, 150)}…` : plain;
-};
-
-const beritaToItem = (berita: BeritaData): BeritaItem => ({
-  id: berita.id,
-  title: berita.title,
-  date: dateFormatter.format(new Date(berita.created_at)),
-  category: "Berita",
-  excerpt: excerptFromContent(berita.content),
-  image: extractBeritaImage(berita) ?? "",
-});
 
 function Berita() {
   const [loading, setLoading] = useState(true);

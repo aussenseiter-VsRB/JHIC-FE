@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { ArrowRight } from "lucide-react";
 import { jurusanData } from "../../jurusan/data";
 import iconPplg from "../../../assets/icon-pplg.svg";
@@ -30,22 +31,33 @@ function Programs() {
               key={prog.code}
               href={`/jurusan/${prog.slug}`}
               className={`reveal reveal-delay-${i + 1} home-programs-card`}
+              style={
+                {
+                  "--prog-from": prog.theme.gradientFrom,
+                  "--prog-to": prog.theme.gradientTo,
+                  "--prog-accent": prog.theme.accent,
+                } as CSSProperties
+              }
             >
-              <span className="home-programs-card-accent" />
-              <img
-                src={programIcons[prog.code]}
-                alt={`Logo ${prog.name}`}
-                className="home-programs-card-icon"
-              />
-              <h3 className="home-programs-card-title">
-                {prog.name}
-              </h3>
-              <p className="home-programs-card-desc">
-                {prog.description}
-              </p>
-              <span className="home-programs-card-link">
-                Selengkapnya <ArrowRight className="home-programs-card-link-icon" />
-              </span>
+              <div className="home-programs-card-visual">
+                <img
+                  src={programIcons[prog.code]}
+                  alt={`Logo ${prog.name}`}
+                  className="home-programs-card-icon"
+                />
+                <span className="home-programs-card-code">{prog.code}</span>
+              </div>
+              <div className="home-programs-card-body">
+                <h3 className="home-programs-card-title">
+                  {prog.name}
+                </h3>
+                <p className="home-programs-card-desc">
+                  {prog.description}
+                </p>
+                <span className="home-programs-card-link">
+                  Selengkapnya <ArrowRight className="home-programs-card-link-icon" />
+                </span>
+              </div>
             </a>
           ))}
         </div>

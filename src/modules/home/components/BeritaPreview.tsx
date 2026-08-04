@@ -1,12 +1,34 @@
+import { useEffect, useState } from "react";
 import { Calendar, ArrowRight } from "lucide-react";
 import { Link } from "react-router";
 import beritaData from "../../berita/berita.json";
+import { getBerita, beritaToItem, type BeritaItem } from "../../berita/service/beritaApi";
+import SafeImage from "../../../components/image/safe-image";
 import HomeDecor from "./HomeDecor";
 
 const categoryColors: Record<string, string> = beritaData.categoryColors;
 
+const staticLatest: BeritaItem[] = beritaData.beritaTerkini.list
+  .slice(0, 3)
+  .map((item) => ({ ...item, id: String(item.id) }));
+
 function BeritaPreview() {
-  const latestNews = beritaData.beritaTerkini.list.slice(0, 3);
+  const [latestNews, setLatestNews] = useState<BeritaItem[]>(staticLatest);
+
+  useEffect(() => {
+    let cancelled = false;
+    getBerita()
+      .then((data) => {
+        if (!cancelled) {
+          const sorted = [...data].sort(
+            (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+          );
+          setLatestNews(sorted.slice(0, 3).map(beritaToItem));
+        }
+      })
+      .catch((err) => console.error("Failed to fetch berita:", err));
+    return () => { cancelled = true; };
+  }, []);
 
   return (
     <section className="home-berita">
@@ -21,20 +43,19 @@ function BeritaPreview() {
           </p>
         </div>
         <div className="home-berita-grid">
-          {latestNews.map((item, i) => (
+          {latestNews.map((item) => (
             <article
               key={item.id}
-              className={`reveal reveal-delay-${i + 1} home-berita-card`}
+              className="home-berita-card"
             >
               <div className="home-berita-card-image">
-                <div className="home-berita-card-gradient">
-                  <span
-                    className="font-poppins home-berita-card-category"
-                    style={{ background: categoryColors[item.category] ?? "#2563EB" }}
-                  >
-                    {item.category}
-                  </span>
-                </div>
+                <SafeImage src={item.image} alt={item.title} />
+                <span
+                  className="font-poppins home-berita-card-category"
+                  style={{ background: categoryColors[item.category] ?? "#2563EB" }}
+                >
+                  {item.category}
+                </span>
               </div>
               <div className="home-berita-card-body">
                 <div className="home-berita-card-date">
