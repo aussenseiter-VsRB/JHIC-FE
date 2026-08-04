@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router";
 import { ArrowLeft, AlertTriangle, Loader2 } from "lucide-react";
 import fasilitasJurusanData from "../fasilitas-jurusan/fasilitas-jurusan.json";
 import "./css/panorama.css";

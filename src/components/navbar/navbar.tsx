@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import type { CSSProperties, ElementType } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router'
 import { Menu, X, ArrowUpRight, ChevronDown, GraduationCap, Users, Handshake, BookOpen, Sparkles, Building2, Newspaper, Trophy, Code, Hotel, BarChart3, Award } from 'lucide-react'
 import logoSrc from '../../assets/Logo-yadika.webp'
 import './navbar.css'

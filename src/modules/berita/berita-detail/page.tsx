@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router";
 import { ArrowLeft, ArrowRight, CalendarDays, Clock, User } from "lucide-react";
 import { useState, useEffect } from "react";
 import Breadcrumb from "../../../components/breadcrumb/breadcrumb";

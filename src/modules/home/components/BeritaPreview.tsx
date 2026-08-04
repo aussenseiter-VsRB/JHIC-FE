@@ -1,5 +1,5 @@
 import { Calendar, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import beritaData from "../../berita/berita.json";
 
 const categoryColors: Record<string, string> = beritaData.categoryColors;

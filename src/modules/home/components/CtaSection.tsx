@@ -1,5 +1,5 @@
 import { ArrowRight, GraduationCap } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 function CtaSection() {
   return (

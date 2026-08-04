@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import Breadcrumb from "../../components/breadcrumb/breadcrumb";
 import EkstrakurikulerPhoto from "./components/EkstrakurikulerPhoto";
 import heroImage from "../../assets/hero.png";

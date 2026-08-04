@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext } from "react-router";
 import type { LayoutOutletContext } from "../../../core/layout";
 import JurusanHeroSlider from "../components/JurusanHeroSlider";
 import JurusanSection from "../components/JurusanSection";

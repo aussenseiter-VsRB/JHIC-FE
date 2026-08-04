@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router";
 import { Orbit, Cog, ArrowRight } from "lucide-react";
 import Breadcrumb from "../../components/breadcrumb/breadcrumb";
 import "./css/fasilitas-jurusan.css";

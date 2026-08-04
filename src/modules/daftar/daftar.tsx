@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ArrowRight, CheckCircle, ClipboardList, RotateCcw } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import daftarData from "./daftar.json";
 import "./css/daftar.css";
 

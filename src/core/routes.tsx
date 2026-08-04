@@ -1,4 +1,4 @@
-import { type RouteObject } from "react-router-dom";
+import { type RouteObject } from "react-router";
 
 import Layout from "./layout";
 import Home from "../modules/home/home";
