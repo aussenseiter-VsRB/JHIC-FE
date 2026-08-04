@@ -504,6 +504,12 @@
   overflow: hidden;
 }
 
+.berita-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .berita-card-placeholder {
   width: 100%;
   height: 100%;

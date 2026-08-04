@@ -1,9 +1,11 @@
 import AnimatedNumber from "../../../components/animated-number/AnimatedNumber";
 import data from "../data/about.json";
+import HomeDecor from "./HomeDecor";
 
 function About() {
   return (
     <section className="home-about">
+      <HomeDecor />
       <div className="home-about-container">
         <div className="reveal">
           <h2 className="font-heading home-about-heading">

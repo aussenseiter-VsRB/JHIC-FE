@@ -4,7 +4,7 @@ import { Calendar, ArrowRight, User } from "lucide-react";
 import SkeletonLoad from "./components/skeleton/skeletonLoad";
 import AnimatedNumber from "../../components/animated-number/AnimatedNumber";
 import SafeImage from "../../components/image/safe-image";
-import { getBerita, type Berita as BeritaData, type BeritaItem } from "./service/beritaApi";
+import { getBerita, extractBeritaImage, type Berita as BeritaData, type BeritaItem } from "./service/beritaApi";
 import beritaData from "./berita.json";
 import "./css/berita.css";
 
@@ -31,7 +31,7 @@ const beritaToItem = (berita: BeritaData): BeritaItem => ({
   date: dateFormatter.format(new Date(berita.created_at)),
   category: "Berita",
   excerpt: excerptFromContent(berita.content),
-  image: berita.image_url ?? "",
+  image: extractBeritaImage(berita) ?? "",
 });
 
 function Berita() {
@@ -252,9 +252,7 @@ function Berita() {
               {pagedCards.map((berita: BeritaItem) => (
                 <article key={berita.id} className="berita-card">
                   <div className="berita-card-image">
-                    <div className="berita-card-placeholder">
-                      <span className="berita-card-placeholder-text">{berita.category}</span>
-                    </div>
+                    <SafeImage src={berita.image} alt={berita.title} className="berita-card-img" />
                     <span
                       className="berita-card-category"
                       style={{ background: categoryColors[berita.category] ?? "#2563EB" }}

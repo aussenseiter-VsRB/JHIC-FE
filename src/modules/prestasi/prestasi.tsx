@@ -6,7 +6,7 @@ import AnimatedNumber from "../../components/animated-number/AnimatedNumber";
 import PixelTransition from "../../components/pixel-transition/PixelTransition";
 import SafeImage from "../../components/image/safe-image";
 import "./css/prestasi.css";
-import { getBerita, type Berita } from "../berita/service/beritaApi";
+import { getBerita, extractBeritaImage, type Berita } from "../berita/service/beritaApi";
 import SkeletonPrestasi from "./components/skeleton/skeletonPrestasi";
 
 const dateFormatter = new Intl.DateTimeFormat("id-ID", {
@@ -70,7 +70,8 @@ function Prestasi() {
 
   const latestPhoto = [...achievements]
     .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
-    .find((berita) => berita.image_url)?.image_url;
+    .map(extractBeritaImage)
+    .find((img) => img);
 
   return (
     <div className="prestasi">

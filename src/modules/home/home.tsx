@@ -1,6 +1,7 @@
 import "./css/home.css";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import HomeDecor from "./components/HomeDecor";
 import LogoLoop from "./components/LogoLoop";
 import type { LogoItem } from "./components/LogoLoop";
 import Programs from "./components/Programs";
@@ -57,6 +58,7 @@ function Home() {
       <Hero />
       <About />
       <section className="home-mitra">
+        <HomeDecor />
         <div className="reveal home-mitra-header">
           <h2 className="font-heading home-mitra-title">
             Mitra Industri
