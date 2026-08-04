@@ -1,10 +1,19 @@
 [
-  { "icon": "Building2", "title": "PT Teknologi Nusantara" },
-  { "icon": "Factory", "title": "PT Manufaktur Jaya" },
-  { "icon": "Briefcase", "title": "PT Digital Solusi" },
-  { "icon": "GraduationCap", "title": "Yayasan Pendidikan Yadika" },
-  { "icon": "Handshake", "title": "PT Karya Bersama" },
-  { "icon": "Landmark", "title": "Bank Pembangunan Daerah" },
-  { "icon": "ShieldCheck", "title": "PT Asuransi Utama" },
-  { "icon": "Cpu", "title": "PT Sistem Mikro Elektronik" }
+  { "logo": "nextit", "title": "NextIT" },
+  { "logo": "bankbjb", "title": "Bank BJB" },
+  { "logo": "pegadaian", "title": "PT Pegadaian" },
+  { "logo": "astonpasteur", "title": "Aston Pasteur" },
+  { "logo": "courtyard", "title": "Courtyard by Marriott" },
+  { "logo": "elroyale", "title": "The El Royale Hotel" },
+  { "logo": "forresthill", "title": "Forrest Hill Hotel" },
+  { "logo": "gaia", "title": "GAIA Hotel" },
+  { "logo": "grandmercure", "title": "Grand Mercure" },
+  { "logo": "grandsunshine", "title": "Grand Sunshine" },
+  { "logo": "grandtjokro", "title": "Grand Tjokro" },
+  { "logo": "horison", "title": "Horison Hotel" },
+  { "logo": "kimaya", "title": "Kimaya Hotel" },
+  { "logo": "moxy", "title": "Moxy Bandung" },
+  { "logo": "padma", "title": "Padma Hotel" },
+  { "logo": "sutanraja", "title": "Sutan Raja Hotel" },
+  { "logo": "waringin", "title": "Waringin Hospitality" }
 ]

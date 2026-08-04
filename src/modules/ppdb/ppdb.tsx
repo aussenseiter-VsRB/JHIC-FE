@@ -1,5 +1,5 @@
 import { FileText, CheckCircle, ArrowRight, Phone, Mail, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import "./css/ppdb.css";
 import PpdbHero from "./components/PpdbHero";
 import RegistrationSteps from "./components/RegistrationSteps";

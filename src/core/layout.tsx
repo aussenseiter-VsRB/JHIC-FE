@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState, useRef } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "react-router";
 import Navbar from "../components/navbar/navbar";
 import Footer from "../components/footer/footer";
 import ChatbotWidget, { type ChatbotHandle } from "../components/chatbot/chatbot";

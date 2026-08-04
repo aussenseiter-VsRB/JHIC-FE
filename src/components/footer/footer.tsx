@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router";
 import { Phone, Printer, Mail, MapPin, ExternalLink } from "lucide-react";
 import "./footer.css";
 import Map from "./components/mapComponents";

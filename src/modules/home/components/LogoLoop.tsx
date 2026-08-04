@@ -2,14 +2,14 @@ import { useCallback, useEffect, useMemo, useRef, useState, memo } from "react";
 import type { CSSProperties, ReactNode, Key } from "react";
 import "./LogoLoop.css";
 
-interface LogoNodeItem {
+export interface LogoNodeItem {
   node: ReactNode;
   title?: string;
   href?: string;
   ariaLabel?: string;
 }
 
-interface LogoImageItem {
+export interface LogoImageItem {
   src: string;
   srcSet?: string;
   sizes?: string;
@@ -20,7 +20,7 @@ interface LogoImageItem {
   height?: number;
 }
 
-type LogoItem = LogoNodeItem | LogoImageItem;
+export type LogoItem = LogoNodeItem | LogoImageItem;
 
 interface LogoLoopProps {
   logos: LogoItem[];

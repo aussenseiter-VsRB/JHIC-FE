@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { Trophy, Medal, ArrowRight, CalendarDays } from "lucide-react";
 import Breadcrumb from "../../components/breadcrumb/breadcrumb";
 import AnimatedNumber from "../../components/animated-number/AnimatedNumber";

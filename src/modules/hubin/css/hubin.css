@@ -414,6 +414,19 @@
   transform: scale(1.1);
 }
 
+.hubin-mitra-logo {
+  height: 48px;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 0 auto 16px;
+  display: block;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hubin-mitra-card:hover .hubin-mitra-logo {
+  transform: scale(1.1);
+}
+
 .hubin-mitra-name {
   font-size: 1rem;
   color: #1E3A5F;

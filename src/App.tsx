@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import type { RouteObject } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router";
+import type { RouteObject } from "react-router";
 import routes from "./core/routes";
 import 'leaflet/dist/leaflet.css';
 

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { House, FileText, BookOpen, Building2, ArrowRight } from "lucide-react";
 import "./css/not-found.css";
 

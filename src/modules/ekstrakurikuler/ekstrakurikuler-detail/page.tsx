@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router";
 import { ArrowLeft, CalendarDays, Clock, User } from "lucide-react";
 import Breadcrumb from "../../../components/breadcrumb/breadcrumb";
 import EkstrakurikulerPhoto from "../components/EkstrakurikulerPhoto";

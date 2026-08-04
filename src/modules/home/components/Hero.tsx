@@ -1,6 +1,6 @@
 import { Play, ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import data from "../data/hero.json";
 import heroImg from "../../../assets/hero.png";
 
