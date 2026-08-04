@@ -3,6 +3,7 @@ import { jurusanData } from "../../jurusan/data";
 import iconPplg from "../../../assets/icon-pplg.svg";
 import iconAkl from "../../../assets/icon-akl.svg";
 import iconHotel from "../../../assets/icon-hotel.svg";
+import HomeDecor from "./HomeDecor";
 
 const programIcons: Record<string, string> = {
   PPLG: iconPplg,
@@ -13,6 +14,7 @@ const programIcons: Record<string, string> = {
 function Programs() {
   return (
     <section className="home-programs">
+      <HomeDecor />
       <div className="home-programs-container">
         <div className="reveal">
           <h2 className="font-heading home-programs-title">

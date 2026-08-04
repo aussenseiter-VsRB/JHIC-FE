@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Breadcrumb from "../../../components/breadcrumb/breadcrumb";
 import SafeImage from "../../../components/image/safe-image";
 import "./css/berita-detail.css";
-import { getBerita, getBeritaById, type Berita } from "../service/beritaApi";
+import { getBerita, getBeritaById, extractBeritaImage, type Berita } from "../service/beritaApi";
 import SkeletonDetail from "./components/skeleton/skeletonDetail";
 
 const dateFormatter = new Intl.DateTimeFormat("id-ID", {
@@ -151,7 +151,7 @@ function BeritaDetail() {
       <div className="berita-detail-body">
         <article className="berita-detail-article">
           <div className="berita-detail-article-image">
-            <SafeImage src={item.image_url} alt={item.title} />
+            <SafeImage src={extractBeritaImage(item)} alt={item.title} />
           </div>
 
           <div className="berita-detail-content">
@@ -175,7 +175,7 @@ function BeritaDetail() {
                 className={`berita-detail-related-card reveal reveal-delay-${(i % 3) + 1}`}
               >
                 <div className="berita-detail-related-image">
-                  <SafeImage src={berita.image_url} alt={berita.title} />
+                  <SafeImage src={extractBeritaImage(berita)} alt={berita.title} />
                 </div>
                 <div className="berita-detail-related-content">
                   <div className="berita-detail-related-date">

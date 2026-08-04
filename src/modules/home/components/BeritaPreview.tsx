@@ -1,6 +1,7 @@
 import { Calendar, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import beritaData from "../../berita/berita.json";
+import HomeDecor from "./HomeDecor";
 
 const categoryColors: Record<string, string> = beritaData.categoryColors;
 
@@ -9,6 +10,7 @@ function BeritaPreview() {
 
   return (
     <section className="home-berita">
+      <HomeDecor />
       <div className="home-berita-container">
         <div className="reveal">
           <h2 className="font-heading home-berita-title">

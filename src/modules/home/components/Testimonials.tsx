@@ -1,5 +1,6 @@
 import { Star } from "lucide-react";
 import data from "../data/testimonials.json";
+import HomeDecor from "./HomeDecor";
 
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -26,6 +27,7 @@ function getInitials(name: string) {
 function Testimonials() {
   return (
     <section className="home-testi">
+      <HomeDecor />
       <div className="home-testi-container">
         <div className="reveal">
           <h2 className="font-heading home-testi-title">

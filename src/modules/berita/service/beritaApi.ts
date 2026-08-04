@@ -31,3 +31,10 @@ export async function getBeritaById(id: string): Promise<Berita | undefined> {
   if (!res.ok) throw new Error(`Failed to fetch berita detail: ${res.status} ${res.statusText}`);
   return res.json();
 }
+
+const MARKDOWN_IMAGE_RE = /!\[[^\]]*\]\(([^)\s]+)\)/;
+
+export function extractBeritaImage(berita: Pick<Berita, "image_url" | "content">): string | undefined {
+  if (berita.image_url) return berita.image_url;
+  return berita.content.match(MARKDOWN_IMAGE_RE)?.[1];
+}
