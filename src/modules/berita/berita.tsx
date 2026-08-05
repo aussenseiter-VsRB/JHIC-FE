@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router";
-import { Calendar, ArrowRight, User } from "lucide-react";
+import { Calendar, ArrowRight } from "lucide-react";
 import SkeletonLoad from "./components/skeleton/skeletonLoad";
 import AnimatedNumber from "../../components/animated-number/AnimatedNumber";
 import SafeImage from "../../components/image/safe-image";
+import beritaImg from "../../assets/berita-assets/berita-img.png";
 import { getBerita, beritaToItem, type Berita as BeritaData, type BeritaItem } from "./service/beritaApi";
 import beritaData from "./berita.json";
 import "./css/berita.css";
@@ -99,19 +100,11 @@ function Berita() {
                   className="berita-header-person-img"
                 />
               ) : (
-                <div className="berita-header-person-placeholder">
-                  <div className="placeholder-corner placeholder-corner-tl"></div>
-                  <div className="placeholder-corner placeholder-corner-tr"></div>
-                  <div className="placeholder-corner placeholder-corner-bl"></div>
-                  <div className="placeholder-corner placeholder-corner-br"></div>
-                  <User className="h-16 w-16 mb-4 text-sky/60 animate-pulse" />
-                  <span className="text-xs font-semibold tracking-widest text-sky/80 uppercase font-poppins mb-1">
-                    Ready for Photo
-                  </span>
-                  <span className="text-[10px] opacity-40 font-medium font-body uppercase">
-                    Full-Length PNG Cutout
-                  </span>
-                </div>
+                <img
+                  src={beritaImg}
+                  alt="Siswa SMK Yadika Soreang"
+                  className="berita-header-person-img"
+                />
               )}
             </div>
           </div>
