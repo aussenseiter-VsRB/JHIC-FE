@@ -1,38 +1,38 @@
 [
   {
     "name": "Ahmad Fauzi",
-    "role": "Alumni PPLG 2024",
-    "content": "Selama tiga tahun belajar di SMK Yadika Soreang, saya mendapatkan banyak pengalaman berharga. Guru-guru sangat profesional dan fasilitasnya mendukung banget buat belajar.",
-    "rating": 5
+    "graduationYear": "Lulusan PPLG 2024",
+    "job": "Software Engineer di Startup Digital",
+    "quote": "Selama tiga tahun belajar di SMK Yadika Soreang, saya mendapatkan banyak pengalaman berharga. Guru-guru sangat profesional dan fasilitasnya mendukung banget buat belajar."
   },
   {
     "name": "Siti Nurhaliza",
-    "role": "Siswi AKL Kelas XII",
-    "content": "Jurusan AKL benar-benar mempersiapkan saya untuk dunia kerja. Praktik akuntansi dan pajaknya langsung pakai软件 yang dipakai perusahaan beneran.",
-    "rating": 5
+    "graduationYear": "Siswi AKL Kelas XII",
+    "job": "Praktik Akuntansi & Perpajakan",
+    "quote": "Jurusan AKL benar-benar mempersiapkan saya untuk dunia kerja. Praktik akuntansi dan pajaknya langsung pakai software yang dipakai perusahaan beneran."
   },
   {
     "name": "Rizky Pratama",
-    "role": "Alumni HOTEL 2023",
-    "content": "Berkat pelatihan hospitality yang intensif, saya langsung diterima kerja di hotel berbintang setelah lulus. Sekolahnya juga sering ngadain praktik lapangan.",
-    "rating": 4
+    "graduationYear": "Lulusan HOTEL 2023",
+    "job": "Front Office di Hotel Bintang Lima",
+    "quote": "Berkat pelatihan hospitality yang intensif, saya langsung diterima kerja di hotel berbintang setelah lulus. Sekolahnya juga sering ngadain praktik lapangan."
   },
   {
     "name": "Dewi Lestari",
-    "role": "Siswi PPLG Kelas XI",
-    "content": "Seru banget belajar coding di sini! Banyak project bikin aplikasi dan website. Tim pengajarnya asik dan selalu update sama teknologi terbaru.",
-    "rating": 5
+    "graduationYear": "Siswi PPLG Kelas XI",
+    "job": "Pengembangan Aplikasi & Website",
+    "quote": "Seru banget belajar coding di sini! Banyak project bikin aplikasi dan website. Tim pengajarnya asik dan selalu update sama teknologi terbaru."
   },
   {
     "name": "Rendi Firmansyah",
-    "role": "Alumni AKL 2024",
-    "content": "Guru-guru AKL sabar banget ngajarin akuntansi dari nol. Sekarang saya kerja jadi staf keuangan di perusahaan swasta. Makasih SMK Yadika!",
-    "rating": 5
+    "graduationYear": "Lulusan AKL 2024",
+    "job": "Staf Keuangan di Perusahaan Swasta",
+    "quote": "Guru-guru AKL sabar banget ngajarin akuntansi dari nol. Sekarang saya kerja jadi staf keuangan di perusahaan swasta. Makasih SMK Yadika!"
   },
   {
     "name": "Nabila Putri",
-    "role": "Siswi HOTEL Kelas XII",
-    "content": "Saya suka banget sama program hotel-nya. Laboratorium hotelnya lengkap, dari front office sampai housekeeping. Bikin percaya diri buat kerja nanti.",
-    "rating": 4
+    "graduationYear": "Siswi HOTEL Kelas XII",
+    "job": "Front Office & Housekeeping",
+    "quote": "Saya suka banget sama program hotel-nya. Laboratorium hotelnya lengkap, dari front office sampai housekeeping. Bikin percaya diri buat kerja nanti."
   }
 ]

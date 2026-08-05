@@ -1,5 +1,8 @@
 import { ArrowRight, Download, Calendar, MessageCircle } from "lucide-react";
 import { motion } from "motion/react";
+import { Link } from "react-router";
+import SafeImage from "../../../components/image/safe-image";
+import askaSpmb from "../../../assets/spmb-assets/aska-spmb.png";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -13,15 +16,7 @@ function PpdbHero() {
 
       <div className="ppdb-hero-inner">
         <div className="ppdb-hero-text">
-          <motion.span
-            className="ppdb-hero-badge"
-            initial={{ opacity: 0, scale: 0.8, filter: "blur(6px)" }}
-            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-            transition={{ duration: 0.5, ease: EASE }}
-          >
-            <span className="ppdb-hero-badge-dot" />
-            
-          </motion.span>
+         
 
           <motion.h1
             className="ppdb-hero-headline"
@@ -70,10 +65,10 @@ function PpdbHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.55, ease: EASE }}
           >
-            <a href="#daftar" className="ppdb-hero-btn ppdb-hero-btn--primary">
+            <Link to="/daftar" className="ppdb-hero-btn ppdb-hero-btn--primary">
               Daftar Sekarang
               <ArrowRight className="h-4 w-4" />
-            </a>
+            </Link>
             <a href="#brosur" className="ppdb-hero-btn ppdb-hero-btn--ghost">
               <Download className="h-4 w-4" />
               Unduh Brosur
@@ -121,23 +116,11 @@ function PpdbHero() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4, ease: EASE }}
           >
-            <div className="ppdb-hero-photo-placeholder">
-              <svg
-                width="48"
-                height="48"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                <circle cx="8.5" cy="8.5" r="1.5" />
-                <polyline points="21 15 16 10 5 21" />
-              </svg>
-              <span>Foto Sekolah</span>
-            </div>
+            <SafeImage
+              src={askaSpmb}
+              alt="Gedung SMK Yadika Soreang"
+              className="ppdb-hero-photo-img"
+            />
           </motion.div>
 
           <motion.div
@@ -151,7 +134,7 @@ function PpdbHero() {
             </div>
             <div className="ppdb-hero-info-text">
               <span className="ppdb-hero-info-label">Penutupan</span>
-              <span className="ppdb-hero-info-value">31 Agustus 2026</span>
+              <span className="ppdb-hero-info-value">xx xx 2027</span>
             </div>
           </motion.div>
 

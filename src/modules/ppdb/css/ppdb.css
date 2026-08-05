@@ -7,7 +7,7 @@
    ================================================================ */
 .ppdb-hero {
   background: #1E3A5F;
-  padding: 140px 0 160px;
+  padding: 124px 0 160px;
   position: relative;
   overflow: hidden;
 }
@@ -276,41 +276,15 @@
   position: relative;
   z-index: 2;
   width: 280px;
-  height: 340px;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow:
-    0 20px 60px rgba(0,0,0,0.25),
-    0 0 0 1px rgba(255,255,255,0.08);
+  margin-top: 30px;
   animation: ppdb-photo-float 6s ease-in-out infinite;
 }
 
-.ppdb-hero-photo-frame::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 24px;
-  border: 1.5px solid rgba(255,255,255,0.1);
-  pointer-events: none;
-}
-
-.ppdb-hero-photo-placeholder {
+.ppdb-hero-photo-img {
+  display: block;
   width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #2D4A6F 0%, #1E3A5F 50%, #163228 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  color: rgba(255,255,255,0.3);
-}
-
-.ppdb-hero-photo-placeholder span {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  height: auto;
+  object-fit: contain;
 }
 
 @keyframes ppdb-photo-float {
@@ -1121,13 +1095,13 @@
 }
 
 @media (max-width: 1024px) {
-  .ppdb-hero { padding: 120px 0 140px; }
+  .ppdb-hero { padding: 104px 0 140px; }
 
   .ppdb-hero-inner { gap: 32px; }
 
   .ppdb-hero-segel { width: 280px; height: 280px; }
 
-  .ppdb-hero-photo-frame { width: 240px; height: 290px; }
+  .ppdb-hero-photo-frame { width: 240px; }
 
   .ppdb-container { padding: 40px 20px; }
 
@@ -1139,7 +1113,7 @@
 }
 
 @media (max-width: 720px) {
-  .ppdb-hero { padding: 100px 0 120px; }
+  .ppdb-hero { padding: 88px 0 120px; }
 
   .ppdb-hero-inner {
     grid-template-columns: 1fr;
@@ -1156,7 +1130,7 @@
   .ppdb-hero-visual {
     order: 1;
     min-height: 280px;
-    margin-bottom: -20px;
+    margin-bottom: 8px;
     overflow: hidden;
   }
 
@@ -1182,8 +1156,11 @@
 
   .ppdb-hero-photo-frame {
     width: 180px;
-    height: 220px;
-    border-radius: 18px;
+    margin-top: 8px;
+  }
+
+  .ppdb-hero-photo-img {
+    max-height: 260px;
   }
 
   .ppdb-hero-info {
@@ -1209,7 +1186,7 @@
 }
 
 @media (max-width: 480px) {
-  .ppdb-hero { padding: 90px 0 110px; }
+  .ppdb-hero { padding: 80px 0 110px; }
 
   .ppdb-hero-headline { font-size: 1.5rem; }
 
@@ -1219,8 +1196,10 @@
 
   .ppdb-hero-photo-frame {
     width: 150px;
-    height: 190px;
-    border-radius: 14px;
+  }
+
+  .ppdb-hero-photo-img {
+    max-height: 220px;
   }
 
   .ppdb-hero-btn {

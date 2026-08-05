@@ -35,13 +35,14 @@ function BeritaPreview() {
     <section className="home-berita">
       <HomeDecor />
       <div className="home-berita-container">
-        <div className="reveal">
+        <div className="reveal home-berita-header">
           <h2 className="font-heading home-berita-title">
             Berita Terkini
           </h2>
           <p className="home-berita-subtitle">
             Ikuti perkembangan terbaru dari SMK Yadika Soreang
           </p>
+          <span className="home-berita-accent" />
         </div>
         {status === "error" ? (
           <div className="home-berita-error" role="alert">
@@ -57,10 +58,10 @@ function BeritaPreview() {
                     aria-hidden="true"
                   />
                 ))
-              : latestNews.map((item) => (
+              : latestNews.map((item, i) => (
                   <article
                     key={item.id}
-                    className="home-berita-card"
+                    className={`home-berita-card reveal reveal-delay-${(i % 3) + 1}`}
                   >
                     <div className="home-berita-card-image">
                       <SafeImage src={item.image} alt={item.title} />
@@ -82,6 +83,14 @@ function BeritaPreview() {
                       <p className="home-berita-card-excerpt">
                         {item.excerpt}
                       </p>
+                      <Link
+                        to={`/berita/${item.id}`}
+                        className="home-berita-card-link"
+                        aria-label={`Baca selengkapnya: ${item.title}`}
+                      >
+                        Baca Selengkapnya
+                        <ArrowRight className="home-berita-card-link-icon" />
+                      </Link>
                     </div>
                   </article>
                 ))}

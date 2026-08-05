@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import type { CSSProperties } from "react";
+import { Link } from "react-router";
 import { ArrowRight, Briefcase, CalendarDays, ClipboardList, MessagesSquare, Network } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import Breadcrumb from "../../components/breadcrumb/breadcrumb";
@@ -183,15 +184,10 @@ dee
               </div>
               <h2 className="alumni-cta-title font-heading">{alumniData.tracerCta.title}</h2>
               <p className="alumni-cta-desc font-body">{alumniData.tracerCta.description}</p>
-              <a
-                href={alumniData.tracerCta.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="alumni-cta-btn font-poppins"
-              >
+              <Link to="/coming-soon" className="alumni-cta-btn font-poppins">
                 <span>{alumniData.tracerCta.button}</span>
                 <ArrowRight className="alumni-cta-btn-icon" />
-              </a>
+              </Link>
             </div>
           </div>
         </section>

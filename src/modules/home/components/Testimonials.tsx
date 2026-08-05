@@ -1,20 +1,6 @@
-import { Star } from "lucide-react";
+import { Briefcase, Quote } from "lucide-react";
 import data from "../data/testimonials.json";
 import HomeDecor from "./HomeDecor";
-
-function StarRating({ rating }: { rating: number }) {
-  return (
-    <span className="home-testi-stars">
-      {Array.from({ length: 5 }, (_, i) => (
-        <Star
-          key={i}
-          size={14}
-          className={i < rating ? "fill-[#F59E0B] text-[#F59E0B]" : "text-[#CBD5E1]"}
-        />
-      ))}
-    </span>
-  );
-}
 
 function getInitials(name: string) {
   return name
@@ -29,13 +15,14 @@ function Testimonials() {
     <section className="home-testi">
       <HomeDecor />
       <div className="home-testi-container">
-        <div className="reveal">
+        <div className="reveal home-testi-header">
           <h2 className="font-heading home-testi-title">
             Kata Mereka
           </h2>
           <p className="home-testi-subtitle">
             Dengarkan pengalaman langsung dari siswa dan alumni SMK Yadika Soreang
           </p>
+          <span className="home-testi-accent" />
         </div>
         <div className="home-testi-grid">
           {data.map((item, i) => {
@@ -45,24 +32,27 @@ function Testimonials() {
                 key={i}
                 className={`reveal reveal-delay-${delay} home-testi-card`}
               >
-                <div className="home-testi-card-avatar">
-                  <span className="font-heading home-testi-card-initials">
-                    {getInitials(item.name)}
-                  </span>
+                <div className="home-testi-card-header">
+                  <div className="home-testi-card-avatar">
+                    <span className="font-heading home-testi-card-initials">
+                      {getInitials(item.name)}
+                    </span>
+                  </div>
+                  <div className="home-testi-card-meta">
+                    <h3 className="home-testi-card-name">{item.name}</h3>
+                    <span className="home-testi-card-year">{item.graduationYear}</span>
+                  </div>
                 </div>
                 <div className="home-testi-card-body">
-                  <StarRating rating={item.rating} />
-                  <p className="home-testi-card-text">
-                    &ldquo;{item.content}&rdquo;
-                  </p>
-                  <div>
-                    <span className="home-testi-card-name">
-                      {item.name}
-                    </span>
-                    <br />
-                    <span className="home-testi-card-role">
-                      {item.role}
-                    </span>
+                  <div className="home-testi-card-job">
+                    <Briefcase className="home-testi-card-job-icon" />
+                    <span>{item.job}</span>
+                  </div>
+                  <div className="home-testi-card-quote-wrapper">
+                    <Quote className="home-testi-card-quote-icon" />
+                    <p className="home-testi-card-quote">
+                      &ldquo;{item.quote}&rdquo;
+                    </p>
                   </div>
                 </div>
               </div>

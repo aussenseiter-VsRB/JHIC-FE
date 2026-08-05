@@ -5,6 +5,7 @@ import data from "../data/hero.json";
 import heroImg from "../../../assets/homepages-assets/hero-img.png";
 import placeholder from "../../../assets/placeholder.svg";
 import AnimatedNumber from "../../../components/animated-number/AnimatedNumber";
+import ShapePattern from "../../../components/shape-pattern/shape-pattern";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -25,6 +26,7 @@ function Hero() {
       <div className="home-hero-orb home-hero-orb--2" />
       <div className="home-hero-orb home-hero-orb--3" />
       <div className="home-hero-dots" />
+      <ShapePattern variant="hero" />
 
       <div className="home-hero-inner">
         <div className="home-hero-content">

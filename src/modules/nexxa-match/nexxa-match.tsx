@@ -1,8 +1,11 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { ArrowLeft, ArrowRight, RotateCcw, Bot, AlertCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, RotateCcw, AlertCircle } from "lucide-react";
 import { useNavigate } from "react-router";
 import "./css/nexxa-match.css";
 import nexxaMatchData from "./nexxa-match.json";
+import ShapePattern from "../../components/shape-pattern/shape-pattern";
+import nexxaImg from "../../assets/nexxa-assets/nexxa-img.png";
+import placeholder from "../../assets/placeholder.svg";
 
 interface JurusanResult {
   nama_jurusan: string;
@@ -62,26 +65,6 @@ async function fetchRekomendasi(answers: string[]): Promise<JurusanResult> {
   }
 
   return json;
-}
-
-function WavingHand() {
-  return (
-    <svg
-      className="nexxa-match-mascot-arm"
-      width="28"
-      height="28"
-      viewBox="0 0 28 28"
-      fill="none"
-      stroke="rgba(255,255,255,0.85)"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M9 15L9.5 8.5C9.5 7.5 10.5 6.5 11.5 6.5S13 7.5 13 8.5V15" />
-      <path d="M13 14.5L13.5 7.5C13.5 6.5 14.5 5.5 15.5 5.5S17 6.5 17 7.5V14.5" />
-      <path d="M17 14V9.5C17 8.5 18 7.5 19 7.5S20.5 8.5 20.5 9.5V17C20.5 20 18 22 15 22H11.5C10 22 9 21.5 8 20.5L6 18" />
-    </svg>
-  );
 }
 
 function NexxaMatch() {
@@ -326,16 +309,24 @@ function IntroSection({ onStart }: { onStart: () => void }) {
       <div className="nexxa-match-header-orb nexxa-match-header-orb--1" />
       <div className="nexxa-match-header-orb nexxa-match-header-orb--2" />
       <div className="nexxa-match-header-dots" />
+      <ShapePattern variant="nexxa-page" />
 
       <div className="nexxa-match-header-inner">
         <div className="flex justify-center md:justify-end">
           <div className="nexxa-match-mascot-box">
             <div className="nexxa-match-mascot-robot">
-              <Bot className="h-32 w-32 text-white/80 md:h-36 md:w-36" />
-              <WavingHand />
+              <img
+                src={nexxaImg}
+                alt="Mascot Nexxa Match"
+                className="nexxa-match-mascot-img"
+                loading="lazy"
+                onError={(event) => {
+                  event.currentTarget.src = placeholder;
+                }}
+              />
             </div>
             <div className="nexxa-match-speech-bubble">
-              Hi! 👋
+              Hmm? 🤨
             </div>
           </div>
         </div>
@@ -347,8 +338,8 @@ function IntroSection({ onStart }: { onStart: () => void }) {
             Jurusan Apa?
           </h1>
           <p className="nexxa-match-subtitle">
-            Jawab 8 pertanyaan singkat, dan kami akan bantu carikan jurusan
-            yang paling cocok buat kamu.
+            Jawab 8 pertanyaan singkat, dan NEXXA AI akan bantu carikan jurusan
+            yang paling cocok buat kamu berdasarkan jawaban kamu!.
           </p>
           <button
             type="button"

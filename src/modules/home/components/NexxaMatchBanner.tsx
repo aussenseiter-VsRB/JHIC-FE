@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router";
 import nexxaCardImg from "../../../assets/homepages-assets/nexxa-card-img.png";
 import placeholder from "../../../assets/placeholder.svg";
+import ShapePattern from "../../../components/shape-pattern/shape-pattern";
 
 function NexxaMatchBanner() {
   return (
@@ -10,6 +11,7 @@ function NexxaMatchBanner() {
         <div className="home-nexxa-card">
           <span className="home-nexxa-card-bg" aria-hidden="true" />
           <span className="home-nexxa-dots" aria-hidden="true" />
+          <ShapePattern variant="nexxa" />
           <div className="home-nexxa-card-layout">
             <div className="home-nexxa-card-body">
           
