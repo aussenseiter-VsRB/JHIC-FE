@@ -15,7 +15,17 @@ export function resetSession() {
   localStorage.removeItem(SESSION_KEY);
 }
 
-export async function sendToChatbot(message: string): Promise<string> {
+export interface ChatReplyButton {
+  label: string;
+  url: string;
+}
+
+export interface ChatReply {
+  output: string;
+  button?: ChatReplyButton;
+}
+
+export async function sendToChatbot(message: string): Promise<ChatReply> {
   let response: Response;
 
   try {
@@ -43,5 +53,12 @@ export async function sendToChatbot(message: string): Promise<string> {
     throw new Error("Unexpected response format");
   }
 
-  return data.output;
+  const reply: ChatReply = { output: data.output };
+  if (typeof data?.button === "object" && data.button !== null) {
+    const btn = data.button as Record<string, unknown>;
+    if (typeof btn.label === "string" && typeof btn.url === "string") {
+      reply.button = { label: btn.label, url: btn.url };
+    }
+  }
+  return reply;
 }

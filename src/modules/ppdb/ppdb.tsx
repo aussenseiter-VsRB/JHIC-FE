@@ -5,6 +5,7 @@ import PpdbHero from "./components/PpdbHero";
 import RegistrationSteps from "./components/RegistrationSteps";
 import RegistrationWave from "./components/RegistrationWave";
 import VerticalTimeline from "./components/VerticalTimeline";
+import SpmbAssist from "./components/SpmbAssist";
 import ppdbData from "./ppdb.json";
 
 function Ppdb() {
@@ -16,6 +17,7 @@ function Ppdb() {
         <VerticalTimeline />
         <RegistrationSteps />
         <RegistrationWave />
+        <SpmbAssist />
         <div className="ppdb-section ppdb-section-alt reveal">
           <h2 className="ppdb-section-title">Persyaratan</h2>
           <span className="ppdb-section-accent" />
