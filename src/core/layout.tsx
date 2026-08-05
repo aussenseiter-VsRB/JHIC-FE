@@ -28,22 +28,36 @@ function useRevealOnScroll(pathname: string) {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReduced) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("revealed");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
-    );
+    let observer: IntersectionObserver | null = null;
+    let mutationObserver: MutationObserver | null = null;
 
-    const elements = document.querySelectorAll(".reveal");
-    elements.forEach((el) => observer.observe(el));
+    function observeReveals() {
+      if (!observer) {
+        observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("revealed");
+                observer?.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+        );
+      }
+      document.querySelectorAll(".reveal:not(.revealed)").forEach((el) => observer?.observe(el));
+    }
 
-    return () => observer.disconnect();
+    observeReveals();
+
+    const root = document.querySelector("main") ?? document.body;
+    mutationObserver = new MutationObserver(observeReveals);
+    mutationObserver.observe(root, { childList: true, subtree: true });
+
+    return () => {
+      observer?.disconnect();
+      mutationObserver?.disconnect();
+    };
   }, [pathname]);
 }
 
