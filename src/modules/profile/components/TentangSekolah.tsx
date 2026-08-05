@@ -1,5 +1,12 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Briefcase, Handshake, Building2 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import data from "../data/tentang-sekolah.json";
+
+const highlightIconMap: Record<string, LucideIcon> = {
+  Briefcase,
+  Handshake,
+  Building2,
+};
 
 function TentangSekolah() {
   return (
@@ -36,6 +43,20 @@ function TentangSekolah() {
               {data.ctaText}
               <ArrowRight className="tentang-cta-icon" />
             </a>
+
+            <div className="tentang-highlights">
+              {data.highlights.map((item) => {
+                const HighlightIcon = highlightIconMap[item.icon];
+                return (
+                  <div key={item.text} className="tentang-highlight">
+                    <HighlightIcon className="tentang-highlight-icon" />
+                    <span className="font-body tentang-highlight-text">
+                      {item.text}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
           <div className="flex-1 reveal reveal-delay-2">

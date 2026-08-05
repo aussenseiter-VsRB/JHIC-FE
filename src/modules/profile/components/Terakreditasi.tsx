@@ -1,4 +1,6 @@
+import { Check } from "lucide-react";
 import data from "../data/terakreditasi.json";
+import ProfilePhoto from "./ProfilePhoto";
 
 function Terakreditasi() {
   return (
@@ -11,11 +13,15 @@ function Terakreditasi() {
 
         <div className="terakreditasi-grid">
           <div className="terakreditasi-photo-col reveal">
-            <img
-              src={data.photo}
-              alt={data.photoAlt}
-              className="terakreditasi-photo"
-            />
+            <div className="profile-photo">
+              <span className="profile-photo-ring" aria-hidden="true" />
+              <ProfilePhoto
+                src={data.photo}
+                alt={data.photoAlt}
+                initials="BAN-P"
+                role="Sertifikat Akreditasi"
+              />
+            </div>
           </div>
 
           <div className="terakreditasi-text-col reveal reveal-delay-2">
@@ -27,6 +33,15 @@ function Terakreditasi() {
                 {text}
               </p>
             ))}
+
+            <ul className="terakreditasi-highlights">
+              {data.highlights.map((item) => (
+                <li key={item} className="terakreditasi-highlight">
+                  <Check className="terakreditasi-highlight-icon" />
+                  <span className="font-body">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

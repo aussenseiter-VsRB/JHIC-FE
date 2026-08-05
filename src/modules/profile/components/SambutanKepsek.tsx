@@ -1,4 +1,6 @@
+import { Quote } from "lucide-react";
 import data from "../data/sambutan-kepsek.json";
+import ProfilePhoto from "./ProfilePhoto";
 
 function SambutanKepsek() {
   return (
@@ -11,11 +13,15 @@ function SambutanKepsek() {
 
         <div className="sambutan-grid">
           <div className="sambutan-photo-col reveal">
-            <img
-              src={data.photo}
-              alt={data.photoAlt}
-              className="sambutan-photo"
-            />
+            <div className="profile-photo">
+              <span className="profile-photo-ring" aria-hidden="true" />
+              <ProfilePhoto
+                src={data.photo}
+                alt={data.photoAlt}
+                initials="YN"
+                role={data.title}
+              />
+            </div>
           </div>
 
           <div className="sambutan-text-col reveal reveal-delay-2">
@@ -27,6 +33,13 @@ function SambutanKepsek() {
                 {text}
               </p>
             ))}
+
+            <blockquote className="sambutan-quote">
+              <Quote className="sambutan-quote-icon" aria-hidden="true" />
+              <p className="font-heading sambutan-quote-text">
+                {data.highlight}
+              </p>
+            </blockquote>
 
             <div className="sambutan-divider" />
 

@@ -1,5 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router";
+import nexxaCardImg from "../../../assets/homepages-assets/nexxa-card-img.png";
+import placeholder from "../../../assets/placeholder.svg";
 
 function NexxaMatchBanner() {
   return (
@@ -28,11 +30,15 @@ function NexxaMatchBanner() {
                 role="img"
                 aria-label="Contoh hasil rekomendasi Nexxa Match"
               >
-                <span>Hasil Rekomendasi Kamu</span>
-                {/*
-                  TODO: ganti placeholder ini dengan screenshot/ilustrasi
-                  hasil Nexxa Match yang sebenarnya.
-                */}
+                <img
+                  className="home-nexxa-nested-img"
+                  src={nexxaCardImg}
+                  alt="Contoh hasil rekomendasi Nexxa Match"
+                  loading="lazy"
+                  onError={(event) => {
+                    event.currentTarget.src = placeholder;
+                  }}
+                />
               </div>
             </div>
           </div>
