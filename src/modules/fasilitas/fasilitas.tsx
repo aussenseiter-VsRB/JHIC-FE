@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Building2, ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Breadcrumb from "../../components/breadcrumb/breadcrumb";
 import "./css/fasilitas.css";
 import fasilitasData from "./fasilitas.json";
-import heroImage from "../../assets/hero.png";
+import heroImage from "../../assets/fasilitas-assets/umum/hero-img.png";
 
 interface FasilitasItem {
   id: number;
@@ -75,10 +75,15 @@ function Fasilitas() {
           </div>
 
           <div className="fasilitas-header-visual reveal reveal-delay-2">
-            <div className="fasilitas-photo-placeholder">
-              <Building2 className="fasilitas-photo-icon" />
-              <span className="fasilitas-photo-label">Foto Sarana &amp; Prasarana</span>
-            </div>
+            <img
+              src={heroImage}
+              alt="Foto Sarana &amp; Prasarana"
+              loading="lazy"
+              onError={(event) => {
+                event.currentTarget.style.display = "none";
+              }}
+              className="fasilitas-header-photo"
+            />
           </div>
         </div>
 

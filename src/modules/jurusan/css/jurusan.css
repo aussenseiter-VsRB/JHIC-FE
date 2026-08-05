@@ -199,12 +199,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 400px;
+  height: 500px;
+  width: 650px;
 }
 
 .jurusan-hero-image-wrap {
   width: 100%;
-  max-width: 440px;
+  max-width: 650px;
   height: 100%;
   position: relative;
 }
@@ -1046,7 +1047,7 @@
   }
 
   .jurusan-hero-image-wrap {
-max-width: 380px;
+    max-width: 420px;
   }
 }
 
@@ -1090,12 +1091,12 @@ max-width: 380px;
   }
 
   .jurusan-hero-visual {
-    height: 320px;
+    height: 340px;
     padding: 32px 0 0;
   }
 
   .jurusan-hero-image-wrap {
-    max-width: 260px;
+    max-width: 280px;
   }
 
   .jurusan-hero-controls {

@@ -1,5 +1,6 @@
 import { ArrowRight, Download, Calendar, MessageCircle } from "lucide-react";
 import { motion } from "motion/react";
+import ppdbHeroImg from "../../../assets/ppdb-assets/hero-img.png";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -121,23 +122,12 @@ function PpdbHero() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4, ease: EASE }}
           >
-            <div className="ppdb-hero-photo-placeholder">
-              <svg
-                width="48"
-                height="48"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                <circle cx="8.5" cy="8.5" r="1.5" />
-                <polyline points="21 15 16 10 5 21" />
-              </svg>
-              <span>Foto Sekolah</span>
-            </div>
+            <img
+              src={ppdbHeroImg}
+              alt="Foto Sekolah"
+              loading="lazy"
+              className="ppdb-hero-photo"
+            />
           </motion.div>
 
           <motion.div
