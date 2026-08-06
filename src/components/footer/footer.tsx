@@ -87,7 +87,7 @@ function Footer({ accentColor, bgColor }: FooterProps) {
                 <div>
                   <span className="footer-contact-label">Alamat</span>
                   <span className="footer-contact-value">
-                    Jl. Raya Soreang, Bandung, Jawa Barat
+                    Kampung Karang Anyar, Cingcin, Kec. Soreang, Kabupaten Bandung, Jawa Barat 14093
                   </span>
                 </div>
               </li>
@@ -101,7 +101,7 @@ function Footer({ accentColor, bgColor }: FooterProps) {
                 <Map />
               </div>
               <p className="footer-address">
-                Jl. Raya Soreang, Bandung, Jawa Barat
+                Kampung Karang Anyar, Cingcin, Kec. Soreang, Kabupaten Bandung, Jawa Barat 14093
               </p>
               <a
                 href={GOOGLE_MAPS_URL}

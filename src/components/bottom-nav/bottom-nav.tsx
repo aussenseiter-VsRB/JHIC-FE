@@ -287,14 +287,14 @@ export default function BottomNav({ onChatbotToggle }: BottomNavProps) {
                     </NavLink>
                   </li>
                   <li>
-                    <a
-                      href="#daftar"
+                    <NavLink
+                      to="/daftar"
                       onClick={closeDrawer}
                       className="bottom-nav-drawer-btn-solid"
                     >
                       Daftar Sekarang
                       <ArrowUpRight size={16} />
-                    </a>
+                    </NavLink>
                   </li>
                 </ul>
               </div>

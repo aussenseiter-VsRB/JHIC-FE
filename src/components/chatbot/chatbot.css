@@ -14,8 +14,8 @@
   bottom: 24px;
   right: 24px;
   z-index: 9999;
-  width: 56px;
-  height: 56px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   border: none;
   background: var(--color-primary, #0ea5e9);
@@ -61,7 +61,7 @@
 /* ---------- Suggestions floating above FAB (closed state) ---------- */
 .chatbot-suggestions-fab {
   position: fixed;
-  bottom: 90px;
+  bottom: 96px;
   right: 24px;
   z-index: 9998;
   display: flex;
@@ -412,6 +412,13 @@
    Responsive – <640px (mobile fullscreen)
    ============================== */
 @media (max-width: 640px) {
+  .chatbot-fab {
+    bottom: 16px;
+    right: 16px;
+    width: 56px;
+    height: 56px;
+  }
+
   .chatbot-overlay {
     padding: 0;
   }

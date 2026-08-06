@@ -69,10 +69,10 @@
   position: relative;
 }
 
-/* Floating glassmorphic card for placeholder */
 .berita-header-person-wrapper {
   position: relative;
   width: 100%;
+  max-width: 440px;
   height: 440px;
   display: flex;
   align-items: center;
@@ -86,82 +86,39 @@
   100% { transform: translateY(0px) rotate(0deg); }
 }
 
-.berita-header-person-placeholder {
-  width: 100%;
-  height: 100%;
-  border-radius: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.4);
-  position: relative;
-  box-shadow: 
-    0 30px 60px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.berita-header-person-placeholder::before {
+.berita-header-person-wrapper::before {
   content: "";
   position: absolute;
-  width: 150px;
-  height: 150px;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.2) 0%, transparent 70%);
-  border-radius: 50%;
-  filter: blur(20px);
-  animation: pulseSphere 4s ease-in-out infinite alternate;
-}
-
-@keyframes pulseSphere {
-  0% { transform: scale(0.8); opacity: 0.5; }
-  100% { transform: scale(1.2); opacity: 0.8; }
-}
-
-/* Corner bracket accents */
-.berita-header-person-placeholder::after {
-  content: "";
-  position: absolute;
-  inset: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  z-index: 0;
+  inset: -14px;
+  border-radius: 30px;
+  border: 1px dashed rgba(147, 197, 253, 0.45);
+  transform: rotate(-3deg);
   pointer-events: none;
-  border-radius: 20px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.placeholder-corner {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  border-color: rgba(37, 99, 235, 0.6);
-  border-style: solid;
-  pointer-events: none;
-}
-.placeholder-corner-tl { top: 12px; left: 12px; border-width: 2px 0 0 2px; border-top-left-radius: 6px; }
-.placeholder-corner-tr { top: 12px; right: 12px; border-width: 2px 2px 0 0; border-top-right-radius: 6px; }
-.placeholder-corner-bl { bottom: 12px; left: 12px; border-width: 0 0 2px 2px; border-bottom-left-radius: 6px; }
-.placeholder-corner-br { bottom: 12px; right: 12px; border-width: 0 2px 2px 0; border-bottom-right-radius: 6px; }
-
-.berita-header-person-placeholder:hover {
-  border-color: rgba(37, 99, 235, 0.3);
-  background: rgba(255, 255, 255, 0.04);
-  box-shadow: 
-    0 40px 80px rgba(0, 0, 0, 0.5),
-    0 0 30px rgba(37, 99, 235, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+.berita-header-person-wrapper:hover::before {
+  transform: rotate(-1.5deg) scale(1.04);
 }
 
 .berita-header-person-img {
+  position: relative;
+  z-index: 0;
   width: 100%;
-  max-width: 440px;
-  height: 440px;
+  height: 100%;
   object-fit: contain;
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .berita-header-person-wrapper {
+    animation: none;
+  }
+  .berita-header-person-wrapper::before {
+    transition: none;
+  }
 }
 
 /* Right Section */
@@ -689,7 +646,7 @@
 
 .berita-item-title {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 800;
   color: #1E3A5F;
   margin: 0 0 16px;
@@ -953,7 +910,7 @@
   }
   
   .berita-item-title {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
   }
 }
 
@@ -1146,7 +1103,7 @@
   }
 
   .berita-item-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .berita-item-excerpt {

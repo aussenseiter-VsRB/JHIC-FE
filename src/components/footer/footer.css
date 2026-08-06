@@ -173,6 +173,7 @@
   overflow: hidden;
   background: #2D4A6F;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  isolation: isolate;
   transition: border-color 0.25s;
 }
 

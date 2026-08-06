@@ -1,4 +1,9 @@
+import { Quote } from "lucide-react";
 import data from "../data/sambutan-kepsek.json";
+import ProfilePhoto from "./ProfilePhoto";
+import leadPhoto from "../../../assets/profile-assets/lead.png";
+
+const photoSrc = data.photo === "lead" ? leadPhoto : data.photo;
 
 function SambutanKepsek() {
   return (
@@ -11,11 +16,26 @@ function SambutanKepsek() {
 
         <div className="sambutan-grid">
           <div className="sambutan-photo-col reveal">
-            <img
-              src={data.photo}
-              alt={data.photoAlt}
-              className="sambutan-photo"
-            />
+            <div className="profile-photo-frame">
+              <span className="profile-photo-frame-pattern" aria-hidden="true" />
+              <div className="profile-photo">
+                <span className="profile-photo-ring" aria-hidden="true" />
+                <ProfilePhoto
+                  src={photoSrc}
+                  alt={data.photoAlt}
+                  initials="YN"
+                  role={data.title}
+                />
+              </div>
+            </div>
+            <div className="sambutan-caption">
+              <p className="font-heading sambutan-name">
+                {data.name}
+              </p>
+              <p className="font-body sambutan-title">
+                {data.title}
+              </p>
+            </div>
           </div>
 
           <div className="sambutan-text-col reveal reveal-delay-2">
@@ -28,16 +48,12 @@ function SambutanKepsek() {
               </p>
             ))}
 
-            <div className="sambutan-divider" />
-
-            <div>
-              <p className="font-heading sambutan-name">
-                {data.name}
+            <blockquote className="sambutan-quote">
+              <Quote className="sambutan-quote-icon" aria-hidden="true" />
+              <p className="font-heading sambutan-quote-text">
+                {data.highlight}
               </p>
-              <p className="font-body sambutan-title">
-                {data.title}
-              </p>
-            </div>
+            </blockquote>
           </div>
         </div>
       </div>

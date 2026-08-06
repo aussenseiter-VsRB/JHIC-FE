@@ -21,6 +21,7 @@ import Prestasi from "../modules/prestasi/prestasi";
 import Daftar from "../modules/daftar/daftar";
 import NotFound from "../modules/not-found/not-found";
 import Alumni from "../modules/alumni/alumni";
+import ComingSoon from "../modules/coming-soon/coming-soon";
 
 const routes: RouteObject[] = [
   {
@@ -51,6 +52,7 @@ const routes: RouteObject[] = [
       { path: "/alumni", element: <Alumni /> },
       { path: "/prestasi", element: <Prestasi /> },
       { path: "/daftar", element: <Daftar /> },
+      { path: "/coming-soon", element: <ComingSoon /> },
       { path: "*", element: <NotFound /> },
     ],
   },

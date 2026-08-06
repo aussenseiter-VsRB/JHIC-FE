@@ -1,21 +1,28 @@
 {
   "heading": "TENTANG SEKOLAH YADIKA SOREANG",
-  "description": "SMK Yadika Soreang merupakan institusi pendidikan menengah kejuruan yang telah berdiri sejak 2000-an di Soreang, Bandung. Dengan visi menjadi sekolah kejuruan unggulan yang menghasilkan lulusan berkualitas tinggi, kami terus berkomitmen mengembangkan potensi setiap siswa melalui kurikulum terkini, fasilitas modern, dan kemitraan industri yang luas.",
+  "description": "SMK YADIKA Soreang merupakan Sekolah Menengah Kejuruan yang berlokasi di Kampung Karang Anyar, Cingcin, Kec. Soreang, Kabupaten Bandung, Jawa Barat 14093. SMK YADIKA SOREANG adalah salah satu unit dari Bidang Pendidikan Yadika yang ke 25. Mulai beroperasi sejak tahun pelajaran 2013/2014 dengan membuka 2 buah jurusan yaitu Jurusan Akomodasi Perhotelan dan juga jurusan Akuntansi. Pada tahun 2017 membuka satu jurusan baru yaitu jurusan Rekayasa Perangkat Lunak (RPL).",
   "stats": [
     { "value": "1200+", "label": "Siswa" },
     { "value": "120+", "label": "Guru & Staff" },
-    { "value": "16+", "label": "Program Keahlian" }
+    { "value": "3", "label": "Program Keahlian" }
   ],
   "ctaText": "LIHAT JURUSAN",
   "ctaLink": "/jurusan",
+  "highlights": [
+    { "icon": "Briefcase", "text": "Siap Kerja" },
+    { "icon": "Handshake", "text": "Mitra Industri" },
+    { "icon": "Building2", "text": "Fasilitas Modern" }
+  ],
   "visiMisi": {
     "heading": "VISI & MISI",
-    "visi": "Menjadi sekolah menengah kejuruan unggulan yang menghasilkan lulusan kompeten, berkarakter, dan berdaya saing tinggi di era global.",
+    "visi": "Mewujudkan generasi masa kini yang berakhlak mulia, kompeten dan profesional sesuai bidangnya, serta dapat berkontribusi bagi diri sendiri, keluarga, dan masyarakat.",
     "misi": [
-      "Menyelenggarakan pendidikan kejuruan berkualitas berbasis kebutuhan industri dan masyarakat.",
-      "Mengembangkan potensi siswa secara optimal melalui pembelajaran yang kreatif, inovatif, dan menyenangkan.",
-      "Membangun karakter siswa yang berakhlak mulia, disiplin, dan bertanggung jawab.",
-      "Menjalin kemitraan strategis dengan dunia usaha dan dunia industri untuk mendukung pembelajaran kontekstual."
+      "Mengembangkan karakter beriman dan bertakwa kepada Tuhan Yang Maha Esa serta berakhlak mulia, Berkebhinekaan Global, Mandiri, Gotong Royong, Bernalar Kritis, dan Kreatif sesuai dengan Profil Pelajar Pancasila yang kuat melalui program kegiatan di sekolah.",
+      "Mengintegrasikan pendidikan moral dan etika dalam kegiatan pembelajaran.",
+      "Menumbuhkan sikap kritis dan kreatif pada siswa.",
+      "Selalu melakukan Upgrading yang disesuaikan dengan kebutuhan industri dan perkembangan teknologi pada setiap ajaran baru.",
+      "Memastikan keberhasilan setiap siswa melalui pendekatan individu.",
+      "Memberikan dukungan kepada orang tua dalam mendidik anak-anak mereka dengan memberikan informasi, dukungan, dan sumber daya."
     ]
   }
 }

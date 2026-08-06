@@ -1,3 +1,8 @@
+import { Clock, ArrowLeft } from "lucide-react";
+import { Link } from "react-router";
+import "./css/daftar.css";
+
+/*
 import { useCallback, useRef, useState } from "react";
 import {
   ArrowRight,
@@ -276,6 +281,29 @@ function Daftar() {
             <ArrowRight className="h-4 w-4" />
           </button>
         </form>
+      </div>
+    </div>
+  );
+}
+*/
+
+function Daftar() {
+  return (
+    <div className="daftar bg-pearl pt-32 pb-20">
+      <div className="daftar-container">
+        <div className="daftar-coming-soon">
+          <div className="daftar-coming-soon-icon">
+            <Clock className="h-10 w-10" />
+          </div>
+          <h1 className="daftar-coming-soon-title font-heading">Coming Soon</h1>
+          <p className="daftar-coming-soon-text">
+            Halaman pendaftaran sedang dipersiapkan. Silakan kembali lagi nanti.
+          </p>
+          <Link to="/" className="daftar-btn daftar-btn--primary">
+            <ArrowLeft className="h-4 w-4" />
+            Kembali ke Beranda
+          </Link>
+        </div>
       </div>
     </div>
   );

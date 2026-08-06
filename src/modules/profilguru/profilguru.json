@@ -16,7 +16,7 @@
       "title": "Kepala Sekolah",
       "color": "#1E3A5F",
       "teachers": [
-        { "id": 1, "name": "Dr. H. Engkus Kusnadi, S.Pd., M.M.Pd.", "subject": "Kepala Sekolah", "pendidikan": "S3 Manajemen Pendidikan", "pengalaman": 25, "image": "", "motto": "Pendidikan adalah seni menanamkan semangat kepemimpinan dan karakter pada setiap generasi" }
+        { "id": 1, "name": "Yetti Nuraini, S.Pd., Gr.", "subject": "Kepala Sekolah", "pendidikan": "S1 Pendidikan", "pengalaman": 25, "image": "", "motto": "Pendidikan adalah seni menanamkan semangat kepemimpinan dan karakter pada setiap generasi" }
       ]
     },
     {

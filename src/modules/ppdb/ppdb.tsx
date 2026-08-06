@@ -65,7 +65,7 @@ function Ppdb() {
               <MapPin className="h-5 w-5 text-blue" />
               <div>
                 <span className="ppdb-contact-label">Alamat</span>
-                <span className="ppdb-contact-value">Jl. Raya Soreang, Bandung, Jawa Barat</span>
+                <span className="ppdb-contact-value">Kampung Karang Anyar, Cingcin, Kec. Soreang, Kabupaten Bandung, Jawa Barat 14093</span>
               </div>
             </div>
           </div>
