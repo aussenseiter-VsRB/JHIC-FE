@@ -155,6 +155,7 @@
 .jurusan-hero-content {
   flex: 1;
   max-width: 520px;
+  min-width: 0;
 }
 
 .jurusan-hero-text-group {
@@ -170,6 +171,7 @@
   margin: 0 0 16px;
   letter-spacing: -0.02em;
   line-height: 1.15;
+  overflow-wrap: break-word;
 }
 
 .jurusan-hero-desc {
@@ -522,6 +524,7 @@
   color: #000;
   line-height: 1.25;
   margin: 0;
+  overflow-wrap: break-word;
 }
 
 .jurusan-section-paragraph {
@@ -530,6 +533,7 @@
   line-height: 1.625;
   color: #6B7280;
   margin: 0;
+  overflow-wrap: break-word;
 }
 
 .jurusan-section-cta-wrap {
@@ -695,6 +699,7 @@
 .jurusan-specific-hero-content {
   flex: 1;
   max-width: 600px;
+  min-width: 0;
 }
 
 .jurusan-specific-hero-badge {
@@ -717,6 +722,7 @@
   margin: 0 0 16px;
   letter-spacing: -0.02em;
   line-height: 1.15;
+  overflow-wrap: break-word;
 }
 
 .jurusan-specific-hero-desc {
@@ -725,6 +731,7 @@
   margin: 0 0 28px;
   line-height: 1.7;
   max-width: 500px;
+  overflow-wrap: break-word;
 }
 
 .jurusan-specific-hero-stats {
@@ -789,6 +796,7 @@
   font-size: 2.25rem;
   color: #1E3A5F;
   margin: 0 0 12px;
+  overflow-wrap: break-word;
 }
 
 .jurusan-specific-desc {
@@ -824,6 +832,7 @@
   color: #64748B;
   margin: 0;
   max-width: 800px;
+  overflow-wrap: break-word;
 }
 
 .jurusan-specific-grid-2col {
@@ -892,6 +901,7 @@
   color: #64748B;
   margin: 0 0 28px;
   max-width: 800px;
+  overflow-wrap: break-word;
 }
 
 .jurusan-specific-career-grid {
@@ -1189,6 +1199,10 @@
     font-size: 0.95rem;
   }
 
+  .jurusan-section-name {
+    font-size: 1.35rem;
+  }
+
   .jurusan-hero-controls {
     bottom: 24px;
   }
@@ -1199,6 +1213,10 @@
 
   .jurusan-specific-hero {
     padding: 60px 16px 80px;
+  }
+
+  .jurusan-specific-hero-title {
+    font-size: 1.45rem;
   }
 
   .jurusan-specific-hero-stats {
