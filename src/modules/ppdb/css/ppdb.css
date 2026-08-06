@@ -271,39 +271,19 @@
   height: 100%;
 }
 
-/* ── Photo frame ── */
-.ppdb-hero-photo-frame {
+/* ── Photo (no card frame) ── */
+.ppdb-hero-photo {
   position: relative;
   z-index: 2;
-  width: 280px;
-  height: 340px;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow:
-    0 20px 60px rgba(0,0,0,0.25),
-    0 0 0 1px rgba(255,255,255,0.08);
-  animation: ppdb-photo-float 6s ease-in-out infinite;
+  width: 400px;
+  height: 500px;
 }
 
-.ppdb-hero-photo-frame::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 24px;
-  border: 1.5px solid rgba(255,255,255,0.1);
-  pointer-events: none;
-}
-
-.ppdb-hero-photo {
+.ppdb-hero-photo-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-}
-
-@keyframes ppdb-photo-float {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-8px); }
 }
 
 /* ── Floating info badge ── */
@@ -1115,8 +1095,6 @@
 
   .ppdb-hero-segel { width: 280px; height: 280px; }
 
-  .ppdb-hero-photo-frame { width: 240px; height: 290px; }
-
   .ppdb-container { padding: 40px 20px; }
 
   .ppdb-section-alt { padding: 28px 20px; }
@@ -1168,12 +1146,6 @@
 
   .ppdb-hero-segel { width: 220px; height: 220px; }
 
-  .ppdb-hero-photo-frame {
-    width: 180px;
-    height: 220px;
-    border-radius: 18px;
-  }
-
   .ppdb-hero-info {
     top: auto;
     bottom: 12px;
@@ -1204,12 +1176,6 @@
   .ppdb-hero-visual { min-height: 240px; }
 
   .ppdb-hero-segel { width: 180px; height: 180px; }
-
-  .ppdb-hero-photo-frame {
-    width: 150px;
-    height: 190px;
-    border-radius: 14px;
-  }
 
   .ppdb-hero-btn {
     padding: 12px 22px;

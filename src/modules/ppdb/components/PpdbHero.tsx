@@ -117,7 +117,7 @@ function PpdbHero() {
           </motion.div>
 
           <motion.div
-            className="ppdb-hero-photo-frame"
+            className="ppdb-hero-photo"
             initial={{ opacity: 0, y: 24, scale: 0.92 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4, ease: EASE }}
@@ -126,7 +126,7 @@ function PpdbHero() {
               src={ppdbHeroImg}
               alt="Foto Sekolah"
               loading="lazy"
-              className="ppdb-hero-photo"
+              className="ppdb-hero-photo-img"
             />
           </motion.div>
 
