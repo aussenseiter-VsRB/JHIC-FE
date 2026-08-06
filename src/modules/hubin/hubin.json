@@ -220,6 +220,54 @@
       "focus": "Perhotelan & Pariwisata",
       "icon": "Building",
       "logo": "waringin"
+    },
+    {
+      "id": 18,
+      "name": "PT Zahir",
+      "address": "Bandung, Jawa Barat",
+      "focus": "Akuntansi & Keuangan",
+      "icon": "ShieldCheck",
+      "logo": "zahir"
+    },
+    {
+      "id": 19,
+      "name": "Yogya Group",
+      "address": "Bandung, Jawa Barat",
+      "focus": "Akuntansi & Keuangan",
+      "icon": "Building",
+      "logo": "yogyagroup"
+    },
+    {
+      "id": 20,
+      "name": "Indonusa",
+      "address": "Bandung, Jawa Barat",
+      "focus": "Rekayasa Perangkat Lunak",
+      "icon": "Code",
+      "logo": "indonusa"
+    },
+    {
+      "id": 21,
+      "name": "Kelola Biz",
+      "address": "Bandung, Jawa Barat",
+      "focus": "Rekayasa Perangkat Lunak",
+      "icon": "Cpu",
+      "logo": "kelolabiz"
+    },
+    {
+      "id": 22,
+      "name": "Diskominfo",
+      "address": "Bandung, Jawa Barat",
+      "focus": "Rekayasa Perangkat Lunak",
+      "icon": "Cog",
+      "logo": "diskominfo"
+    },
+    {
+      "id": 23,
+      "name": "Sampul Kreativ Technology",
+      "address": "Bandung, Jawa Barat",
+      "focus": "Rekayasa Perangkat Lunak",
+      "icon": "Code",
+      "logo": "sampulkreativ"
     }
   ],
   "cta": {

@@ -23,6 +23,12 @@ import moxyLogo from "../../assets/mitra hotel/moxy.jpeg";
 import padmaLogo from "../../assets/mitra hotel/padma.png";
 import sutanrajaLogo from "../../assets/mitra hotel/sutanraja.jpg";
 import waringinLogo from "../../assets/mitra hotel/waringinhospitality.jpg";
+import zahirLogo from "../../assets/mitra akl/PTZahir.png";
+import yogyaGroupLogo from "../../assets/mitra akl/Yogya_Group.svg";
+import indonusaLogo from "../../assets/mitra pplg/indonusa.jpeg";
+import kelolaBizLogo from "../../assets/mitra pplg/kelola_biz_logo.jpeg";
+import diskominfoLogo from "../../assets/mitra pplg/logo_diskominfo.png";
+import sampulkreativLogo from "../../assets/mitra pplg/sampulkreativ_technology_logo.jpeg";
 
 const iconMap: Record<string, LucideIcon> = {
   Briefcase, Building2, Award, BookOpen, UserCheck, Handshake, Factory, Building, Cog, ShieldCheck, Code, Headphones,
@@ -46,6 +52,12 @@ const mitraLogoMap: Record<string, string> = {
   padma: padmaLogo,
   sutanraja: sutanrajaLogo,
   waringin: waringinLogo,
+  zahir: zahirLogo,
+  yogyagroup: yogyaGroupLogo,
+  indonusa: indonusaLogo,
+  kelolabiz: kelolaBizLogo,
+  diskominfo: diskominfoLogo,
+  sampulkreativ: sampulkreativLogo,
 };
 
 interface ProgramItem {
